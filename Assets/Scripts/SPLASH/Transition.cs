@@ -5,22 +5,48 @@ using UnityEngine.SceneManagement;
 public class Transition : MonoBehaviour {
 
     public float TrasitionAfter = 1.0f;
-    float Timer;
+    float Timer = 0.0f;
+    bool StartTransition = false;
+    Fading fade;
+
+    bool DoOnce = true;
 
 	// Use this for initialization
 	void Start () {
+        //ensure the timer is set to 0
         Timer = TrasitionAfter;
+        // Get the fading component for use in this script
+        fade = GetComponent<Fading>();
 
     }
 	
 	// Update is called once per frame
 	void Update () {
-        Timer = Timer + Time.deltaTime;
 
+        // Only Count down if we havent started the fade transition
+        if (StartTransition == false)
+            Timer = Timer - Time.deltaTime; // Decrease the timer and count down to 0
 
-        if (Timer < TrasitionAfter)
+        if (Timer < 0)
         {
-            SceneManager.LoadScene("Menu");
+            StartTransition = true;
         }
+
+        if (StartTransition)
+        {
+            if (DoOnce)
+            {
+                StartCoroutine(BeginTransition());
+                DoOnce = false;
+            }
+        }
+    }
+
+    IEnumerator BeginTransition()
+    {
+        fade.BeginFade(1);
+        yield return new WaitForSeconds (fade.FadeSpeed);
+        SceneManager.LoadScene("Menu");
+
     }
 }
