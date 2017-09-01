@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
 
     public GridCreator m_Grid;
     public Text m_ScoreText;
+    public float m_NodeMoveSpeed = 5f;
 
     // Use this for initialization
     void Start()
