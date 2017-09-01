@@ -36,17 +36,13 @@ public class Transition : MonoBehaviour {
         {
             if (DoOnce)
             {
-                StartCoroutine(BeginTransition());
+                fade.BeginFade(1, "Menu");
                 DoOnce = false;
             }
         }
-    }
 
-    IEnumerator BeginTransition()
-    {
-        fade.BeginFade(1);
-        yield return new WaitForSeconds (fade.FadeSpeed);
-        SceneManager.LoadScene("Menu");
 
     }
+
+    
 }

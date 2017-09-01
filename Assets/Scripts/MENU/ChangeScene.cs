@@ -20,7 +20,6 @@ public class ChangeScene : MonoBehaviour {
 
     public void ChageToPlayGame()
     {
-        fade.BeginFade(1);
-        SceneManager.LoadScene("Game");
+        fade.BeginFade(1, "Game");
     }
 }

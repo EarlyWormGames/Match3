@@ -27,17 +27,38 @@ public class Fading : MonoBehaviour {
         GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), FadeOutTexture);       // draw the texture to fill the entire screen area
     }
 
-    // set the fadeDir to the direciton paremeter making the scene fade in if -1 and out if 1 
-    public float BeginFade(int direction)
+    /// <summary>
+    /// <para> Set direction to 1 for FadeIn, and 0 for FadeOut </para>
+    /// TargetScene is case Sensative : must match your scene name
+    /// </summary>
+    /// <param name="direction"> </param>
+    
+    /// <param name="TargetScene">Case Sensative</param>
+    /// <returns></returns>
+    public float BeginFade(int direction, string TargetScene)
     {
+        //set the fadeDir to the direciton paremeter making the scene fade in if -1 and out if 1
         FadeDir = direction;
+        StartCoroutine(BeginTransition(TargetScene));
         return (FadeSpeed); // return the fade speed variable so its easy to time the SceneManagement.LoadScneen("SCENE_NAME");
     }
 
     // is called when a level is loaded \
     private void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
     {
-        BeginFade(-1);
+        // Fade out on a level Loaded
+        FadeOut();
+    }
+
+    IEnumerator BeginTransition(string TargetScene)
+    {
+        yield return new WaitForSeconds(FadeSpeed);
+        SceneManager.LoadScene(TargetScene);
+    }
+
+    void FadeOut()
+    {
+        FadeDir = -1;
     }
 
 }
