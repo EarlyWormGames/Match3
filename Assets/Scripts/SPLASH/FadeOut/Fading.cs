@@ -35,7 +35,7 @@ public class Fading : MonoBehaviour {
     
     /// <param name="TargetScene">Case Sensative</param>
     /// <returns></returns>
-    public float BeginFade(int direction, string TargetScene)
+    public float BeginFade(int direction, string TargetScene = "")
     {
         //set the fadeDir to the direciton paremeter making the scene fade in if -1 and out if 1
         FadeDir = direction;
@@ -52,8 +52,13 @@ public class Fading : MonoBehaviour {
 
     IEnumerator BeginTransition(string TargetScene)
     {
+        //yeild will wait on a different thread until its ready to call the next line
         yield return new WaitForSeconds(FadeSpeed);
-        SceneManager.LoadScene(TargetScene);
+        //called after yeild finishes on a different thread
+        if (TargetScene != "")
+            SceneManager.LoadScene(TargetScene);
+        else
+            Application.Quit();
     }
 
     void FadeOut()
