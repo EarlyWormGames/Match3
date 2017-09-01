@@ -150,4 +150,22 @@ public class GridNode : MonoBehaviour
                 break;
         }
     }
+
+    public NodeItem PushDown()
+    {
+        if (m_Up != null)
+        {
+            return m_Up.PushDown();
+        }
+        else
+        {
+            int index = Random.Range(0, m_ShapePrefabs.Length);
+            GameObject obj = Instantiate(m_ShapePrefabs[index]);
+            NodeItem node = obj.GetComponent<NodeItem>();
+            node.transform.parent = transform.parent;
+            node.transform.localScale = m_ShapeScale;
+            node.transform.localPosition = transform.position;
+            return node;
+        }
+    }
 }
