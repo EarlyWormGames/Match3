@@ -17,6 +17,7 @@ public class NodeItem : MonoBehaviour
 {
     public ItemColour m_Colour;
     internal GridNode m_Parent;
+    internal bool MarkDestroy;
 
     // Use this for initialization
     void Start()
@@ -49,7 +50,7 @@ public class NodeItem : MonoBehaviour
         m_Parent = temp;
 
         CheckMatch();
-        //a_other.CheckMatch();
+        a_other.CheckMatch();
     }
 
     public void CheckMatch(Direction? dir = null)
@@ -64,36 +65,48 @@ public class NodeItem : MonoBehaviour
             //Check left
             if (m_Parent.m_Left != null)
             {
-                if (m_Parent.m_Left.m_Shape.m_Colour == m_Colour)
+                if (m_Parent.m_Left.m_Shape != null)
                 {
-                    m_Parent.m_Left.m_Shape.CheckMatch(Direction.Left);
+                    if (m_Parent.m_Left.m_Shape.m_Colour == m_Colour)
+                    {
+                        m_Parent.m_Left.m_Shape.CheckMatch(Direction.Left);
+                    }
                 }
             }
 
             //Check right
             if (m_Parent.m_Right != null)
             {
-                if (m_Parent.m_Right.m_Shape.m_Colour == m_Colour)
+                if (m_Parent.m_Right.m_Shape != null)
                 {
-                    m_Parent.m_Right.m_Shape.CheckMatch(Direction.Right);
+                    if (m_Parent.m_Right.m_Shape.m_Colour == m_Colour)
+                    {
+                        m_Parent.m_Right.m_Shape.CheckMatch(Direction.Right);
+                    }
                 }
             }
 
             //Check up
             if (m_Parent.m_Up != null)
             {
-                if (m_Parent.m_Up.m_Shape.m_Colour == m_Colour)
+                if (m_Parent.m_Up.m_Shape != null)
                 {
-                    m_Parent.m_Up.m_Shape.CheckMatch(Direction.Up);
+                    if (m_Parent.m_Up.m_Shape.m_Colour == m_Colour)
+                    {
+                        m_Parent.m_Up.m_Shape.CheckMatch(Direction.Up);
+                    }
                 }
             }
 
             //Check down
             if (m_Parent.m_Down != null)
             {
-                if (m_Parent.m_Down.m_Shape.m_Colour == m_Colour)
+                if (m_Parent.m_Down.m_Shape != null)
                 {
-                    m_Parent.m_Down.m_Shape.CheckMatch(Direction.Down);
+                    if (m_Parent.m_Down.m_Shape.m_Colour == m_Colour)
+                    {
+                        m_Parent.m_Down.m_Shape.CheckMatch(Direction.Down);
+                    }
                 }
             }
         }
@@ -106,9 +119,12 @@ public class NodeItem : MonoBehaviour
                     GameManager.NodeChainLeft.Add(m_Parent);
                     if (m_Parent.m_Left != null)
                     {
-                        if (m_Parent.m_Left.m_Shape.m_Colour == m_Colour)
+                        if (m_Parent.m_Left.m_Shape != null)
                         {
-                            m_Parent.m_Left.m_Shape.CheckMatch(Direction.Left);
+                            if (m_Parent.m_Left.m_Shape.m_Colour == m_Colour)
+                            {
+                                m_Parent.m_Left.m_Shape.CheckMatch(Direction.Left);
+                            }
                         }
                     }
                     break;
@@ -117,9 +133,12 @@ public class NodeItem : MonoBehaviour
                     GameManager.NodeChainRight.Add(m_Parent);
                     if (m_Parent.m_Right != null)
                     {
-                        if (m_Parent.m_Right.m_Shape.m_Colour == m_Colour)
+                        if (m_Parent.m_Right.m_Shape != null)
                         {
-                            m_Parent.m_Right.m_Shape.CheckMatch(Direction.Right);
+                            if (m_Parent.m_Right.m_Shape.m_Colour == m_Colour)
+                            {
+                                m_Parent.m_Right.m_Shape.CheckMatch(Direction.Right);
+                            }
                         }
                     }
                     break;
@@ -128,9 +147,12 @@ public class NodeItem : MonoBehaviour
                     GameManager.NodeChainUp.Add(m_Parent);
                     if (m_Parent.m_Up != null)
                     {
-                        if (m_Parent.m_Up.m_Shape.m_Colour == m_Colour)
+                        if (m_Parent.m_Up.m_Shape != null)
                         {
-                            m_Parent.m_Up.m_Shape.CheckMatch(Direction.Up);
+                            if (m_Parent.m_Up.m_Shape.m_Colour == m_Colour)
+                            {
+                                m_Parent.m_Up.m_Shape.CheckMatch(Direction.Up);
+                            }
                         }
                     }
                     break;
@@ -139,9 +161,12 @@ public class NodeItem : MonoBehaviour
                     GameManager.NodeChainDown.Add(m_Parent);
                     if (m_Parent.m_Down != null)
                     {
-                        if (m_Parent.m_Down.m_Shape.m_Colour == m_Colour)
+                        if (m_Parent.m_Down.m_Shape != null)
                         {
-                            m_Parent.m_Down.m_Shape.CheckMatch(Direction.Down);
+                            if (m_Parent.m_Down.m_Shape.m_Colour == m_Colour)
+                            {
+                                m_Parent.m_Down.m_Shape.CheckMatch(Direction.Down);
+                            }
                         }
                     }
                     break;
@@ -152,69 +177,53 @@ public class NodeItem : MonoBehaviour
 
         //Only the initiator will get to here, so we'll do the scoring here
 
-        int destroyCount = 0;
+        List<GridNode> toDestroy = new List<GridNode>();
         //Left
-        if (GameManager.NodeChainLeft.Count > 2)
+        foreach (var node in GameManager.NodeChainLeft)
         {
-            GameManager.Score += GameManager.NodeChainLeft.Count;
-
-            foreach (var node in GameManager.NodeChainLeft)
-            {
-                if (node.m_Shape == null)
-                    continue;
-                Destroy(node.m_Shape.gameObject);
-                node.m_Shape = null;
-                ++destroyCount;
-            }
+            if (node.m_Shape.MarkDestroy)
+                continue;
+            node.m_Shape.MarkDestroy = true;
+            toDestroy.Add(node);
         }
 
         //Right
-        if (GameManager.NodeChainRight.Count > 2)
+        foreach (var node in GameManager.NodeChainRight)
         {
-            GameManager.Score += GameManager.NodeChainRight.Count;
-
-            foreach (var node in GameManager.NodeChainRight)
-            {
-                if (node.m_Shape == null)
-                    continue;
-                Destroy(node.m_Shape.gameObject);
-                node.m_Shape = null;
-                ++destroyCount;
-            }
+            if (node.m_Shape.MarkDestroy)
+                continue;
+            node.m_Shape.MarkDestroy = true;
+            toDestroy.Add(node);
         }
 
         //Up
-        if (GameManager.NodeChainUp.Count > 2)
+        foreach (var node in GameManager.NodeChainUp)
         {
-            GameManager.Score += GameManager.NodeChainUp.Count;
-
-            foreach (var node in GameManager.NodeChainUp)
-            {
-                if (node.m_Shape == null)
-                    continue;
-                Destroy(node.m_Shape.gameObject);
-                node.m_Shape = null;
-                ++destroyCount;
-            }
+            if (node.m_Shape.MarkDestroy)
+                continue;
+            node.m_Shape.MarkDestroy = true;
+            toDestroy.Add(node);
         }
 
         //Down
-        if (GameManager.NodeChainDown.Count > 2)
+        foreach (var node in GameManager.NodeChainDown)
         {
-            GameManager.Score += GameManager.NodeChainDown.Count;
-
-            foreach (var node in GameManager.NodeChainDown)
-            {
-                if (node.m_Shape == null)
-                    continue;
-                Destroy(node.m_Shape.gameObject);
-                node.m_Shape = null;
-                ++destroyCount;
-            }
+            if (node.m_Shape.MarkDestroy)
+                continue;
+            node.m_Shape.MarkDestroy = true;
+            toDestroy.Add(node);
         }
 
-        if (destroyCount > 0)
-            GameManager.instance.m_Grid.CheckColumns();
+        if (toDestroy.Count > 2)
+        {
+            GameManager.Score += toDestroy.Count;
+
+            foreach (var node in toDestroy)
+            {
+                Destroy(node.m_Shape.gameObject);
+                node.m_Shape = null;
+            }
+        }
 
         //We're done with these, so clear them
         GameManager.NodeChainLeft.Clear();

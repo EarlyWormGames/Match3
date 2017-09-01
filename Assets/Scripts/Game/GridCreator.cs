@@ -70,6 +70,7 @@ public class GridCreator : MonoBehaviour
                 m_ColumnSpawns[i] = m_Nodes[i, 0].transform.position + m_ColumnDistances[i];
             }
         }
+        GameManager.instance.m_Grid.CheckColumns();
     }
 
     public void MouseUp(BaseEventData eventData)

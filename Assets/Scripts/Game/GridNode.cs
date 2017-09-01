@@ -49,7 +49,7 @@ public class GridNode : MonoBehaviour
 
     public void MouseUp(BaseEventData eventData)
     {
-        if (!GameManager.isDragging)
+        if (!GameManager.isDragging || GameManager.dragObject == null)
             return;
 
         //Calculate the direction of the drag
