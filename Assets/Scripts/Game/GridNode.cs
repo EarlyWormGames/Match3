@@ -151,21 +151,57 @@ public class GridNode : MonoBehaviour
         }
     }
 
-    public NodeItem PushDown()
+    public void PushUp()
     {
         if (m_Up != null)
         {
-            return m_Up.PushDown();
+            if (m_Up.m_Shape != null)
+            {
+                m_Shape = m_Up.m_Shape;
+                m_Shape.m_Parent = this;
+                m_Up.m_Shape = null;
+            }
+            else
+            {
+                int index = Random.Range(0, m_ShapePrefabs.Length);
+                GameObject obj = Instantiate(m_ShapePrefabs[index]);
+                m_Shape = obj.GetComponent<NodeItem>();
+                m_Shape.transform.parent = transform.parent;
+                m_Shape.transform.localScale = m_ShapeScale;
+                m_Shape.transform.localPosition = transform.position;
+                m_Shape.m_Parent = this;
+            }
+            m_Up.PushUp();
+            return;
         }
         else
         {
-            int index = Random.Range(0, m_ShapePrefabs.Length);
-            GameObject obj = Instantiate(m_ShapePrefabs[index]);
-            NodeItem node = obj.GetComponent<NodeItem>();
-            node.transform.parent = transform.parent;
-            node.transform.localScale = m_ShapeScale;
-            node.transform.localPosition = transform.position;
-            return node;
+            if (m_Shape == null)
+            {
+                int index = Random.Range(0, m_ShapePrefabs.Length);
+                GameObject obj = Instantiate(m_ShapePrefabs[index]);
+                m_Shape = obj.GetComponent<NodeItem>();
+                m_Shape.transform.parent = transform.parent;
+                m_Shape.transform.localScale = m_ShapeScale;
+                m_Shape.transform.localPosition = transform.position;
+                m_Shape.m_Parent = this;
+            }
+            return;
         }
+    }
+
+    public void CheckColumn()
+    {
+        if (m_Shape == null)
+        {
+            //We need to rotate this column
+            PushUp(); //Your body, your body next to mine
+        }
+        else if (m_Up != null)
+        {
+            //Move up without asking to rotate
+            m_Up.CheckColumn();
+        }
+        //Otherwise this column didn't need to rotate
     }
 }

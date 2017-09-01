@@ -53,10 +53,10 @@ public class NodeItem : MonoBehaviour
     {
         if (dir == null)
         {
-            GameManager.NodeChainLeft.Add(this);
-            GameManager.NodeChainRight.Add(this);
-            GameManager.NodeChainUp.Add(this);
-            GameManager.NodeChainDown.Add(this);
+            GameManager.NodeChainLeft.Add(m_Parent);
+            GameManager.NodeChainRight.Add(m_Parent);
+            GameManager.NodeChainUp.Add(m_Parent);
+            GameManager.NodeChainDown.Add(m_Parent);
 
             //Check left
             if (m_Parent.m_Left != null)
@@ -100,7 +100,7 @@ public class NodeItem : MonoBehaviour
             switch (dir.Value)
             {
                 case Direction.Left:
-                    GameManager.NodeChainLeft.Add(this);
+                    GameManager.NodeChainLeft.Add(m_Parent);
                     if (m_Parent.m_Left != null)
                     {
                         if (m_Parent.m_Left.m_Shape.m_Colour == m_Colour)
@@ -111,7 +111,7 @@ public class NodeItem : MonoBehaviour
                     break;
 
                 case Direction.Right:
-                    GameManager.NodeChainRight.Add(this);
+                    GameManager.NodeChainRight.Add(m_Parent);
                     if (m_Parent.m_Right != null)
                     {
                         if (m_Parent.m_Right.m_Shape.m_Colour == m_Colour)
@@ -122,7 +122,7 @@ public class NodeItem : MonoBehaviour
                     break;
 
                 case Direction.Up:
-                    GameManager.NodeChainUp.Add(this);
+                    GameManager.NodeChainUp.Add(m_Parent);
                     if (m_Parent.m_Up != null)
                     {
                         if (m_Parent.m_Up.m_Shape.m_Colour == m_Colour)
@@ -133,7 +133,7 @@ public class NodeItem : MonoBehaviour
                     break;
 
                 case Direction.Down:
-                    GameManager.NodeChainDown.Add(this);
+                    GameManager.NodeChainDown.Add(m_Parent);
                     if (m_Parent.m_Down != null)
                     {
                         if (m_Parent.m_Down.m_Shape.m_Colour == m_Colour)
@@ -156,10 +156,10 @@ public class NodeItem : MonoBehaviour
 
             foreach (var node in GameManager.NodeChainLeft)
             {
-                var nNode = node.m_Parent.PushDown();
-                nNode.m_Parent = node.m_Parent;
-                nNode.m_Parent.m_Shape = nNode;
-                Destroy(node.gameObject);
+                if (node.m_Shape == null)
+                    continue;
+                Destroy(node.m_Shape.gameObject);
+                node.m_Shape = null;
             }
         }
 
@@ -170,10 +170,10 @@ public class NodeItem : MonoBehaviour
 
             foreach (var node in GameManager.NodeChainRight)
             {
-                var nNode = node.m_Parent.PushDown();
-                nNode.m_Parent = node.m_Parent;
-                nNode.m_Parent.m_Shape = nNode;
-                Destroy(node.gameObject);
+                if (node.m_Shape == null)
+                    continue;
+                Destroy(node.m_Shape.gameObject);
+                node.m_Shape = null;
             }
         }
 
@@ -184,10 +184,10 @@ public class NodeItem : MonoBehaviour
 
             foreach (var node in GameManager.NodeChainUp)
             {
-                var nNode = node.m_Parent.PushDown();
-                nNode.m_Parent = node.m_Parent;
-                nNode.m_Parent.m_Shape = nNode;
-                Destroy(node.gameObject);
+                if (node.m_Shape == null)
+                    continue;
+                Destroy(node.m_Shape.gameObject);
+                node.m_Shape = null;
             }
         }
 
@@ -198,12 +198,14 @@ public class NodeItem : MonoBehaviour
 
             foreach (var node in GameManager.NodeChainDown)
             {
-                var nNode = node.m_Parent.PushDown();
-                nNode.m_Parent = node.m_Parent;
-                nNode.m_Parent.m_Shape = nNode;
-                Destroy(node.gameObject);
+                if (node.m_Shape == null)
+                    continue;
+                Destroy(node.m_Shape.gameObject);
+                node.m_Shape = null;
             }
         }
+
+        GameManager.instance.m_Grid.CheckColumns();
 
         //We're done with these, so clear them
         GameManager.NodeChainLeft.Clear();
