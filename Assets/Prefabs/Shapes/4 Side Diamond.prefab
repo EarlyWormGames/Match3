@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4000012861777782}
   - component: {fileID: 33000011564593694}
   - component: {fileID: 23000010455495602}
+  - component: {fileID: 114751163726763590}
   m_Layer: 0
   m_Name: 4 Side Diamond
   m_TagString: Untagged
@@ -80,3 +81,15 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011841440206}
   m_Mesh: {fileID: 4300000, guid: a59faa6df8bd9cd4c8779604face71a1, type: 3}
+--- !u!114 &114751163726763590
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011841440206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07ddd7e418031564bb8d19b970c5e9c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Colour: 0

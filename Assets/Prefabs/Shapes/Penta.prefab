@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4000010806421500}
   - component: {fileID: 33000013289579214}
   - component: {fileID: 23000013546331654}
+  - component: {fileID: 114202456306345022}
   m_Layer: 0
   m_Name: Penta
   m_TagString: Untagged
@@ -80,3 +81,15 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010646675420}
   m_Mesh: {fileID: 4300000, guid: 34a866017115e1f4693b2328671afe14, type: 3}
+--- !u!114 &114202456306345022
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010646675420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07ddd7e418031564bb8d19b970c5e9c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Colour: 3
