@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class Quit : MonoBehaviour {
 
+    Fading fade;
+
 	// Use this for initialization
 	void Start () {
-		
-	}
+        fade = GetComponent<Fading>();
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -18,6 +21,6 @@ public class Quit : MonoBehaviour {
 
     public void QuitGame()
     {
-        Application.Quit();
+        fade.BeginFade(1);
     }
 }
