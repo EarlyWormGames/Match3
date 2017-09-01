@@ -27,7 +27,10 @@ public class NodeItem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = m_Parent.transform.position;
+        if ((m_Parent.transform.position - transform.position).magnitude > 0.01f)
+        {
+            transform.position = Vector3.Lerp(transform.position, m_Parent.transform.position, Time.deltaTime * GameManager.instance.m_NodeMoveSpeed);
+        }
     }
 
     /// <summary>
@@ -46,7 +49,7 @@ public class NodeItem : MonoBehaviour
         m_Parent = temp;
 
         CheckMatch();
-        a_other.CheckMatch();
+        //a_other.CheckMatch();
     }
 
     public void CheckMatch(Direction? dir = null)
@@ -149,6 +152,7 @@ public class NodeItem : MonoBehaviour
 
         //Only the initiator will get to here, so we'll do the scoring here
 
+        int destroyCount = 0;
         //Left
         if (GameManager.NodeChainLeft.Count > 2)
         {
@@ -160,6 +164,7 @@ public class NodeItem : MonoBehaviour
                     continue;
                 Destroy(node.m_Shape.gameObject);
                 node.m_Shape = null;
+                ++destroyCount;
             }
         }
 
@@ -174,6 +179,7 @@ public class NodeItem : MonoBehaviour
                     continue;
                 Destroy(node.m_Shape.gameObject);
                 node.m_Shape = null;
+                ++destroyCount;
             }
         }
 
@@ -188,6 +194,7 @@ public class NodeItem : MonoBehaviour
                     continue;
                 Destroy(node.m_Shape.gameObject);
                 node.m_Shape = null;
+                ++destroyCount;
             }
         }
 
@@ -202,10 +209,12 @@ public class NodeItem : MonoBehaviour
                     continue;
                 Destroy(node.m_Shape.gameObject);
                 node.m_Shape = null;
+                ++destroyCount;
             }
         }
 
-        GameManager.instance.m_Grid.CheckColumns();
+        if (destroyCount > 0)
+            GameManager.instance.m_Grid.CheckColumns();
 
         //We're done with these, so clear them
         GameManager.NodeChainLeft.Clear();

@@ -12,6 +12,10 @@ public class GridCreator : MonoBehaviour
 
     internal GridNode[,] m_Nodes;
     internal GridLayoutGroup m_Grid;
+    internal Vector3[] m_ColumnSpawns;
+    internal Vector3[] m_ColumnDistances;
+
+    private bool DoOnce;
 
 
     // Use this for initialization
@@ -20,6 +24,8 @@ public class GridCreator : MonoBehaviour
         m_Grid = GetComponent<GridLayoutGroup>();
 
         m_Nodes = new GridNode[m_GridWidth, m_GridHeight];
+        m_ColumnSpawns = new Vector3[m_GridWidth];
+        m_ColumnDistances = new Vector3[m_GridWidth];
         for (int i = 0; i < m_GridHeight; ++i)
         {
             for (int j = 0; j < m_GridWidth; ++j)
@@ -31,6 +37,9 @@ public class GridCreator : MonoBehaviour
                 obj.transform.parent = m_Grid.transform;
                 obj.transform.localScale = m_Grid.transform.localScale;
                 obj.transform.localPosition = new Vector3();
+
+                m_Nodes[j, i].m_xIndex = j;
+                m_Nodes[j, i].m_yIndex = i;
 
                 if (j > 0)
                 {
@@ -46,13 +55,22 @@ public class GridCreator : MonoBehaviour
                 }
             }
         }
-    }
 
-    // Update is called once per frame
-    //void Update()
-    //{
-    //
-    //}
+        
+    }
+    
+    void Update()
+    {
+        if (!DoOnce)
+        {
+            //DoOnce = true;
+            for (int i = 0; i < m_GridWidth; ++i)
+            {
+                m_ColumnDistances[i] = (m_Nodes[i, 0].transform.position - m_Nodes[i, 1].transform.position);
+                m_ColumnSpawns[i] = m_Nodes[i, 0].transform.position + m_ColumnDistances[i];
+            }
+        }
+    }
 
     public void MouseUp(BaseEventData eventData)
     {
@@ -109,9 +127,29 @@ public class GridCreator : MonoBehaviour
 
     public void CheckColumns()
     {
+        List<int>[] needs = new List<int>[m_GridWidth];
         for (int i = 0; i < m_GridWidth; ++i)
         {
-            m_Nodes[i, m_GridHeight - 1].CheckColumn();
+            needs[i] = new List<int>();
+            for (int j = m_GridHeight - 1; j >= 0; --j)
+            {
+                m_Nodes[i, j].TryTakeUp();
+            }
+
+            for (int j = m_GridHeight - 1; j >= 0; --j)
+            {
+                if (m_Nodes[i, j].m_Shape == null)
+                    needs[i].Add(j);
+            }
+        }
+
+        for (int i = 0; i < needs.Length; ++i)
+        {
+            Vector3 lastPos = m_ColumnSpawns[i] - m_ColumnDistances[i];
+            foreach (var index in needs[i])
+            {
+                m_Nodes[i, index].SpawnShape(lastPos + m_ColumnDistances[i]);
+            }
         }
     }
 }

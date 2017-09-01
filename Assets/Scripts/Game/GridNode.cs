@@ -18,6 +18,7 @@ public class GridNode : MonoBehaviour
 
     internal NodeItem m_Shape;
     internal GridNode m_Left, m_Right, m_Up, m_Down;
+    internal int m_xIndex, m_yIndex;
 
     // Use this for initialization
     void Start()
@@ -151,57 +152,69 @@ public class GridNode : MonoBehaviour
         }
     }
 
-    public void PushUp()
+    public void SpawnShape(Vector3 a_position)
     {
-        if (m_Up != null)
-        {
-            if (m_Up.m_Shape != null)
-            {
-                m_Shape = m_Up.m_Shape;
-                m_Shape.m_Parent = this;
-                m_Up.m_Shape = null;
-            }
-            else
-            {
-                int index = Random.Range(0, m_ShapePrefabs.Length);
-                GameObject obj = Instantiate(m_ShapePrefabs[index]);
-                m_Shape = obj.GetComponent<NodeItem>();
-                m_Shape.transform.parent = transform.parent;
-                m_Shape.transform.localScale = m_ShapeScale;
-                m_Shape.transform.localPosition = transform.position;
-                m_Shape.m_Parent = this;
-            }
-            m_Up.PushUp();
-            return;
-        }
-        else
-        {
-            if (m_Shape == null)
-            {
-                int index = Random.Range(0, m_ShapePrefabs.Length);
-                GameObject obj = Instantiate(m_ShapePrefabs[index]);
-                m_Shape = obj.GetComponent<NodeItem>();
-                m_Shape.transform.parent = transform.parent;
-                m_Shape.transform.localScale = m_ShapeScale;
-                m_Shape.transform.localPosition = transform.position;
-                m_Shape.m_Parent = this;
-            }
-            return;
-        }
+        int index = Random.Range(0, m_ShapePrefabs.Length);
+        GameObject obj = Instantiate(m_ShapePrefabs[index]);
+        m_Shape = obj.GetComponent<NodeItem>();
+        m_Shape.transform.parent = transform.parent;
+        m_Shape.transform.localScale = m_ShapeScale;
+        m_Shape.transform.position = a_position;
+        m_Shape.m_Parent = this;
     }
 
-    public void CheckColumn()
+    public void Take(ref GridNode a_other)
+    {
+        m_Shape = a_other.m_Shape;
+        m_Shape.m_Parent = this;
+        a_other.m_Shape = null;
+    }
+
+    public GridNode FindLowestEmpty()
     {
         if (m_Shape == null)
         {
-            //We need to rotate this column
-            PushUp(); //Your body, your body next to mine
+            if (m_Down != null)
+                return m_Down.FindLowestEmpty();
+            else
+                return this;
         }
-        else if (m_Up != null)
+        else
         {
-            //Move up without asking to rotate
-            m_Up.CheckColumn();
+            return m_Up;
         }
-        //Otherwise this column didn't need to rotate
+    }
+
+    public void TryTakeUp()
+    {
+        if (m_Shape != null)
+        {
+            if (m_Up != null)
+                m_Up.TryTakeUp();
+            return;
+        }
+
+        var node = FindNextAvailable();
+
+        if (node != null)
+            Take(ref node);
+
+        //if (m_Up != null)
+        //{
+        //    if (m_Up.m_Shape != null && m_Shape == null)
+        //        Take(ref m_Up);
+        //
+        //    m_Up.TryTakeUp();
+        //}
+    }
+
+    public GridNode FindNextAvailable()
+    {
+        if (m_Shape != null)
+            return this;
+        if (m_Up != null)
+            return m_Up.FindNextAvailable();
+
+        return null;
     }
 }
