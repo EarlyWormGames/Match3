@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class GridCreator : MonoBehaviour
@@ -52,4 +53,57 @@ public class GridCreator : MonoBehaviour
     //{
     //
     //}
+
+    public void MouseUp(BaseEventData eventData)
+    {
+        if (!GameManager.isDragging)
+            return;
+        
+        //Calculate the direction of the drag
+        Vector3 dir = Input.mousePosition - GameManager.dragStartPos;
+        dir.Normalize();
+
+        //Get the node the drag started on
+        GridNode node = GameManager.dragObject.GetComponent<GridNode>();
+
+        //Convert these values to absolute values
+        float x = dir.x;
+        if (x < 0)
+            x *= -1;
+        float y = dir.y;
+        if (y < 0)
+            y *= -1;
+
+        if (x > y)
+        {
+            if (dir.x < 0)
+            {
+                //Do left
+                node.TrySwap(Direction.Left);
+            }
+            else
+            {
+                //Do right
+                node.TrySwap(Direction.Right);
+            }
+        }
+        else
+        {
+            if (dir.y < 0)
+            {
+                //Do down
+                node.TrySwap(Direction.Down);
+            }
+            else
+            {
+                //Do up
+                node.TrySwap(Direction.Up);
+            }
+        }
+
+        //Finished, reset this data
+        GameManager.dragStartPos = Vector3.zero;
+        GameManager.isDragging = false;
+        GameManager.dragObject = null;
+    }
 }
