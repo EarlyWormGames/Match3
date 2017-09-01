@@ -106,4 +106,12 @@ public class GridCreator : MonoBehaviour
         GameManager.isDragging = false;
         GameManager.dragObject = null;
     }
+
+    public void CheckColumns()
+    {
+        for (int i = 0; i < m_GridWidth; ++i)
+        {
+            m_Nodes[i, m_GridHeight - 1].CheckColumn();
+        }
+    }
 }
