@@ -24,14 +24,57 @@ public class GridNode : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        int index = Random.Range(0, m_ShapePrefabs.Length);
-        GameObject obj = Instantiate(m_ShapePrefabs[index]);
-        m_Shape = obj.GetComponent<NodeItem>();
-        m_Shape.transform.parent = transform.parent;
-        m_Shape.transform.localScale = m_ShapeScale;
-        m_Shape.transform.localPosition = transform.position;
-        m_Shape.m_Parent = this;
+        do
+        {
+            int index = Random.Range(0, m_ShapePrefabs.Length);
+            NodeItem ex = m_ShapePrefabs[index].GetComponent<NodeItem>();
 
+            if (m_Left != null)
+            {
+                if (m_Left.m_Shape != null)
+                {
+                    if (m_Left.m_Shape.m_Colour == ex.m_Colour)
+                        continue;
+                }
+            }
+
+            if (m_Right != null)
+            {
+                if (m_Right.m_Shape != null)
+                {
+                    if (m_Right.m_Shape.m_Colour == ex.m_Colour)
+                        continue;
+                }
+            }
+
+            if (m_Up != null)
+            {
+                if (m_Up.m_Shape != null)
+                {
+                    if (m_Up.m_Shape.m_Colour == ex.m_Colour)
+                        continue;
+                }
+            }
+
+            if (m_Down != null)
+            {
+                if (m_Down.m_Shape != null)
+                {
+                    if (m_Down.m_Shape.m_Colour == ex.m_Colour)
+                        continue;
+                }
+            }
+
+            GameObject obj = Instantiate(m_ShapePrefabs[index]);
+            m_Shape = obj.GetComponent<NodeItem>();
+            m_Shape.transform.parent = transform.parent;
+            m_Shape.transform.localScale = m_ShapeScale;
+            m_Shape.transform.localPosition = transform.position;
+            m_Shape.m_Parent = this;
+
+            break;
+
+        } while (true);
         //transform.position = new Vector3(transform.position.x, transform.position.y, 0);
     }
 
