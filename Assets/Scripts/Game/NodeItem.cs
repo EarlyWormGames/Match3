@@ -17,7 +17,7 @@ public class NodeItem : MonoBehaviour
 {
     public ItemColour m_Colour;
     internal GridNode m_Parent;
-    internal bool MarkDestroy;
+    internal Direction m_SwappableDirection;
 
     // Use this for initialization
     void Start()
@@ -43,8 +43,22 @@ public class NodeItem : MonoBehaviour
     /// Swap this node with another
     /// </summary>
     /// <param name="a_other">The other node to swap with</param>
-    public void Swap(NodeItem a_other)
+    public void Swap(NodeItem a_other, Direction a_dir)
     {
+        a_other.AssignSwap(a_dir);
+
+        if (a_dir == Direction.Left)
+            AssignSwap(Direction.Right);
+
+        if (a_dir == Direction.Right)
+            AssignSwap(Direction.Left);
+
+        if (a_dir == Direction.Up)
+            AssignSwap(Direction.Down);
+
+        if (a_dir == Direction.Down)
+            AssignSwap(Direction.Up);
+
         //Swap the shape inside the parent
         a_other.m_Parent.m_Shape = this;
         m_Parent.m_Shape = a_other;
@@ -56,5 +70,18 @@ public class NodeItem : MonoBehaviour
 
         //m_Parent.CheckMatch();
         //a_other.CheckMatch();
+    }
+
+    public void AssignSwap(Direction a_dir)
+    {
+        if (m_SwappableDirection == Direction.None)
+            m_SwappableDirection = a_dir;
+        else
+            m_SwappableDirection = Direction.None;
+    }
+
+    public bool CanSwap(Direction a_dir)
+    {
+        return m_SwappableDirection == Direction.None || m_SwappableDirection == a_dir;
     }
 }

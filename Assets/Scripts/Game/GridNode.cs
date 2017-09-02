@@ -114,40 +114,59 @@ public class GridNode : MonoBehaviour
 
     public void TrySwap(GridNode a_other)
     {
-        if (m_Left == a_other || m_Right == a_other ||
-            m_Up == a_other || m_Down == a_other)
-            m_Shape.Swap(a_other.m_Shape);
+        if (m_Left == a_other && a_other.m_Shape.CanSwap(Direction.Right) &&
+            m_Shape.CanSwap(Direction.Left))
+            m_Shape.Swap(a_other.m_Shape, Direction.Left);
+
+        if (m_Right == a_other && a_other.m_Shape.CanSwap(Direction.Left) &&
+            m_Shape.CanSwap(Direction.Right))
+            m_Shape.Swap(a_other.m_Shape, Direction.Right);
+
+        if (m_Up == a_other && a_other.m_Shape.CanSwap(Direction.Down) &&
+            m_Shape.CanSwap(Direction.Up))
+            m_Shape.Swap(a_other.m_Shape, Direction.Up);
+
+        if (m_Down == a_other && a_other.m_Shape.CanSwap(Direction.Up) &&
+            m_Shape.CanSwap(Direction.Down))
+            m_Shape.Swap(a_other.m_Shape, Direction.Down);
     }
 
     public void TrySwap(Direction dir)
     {
+        if (!m_Shape.CanSwap(dir))
+            return;
+
         switch (dir)
         {
             case Direction.Left:
                 if (m_Left != null)
                 {
-                    m_Shape.Swap(m_Left.m_Shape);
+                    if (m_Left.m_Shape.CanSwap(Direction.Right))
+                        m_Shape.Swap(m_Left.m_Shape, dir);
                 }
                 break;
 
             case Direction.Right:
                 if (m_Right != null)
                 {
-                    m_Shape.Swap(m_Right.m_Shape);
+                    if (m_Left.m_Shape.CanSwap(Direction.Left))
+                        m_Shape.Swap(m_Right.m_Shape, dir);
                 }
                 break;
 
             case Direction.Up:
                 if (m_Up != null)
                 {
-                    m_Shape.Swap(m_Up.m_Shape);
+                    if (m_Left.m_Shape.CanSwap(Direction.Down))
+                        m_Shape.Swap(m_Up.m_Shape, dir);
                 }
                 break;
 
             case Direction.Down:
                 if (m_Down != null)
                 {
-                    m_Shape.Swap(m_Down.m_Shape);
+                    if (m_Left.m_Shape.CanSwap(Direction.Up))
+                        m_Shape.Swap(m_Down.m_Shape, dir);
                 }
                 break;
         }
