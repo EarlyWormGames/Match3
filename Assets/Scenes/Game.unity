@@ -528,7 +528,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Grid: {fileID: 334552922}
   m_ScoreText: {fileID: 955646110}
-  m_NodeMoveSpeed: 5
+  m_NodeMoveSpeed: 8
 --- !u!4 &887100672
 Transform:
   m_ObjectHideFlags: 0
@@ -757,7 +757,7 @@ Light:
   serializedVersion: 8
   m_Type: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 2
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
