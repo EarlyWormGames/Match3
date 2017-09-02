@@ -149,7 +149,7 @@ public class GridNode : MonoBehaviour
             case Direction.Right:
                 if (m_Right != null)
                 {
-                    if (m_Left.m_Shape.CanSwap(Direction.Left))
+                    if (m_Right.m_Shape.CanSwap(Direction.Left))
                         m_Shape.Swap(m_Right.m_Shape, dir);
                 }
                 break;
@@ -157,7 +157,7 @@ public class GridNode : MonoBehaviour
             case Direction.Up:
                 if (m_Up != null)
                 {
-                    if (m_Left.m_Shape.CanSwap(Direction.Down))
+                    if (m_Up.m_Shape.CanSwap(Direction.Down))
                         m_Shape.Swap(m_Up.m_Shape, dir);
                 }
                 break;
@@ -165,7 +165,7 @@ public class GridNode : MonoBehaviour
             case Direction.Down:
                 if (m_Down != null)
                 {
-                    if (m_Left.m_Shape.CanSwap(Direction.Up))
+                    if (m_Down.m_Shape.CanSwap(Direction.Up))
                         m_Shape.Swap(m_Down.m_Shape, dir);
                 }
                 break;
