@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 
 public enum Direction
 {
+    None,
     Left,
     Right,
     Up,
@@ -187,14 +188,15 @@ public class GridNode : MonoBehaviour
 
     public void TryTakeUp()
     {
-        if (m_Shape != null)
-        {
-            if (m_Up != null)
-                m_Up.TryTakeUp();
-            return;
-        }
-
-        var node = FindNextAvailable();
+        //if (m_Shape != null)
+        //{
+        //    if (m_Up != null)
+        //        m_Up.TryTakeUp();
+        //    return;
+        //}
+        GridNode node = null;
+        if (m_Up != null)
+            node = m_Up.FindNextAvailable();
 
         if (node != null)
             Take(ref node);
@@ -216,5 +218,139 @@ public class GridNode : MonoBehaviour
             return m_Up.FindNextAvailable();
 
         return null;
+    }
+
+    public void CheckMatch(Direction dir = Direction.None)
+    {
+        if (m_Shape == null)
+            return;
+
+        if (dir == Direction.None || dir == Direction.Left)
+        {
+            GameManager.NodeChainLeft.Add(this);
+            if (m_Left != null)
+            {
+                if (m_Left.m_Shape != null)
+                {
+                    if (m_Left.m_Shape.m_Colour == m_Shape.m_Colour)
+                    {
+                        m_Left.CheckMatch(Direction.Left);
+                    }
+                }
+            }
+        }
+
+        if (dir == Direction.None || dir == Direction.Right)
+        {
+            GameManager.NodeChainRight.Add(this);
+            if (m_Right != null)
+            {
+                if (m_Right.m_Shape != null)
+                {
+                    if (m_Right.m_Shape.m_Colour == m_Shape.m_Colour)
+                    {
+                        m_Right.CheckMatch(Direction.Right);
+                    }
+                }
+            }
+        }
+
+        if (dir == Direction.None || dir == Direction.Up)
+        {
+            GameManager.NodeChainUp.Add(this);
+            if (m_Up != null)
+            {
+                if (m_Up.m_Shape != null)
+                {
+                    if (m_Up.m_Shape.m_Colour == m_Shape.m_Colour)
+                    {
+                        m_Up.CheckMatch(Direction.Up);
+                    }
+                }
+            }
+        }
+
+
+        if (dir == Direction.None || dir == Direction.Down)
+        {
+            GameManager.NodeChainDown.Add(this);
+            if (m_Down != null)
+            {
+                if (m_Down.m_Shape != null)
+                {
+                    if (m_Down.m_Shape.m_Colour == m_Shape.m_Colour)
+                    {
+                        m_Down.CheckMatch(Direction.Down);
+                    }
+                }
+            }
+        }
+
+        if (dir == Direction.None)
+        {
+            //GameManager.NodeChainLeft.Add(this);
+            //GameManager.NodeChainRight.Add(this);
+            //GameManager.NodeChainUp.Add(this);
+            //GameManager.NodeChainDown.Add(this);
+            DestroyCheck();
+        }
+    }
+
+    void DestroyCheck()
+    {
+        List<GridNode> destroynodes = new List<GridNode>();
+        List<GridNode> leftright = new List<GridNode>();
+        List<GridNode> updown = new List<GridNode>();
+
+        foreach (var node in GameManager.NodeChainLeft)
+        {
+            if (!leftright.Contains(node))
+                leftright.Add(node);
+        }
+
+        foreach (var node in GameManager.NodeChainRight)
+        {
+            if (!leftright.Contains(node))
+                leftright.Add(node);
+        }
+
+        if (leftright.Count > 2)
+            destroynodes.AddRange(leftright);
+
+
+
+
+
+        foreach (var node in GameManager.NodeChainUp)
+        {
+            if (!updown.Contains(node))
+                updown.Add(node);
+        }
+
+        foreach (var node in GameManager.NodeChainDown)
+        {
+            if (!updown.Contains(node))
+                updown.Add(node);
+        }
+
+        if (updown.Count > 2)
+            destroynodes.AddRange(updown);
+
+
+
+
+
+
+        foreach (var node in destroynodes)
+        {
+            if (node.m_Shape != null)
+            {
+                ++GameManager.RespawnCounts[node.m_xIndex];
+                DestroyImmediate(node.m_Shape.gameObject);
+                ++GameManager.Score;
+            }
+        }
+
+        GameManager.ClearNodeChains();
     }
 }
