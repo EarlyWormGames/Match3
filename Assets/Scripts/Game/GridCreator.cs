@@ -159,28 +159,28 @@ public class GridCreator : MonoBehaviour
 
         if (!onlyCheck)
         {
-            for (int i = 0; i < m_GridWidth; ++i)
-            {
-                for (int j = m_GridHeight - 1; j >= 0; --j)
-                {
-                    if (m_Nodes[i, j].m_Shape == null)
-                    {
-                        m_Nodes[i, j].TryTakeUp();
-                    }
-                }
-            }
-
-            for (int i = 0; i < GameManager.RespawnCounts.Length; ++i)
-            {
-                Vector3 lastPos = m_ColumnSpawns[i] - m_ColumnDistances[i];
-
-                for (int j = GameManager.RespawnCounts[i] - 1; j >= 0; --j)
-                {
-                    lastPos += m_ColumnDistances[i];
-                    m_Nodes[i, j].SpawnShape(lastPos);
-                }
-                GameManager.RespawnCounts[i] = 0;
-            }
+            //for (int i = 0; i < m_GridWidth; ++i)
+            //{
+            //    for (int j = m_GridHeight - 1; j >= 0; --j)
+            //    {
+            //        if (m_Nodes[i, j].m_Shape == null)
+            //        {
+            //            m_Nodes[i, j].TryTakeUp();
+            //        }
+            //    }
+            //}
+            //
+            //for (int i = 0; i < GameManager.RespawnCounts.Length; ++i)
+            //{
+            //    Vector3 lastPos = m_ColumnSpawns[i] - m_ColumnDistances[i];
+            //
+            //    for (int j = GameManager.RespawnCounts[i] - 1; j >= 0; --j)
+            //    {
+            //        lastPos += m_ColumnDistances[i];
+            //        m_Nodes[i, j].SpawnShape(lastPos);
+            //    }
+            //    GameManager.RespawnCounts[i] = 0;
+            //}
         }
 
         int swapCount = 0;
