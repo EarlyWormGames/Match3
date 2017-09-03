@@ -21,6 +21,9 @@ public class GridNode : MonoBehaviour
     internal GridNode m_Left, m_Right, m_Up, m_Down;
     internal int m_xIndex, m_yIndex;
 
+    private float m_DestroyTimer = 0;
+    private bool m_destroyStart = false;
+
     public void Init()
     {
         do
@@ -184,6 +187,21 @@ public class GridNode : MonoBehaviour
                         GameManager.dragShape.Swap(m_Shape, GameManager.GetOpposite(GameManager.lastDrag));
                     GameManager.lastDrag = Direction.None;
                 }
+            }
+        }
+
+        if (m_destroyStart)
+        {
+            m_DestroyTimer -= Time.deltaTime;
+            if(m_DestroyTimer <= 1)
+            {
+                if(m_Shape.GetComponent<MeshRenderer>() != null)
+                m_Shape.GetComponent<MeshRenderer>().enabled = false;
+            }
+            if(m_DestroyTimer <= 0)
+            {
+                m_destroyStart = false;
+                EndDestroy();
             }
         }
     }
@@ -543,7 +561,9 @@ public class GridNode : MonoBehaviour
 
     public void StartDestroy()
     {
-
+        m_destroyStart = true;
+        m_DestroyTimer = 1.5f;
+        m_Shape.m_Explosion.Play();
     }
 
     public void EndDestroy()
