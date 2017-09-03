@@ -25,6 +25,7 @@ public class NodeItem : MonoBehaviour
     void Start()
     {
         m_GemAnimator = GetComponent<Animator>();
+        m_Explosion.Stop();
     }
 
     // Update is called once per frame
