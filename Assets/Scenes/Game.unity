@@ -364,7 +364,7 @@ MonoBehaviour:
   m_CellSize: {x: 80, y: 80}
   m_Spacing: {x: 10, y: 10}
   m_Constraint: 1
-  m_ConstraintCount: 6
+  m_ConstraintCount: 4
 --- !u!114 &334552922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -825,7 +825,7 @@ MonoBehaviour:
   m_EndScore: {fileID: 1919371470}
   m_NameText: {fileID: 0}
   m_NodeMoveSpeed: 8
-  m_RequiredChainStart: 1
+  m_RequiredChainStart: 3
 --- !u!4 &887100672
 Transform:
   m_ObjectHideFlags: 0

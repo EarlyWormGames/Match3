@@ -20,7 +20,6 @@ public class GameManager : MonoBehaviour
     private static GameManager m_Instance;
 
     internal static bool isDragging;
-    internal static ItemColour LastColour;
     internal static GridNode dragObject;
     internal static NodeItem dragShape;
     internal static Direction lastDrag = Direction.None;
@@ -143,5 +142,18 @@ public class GameManager : MonoBehaviour
         GetComponent<HighScores>().SaveScoresToFile();
         m_ScorePanel.SetActive(false);
         GetComponent<Fading>().BeginFade(1, "Menu");
-    }
+
+        isDragging = false;
+        dragObject = null;
+        dragShape = null;
+        lastDrag = Direction.None;
+        dragStartPos = Vector3.zero;
+        Score = 0;
+        NodeChainLeft = new List<GridNode>();
+        NodeChainRight = new List<GridNode>();
+        NodeChainUp = new List<GridNode>();
+        NodeChainDown = new List<GridNode>();
+        DestroyingList = new List<GridNode>();
+        CanDrag = true;
+}
 }
