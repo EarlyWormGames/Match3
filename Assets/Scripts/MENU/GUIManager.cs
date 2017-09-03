@@ -9,7 +9,6 @@ public class GUIManager : MonoBehaviour {
     public Animator[] MainAnimControllers;
     public Animator ScorePanel;
 
-    bool CallOnce = false;
     // Use this for initialization
     void Start ()
     {
