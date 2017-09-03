@@ -33,11 +33,13 @@ public class NodeItem : MonoBehaviour
         if ((m_Parent.transform.position - transform.position).magnitude > 0.01f)
         {
             transform.position = Vector3.Lerp(transform.position, m_Parent.transform.position, Time.deltaTime * GameManager.instance.m_NodeMoveSpeed);
-            GameManager.Moving[m_Parent.m_xIndex, m_Parent.m_yIndex] = false;
+            if (!GameManager.isDragging)
+                GameManager.Moving[m_Parent.m_xIndex, m_Parent.m_yIndex] = false;
         }
         else
         {
-            GameManager.Moving[m_Parent.m_xIndex, m_Parent.m_yIndex] = true;
+            if (!GameManager.isDragging)
+                GameManager.Moving[m_Parent.m_xIndex, m_Parent.m_yIndex] = true;
         }
     }
 
