@@ -34,7 +34,7 @@ public class GridCreator : MonoBehaviour
                 GameObject obj = Instantiate(m_NodePrefab);
                 m_Nodes[j, i] = obj.GetComponent<GridNode>();
                 //Child and size it correctly
-                obj.transform.parent = m_Grid.transform;
+                obj.transform.SetParent(m_Grid.transform, false);
                 obj.transform.localScale = m_Grid.transform.localScale;
                 obj.transform.localPosition = new Vector3();
 

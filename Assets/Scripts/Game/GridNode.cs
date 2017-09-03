@@ -232,20 +232,23 @@ public class GridNode : MonoBehaviour
                 GridNode other = GameManager.dragObject;
                 Direction dir = GameManager.dragObject.TrySwap(this);
 
-                bool ok = false;
-                if (!GameManager.dragShape.m_Parent.CheckMatch(Direction.None, true))
+                if (dir != Direction.None)
                 {
-                    if (GameManager.dragObject.CheckMatch(Direction.None, true))
+                    bool ok = false;
+                    if (!GameManager.dragShape.m_Parent.CheckMatch(Direction.None, true))
                     {
-                        ok = true;
+                        if (GameManager.dragObject.CheckMatch(Direction.None, true))
+                        {
+                            ok = true;
+                        }
                     }
-                }
-                else
-                    ok = true;
+                    else
+                        ok = true;
 
-                if (!ok)
-                {
-                    GameManager.dragShape.Swap(GameManager.dragObject.m_Shape, GameManager.GetOpposite(dir));
+                    if (!ok)
+                    {
+                        GameManager.dragShape.Swap(GameManager.dragObject.m_Shape, GameManager.GetOpposite(dir));
+                    }
                 }
             }
 
@@ -269,7 +272,8 @@ public class GridNode : MonoBehaviour
         if (m_Down == a_other)
             dir = Direction.Down;
 
-        m_Shape.Swap(a_other.m_Shape, dir);
+        if (dir != Direction.None)
+            m_Shape.Swap(a_other.m_Shape, dir);
         return dir;
     }
 
