@@ -86,7 +86,7 @@ public class GridNode : MonoBehaviour
             if (GameManager.dragObject == gameObject)
             {
                 Vector3 dir = Input.mousePosition - GameManager.dragStartPos;
-                if (dir.magnitude > 10f)
+                if (dir.magnitude > 20f)
                 {
                     dir.Normalize();
 
@@ -201,39 +201,39 @@ public class GridNode : MonoBehaviour
         GridNode node = GameManager.dragObject.GetComponent<GridNode>();
 
         //Convert these values to absolute values
-        float x = dir.x;
-        if (x < 0)
-            x *= -1;
-        float y = dir.y;
-        if (y < 0)
-            y *= -1;
-
-        if (x > y)
-        {
-            if (dir.x < 0)
-            {
-                //Do left
-                node.TrySwap(Direction.Left);
-            }
-            else
-            {
-                //Do right
-                node.TrySwap(Direction.Right);
-            }
-        }
-        else
-        {
-            if (dir.y < 0)
-            {
-                //Do down
-                node.TrySwap(Direction.Down);
-            }
-            else
-            {
-                //Do up
-                node.TrySwap(Direction.Up);
-            }
-        }
+        //float x = dir.x;
+        //if (x < 0)
+        //    x *= -1;
+        //float y = dir.y;
+        //if (y < 0)
+        //    y *= -1;
+        //
+        //if (x > y)
+        //{
+        //    if (dir.x < 0)
+        //    {
+        //        //Do left
+        //        node.TrySwap(Direction.Left);
+        //    }
+        //    else
+        //    {
+        //        //Do right
+        //        node.TrySwap(Direction.Right);
+        //    }
+        //}
+        //else
+        //{
+        //    if (dir.y < 0)
+        //    {
+        //        //Do down
+        //        node.TrySwap(Direction.Down);
+        //    }
+        //    else
+        //    {
+        //        //Do up
+        //        node.TrySwap(Direction.Up);
+        //    }
+        //}
 
         //Finished, reset this data
         GameManager.dragStartPos = Vector3.zero;
