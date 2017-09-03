@@ -208,6 +208,9 @@ public class GridNode : MonoBehaviour
 
     public void MouseDown(BaseEventData eventData)
     {
+        if (!GameManager.CanDrag)
+            return;
+
         GameManager.isDragging = true;
         GameManager.dragObject = this;
         GameManager.dragShape = m_Shape;
@@ -216,7 +219,7 @@ public class GridNode : MonoBehaviour
 
     public void MouseUp(BaseEventData eventData)
     {
-        if (!GameManager.isDragging || GameManager.dragObject == null)
+        if (!GameManager.isDragging || GameManager.dragObject == null || !GameManager.CanDrag)
             return;
 
         if (GameManager.lastDrag != Direction.None)
@@ -248,12 +251,13 @@ public class GridNode : MonoBehaviour
 
     public void MouseClick(BaseEventData eventData)
     {
-        if (GameManager.dragObject == null)
+        if (GameManager.dragObject == null && GameManager.CanDrag)
         {
             GameManager.dragObject = this;
             GameManager.dragShape = m_Shape;
+            GameManager.isDragging = false;
         }
-        else
+        else if (GameManager.CanDrag)
         {
             if (GameManager.dragObject != this)
             {

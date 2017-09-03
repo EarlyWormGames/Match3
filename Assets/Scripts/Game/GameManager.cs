@@ -36,12 +36,16 @@ public class GameManager : MonoBehaviour
     internal static List<GridNode> DestroyingList = new List<GridNode>();
 
     internal static int[] RespawnCounts;
+    internal static bool CanDrag = true;
 
     #endregion
 
     public GridCreator m_Grid;
     public Text m_ScoreText;
     public GameObject m_ScorePanel;
+    public Text m_EndScore;
+    public Text m_NameText;
+
     public float m_NodeMoveSpeed = 5f;
     public int m_RequiredChainStart = 2;
 
@@ -84,11 +88,15 @@ public class GameManager : MonoBehaviour
         }
 
         if (DestroyingList.Count > 0)
+        {
             m_WasEmpty = true;
+            CanDrag = false;
+        }
         else if (m_WasEmpty)
         {
             m_Grid.FillEmpty();
             m_WasEmpty = false;
+            CanDrag = true;
         }
     }
 
@@ -100,6 +108,7 @@ public class GameManager : MonoBehaviour
             m_IsGameOver = true;
 
             m_ScorePanel.SetActive(true);
+            m_EndScore.text = Score.ToString();
         }
     }
 
@@ -126,5 +135,13 @@ public class GameManager : MonoBehaviour
             return Direction.Up;
 
         return Direction.None;
+    }
+
+    public void SubmitScore()
+    {
+        GetComponent<HighScores>().AddScore(Score);
+        GetComponent<HighScores>().SaveScoresToFile();
+        m_ScorePanel.SetActive(false);
+        GetComponent<Fading>().BeginFade(1, "Menu");
     }
 }
