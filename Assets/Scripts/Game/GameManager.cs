@@ -41,6 +41,8 @@ public class GameManager : MonoBehaviour
     public GridCreator m_Grid;
     public Text m_ScoreText;
     public float m_NodeMoveSpeed = 5f;
+    public int m_RequiredChainStart = 2;
+
     private bool m_WasMoving = true;
     private bool m_IsGameOver = false;
 

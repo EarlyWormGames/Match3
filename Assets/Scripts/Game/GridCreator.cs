@@ -63,7 +63,7 @@ public class GridCreator : MonoBehaviour
                 node.Init();
             }
 
-            if (CheckColumns(true))
+            if (CheckColumns(true) == GameManager.instance.m_RequiredChainStart)
                 break;
             else
             {
@@ -146,7 +146,7 @@ public class GridCreator : MonoBehaviour
         GameManager.dragObject = null;
     }
 
-    public bool CheckColumns(bool onlyCheck = false)
+    public int CheckColumns(bool onlyCheck = false)
     {
         bool ok = false;
         foreach (var node in m_Nodes)
@@ -183,6 +183,7 @@ public class GridCreator : MonoBehaviour
             }
         }
 
+        int swapCount = 0;
         foreach (var node in m_Nodes)
         {
             if (node.m_Shape != null)
@@ -190,7 +191,9 @@ public class GridCreator : MonoBehaviour
                 if (node.SwapCheckMatch())
                 {
                     ok = true;
-                    break;
+                    ++swapCount;
+                    if (!onlyCheck)
+                        break;
                 }
             }
         }
@@ -200,8 +203,8 @@ public class GridCreator : MonoBehaviour
             if (!onlyCheck)
                 GameManager.instance.GameOver();
             else
-                return false;
+                return 0;
         }
-        return true;
+        return swapCount;
     }
 }

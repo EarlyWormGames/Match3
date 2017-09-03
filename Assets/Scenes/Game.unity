@@ -529,6 +529,7 @@ MonoBehaviour:
   m_Grid: {fileID: 334552922}
   m_ScoreText: {fileID: 955646110}
   m_NodeMoveSpeed: 8
+  m_RequiredChainStart: 3
 --- !u!4 &887100672
 Transform:
   m_ObjectHideFlags: 0
