@@ -5,9 +5,17 @@ using UnityEngine;
 
 public class GUIManager : MonoBehaviour {
 
-    bool m_bOpenScore = false;
+   
+    //All Menu Buttons animators
     public Animator[] MainAnimControllers;
+
+    //Panel Animators
     public Animator ScorePanel;
+    public Animator SettingsPanel;
+
+    //Helper variables for the pannel status
+    bool m_bOpenScore = false;
+    bool m_bOpenSettings = false;
 
     // Use this for initialization
     void Start ()
@@ -17,9 +25,11 @@ public class GUIManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update ()
-    {
+    {   
     }
 
+    // Score Panel
+    //==================================
     void OpenScore()
     {
         ScorePanel.SetBool("Enter", true);
@@ -30,7 +40,10 @@ public class GUIManager : MonoBehaviour {
         ScorePanel.SetBool("Enter", false);
         ScorePanel.SetTrigger("Trigger");
     }
+    //==================================
 
+    //All the Menu Buttons
+    //==================================
     void OpenMenu()
     {
         for (int i = 0; i < MainAnimControllers.Length; i++)
@@ -39,7 +52,6 @@ public class GUIManager : MonoBehaviour {
             MainAnimControllers[i].SetTrigger("Trigger");
         }
     }
-
     void CloseMenu()
     {
         for (int i = 0; i < MainAnimControllers.Length; i++)
@@ -48,8 +60,25 @@ public class GUIManager : MonoBehaviour {
             MainAnimControllers[i].SetTrigger("Trigger");
         }
     }
+    //==================================
+
+    //Settings Panel
+    //==================================
+    void OpenSettings()
+    {
+        SettingsPanel.SetBool("Enter", true);
+        SettingsPanel.SetTrigger("Trigger");
+    }
+    void CloseSettings()
+    {
+        SettingsPanel.SetBool("Enter", false);
+        SettingsPanel.SetTrigger("Trigger");
+    }
+    //==================================
 
 
+
+    //Set the status of the score panel  Open/Closed in the inspector
     public void SetScorePanel(bool b)
     {
         m_bOpenScore = b;
@@ -66,4 +95,20 @@ public class GUIManager : MonoBehaviour {
         }
     }
 
+    //Set the status of the Settings panel  Open/Closed in the inspector
+    public void SetSettingsPanel(bool b)
+    {
+        m_bOpenSettings = b;
+
+        if (m_bOpenSettings)
+        {
+            OpenSettings();
+            CloseMenu();
+        }
+        else
+        {
+            OpenMenu();
+            CloseSettings();
+        }
+    }
 }
