@@ -40,6 +40,7 @@ public class GameManager : MonoBehaviour
 
     public GridCreator m_Grid;
     public Text m_ScoreText;
+    public GameObject m_ScorePanel;
     public float m_NodeMoveSpeed = 5f;
     public int m_RequiredChainStart = 2;
 
@@ -87,6 +88,8 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("GAME OVER");
             m_IsGameOver = true;
+
+            m_ScorePanel.SetActive(true);
         }
     }
 

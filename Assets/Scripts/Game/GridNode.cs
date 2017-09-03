@@ -530,7 +530,7 @@ public class GridNode : MonoBehaviour
                 if (node.m_Shape != null)
                 {
                     ++GameManager.RespawnCounts[node.m_xIndex];
-                    DestroyImmediate(node.m_Shape.gameObject);
+                    node.StartDestroy();
                     ++GameManager.Score;
                 }
             }
@@ -539,6 +539,16 @@ public class GridNode : MonoBehaviour
         GameManager.ClearNodeChains();
 
         return ok;
+    }
+
+    public void StartDestroy()
+    {
+
+    }
+
+    public void EndDestroy()
+    {
+        DestroyImmediate(m_Shape.gameObject);
     }
 
     public bool SwapCheckMatch()
