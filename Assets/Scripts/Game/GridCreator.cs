@@ -56,8 +56,7 @@ public class GridCreator : MonoBehaviour
             }
         }
 
-        GameManager.Moving = new bool[m_GridWidth, m_GridHeight];
-        GameManager.RespawnCounts = new int[m_GridWidth];
+        
     }
     
     void Update()
@@ -71,7 +70,7 @@ public class GridCreator : MonoBehaviour
                 m_ColumnSpawns[i] = m_Nodes[i, 0].transform.position + m_ColumnDistances[i];
             }
         }
-        //GameManager.instance.m_Grid.CheckColumns();
+        GameManager.instance.m_Grid.CheckColumns();
     }
 
     public void MouseUp(BaseEventData eventData)
@@ -129,33 +128,29 @@ public class GridCreator : MonoBehaviour
 
     public void CheckColumns()
     {
-        foreach (var node in m_Nodes)
-        {
-            if (node.m_Shape != null)
-                node.CheckMatch();
-        }
-        
+        List<int>[] needs = new List<int>[m_GridWidth];
         for (int i = 0; i < m_GridWidth; ++i)
         {
+            needs[i] = new List<int>();
+            for (int j = m_GridHeight - 1; j >= 0; --j)
+            {
+                m_Nodes[i, j].TryTakeUp();
+            }
+
             for (int j = m_GridHeight - 1; j >= 0; --j)
             {
                 if (m_Nodes[i, j].m_Shape == null)
-                {
-                    m_Nodes[i, j].TryTakeUp();
-                }
+                    needs[i].Add(j);
             }
         }
 
-        for (int i = 0; i < GameManager.RespawnCounts.Length; ++i)
+        for (int i = 0; i < needs.Length; ++i)
         {
             Vector3 lastPos = m_ColumnSpawns[i] - m_ColumnDistances[i];
-
-            for (int j = GameManager.RespawnCounts[i] - 1; j >= 0; --j)
+            foreach (var index in needs[i])
             {
-                lastPos += m_ColumnDistances[i];
-                m_Nodes[i, j].SpawnShape(lastPos);
+                m_Nodes[i, index].SpawnShape(lastPos + m_ColumnDistances[i]);
             }
-            GameManager.RespawnCounts[i] = 0;
         }
     }
 }

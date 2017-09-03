@@ -25,21 +25,17 @@ public class GameManager : MonoBehaviour
     internal static Vector3 dragStartPos;
     internal static int Score;
 
-    internal static bool[,] Moving;
 
     internal static List<GridNode> NodeChainLeft = new List<GridNode>(),
         NodeChainRight = new List<GridNode>(),
         NodeChainUp = new List<GridNode>(),
         NodeChainDown = new List<GridNode>();
 
-    internal static int[] RespawnCounts;
-
     #endregion
 
     public GridCreator m_Grid;
     public Text m_ScoreText;
     public float m_NodeMoveSpeed = 5f;
-    private bool m_WasMoving = true;
 
     // Use this for initialization
     void Start()
@@ -51,33 +47,5 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         m_ScoreText.text = Score.ToString();
-
-        bool ok = true;
-        foreach (var move in Moving)
-        {
-            if (!move)
-            {
-                ok = false;
-                m_WasMoving = true;
-                break;
-            }
-        }
-
-        if (ok)
-        {
-            if (m_WasMoving)
-            {
-                m_WasMoving = false;
-                m_Grid.CheckColumns();
-            }
-        }
-    }
-
-    public static void ClearNodeChains()
-    {
-        NodeChainLeft.Clear();
-        NodeChainRight.Clear();
-        NodeChainUp.Clear();
-        NodeChainDown.Clear();
     }
 }

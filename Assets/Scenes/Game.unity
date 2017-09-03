@@ -163,7 +163,7 @@ MonoBehaviour:
   m_ChildAlignment: 1
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 80, y: 80}
+  m_CellSize: {x: 65, y: 65}
   m_Spacing: {x: 10, y: 10}
   m_Constraint: 1
   m_ConstraintCount: 6
@@ -181,7 +181,7 @@ MonoBehaviour:
   m_NodePrefab: {fileID: 1802148135827692, guid: 1d2cd93829fe8b34eab52c0cbb36dd53,
     type: 2}
   m_GridWidth: 6
-  m_GridHeight: 8
+  m_GridHeight: 9
 --- !u!114 &334552923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -528,7 +528,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Grid: {fileID: 334552922}
   m_ScoreText: {fileID: 955646110}
-  m_NodeMoveSpeed: 8
 --- !u!4 &887100672
 Transform:
   m_ObjectHideFlags: 0
@@ -587,8 +586,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 72.7, y: 489.05}
-  m_SizeDelta: {x: 375.3, y: 67.3}
+  m_AnchoredPosition: {x: 114.3, y: 489.05}
+  m_SizeDelta: {x: 458.6, y: 67.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &955646110
 MonoBehaviour:
@@ -641,7 +640,6 @@ GameObject:
   - component: {fileID: 1131083393}
   - component: {fileID: 1131083392}
   - component: {fileID: 1131083391}
-  - component: {fileID: 1131083396}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -719,18 +717,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1131083396
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1131083390}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  profile: {fileID: 11400000, guid: b4d62a44312a45a4bb8ba08e1cf9a1c7, type: 2}
 --- !u!1 &1801866049
 GameObject:
   m_ObjectHideFlags: 0
@@ -757,7 +743,7 @@ Light:
   serializedVersion: 8
   m_Type: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 2
+  m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
