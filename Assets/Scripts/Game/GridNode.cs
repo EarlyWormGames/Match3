@@ -21,8 +21,7 @@ public class GridNode : MonoBehaviour
     internal GridNode m_Left, m_Right, m_Up, m_Down;
     internal int m_xIndex, m_yIndex;
 
-    // Use this for initialization
-    void Start()
+    public void Init()
     {
         do
         {
@@ -75,6 +74,17 @@ public class GridNode : MonoBehaviour
             break;
 
         } while (true);
+    }
+
+    public void DestroyNode()
+    {
+        DestroyImmediate(m_Shape.gameObject);
+    }
+
+    // Use this for initialization
+    void Start()
+    {
+        
         //transform.position = new Vector3(transform.position.x, transform.position.y, 0);
     }
 

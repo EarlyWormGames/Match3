@@ -42,6 +42,7 @@ public class GameManager : MonoBehaviour
     public Text m_ScoreText;
     public float m_NodeMoveSpeed = 5f;
     private bool m_WasMoving = true;
+    private bool m_IsGameOver = false;
 
     // Use this for initialization
     void Start()
@@ -80,7 +81,11 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        Debug.Log("GAME OVER");
+        if (!m_IsGameOver)
+        {
+            Debug.Log("GAME OVER");
+            m_IsGameOver = true;
+        }
     }
 
     public static void ClearNodeChains()
