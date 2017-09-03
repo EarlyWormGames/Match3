@@ -35,50 +35,10 @@ public class GridNode : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        if (m_Shape.m_GemAnimator != null)                                                              //Animator Stuff From Mitchell
-        {
-            m_Shape.m_GemAnimator.SetBool("Hold Left", false);
-            m_Shape.m_GemAnimator.SetBool("Hold Right", false);
-            m_Shape.m_GemAnimator.SetBool("Hold Up", false);
-            m_Shape.m_GemAnimator.SetBool("Hold Down", false);
-            if (GameManager.isDragging && GameManager.dragObject == gameObject)
-            {
-                Vector3 dir = Input.mousePosition - GameManager.dragStartPos;
-                dir.Normalize();
-                float x = dir.x;
-                if (x < 0)
-                    x *= -1;
-                float y = dir.y;
-                if (y < 0)
-                    y *= -1;
-
-                if (x > y)
-                {
-                    if (dir.x < 0)
-                    {
-                        m_Shape.m_GemAnimator.SetBool("Hold Left", true);
-                    }
-                    else
-                    {
-                        m_Shape.m_GemAnimator.SetBool("Hold Right", true);
-                    }
-                }
-                else
-                {
-                    if (dir.y < 0)
-                    {
-                        m_Shape.m_GemAnimator.SetBool("Hold Down", true);
-                    }
-                    else
-                    {
-                        m_Shape.m_GemAnimator.SetBool("Hold Up", true);
-                    }
-                }
-            }
-        }
-    }
+    //void Update()
+    //{
+    //
+    //}
 
     public void MouseDown(BaseEventData eventData)
     {

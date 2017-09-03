@@ -17,13 +17,12 @@ public class NodeItem : MonoBehaviour
 {
     public ItemColour m_Colour;
     internal GridNode m_Parent;
-    internal Animator m_GemAnimator;        //Animation Stuff From Mitchell
     internal bool MarkDestroy;
 
     // Use this for initialization
     void Start()
     {
-        m_GemAnimator = GetComponent<Animator>();       //Animation Stuff From Mitchell
+
     }
 
     // Update is called once per frame
