@@ -146,43 +146,48 @@ public class GridCreator : MonoBehaviour
         GameManager.dragObject = null;
     }
 
-    public int CheckColumns(bool onlyCheck = false)
+    public void MatchCheck()
     {
-        bool ok = false;
         foreach (var node in m_Nodes)
         {
             if (node.m_Shape != null)
             {
-                node.CheckMatch(Direction.None, onlyCheck);
+                node.CheckMatch();
+            }
+        }
+    }
+
+    public void FillEmpty()
+    {
+        for (int i = 0; i < m_GridWidth; ++i)
+        {
+            for (int j = m_GridHeight - 1; j >= 0; --j)
+            {
+                if (m_Nodes[i, j].m_Shape == null)
+                {
+                    m_Nodes[i, j].TryTakeUp();
+                }
             }
         }
 
-        if (!onlyCheck)
+        for (int i = 0; i < GameManager.RespawnCounts.Length; ++i)
         {
-            //for (int i = 0; i < m_GridWidth; ++i)
-            //{
-            //    for (int j = m_GridHeight - 1; j >= 0; --j)
-            //    {
-            //        if (m_Nodes[i, j].m_Shape == null)
-            //        {
-            //            m_Nodes[i, j].TryTakeUp();
-            //        }
-            //    }
-            //}
-            //
-            //for (int i = 0; i < GameManager.RespawnCounts.Length; ++i)
-            //{
-            //    Vector3 lastPos = m_ColumnSpawns[i] - m_ColumnDistances[i];
-            //
-            //    for (int j = GameManager.RespawnCounts[i] - 1; j >= 0; --j)
-            //    {
-            //        lastPos += m_ColumnDistances[i];
-            //        m_Nodes[i, j].SpawnShape(lastPos);
-            //    }
-            //    GameManager.RespawnCounts[i] = 0;
-            //}
+            Vector3 lastPos = m_ColumnSpawns[i] - m_ColumnDistances[i];
+
+            for (int j = GameManager.RespawnCounts[i] - 1; j >= 0; --j)
+            {
+                lastPos += m_ColumnDistances[i];
+                m_Nodes[i, j].SpawnShape(lastPos);
+            }
+            GameManager.RespawnCounts[i] = 0;
         }
 
+        CheckColumns();
+    }
+
+    public int CheckColumns(bool onlyCheck = false)
+    {
+        bool ok = false;
         int swapCount = 0;
         foreach (var node in m_Nodes)
         {

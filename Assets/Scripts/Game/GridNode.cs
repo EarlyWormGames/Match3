@@ -547,9 +547,13 @@ public class GridNode : MonoBehaviour
             {
                 if (node.m_Shape != null)
                 {
-                    ++GameManager.RespawnCounts[node.m_xIndex];
-                    node.StartDestroy();
-                    ++GameManager.Score;
+                    if (!GameManager.DestroyingList.Contains(node))
+                    {
+                        ++GameManager.RespawnCounts[node.m_xIndex];
+                        node.StartDestroy();
+                        ++GameManager.Score;
+                        GameManager.DestroyingList.Add(node);
+                    }
                 }
             }
         }
@@ -569,6 +573,7 @@ public class GridNode : MonoBehaviour
     public void EndDestroy()
     {
         DestroyImmediate(m_Shape.gameObject);
+        GameManager.DestroyingList.Remove(this);
     }
 
     public bool SwapCheckMatch()

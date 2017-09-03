@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
         NodeChainRight = new List<GridNode>(),
         NodeChainUp = new List<GridNode>(),
         NodeChainDown = new List<GridNode>();
+    internal static List<GridNode> DestroyingList = new List<GridNode>();
 
     internal static int[] RespawnCounts;
 
@@ -46,6 +47,7 @@ public class GameManager : MonoBehaviour
 
     private bool m_WasMoving = true;
     private bool m_IsGameOver = false;
+    private bool m_WasEmpty;
 
     // Use this for initialization
     void Start()
@@ -76,9 +78,17 @@ public class GameManager : MonoBehaviour
                 if (m_WasMoving)
                 {
                     m_WasMoving = false;
-                    m_Grid.CheckColumns();
+                    m_Grid.MatchCheck();
                 }
             }
+        }
+
+        if (DestroyingList.Count > 0)
+            m_WasEmpty = true;
+        else if (m_WasEmpty)
+        {
+            m_Grid.FillEmpty();
+            m_WasEmpty = false;
         }
     }
 
