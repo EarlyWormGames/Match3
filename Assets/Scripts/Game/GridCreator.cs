@@ -129,6 +129,7 @@ public class GridCreator : MonoBehaviour
 
     public void CheckColumns()
     {
+        bool ok = false;
         foreach (var node in m_Nodes)
         {
             if (node.m_Shape != null)
@@ -158,6 +159,23 @@ public class GridCreator : MonoBehaviour
                 m_Nodes[i, j].SpawnShape(lastPos);
             }
             GameManager.RespawnCounts[i] = 0;
+        }
+
+        foreach (var node in m_Nodes)
+        {
+            if (node.m_Shape != null)
+            {
+                if (node.SwapCheckMatch())
+                {
+                    ok = true;
+                    break;
+                }
+            }
+        }
+
+        if (!ok)
+        {
+            GameManager.instance.GameOver();
         }
     }
 }

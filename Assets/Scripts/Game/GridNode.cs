@@ -530,4 +530,53 @@ public class GridNode : MonoBehaviour
 
         return ok;
     }
+
+    public bool SwapCheckMatch()
+    {
+        if (m_Left != null)
+        {
+            m_Shape.Swap(m_Left.m_Shape, Direction.Left);
+            if (m_Left.CheckMatch(Direction.None, true))
+            {
+                m_Shape.Swap(m_Left.m_Shape, Direction.Left);
+                return true;
+            }
+            m_Shape.Swap(m_Left.m_Shape, Direction.Left);
+        }
+
+        if (m_Right != null)
+        {
+            m_Shape.Swap(m_Right.m_Shape, Direction.Right);
+            if (m_Right.CheckMatch(Direction.None, true))
+            {
+                m_Shape.Swap(m_Right.m_Shape, Direction.Right);
+                return true;
+            }
+            m_Shape.Swap(m_Right.m_Shape, Direction.Right);
+        }
+
+        if (m_Up != null)
+        {
+            m_Shape.Swap(m_Up.m_Shape, Direction.Up);
+            if (m_Up.CheckMatch(Direction.None, true))
+            {
+                m_Shape.Swap(m_Up.m_Shape, Direction.Up);
+                return true;
+            }
+            m_Shape.Swap(m_Up.m_Shape, Direction.Up);
+        }
+
+        if (m_Down != null)
+        {
+            m_Shape.Swap(m_Down.m_Shape, Direction.Down);
+            if (m_Down.CheckMatch(Direction.None, true))
+            {
+                m_Shape.Swap(m_Down.m_Shape, Direction.Down);
+                return true;
+            }
+            m_Shape.Swap(m_Down.m_Shape, Direction.Down);
+        }
+
+        return false;
+    }
 }
