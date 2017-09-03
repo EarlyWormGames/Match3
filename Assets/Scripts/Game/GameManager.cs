@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
     internal static bool isDragging;
     internal static ItemColour LastColour;
     internal static GameObject dragObject;
+    internal static NodeItem dragShape;
+    internal static Direction lastDrag = Direction.None;
     internal static Vector3 dragStartPos;
     internal static int Score;
 
@@ -52,23 +54,26 @@ public class GameManager : MonoBehaviour
     {
         m_ScoreText.text = Score.ToString();
 
-        bool ok = true;
-        foreach (var move in Moving)
+        if (!isDragging)
         {
-            if (!move)
+            bool ok = true;
+            foreach (var move in Moving)
             {
-                ok = false;
-                m_WasMoving = true;
-                break;
+                if (!move)
+                {
+                    ok = false;
+                    m_WasMoving = true;
+                    break;
+                }
             }
-        }
 
-        if (ok)
-        {
-            if (m_WasMoving)
+            if (ok)
             {
-                m_WasMoving = false;
-                m_Grid.CheckColumns();
+                if (m_WasMoving)
+                {
+                    m_WasMoving = false;
+                    m_Grid.CheckColumns();
+                }
             }
         }
     }
@@ -79,5 +84,22 @@ public class GameManager : MonoBehaviour
         NodeChainRight.Clear();
         NodeChainUp.Clear();
         NodeChainDown.Clear();
+    }
+
+    public static Direction GetOpposite(Direction a_dir)
+    {
+        if (a_dir == Direction.Left)
+            return Direction.Right;
+
+        if (a_dir == Direction.Right)
+            return Direction.Left;
+
+        if (a_dir == Direction.Up)
+            return Direction.Down;
+
+        if (a_dir == Direction.Down)
+            return Direction.Up;
+
+        return Direction.None;
     }
 }

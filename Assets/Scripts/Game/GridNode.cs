@@ -79,15 +79,110 @@ public class GridNode : MonoBehaviour
     }
 
     // Update is called once per frame
-    //void Update()
-    //{
-    //
-    //}
+    void Update()
+    {
+        if (GameManager.isDragging)
+        {
+            if (GameManager.dragObject == gameObject)
+            {
+                Vector3 dir = Input.mousePosition - GameManager.dragStartPos;
+                if (dir.magnitude > 10f)
+                {
+                    dir.Normalize();
+
+                    float x = dir.x;
+                    if (x < 0)
+                        x *= -1;
+                    float y = dir.y;
+                    if (y < 0)
+                        y *= -1;
+
+                    bool unswap = false;
+
+                    if (x > y)
+                    {
+                        if (dir.x < 0)
+                        {
+                            if (GameManager.lastDrag == Direction.None)
+                            {
+                                //Do left
+                                if (m_Left != null)
+                                {
+                                    m_Shape.Swap(m_Left.m_Shape, Direction.Left);
+                                    GameManager.lastDrag = Direction.Left;
+                                }
+                            }
+                            else if (GameManager.lastDrag != Direction.Left)
+                                unswap = true;
+                        }
+                        else
+                        {
+                            if (GameManager.lastDrag == Direction.None)
+                            {
+                                //Do left
+                                if (m_Right != null)
+                                {
+                                    m_Shape.Swap(m_Right.m_Shape, Direction.Right);
+                                    GameManager.lastDrag = Direction.Right;
+                                }
+                            }
+                            else if (GameManager.lastDrag != Direction.Right)
+                                unswap = true;
+                        }
+                    }
+                    else
+                    {
+                        if (dir.y < 0)
+                        {
+                            if (GameManager.lastDrag == Direction.None)
+                            {
+                                //Do left
+                                if (m_Down != null)
+                                {
+                                    m_Shape.Swap(m_Down.m_Shape, Direction.Down);
+                                    GameManager.lastDrag = Direction.Down;
+                                }
+                            }
+                            else if (GameManager.lastDrag != Direction.Down)
+                                unswap = true;
+                        }
+                        else
+                        {
+                            if (GameManager.lastDrag == Direction.None)
+                            {
+                                //Do left
+                                if (m_Up != null)
+                                {
+                                    m_Shape.Swap(m_Up.m_Shape, Direction.Up);
+                                    GameManager.lastDrag = Direction.Up;
+                                }
+                            }
+                            else if (GameManager.lastDrag != Direction.Up)
+                                unswap = true;
+                        }
+                    }
+
+                    if (unswap)
+                    {
+                        GameManager.dragShape.Swap(m_Shape, GameManager.GetOpposite(GameManager.lastDrag));
+                        GameManager.lastDrag = Direction.None;
+                    }
+                }
+                else
+                {
+                    if(GameManager.lastDrag != Direction.None)
+                        GameManager.dragShape.Swap(m_Shape, GameManager.GetOpposite(GameManager.lastDrag));
+                    GameManager.lastDrag = Direction.None;
+                }
+            }
+        }
+    }
 
     public void MouseDown(BaseEventData eventData)
     {
         GameManager.isDragging = true;
         GameManager.dragObject = gameObject;
+        GameManager.dragShape = m_Shape;
         GameManager.dragStartPos = Input.mousePosition;
     }
 
@@ -95,6 +190,8 @@ public class GridNode : MonoBehaviour
     {
         if (!GameManager.isDragging || GameManager.dragObject == null)
             return;
+
+        
 
         //Calculate the direction of the drag
         Vector3 dir = Input.mousePosition - GameManager.dragStartPos;
@@ -142,6 +239,7 @@ public class GridNode : MonoBehaviour
         GameManager.dragStartPos = Vector3.zero;
         GameManager.isDragging = false;
         GameManager.dragObject = null;
+        GameManager.dragShape = null;
     }
 
     public void MouseClick(BaseEventData eventData)
