@@ -76,7 +76,7 @@ public class GameManager : MonoBehaviour
                 if (m_WasMoving)
                 {
                     m_WasMoving = false;
-                    m_Grid.CheckColumns();
+                    //m_Grid.CheckColumns();
                 }
             }
         }
