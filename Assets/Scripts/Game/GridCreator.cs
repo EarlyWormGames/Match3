@@ -132,7 +132,9 @@ public class GridCreator : MonoBehaviour
         foreach (var node in m_Nodes)
         {
             if (node.m_Shape != null)
+            {
                 node.CheckMatch();
+            }
         }
         
         for (int i = 0; i < m_GridWidth; ++i)

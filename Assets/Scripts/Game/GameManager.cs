@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
 
     internal static bool isDragging;
     internal static ItemColour LastColour;
-    internal static GameObject dragObject;
+    internal static GridNode dragObject;
     internal static NodeItem dragShape;
     internal static Direction lastDrag = Direction.None;
     internal static Vector3 dragStartPos;

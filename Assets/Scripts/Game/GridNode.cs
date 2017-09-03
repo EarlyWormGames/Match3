@@ -83,7 +83,7 @@ public class GridNode : MonoBehaviour
     {
         if (GameManager.isDragging)
         {
-            if (GameManager.dragObject == gameObject)
+            if (GameManager.dragObject == this)
             {
                 Vector3 dir = Input.mousePosition - GameManager.dragStartPos;
                 if (dir.magnitude > 20f)
@@ -181,7 +181,7 @@ public class GridNode : MonoBehaviour
     public void MouseDown(BaseEventData eventData)
     {
         GameManager.isDragging = true;
-        GameManager.dragObject = gameObject;
+        GameManager.dragObject = this;
         GameManager.dragShape = m_Shape;
         GameManager.dragStartPos = Input.mousePosition;
     }
@@ -191,85 +191,86 @@ public class GridNode : MonoBehaviour
         if (!GameManager.isDragging || GameManager.dragObject == null)
             return;
 
-        
+        if (GameManager.lastDrag != Direction.None)
+        {
+            bool ok = false;
+            if (!GameManager.dragShape.m_Parent.CheckMatch(Direction.None, true))
+            {
+                if (GameManager.dragObject.CheckMatch(Direction.None, true))
+                {
+                    ok = true;
+                }
+            }
+            else
+                ok = true;
 
-        //Calculate the direction of the drag
-        Vector3 dir = Input.mousePosition - GameManager.dragStartPos;
-        dir.Normalize();
-
-        //Get the node the drag started on
-        GridNode node = GameManager.dragObject.GetComponent<GridNode>();
-
-        //Convert these values to absolute values
-        //float x = dir.x;
-        //if (x < 0)
-        //    x *= -1;
-        //float y = dir.y;
-        //if (y < 0)
-        //    y *= -1;
-        //
-        //if (x > y)
-        //{
-        //    if (dir.x < 0)
-        //    {
-        //        //Do left
-        //        node.TrySwap(Direction.Left);
-        //    }
-        //    else
-        //    {
-        //        //Do right
-        //        node.TrySwap(Direction.Right);
-        //    }
-        //}
-        //else
-        //{
-        //    if (dir.y < 0)
-        //    {
-        //        //Do down
-        //        node.TrySwap(Direction.Down);
-        //    }
-        //    else
-        //    {
-        //        //Do up
-        //        node.TrySwap(Direction.Up);
-        //    }
-        //}
+            if (!ok)
+            {
+                GameManager.dragShape.Swap(GameManager.dragObject.m_Shape, GameManager.GetOpposite(GameManager.lastDrag));
+            }
+        }
 
         //Finished, reset this data
         GameManager.dragStartPos = Vector3.zero;
         GameManager.isDragging = false;
         GameManager.dragObject = null;
         GameManager.dragShape = null;
+        GameManager.lastDrag = Direction.None;
     }
 
     public void MouseClick(BaseEventData eventData)
     {
         if (GameManager.dragObject == null)
-            GameManager.dragObject = gameObject;
+        {
+            GameManager.dragObject = this;
+            GameManager.dragShape = m_Shape;
+        }
         else
         {
-            GameManager.dragObject.GetComponent<GridNode>().TrySwap(this);
+            if (GameManager.dragObject != this)
+            {
+                GridNode other = GameManager.dragObject;
+                Direction dir = GameManager.dragObject.TrySwap(this);
+
+                bool ok = false;
+                if (!GameManager.dragShape.m_Parent.CheckMatch(Direction.None, true))
+                {
+                    if (GameManager.dragObject.CheckMatch(Direction.None, true))
+                    {
+                        ok = true;
+                    }
+                }
+                else
+                    ok = true;
+
+                if (!ok)
+                {
+                    GameManager.dragShape.Swap(GameManager.dragObject.m_Shape, GameManager.GetOpposite(dir));
+                }
+            }
+
             GameManager.dragObject = null;
+            GameManager.dragShape = null;
         }
     }
 
-    public void TrySwap(GridNode a_other)
+    public Direction TrySwap(GridNode a_other)
     {
-        if (m_Left == a_other && a_other.m_Shape.CanSwap(Direction.Right) &&
-            m_Shape.CanSwap(Direction.Left))
-            m_Shape.Swap(a_other.m_Shape, Direction.Left);
+        Direction dir = Direction.None;
+        if (m_Left == a_other)
+            dir = Direction.Left;
 
-        if (m_Right == a_other && a_other.m_Shape.CanSwap(Direction.Left) &&
-            m_Shape.CanSwap(Direction.Right))
-            m_Shape.Swap(a_other.m_Shape, Direction.Right);
+        if (m_Right == a_other)
+            dir = Direction.Right;
 
-        if (m_Up == a_other && a_other.m_Shape.CanSwap(Direction.Down) &&
-            m_Shape.CanSwap(Direction.Up))
-            m_Shape.Swap(a_other.m_Shape, Direction.Up);
+        if (m_Up == a_other)
+            dir = Direction.Up;
 
-        if (m_Down == a_other && a_other.m_Shape.CanSwap(Direction.Up) &&
-            m_Shape.CanSwap(Direction.Down))
-            m_Shape.Swap(a_other.m_Shape, Direction.Down);
+        if (m_Down == a_other)
+            dir = Direction.Down;
+
+        m_Shape.Swap(a_other.m_Shape, dir);
+        return dir;
     }
 
     public void TrySwap(Direction dir)
@@ -380,10 +381,10 @@ public class GridNode : MonoBehaviour
         return null;
     }
 
-    public void CheckMatch(Direction dir = Direction.None)
+    public bool CheckMatch(Direction dir = Direction.None, bool onlyCheck = false)
     {
         if (m_Shape == null)
-            return;
+            return false;
 
         if (dir == Direction.None || dir == Direction.Left)
         {
@@ -452,12 +453,14 @@ public class GridNode : MonoBehaviour
             //GameManager.NodeChainRight.Add(this);
             //GameManager.NodeChainUp.Add(this);
             //GameManager.NodeChainDown.Add(this);
-            DestroyCheck();
+            return DestroyCheck(onlyCheck);
         }
+        return false;
     }
 
-    void DestroyCheck()
+    bool DestroyCheck(bool onlyCheck = false)
     {
+        bool ok = false;
         List<GridNode> destroynodes = new List<GridNode>();
         List<GridNode> leftright = new List<GridNode>();
         List<GridNode> updown = new List<GridNode>();
@@ -475,7 +478,10 @@ public class GridNode : MonoBehaviour
         }
 
         if (leftright.Count > 2)
+        {
+            ok = true;
             destroynodes.AddRange(leftright);
+        }
 
 
 
@@ -494,23 +500,30 @@ public class GridNode : MonoBehaviour
         }
 
         if (updown.Count > 2)
-            destroynodes.AddRange(updown);
-
-
-
-
-
-
-        foreach (var node in destroynodes)
         {
-            if (node.m_Shape != null)
+            ok = true;
+            destroynodes.AddRange(updown);
+        }
+
+
+
+
+
+        if (!onlyCheck)
+        {
+            foreach (var node in destroynodes)
             {
-                ++GameManager.RespawnCounts[node.m_xIndex];
-                DestroyImmediate(node.m_Shape.gameObject);
-                ++GameManager.Score;
+                if (node.m_Shape != null)
+                {
+                    ++GameManager.RespawnCounts[node.m_xIndex];
+                    DestroyImmediate(node.m_Shape.gameObject);
+                    ++GameManager.Score;
+                }
             }
         }
 
         GameManager.ClearNodeChains();
+
+        return ok;
     }
 }
