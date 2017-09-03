@@ -16,13 +16,15 @@ public enum ItemColour
 public class NodeItem : MonoBehaviour
 {
     public ItemColour m_Colour;
+    public ParticleSystem m_Explosion;
     internal GridNode m_Parent;
     internal Direction m_SwappableDirection;
+    internal Animator m_GemAnimator;
 
     // Use this for initialization
     void Start()
     {
-
+        m_GemAnimator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
