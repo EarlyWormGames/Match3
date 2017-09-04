@@ -105,7 +105,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010714891294}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -6.739847, y: -5.657076, z: -16.608727}
+  m_LocalPosition: {x: -5.568215, y: -4.3573585, z: -13.880609}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4422456994774066}
@@ -144,7 +144,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1320022518148482}
-  m_LocalRotation: {x: -1, y: 0, z: 0, w: 0}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: -1.3866136, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -153,7 +153,7 @@ Transform:
   - {fileID: 4026865287040756}
   m_Father: {fileID: 4000013886378248}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -180, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!4 &4810103822871732
 Transform:
   m_ObjectHideFlags: 1
@@ -219,6 +219,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Colour: 4
   m_Explosion: {fileID: 198982745477038058}
+  m_CanSwap: 1
 --- !u!114 &114881312586288010
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -248,7 +249,7 @@ ParticleSystem:
   startDelay:
     serializedVersion: 2
     minMaxState: 0
-    scalar: 1
+    scalar: 0.5
     minScalar: 0
     maxCurve:
       serializedVersion: 2
@@ -289,7 +290,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1407919250
+  randomSeed: 493160307
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -3534,7 +3535,7 @@ ParticleSystem:
   startDelay:
     serializedVersion: 2
     minMaxState: 0
-    scalar: 1
+    scalar: 0.5
     minScalar: 0
     maxCurve:
       serializedVersion: 2
@@ -3575,7 +3576,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1205820844
+  randomSeed: -1522088528
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -6861,14 +6862,14 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1162520025
+  randomSeed: 1602905705
   InitialModule:
     serializedVersion: 3
     enabled: 1
     startLifetime:
       serializedVersion: 2
-      minMaxState: 1
-      scalar: 1
+      minMaxState: 0
+      scalar: 0.5
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -10129,7 +10130,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 772704186
+  randomSeed: 1040366005
   InitialModule:
     serializedVersion: 3
     enabled: 1

@@ -50,7 +50,7 @@ public class NodeItem : MonoBehaviour
         if (m_destroyStart)
         {
             m_DestroyTimer -= Time.deltaTime;
-            if (m_DestroyTimer <= 1)
+            if (m_DestroyTimer <= 0.5f)
             {
                 if (GetComponent<MeshRenderer>() != null)
                     GetComponent<MeshRenderer>().enabled = false;
@@ -107,7 +107,7 @@ public class NodeItem : MonoBehaviour
     public virtual void StartDestroy()
     {
         m_destroyStart = true;
-        m_DestroyTimer = 1.5f;
+        m_DestroyTimer = 1f;
         m_Explosion.Play();
     }
 
