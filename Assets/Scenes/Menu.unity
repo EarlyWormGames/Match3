@@ -690,7 +690,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scores: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
-  scoreFileName: Scores.txt
+  scoreFileName: highscores.txt
 --- !u!114 &328654534
 MonoBehaviour:
   m_ObjectHideFlags: 0
