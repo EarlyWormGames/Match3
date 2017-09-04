@@ -150,6 +150,7 @@ MonoBehaviour:
   - {fileID: 1000010921973622, guid: af16961524284e54491133548920258b, type: 2}
   - {fileID: 1000012946874890, guid: 586acbe765df7c34385298970076297e, type: 2}
   m_ShapeScale: {x: 28, y: 28, z: 28}
+  m_HighlightColour: {r: 1, g: 0, b: 0, a: 0.497}
 --- !u!222 &222924280571869270
 CanvasRenderer:
   m_ObjectHideFlags: 1

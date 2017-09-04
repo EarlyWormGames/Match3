@@ -78,11 +78,16 @@ public class GameManager : MonoBehaviour
 
             if (ok)
             {
+                CanDrag = true;
                 if (m_WasMoving)
                 {
                     m_WasMoving = false;
                     m_Grid.MatchCheck();
                 }
+            }
+            else
+            {
+                CanDrag = false;
             }
         }
 

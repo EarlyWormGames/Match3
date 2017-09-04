@@ -240,9 +240,14 @@ public class GridNode : MonoBehaviour
             else
                 ok = true;
 
-            if (!ok || !m_Shape.m_CanSwap || !GameManager.dragObject.m_Shape.m_CanSwap)
+            if (!ok)
             {
                 GameManager.dragShape.Swap(GameManager.dragObject.m_Shape, GameManager.GetOpposite(GameManager.lastDrag));
+            }
+            else
+            {
+                GameManager.Moving[GameManager.dragShape.m_Parent.m_xIndex, GameManager.dragShape.m_Parent.m_yIndex] = false;
+                GameManager.Moving[GameManager.dragObject.m_xIndex, GameManager.dragObject.m_yIndex] = false;
             }
         }
 
@@ -386,6 +391,9 @@ public class GridNode : MonoBehaviour
         if (m_Shape == null)
             return false;
 
+        if (m_Shape.MarkDestroy)
+            return false;
+
         if (dir == Direction.None || dir == Direction.Left)
         {
             GameManager.NodeChainLeft.Add(this);
@@ -518,6 +526,8 @@ public class GridNode : MonoBehaviour
                     if (!GameManager.DestroyingList.Contains(node))
                     {
                         ++GameManager.RespawnCounts[node.m_xIndex];
+                        GameManager.CanDrag = false;
+                        node.m_Shape.MarkDestroy = true;
                         node.StartDestroy();
                         ++GameManager.Score;
                         GameManager.DestroyingList.Add(node);

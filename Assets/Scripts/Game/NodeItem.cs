@@ -21,6 +21,7 @@ public class NodeItem : MonoBehaviour
     internal GridNode m_Parent;
     internal Direction m_SwappableDirection;
     internal Animator m_GemAnimator;
+    internal bool MarkDestroy = false;
 
     private float m_DestroyTimer = 0;
     private bool m_destroyStart = false;
