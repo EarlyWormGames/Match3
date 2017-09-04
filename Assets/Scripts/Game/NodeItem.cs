@@ -21,6 +21,9 @@ public class NodeItem : MonoBehaviour
     internal Direction m_SwappableDirection;
     internal Animator m_GemAnimator;
 
+    private float m_DestroyTimer = 0;
+    private bool m_destroyStart = false;
+
     // Use this for initialization
     void Start()
     {
@@ -41,6 +44,21 @@ public class NodeItem : MonoBehaviour
         {
             if (!GameManager.isDragging)
                 GameManager.Moving[m_Parent.m_xIndex, m_Parent.m_yIndex] = true;
+        }
+
+        if (m_destroyStart)
+        {
+            m_DestroyTimer -= Time.deltaTime;
+            if (m_DestroyTimer <= 1)
+            {
+                if (GetComponent<MeshRenderer>() != null)
+                    GetComponent<MeshRenderer>().enabled = false;
+            }
+            if (m_DestroyTimer <= 0)
+            {
+                m_destroyStart = false;
+                m_Parent.EndDestroy();
+            }
         }
     }
 
@@ -88,5 +106,17 @@ public class NodeItem : MonoBehaviour
     public bool CanSwap(Direction a_dir)
     {
         return m_SwappableDirection == Direction.None || m_SwappableDirection == a_dir;
+    }
+
+    public virtual void StartDestroy()
+    {
+        m_destroyStart = true;
+        m_DestroyTimer = 1.5f;
+        m_Explosion.Play();
+    }
+
+    public virtual void EndDestroy()
+    {
+        DestroyImmediate(gameObject);
     }
 }
