@@ -17,6 +17,7 @@ public class NodeItem : MonoBehaviour
 {
     public ItemColour m_Colour;
     public ParticleSystem m_Explosion;
+    public bool m_CanSwap = true;
     internal GridNode m_Parent;
     internal Direction m_SwappableDirection;
     internal Animator m_GemAnimator;
@@ -101,11 +102,6 @@ public class NodeItem : MonoBehaviour
             m_SwappableDirection = a_dir;
         else
             m_SwappableDirection = Direction.None;
-    }
-
-    public bool CanSwap(Direction a_dir)
-    {
-        return m_SwappableDirection == Direction.None || m_SwappableDirection == a_dir;
     }
 
     public virtual void StartDestroy()

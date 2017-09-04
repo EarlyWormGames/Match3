@@ -118,8 +118,11 @@ public class GridNode : MonoBehaviour
                                 //Do left
                                 if (m_Left != null)
                                 {
-                                    m_Shape.Swap(m_Left.m_Shape, Direction.Left);
-                                    GameManager.lastDrag = Direction.Left;
+                                    if (m_Left.m_Shape.m_CanSwap)
+                                    {
+                                        m_Shape.Swap(m_Left.m_Shape, Direction.Left);
+                                        GameManager.lastDrag = Direction.Left;
+                                    }
                                 }
                             }
                             else if (GameManager.lastDrag != Direction.Left)
@@ -132,8 +135,11 @@ public class GridNode : MonoBehaviour
                                 //Do left
                                 if (m_Right != null)
                                 {
-                                    m_Shape.Swap(m_Right.m_Shape, Direction.Right);
-                                    GameManager.lastDrag = Direction.Right;
+                                    if (m_Right.m_Shape.m_CanSwap)
+                                    {
+                                        m_Shape.Swap(m_Right.m_Shape, Direction.Right);
+                                        GameManager.lastDrag = Direction.Right;
+                                    }
                                 }
                             }
                             else if (GameManager.lastDrag != Direction.Right)
@@ -149,8 +155,11 @@ public class GridNode : MonoBehaviour
                                 //Do left
                                 if (m_Down != null)
                                 {
-                                    m_Shape.Swap(m_Down.m_Shape, Direction.Down);
-                                    GameManager.lastDrag = Direction.Down;
+                                    if (m_Down.m_Shape.m_CanSwap)
+                                    {
+                                        m_Shape.Swap(m_Down.m_Shape, Direction.Down);
+                                        GameManager.lastDrag = Direction.Down;
+                                    }
                                 }
                             }
                             else if (GameManager.lastDrag != Direction.Down)
@@ -163,8 +172,11 @@ public class GridNode : MonoBehaviour
                                 //Do left
                                 if (m_Up != null)
                                 {
-                                    m_Shape.Swap(m_Up.m_Shape, Direction.Up);
-                                    GameManager.lastDrag = Direction.Up;
+                                    if (m_Up.m_Shape.m_CanSwap)
+                                    {
+                                        m_Shape.Swap(m_Up.m_Shape, Direction.Up);
+                                        GameManager.lastDrag = Direction.Up;
+                                    }
                                 }
                             }
                             else if (GameManager.lastDrag != Direction.Up)
@@ -190,7 +202,7 @@ public class GridNode : MonoBehaviour
 
     public void MouseDown(BaseEventData eventData)
     {
-        if (!GameManager.CanDrag)
+        if (!GameManager.CanDrag || !m_Shape.m_CanSwap)
             return;
 
         GameManager.isDragging = true;
@@ -217,7 +229,7 @@ public class GridNode : MonoBehaviour
             else
                 ok = true;
 
-            if (!ok)
+            if (!ok || !m_Shape.m_CanSwap || !GameManager.dragObject.m_Shape.m_CanSwap)
             {
                 GameManager.dragShape.Swap(GameManager.dragObject.m_Shape, GameManager.GetOpposite(GameManager.lastDrag));
             }
@@ -233,7 +245,7 @@ public class GridNode : MonoBehaviour
 
     public void MouseClick(BaseEventData eventData)
     {
-        if (GameManager.dragObject == null && GameManager.CanDrag)
+        if (GameManager.dragObject == null && GameManager.CanDrag && m_Shape.m_CanSwap)
         {
             GameManager.dragObject = this;
             GameManager.dragShape = m_Shape;
@@ -241,7 +253,7 @@ public class GridNode : MonoBehaviour
         }
         else if (GameManager.CanDrag)
         {
-            if (GameManager.dragObject != this)
+            if (GameManager.dragObject != this && m_Shape.m_CanSwap)
             {
                 GridNode other = GameManager.dragObject;
                 Direction dir = GameManager.dragObject.TrySwap(this);
@@ -289,47 +301,6 @@ public class GridNode : MonoBehaviour
         if (dir != Direction.None)
             m_Shape.Swap(a_other.m_Shape, dir);
         return dir;
-    }
-
-    public void TrySwap(Direction dir)
-    {
-        if (!m_Shape.CanSwap(dir))
-            return;
-
-        switch (dir)
-        {
-            case Direction.Left:
-                if (m_Left != null)
-                {
-                    if (m_Left.m_Shape.CanSwap(Direction.Right))
-                        m_Shape.Swap(m_Left.m_Shape, dir);
-                }
-                break;
-
-            case Direction.Right:
-                if (m_Right != null)
-                {
-                    if (m_Right.m_Shape.CanSwap(Direction.Left))
-                        m_Shape.Swap(m_Right.m_Shape, dir);
-                }
-                break;
-
-            case Direction.Up:
-                if (m_Up != null)
-                {
-                    if (m_Up.m_Shape.CanSwap(Direction.Down))
-                        m_Shape.Swap(m_Up.m_Shape, dir);
-                }
-                break;
-
-            case Direction.Down:
-                if (m_Down != null)
-                {
-                    if (m_Down.m_Shape.CanSwap(Direction.Up))
-                        m_Shape.Swap(m_Down.m_Shape, dir);
-                }
-                break;
-        }
     }
 
     public void SpawnShape(Vector3 a_position)
@@ -402,6 +373,9 @@ public class GridNode : MonoBehaviour
     public bool CheckMatch(Direction dir = Direction.None, bool onlyCheck = false)
     {
         if (m_Shape == null)
+            return false;
+
+        if (!m_Shape.m_CanSwap && onlyCheck && dir == Direction.None)
             return false;
 
         if (dir == Direction.None || dir == Direction.Left)
@@ -562,6 +536,9 @@ public class GridNode : MonoBehaviour
 
     public bool SwapCheckMatch()
     {
+        if (!m_Shape.m_CanSwap)
+            return false;
+
         if (m_Left != null)
         {
             m_Shape.Swap(m_Left.m_Shape, Direction.Left);
