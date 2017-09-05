@@ -26,6 +26,8 @@ public class GridNode : MonoBehaviour
 
     public void Init()
     {
+        //This do-while ensures that this tile won't spawn in a chain
+        //It will then spawn the tile
         do
         {
             int index = Random.Range(0, m_ShapePrefabs.Length);
@@ -67,6 +69,7 @@ public class GridNode : MonoBehaviour
                 }
             }
 
+            //If it gets here, it will spawn an item
             GameObject obj = Instantiate(m_ShapePrefabs[index]);
             m_Shape = obj.GetComponent<NodeItem>();
             m_Shape.transform.parent = transform.parent;
@@ -96,11 +99,13 @@ public class GridNode : MonoBehaviour
     {
         if (GameManager.isDragging)
         {
-            if (GameManager.dragObject == this)
+            if (GameManager.dragGNode == this)
             {
+                //We're being dragged
                 Vector3 dir = Input.mousePosition - GameManager.dragStartPos;
                 if (dir.magnitude > 20f)
                 {
+                    //Drag is far enough, calculate which node to swap with
                     dir.Normalize();
 
                     float x = dir.x;
@@ -187,16 +192,18 @@ public class GridNode : MonoBehaviour
                         }
                     }
 
+                    //If the last direction we swapped was different, swap back first so we can swap the correct tile
                     if (unswap)
                     {
-                        GameManager.dragShape.Swap(m_Shape, GameManager.GetOpposite(GameManager.lastDrag));
+                        GameManager.dragNItem.Swap(m_Shape, GameManager.GetOpposite(GameManager.lastDrag));
                         GameManager.lastDrag = Direction.None;
                     }
                 }
                 else
                 {
+                    //Drag was undone, swap back
                     if (GameManager.lastDrag != Direction.None)
-                        GameManager.dragShape.Swap(m_Shape, GameManager.GetOpposite(GameManager.lastDrag));
+                        GameManager.dragNItem.Swap(m_Shape, GameManager.GetOpposite(GameManager.lastDrag));
                     GameManager.lastDrag = Direction.None;
                 }
             }
@@ -204,6 +211,8 @@ public class GridNode : MonoBehaviour
 
         if (m_Image != null)
         {
+            //FOR TESTING
+            //Highlights this node if it can swap into a match
             if (SwapCheckMatch())
                 m_Image.color = m_HighlightColour;
             else
@@ -213,26 +222,28 @@ public class GridNode : MonoBehaviour
 
     public void MouseDown(BaseEventData eventData)
     {
+        //If we can drag, start the drag
         if (!GameManager.CanDrag || !m_Shape.m_CanSwap)
             return;
 
         GameManager.isDragging = true;
-        GameManager.dragObject = this;
-        GameManager.dragShape = m_Shape;
+        GameManager.dragGNode = this;
+        GameManager.dragNItem = m_Shape;
         GameManager.dragStartPos = Input.mousePosition;
     }
 
     public void MouseUp(BaseEventData eventData)
     {
-        if (!GameManager.isDragging || GameManager.dragObject == null)
+        //If the drag was started properly, end the drag
+        if (!GameManager.isDragging || GameManager.dragGNode == null)
             return;
 
         if (GameManager.lastDrag != Direction.None)
         {
             bool ok = false;
-            if (!GameManager.dragShape.m_Parent.CheckMatch(Direction.None, true))
+            if (!GameManager.dragNItem.m_Parent.CheckMatch(Direction.None, true))
             {
-                if (GameManager.dragObject.CheckMatch(Direction.None, true))
+                if (GameManager.dragGNode.CheckMatch(Direction.None, true))
                 {
                     ok = true;
                 }
@@ -240,46 +251,50 @@ public class GridNode : MonoBehaviour
             else
                 ok = true;
 
+            //If NOT ok, swap the tiles back
             if (!ok)
             {
-                GameManager.dragShape.Swap(GameManager.dragObject.m_Shape, GameManager.GetOpposite(GameManager.lastDrag));
+                GameManager.dragNItem.Swap(GameManager.dragGNode.m_Shape, GameManager.GetOpposite(GameManager.lastDrag));
             }
-            else
+            else //Otherwise, tell the gamemanager we just moved these two tiles
             {
-                GameManager.Moving[GameManager.dragShape.m_Parent.m_xIndex, GameManager.dragShape.m_Parent.m_yIndex] = false;
-                GameManager.Moving[GameManager.dragObject.m_xIndex, GameManager.dragObject.m_yIndex] = false;
+                GameManager.Stationary[GameManager.dragNItem.m_Parent.m_xIndex, GameManager.dragNItem.m_Parent.m_yIndex] = false;
+                GameManager.Stationary[GameManager.dragGNode.m_xIndex, GameManager.dragGNode.m_yIndex] = false;
             }
         }
 
         //Finished, reset this data
         GameManager.dragStartPos = Vector3.zero;
         GameManager.isDragging = false;
-        GameManager.dragObject = null;
-        GameManager.dragShape = null;
+        GameManager.dragGNode = null;
+        GameManager.dragNItem = null;
         GameManager.lastDrag = Direction.None;
     }
 
     public void MouseClick(BaseEventData eventData)
     {
-        if (GameManager.dragObject == null && GameManager.CanDrag && m_Shape.m_CanSwap)
+        if (GameManager.dragGNode == null && GameManager.CanDrag && m_Shape.m_CanSwap)
         {
-            GameManager.dragObject = this;
-            GameManager.dragShape = m_Shape;
+            //First click, to select a tile
+            GameManager.dragGNode = this;
+            GameManager.dragNItem = m_Shape;
             GameManager.isDragging = false;
         }
         else if (GameManager.CanDrag)
         {
-            if (GameManager.dragObject != this && m_Shape.m_CanSwap)
+            //Second click, to swap items
+            if (GameManager.dragGNode != this && m_Shape.m_CanSwap)
             {
-                GridNode other = GameManager.dragObject;
-                Direction dir = GameManager.dragObject.TrySwap(this);
+                GridNode other = GameManager.dragGNode;
+                Direction dir = GameManager.dragGNode.TrySwap(this);
 
+                //Only swap them if we can
                 if (dir != Direction.None)
                 {
                     bool ok = false;
-                    if (!GameManager.dragShape.m_Parent.CheckMatch(Direction.None, true))
+                    if (!GameManager.dragNItem.m_Parent.CheckMatch(Direction.None, true))
                     {
-                        if (GameManager.dragObject.CheckMatch(Direction.None, true))
+                        if (GameManager.dragGNode.CheckMatch(Direction.None, true))
                         {
                             ok = true;
                         }
@@ -289,16 +304,22 @@ public class GridNode : MonoBehaviour
 
                     if (!ok)
                     {
-                        GameManager.dragShape.Swap(GameManager.dragObject.m_Shape, GameManager.GetOpposite(dir));
+                        GameManager.dragNItem.Swap(GameManager.dragGNode.m_Shape, GameManager.GetOpposite(dir));
                     }
                 }
             }
 
-            GameManager.dragObject = null;
-            GameManager.dragShape = null;
+            //Reset this data
+            GameManager.dragGNode = null;
+            GameManager.dragNItem = null;
         }
     }
 
+    /// <summary>
+    /// Try to swap this node with another and return which way they swapped
+    /// </summary>
+    /// <param name="a_other"></param>
+    /// <returns></returns>
     public Direction TrySwap(GridNode a_other)
     {
         Direction dir = Direction.None;
@@ -319,7 +340,11 @@ public class GridNode : MonoBehaviour
         return dir;
     }
 
-    public void SpawnShape(Vector3 a_position)
+    /// <summary>
+    /// Gives this node a new tile
+    /// </summary>
+    /// <param name="a_position"></param>
+    public void SpawnTile(Vector3 a_position)
     {
         int index = Random.Range(0, m_ShapePrefabs.Length);
         GameObject obj = Instantiate(m_ShapePrefabs[index]);
@@ -330,6 +355,10 @@ public class GridNode : MonoBehaviour
         m_Shape.m_Parent = this;
     }
 
+    /// <summary>
+    /// Forcefully take the tile of another node
+    /// </summary>
+    /// <param name="a_other"></param>
     public void Take(ref GridNode a_other)
     {
         m_Shape = a_other.m_Shape;
@@ -337,45 +366,25 @@ public class GridNode : MonoBehaviour
         a_other.m_Shape = null;
     }
 
-    public GridNode FindLowestEmpty()
-    {
-        if (m_Shape == null)
-        {
-            if (m_Down != null)
-                return m_Down.FindLowestEmpty();
-            else
-                return this;
-        }
-        else
-        {
-            return m_Up;
-        }
-    }
-
+    /// <summary>
+    /// <para>Try to take the closest upper tile</para>
+    /// This is used for dropping the tiles down
+    /// </summary>
     public void TryTakeUp()
     {
-        //if (m_Shape != null)
-        //{
-        //    if (m_Up != null)
-        //        m_Up.TryTakeUp();
-        //    return;
-        //}
         GridNode node = null;
         if (m_Up != null)
             node = m_Up.FindNextAvailable();
 
+        //Then takes that tile for itself
         if (node != null)
             Take(ref node);
-
-        //if (m_Up != null)
-        //{
-        //    if (m_Up.m_Shape != null && m_Shape == null)
-        //        Take(ref m_Up);
-        //
-        //    m_Up.TryTakeUp();
-        //}
     }
 
+    /// <summary>
+    /// Recursively find the closest node above itself that has a tile
+    /// </summary>
+    /// <returns></returns>
     public GridNode FindNextAvailable()
     {
         if (m_Shape != null)
@@ -386,6 +395,12 @@ public class GridNode : MonoBehaviour
         return null;
     }
 
+    /// <summary>
+    /// Check for matches. Once it starts in a direction, it will continue that way and not snake around
+    /// </summary>
+    /// <param name="dir"></param>
+    /// <param name="onlyCheck"></param>
+    /// <returns></returns>
     public bool CheckMatch(Direction dir = Direction.None, bool onlyCheck = false)
     {
         if (m_Shape == null)
@@ -393,6 +408,9 @@ public class GridNode : MonoBehaviour
 
         if (m_Shape.MarkDestroy)
             return false;
+
+        //====================================
+        //Check each direction
 
         if (dir == Direction.None || dir == Direction.Left)
         {
@@ -454,18 +472,21 @@ public class GridNode : MonoBehaviour
                 }
             }
         }
+        //====================================
 
         if (dir == Direction.None)
         {
-            //GameManager.NodeChainLeft.Add(this);
-            //GameManager.NodeChainRight.Add(this);
-            //GameManager.NodeChainUp.Add(this);
-            //GameManager.NodeChainDown.Add(this);
+            //Only the initiator of the search will get here
             return DestroyCheck(onlyCheck);
         }
         return false;
     }
 
+    /// <summary>
+    /// Checks if we should destroy any tiles (completed matches)
+    /// </summary>
+    /// <param name="onlyCheck"></param>
+    /// <returns></returns>
     bool DestroyCheck(bool onlyCheck = false)
     {
         bool ok = false;
@@ -473,6 +494,7 @@ public class GridNode : MonoBehaviour
         List<GridNode> leftright = new List<GridNode>();
         List<GridNode> updown = new List<GridNode>();
 
+        //Check the left and add it to a new list
         foreach (var node in GameManager.NodeChainLeft)
         {
             if (!leftright.Contains(node))
@@ -485,16 +507,14 @@ public class GridNode : MonoBehaviour
                 leftright.Add(node);
         }
 
+        //Is the left/right long enough? Destroy those tiles
         if (leftright.Count > 2)
         {
             ok = true;
             destroynodes.AddRange(leftright);
         }
 
-
-
-
-
+        //Do the same (as above) for up/down
         foreach (var node in GameManager.NodeChainUp)
         {
             if (!updown.Contains(node))
@@ -514,10 +534,7 @@ public class GridNode : MonoBehaviour
         }
 
 
-
-
-
-        if (!onlyCheck)
+        if (!onlyCheck) //Sometimes we only want to check if we can match, but not destroy the tiles
         {
             foreach (var node in destroynodes)
             {
@@ -525,19 +542,22 @@ public class GridNode : MonoBehaviour
                 {
                     if (!GameManager.DestroyingList.Contains(node))
                     {
+                        //Mark a bunch of things to ready destruction
                         ++GameManager.RespawnCounts[node.m_xIndex];
                         GameManager.CanDrag = false;
-                        node.m_Shape.MarkDestroy = true;
-                        node.StartDestroy();
                         ++GameManager.Score;
                         GameManager.DestroyingList.Add(node);
+
+                        //Tell the node to destroy
+                        node.m_Shape.MarkDestroy = true;
+                        node.StartDestroy();
                     }
                 }
             }
         }
 
+        //Clear all those lists
         GameManager.ClearNodeChains();
-
         return ok;
     }
 
@@ -552,6 +572,10 @@ public class GridNode : MonoBehaviour
         GameManager.DestroyingList.Remove(this);
     }
 
+    /// <summary>
+    /// Do a sample swap and check if it will result in a match. Used for gameover check
+    /// </summary>
+    /// <returns></returns>
     public bool SwapCheckMatch()
     {
         if (!m_Shape.m_CanSwap)

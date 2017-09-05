@@ -56,26 +56,39 @@ public class GridCreator : MonoBehaviour
             }
         }
 
+        int count = 0;
         do
         {
+            //Initialise all nodes
             foreach (var node in m_Nodes)
             {
                 node.Init();
             }
 
-            if (CheckColumns(true) == GameManager.instance.m_RequiredChainStart)
+            if (count >= 100)
+            {
+                //After 100 tries, just give up
                 break;
+            }
+
+            if (CheckColumns(true) == GameManager.instance.m_RequiredChainStart)
+            {
+                //We're done, break out of the do while
+                break;
+            }
             else
             {
+                //If the chain count is wrong, try again
                 foreach (var node in m_Nodes)
                 {
                     node.DestroyNode();
                 }
             }
+            ++count;
 
         } while (true);
 
-        GameManager.Moving = new bool[m_GridWidth, m_GridHeight];
+        GameManager.Stationary = new bool[m_GridWidth, m_GridHeight];
         GameManager.RespawnCounts = new int[m_GridWidth];
     }
     
@@ -93,14 +106,18 @@ public class GridCreator : MonoBehaviour
         //GameManager.instance.m_Grid.CheckColumns();
     }
 
+    //Normally never happens, just in case it does it reroutes it
     public void MouseUp(BaseEventData eventData)
     {
-        if (GameManager.dragObject == null)
+        if (GameManager.dragGNode == null)
             return;
 
-        GameManager.dragObject.MouseUp(eventData);
+        GameManager.dragGNode.MouseUp(eventData);
     }
 
+    /// <summary>
+    /// Check all nodes for matches
+    /// </summary>
     public void MatchCheck()
     {
         foreach (var node in m_Nodes)
@@ -112,6 +129,9 @@ public class GridCreator : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Fill the empty nodes by first dropping, then spawning new tiles
+    /// </summary>
     public void FillEmpty()
     {
         for (int i = 0; i < m_GridWidth; ++i)
@@ -132,7 +152,7 @@ public class GridCreator : MonoBehaviour
             for (int j = GameManager.RespawnCounts[i] - 1; j >= 0; --j)
             {
                 lastPos += m_ColumnDistances[i];
-                m_Nodes[i, j].SpawnShape(lastPos);
+                m_Nodes[i, j].SpawnTile(lastPos);
             }
             GameManager.RespawnCounts[i] = 0;
         }
@@ -140,6 +160,11 @@ public class GridCreator : MonoBehaviour
         CheckColumns();
     }
 
+    /// <summary>
+    /// This checks for the gameover state
+    /// </summary>
+    /// <param name="onlyCheck"></param>
+    /// <returns></returns>
     public int CheckColumns(bool onlyCheck = false)
     {
         bool ok = false;
