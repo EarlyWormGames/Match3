@@ -126,7 +126,7 @@ public class GridNode : MonoBehaviour
                                 //Do left
                                 if (m_Left != null)
                                 {
-                                    if (m_Left.m_Shape.m_CanSwap)
+                                    if (m_Left.m_Shape.CanSwap())
                                     {
                                         m_Shape.Swap(m_Left.m_Shape, Direction.Left);
                                         GameManager.lastDrag = Direction.Left;
@@ -143,7 +143,7 @@ public class GridNode : MonoBehaviour
                                 //Do left
                                 if (m_Right != null)
                                 {
-                                    if (m_Right.m_Shape.m_CanSwap)
+                                    if (m_Right.m_Shape.CanSwap())
                                     {
                                         m_Shape.Swap(m_Right.m_Shape, Direction.Right);
                                         GameManager.lastDrag = Direction.Right;
@@ -163,7 +163,7 @@ public class GridNode : MonoBehaviour
                                 //Do left
                                 if (m_Down != null)
                                 {
-                                    if (m_Down.m_Shape.m_CanSwap)
+                                    if (m_Down.m_Shape.CanSwap())
                                     {
                                         m_Shape.Swap(m_Down.m_Shape, Direction.Down);
                                         GameManager.lastDrag = Direction.Down;
@@ -180,7 +180,7 @@ public class GridNode : MonoBehaviour
                                 //Do left
                                 if (m_Up != null)
                                 {
-                                    if (m_Up.m_Shape.m_CanSwap)
+                                    if (m_Up.m_Shape.CanSwap())
                                     {
                                         m_Shape.Swap(m_Up.m_Shape, Direction.Up);
                                         GameManager.lastDrag = Direction.Up;
@@ -223,7 +223,7 @@ public class GridNode : MonoBehaviour
     public void MouseDown(BaseEventData eventData)
     {
         //If we can drag, start the drag
-        if (!GameManager.CanDrag || !m_Shape.m_CanSwap)
+        if (!GameManager.CanDrag || !m_Shape.CanSwap())
             return;
 
         GameManager.isDragging = true;
@@ -273,7 +273,7 @@ public class GridNode : MonoBehaviour
 
     public void MouseClick(BaseEventData eventData)
     {
-        if (GameManager.dragGNode == null && GameManager.CanDrag && m_Shape.m_CanSwap)
+        if (GameManager.dragGNode == null && GameManager.CanDrag && m_Shape.CanSwap())
         {
             //First click, to select a tile
             GameManager.dragGNode = this;
@@ -283,7 +283,7 @@ public class GridNode : MonoBehaviour
         else if (GameManager.CanDrag)
         {
             //Second click, to swap items
-            if (GameManager.dragGNode != this && m_Shape.m_CanSwap)
+            if (GameManager.dragGNode != this && m_Shape.CanSwap())
             {
                 GridNode other = GameManager.dragGNode;
                 Direction dir = GameManager.dragGNode.TrySwap(this);
@@ -406,7 +406,7 @@ public class GridNode : MonoBehaviour
         if (m_Shape == null)
             return false;
 
-        if (m_Shape.MarkDestroy)
+        if (m_Shape.MarkDestroy || !m_Shape.CanDestroy())
             return false;
 
         //====================================
@@ -578,12 +578,12 @@ public class GridNode : MonoBehaviour
     /// <returns></returns>
     public bool SwapCheckMatch()
     {
-        if (!m_Shape.m_CanSwap)
+        if (!m_Shape.CanSwap())
             return false;
 
         if (m_Left != null)
         {
-            if (m_Shape.m_CanSwap && m_Left.m_Shape.m_CanSwap)
+            if (m_Shape.CanSwap() && m_Left.m_Shape.CanSwap())
             {
                 m_Shape.Swap(m_Left.m_Shape, Direction.Left);
                 if (m_Left.CheckMatch(Direction.None, true))
@@ -597,7 +597,7 @@ public class GridNode : MonoBehaviour
 
         if (m_Right != null)
         {
-            if (m_Shape.m_CanSwap && m_Right.m_Shape.m_CanSwap)
+            if (m_Shape.CanSwap() && m_Right.m_Shape.CanSwap())
             {
                 m_Shape.Swap(m_Right.m_Shape, Direction.Right);
                 if (m_Right.CheckMatch(Direction.None, true))
@@ -611,7 +611,7 @@ public class GridNode : MonoBehaviour
 
         if (m_Up != null)
         {
-            if (m_Shape.m_CanSwap && m_Up.m_Shape.m_CanSwap)
+            if (m_Shape.CanSwap() && m_Up.m_Shape.CanSwap())
             {
                 m_Shape.Swap(m_Up.m_Shape, Direction.Up);
                 if (m_Up.CheckMatch(Direction.None, true))
@@ -625,7 +625,7 @@ public class GridNode : MonoBehaviour
 
         if (m_Down != null)
         {
-            if (m_Shape.m_CanSwap && m_Down.m_Shape.m_CanSwap)
+            if (m_Shape.CanSwap() && m_Down.m_Shape.CanSwap())
             {
                 m_Shape.Swap(m_Down.m_Shape, Direction.Down);
                 if (m_Down.CheckMatch(Direction.None, true))

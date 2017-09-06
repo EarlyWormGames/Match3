@@ -18,6 +18,7 @@ public class NodeItem : MonoBehaviour
     public ItemColour m_Colour;
     public ParticleSystem m_Explosion;
     public bool m_CanSwap = true;
+    public bool m_FullBlock = false;
 
     internal GridNode m_Parent;
     internal Animator m_GemAnimator;
@@ -102,5 +103,15 @@ public class NodeItem : MonoBehaviour
     public virtual void EndDestroy()
     {
         DestroyImmediate(gameObject);
+    }
+
+    public virtual bool CanSwap()
+    {
+        return m_CanSwap;
+    }
+
+    public virtual bool CanDestroy()
+    {
+        return !m_FullBlock;
     }
 }
