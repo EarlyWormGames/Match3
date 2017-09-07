@@ -96,10 +96,10 @@ public class HighScores : MonoBehaviour
         {
             // Instead of checking the value of desiredIndex
             // use 'break' to stop the loop.
-            if (scores[i] > newScore || scores[i] == 0)
+            if (scores[i] < newScore || scores[i] == 0)
             {
                 desiredIndex = i;
-                break;
+                //break;
             }
         }
         // If no desired index was found then the score
@@ -110,12 +110,12 @@ public class HighScores : MonoBehaviour
             " not high enough for high scores list.", this);
             return;
         }
-        // Move all of the scores after that index
+        // Move all of the scores before that index
         // back by one position. Do this by looping from
-        // the back of the array to our desired index.
-        for (int i = scores.Length - 1; i > desiredIndex; i--)
+        // the start of the array to our desired index.
+        for (int i = 0; i < desiredIndex; i++)
         {
-            scores[i] = scores[i - 1];
+            scores[i] = scores[i + 1];
         }
         // Insert our new score in its place
         scores[desiredIndex] = newScore;
