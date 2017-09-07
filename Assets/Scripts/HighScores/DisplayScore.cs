@@ -29,9 +29,9 @@ public class DisplayScore : MonoBehaviour {
         BuiltString = "";
         Text t = GetComponent<Text>();
         
-        for (int i = m_HS.scores.Length; i < 0; i--)
+        for (int i = m_HS.scores.Length; i > 0; --i)
         {
-            BuiltString += m_HS.scores[i].ToString() + "\n";
+            BuiltString += m_HS.scores[i- 1].ToString() + "\n";
         }
         t.text = BuiltString;
     }
