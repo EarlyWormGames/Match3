@@ -231,6 +231,8 @@ MonoBehaviour:
   m_Colour: 1
   m_Explosion: {fileID: 198704189717244222}
   m_CanSwap: 1
+  m_FullBlock: 0
+  m_SpawnChance: 20
 --- !u!198 &198204572330188640
 ParticleSystem:
   m_ObjectHideFlags: 1

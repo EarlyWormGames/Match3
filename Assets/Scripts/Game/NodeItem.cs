@@ -19,6 +19,7 @@ public class NodeItem : MonoBehaviour
     public ParticleSystem m_Explosion;
     public bool m_CanSwap = true;
     public bool m_FullBlock = false;
+    public int m_SpawnChance = 1;
 
     internal GridNode m_Parent;
     internal Animator m_GemAnimator;
@@ -114,4 +115,6 @@ public class NodeItem : MonoBehaviour
     {
         return !m_FullBlock;
     }
+
+    public virtual void NotifyDestroy() { }
 }

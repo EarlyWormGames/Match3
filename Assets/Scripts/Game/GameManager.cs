@@ -20,6 +20,22 @@ public class GameManager : MonoBehaviour
     }
     private static GameManager m_Instance;
 
+    public static int SpawnChanceMax
+    {
+        get
+        {
+            if (spawnMax == 0)
+            {
+                foreach (var item in instance.m_SpawnPrefabs)
+                {
+                    spawnMax += item.GetComponent<NodeItem>().m_SpawnChance;
+                }
+            }
+            return spawnMax;
+        }
+    }
+    private static int spawnMax;
+
     internal static bool isDragging;
     internal static GridNode dragGNode;
     internal static NodeItem dragNItem;
@@ -53,6 +69,8 @@ public class GameManager : MonoBehaviour
 
     public float m_NodeMoveSpeed = 5f;
     public int m_RequiredChainStart = 2;
+
+    public GameObject[] m_SpawnPrefabs = new GameObject[0];
 
     private bool m_WasMoving = true;
     private bool m_IsGameOver = false;
@@ -182,5 +200,52 @@ public class GameManager : MonoBehaviour
         NodeChainDown = new List<GridNode>();
         DestroyingList = new List<GridNode>();
         CanDrag = true;
-}
+    }
+
+    /// <summary>
+    /// Get a the index of a node item using their preset chances
+    /// </summary>
+    /// <returns></returns>
+    public static int GetNodeIndex()
+    {
+        int chance = Random.Range(0, SpawnChanceMax);
+        int prevChance = 0;
+        int index = 0;
+        foreach (var item in instance.m_SpawnPrefabs)
+        {
+            var node = item.GetComponent<NodeItem>();
+
+            if (chance >= prevChance && chance < prevChance + node.m_SpawnChance)
+            {
+                //Spawn this node
+                return index;
+            }
+            //Increase the low chance
+            prevChance += node.m_SpawnChance;
+            ++index;
+        }
+
+        //Will only get here if the spawn array is empty
+        return -1;
+    }
+
+    /// <summary>
+    /// Gets a copy of a node item without spawning it
+    /// </summary>
+    /// <param name="index"></param>
+    /// <returns></returns>
+    public static NodeItem GetNodeDetails(int index)
+    {
+        return instance.m_SpawnPrefabs[index].GetComponent<NodeItem>();
+    }
+
+    public static GameObject SpawnNodeItem()
+    {
+        return Instantiate(instance.m_SpawnPrefabs[GetNodeIndex()]);
+    }
+
+    public static GameObject SpawnNodeItem(int index)
+    {
+        return Instantiate(instance.m_SpawnPrefabs[index]);
+    }
 }

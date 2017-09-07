@@ -15,7 +15,6 @@ public enum Direction
 
 public class GridNode : MonoBehaviour
 {
-    public GameObject[] m_ShapePrefabs;
     public Vector3 m_ShapeScale = new Vector3(2, 2, 2);
     public Color m_HighlightColour;
 
@@ -30,8 +29,8 @@ public class GridNode : MonoBehaviour
         //It will then spawn the tile
         do
         {
-            int index = Random.Range(0, m_ShapePrefabs.Length);
-            NodeItem ex = m_ShapePrefabs[index].GetComponent<NodeItem>();
+            int index = GameManager.GetNodeIndex();
+            NodeItem ex = GameManager.GetNodeDetails(index);
 
             if (m_Left != null)
             {
@@ -70,7 +69,7 @@ public class GridNode : MonoBehaviour
             }
 
             //If it gets here, it will spawn an item
-            GameObject obj = Instantiate(m_ShapePrefabs[index]);
+            GameObject obj = GameManager.SpawnNodeItem(index);
             m_Shape = obj.GetComponent<NodeItem>();
             m_Shape.transform.parent = transform.parent;
             m_Shape.transform.localScale = m_ShapeScale;
@@ -346,8 +345,7 @@ public class GridNode : MonoBehaviour
     /// <param name="a_position"></param>
     public void SpawnTile(Vector3 a_position)
     {
-        int index = Random.Range(0, m_ShapePrefabs.Length);
-        GameObject obj = Instantiate(m_ShapePrefabs[index]);
+        GameObject obj = GameManager.SpawnNodeItem();
         m_Shape = obj.GetComponent<NodeItem>();
         m_Shape.transform.parent = transform.parent;
         m_Shape.transform.localScale = m_ShapeScale;
@@ -564,6 +562,14 @@ public class GridNode : MonoBehaviour
     public void StartDestroy()
     {
         m_Shape.StartDestroy();
+        if (m_Left != null)
+            m_Left.m_Shape.NotifyDestroy();
+        if (m_Right != null)
+            m_Right.m_Shape.NotifyDestroy();
+        if (m_Up != null)
+            m_Up.m_Shape.NotifyDestroy();
+        if (m_Down != null)
+            m_Down.m_Shape.NotifyDestroy();
     }
 
     public void EndDestroy()
