@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BacteriaBro : NodeItem
 {
     public int m_Lifespan = 3;
+    public Text m_LifeText;
     private int m_Lifetime;
+    private bool m_WasReversed;
 
     void Awake()
     {
@@ -17,7 +20,14 @@ public class BacteriaBro : NodeItem
     /// </summary>
     public void NotifySwap()
     {
+        if (MarkDestroy || m_WasReversed)
+        {
+            m_WasReversed = false;
+            return;
+        }
+
         ++m_Lifetime;
+        m_LifeText.text = m_Lifetime.ToString();
         if (m_Lifetime >= m_Lifespan)
         {
             //Mark a bunch of things to ready destruction
@@ -33,6 +43,11 @@ public class BacteriaBro : NodeItem
 
     protected override void OnNotifyDestroy()
     {
+        if (MarkDestroy)
+            return;
+
+        m_WasReversed = true;
+
         --m_Lifetime;
         if (m_Lifetime < 0)
         {
@@ -45,6 +60,8 @@ public class BacteriaBro : NodeItem
             MarkDestroy = true;
             m_Parent.StartDestroy();
         }
+        else
+            m_LifeText.text = m_Lifetime.ToString();
     }
 
     private void OnDestroy()
