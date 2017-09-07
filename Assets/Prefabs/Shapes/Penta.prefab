@@ -220,6 +220,8 @@ MonoBehaviour:
   m_Colour: 3
   m_Explosion: {fileID: 198999890968764436}
   m_CanSwap: 1
+  m_CanDestroy: 1
+  m_SpawnChance: 20
 --- !u!114 &114376332238928626
 MonoBehaviour:
   m_ObjectHideFlags: 1

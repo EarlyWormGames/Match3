@@ -22,6 +22,7 @@ public class GridNode : MonoBehaviour
     internal GridNode m_Left, m_Right, m_Up, m_Down;
     internal int m_xIndex, m_yIndex;
     internal Image m_Image;
+    internal bool m_SpawnPetrified;
 
     public void Init()
     {
@@ -257,8 +258,10 @@ public class GridNode : MonoBehaviour
             }
             else //Otherwise, tell the gamemanager we just moved these two tiles
             {
+                GameManager.dragNItem.MarkSwap = true;
                 GameManager.Stationary[GameManager.dragNItem.m_Parent.m_xIndex, GameManager.dragNItem.m_Parent.m_yIndex] = false;
                 GameManager.Stationary[GameManager.dragGNode.m_xIndex, GameManager.dragGNode.m_yIndex] = false;
+                GameManager.NotifySwap();
             }
         }
 
@@ -296,6 +299,7 @@ public class GridNode : MonoBehaviour
                         if (GameManager.dragGNode.CheckMatch(Direction.None, true))
                         {
                             ok = true;
+                            GameManager.dragNItem.MarkSwap = true;
                         }
                     }
                     else
@@ -304,6 +308,11 @@ public class GridNode : MonoBehaviour
                     if (!ok)
                     {
                         GameManager.dragNItem.Swap(GameManager.dragGNode.m_Shape, GameManager.GetOpposite(dir));
+                    }
+                    else
+                    {
+                        GameManager.dragNItem.MarkSwap = true;
+                        GameManager.NotifySwap();
                     }
                 }
             }
@@ -346,6 +355,16 @@ public class GridNode : MonoBehaviour
     public void SpawnTile(Vector3 a_position)
     {
         GameObject obj = GameManager.SpawnNodeItem();
+        m_Shape = obj.GetComponent<NodeItem>();
+        m_Shape.transform.parent = transform.parent;
+        m_Shape.transform.localScale = m_ShapeScale;
+        m_Shape.transform.position = a_position;
+        m_Shape.m_Parent = this;
+    }
+
+    public void SpawnPetrified(Vector3 a_position)
+    {
+        GameObject obj = GameManager.SpawnPetrified();
         m_Shape = obj.GetComponent<NodeItem>();
         m_Shape.transform.parent = transform.parent;
         m_Shape.transform.localScale = m_ShapeScale;
@@ -562,20 +581,18 @@ public class GridNode : MonoBehaviour
     public void StartDestroy()
     {
         m_Shape.StartDestroy();
-        if (m_Left != null)
-            m_Left.m_Shape.NotifyDestroy();
-        if (m_Right != null)
-            m_Right.m_Shape.NotifyDestroy();
-        if (m_Up != null)
-            m_Up.m_Shape.NotifyDestroy();
-        if (m_Down != null)
-            m_Down.m_Shape.NotifyDestroy();
     }
 
     public void EndDestroy()
     {
         m_Shape.EndDestroy();
         GameManager.DestroyingList.Remove(this);
+
+        if (m_SpawnPetrified)
+        {
+            m_SpawnPetrified = false;
+            SpawnPetrified(transform.position);
+        }
     }
 
     /// <summary>

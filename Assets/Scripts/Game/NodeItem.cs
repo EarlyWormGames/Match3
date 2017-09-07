@@ -18,12 +18,13 @@ public class NodeItem : MonoBehaviour
     public ItemColour m_Colour;
     public ParticleSystem m_Explosion;
     public bool m_CanSwap = true;
-    public bool m_FullBlock = false;
+    public bool m_CanDestroy = true;
     public int m_SpawnChance = 1;
 
     internal GridNode m_Parent;
     internal Animator m_GemAnimator;
     internal bool MarkDestroy = false;
+    internal bool MarkSwap = false;
 
     private float m_DestroyTimer = 0;
     private bool m_destroyStart = false;
@@ -103,6 +104,18 @@ public class NodeItem : MonoBehaviour
 
     public virtual void EndDestroy()
     {
+        if (m_Parent.m_Left != null)
+            m_Parent.m_Left.m_Shape.NotifyDestroy();
+        if (m_Parent.m_Right != null)
+            m_Parent.m_Right.m_Shape.NotifyDestroy();
+        if (m_Parent.m_Up != null)
+            m_Parent.m_Up.m_Shape.NotifyDestroy();
+        if (m_Parent.m_Down != null)
+            m_Parent.m_Down.m_Shape.NotifyDestroy();
+
+        if (GameManager.onEOFSwap != null && MarkSwap)
+            GameManager.onEOFSwap();
+
         DestroyImmediate(gameObject);
     }
 
@@ -113,8 +126,18 @@ public class NodeItem : MonoBehaviour
 
     public virtual bool CanDestroy()
     {
-        return !m_FullBlock;
+        return m_CanDestroy;
     }
 
-    public virtual void NotifyDestroy() { }
+    /// <summary>
+    /// Called when an adjacent tile is destroyed
+    /// </summary>
+    public void NotifyDestroy()
+    {
+        if (MarkDestroy)
+            return;
+        OnNotifyDestroy();
+    }
+
+    protected virtual void OnNotifyDestroy() { }
 }

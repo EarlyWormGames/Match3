@@ -5,7 +5,10 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-#region STATIC_VARS
+    public delegate void MyDel();
+
+    #region STATIC_VARS
+    #region STATIC_GETS
     //Grab the static instance of this item
     public static GameManager instance
     {
@@ -35,29 +38,34 @@ public class GameManager : MonoBehaviour
         }
     }
     private static int spawnMax;
+#endregion
 
-    internal static bool isDragging;
-    internal static GridNode dragGNode;
-    internal static NodeItem dragNItem;
+    public static bool isDragging;
+    public static GridNode dragGNode;
+    public static NodeItem dragNItem;
     //The direction of the last drag
-    internal static Direction lastDrag = Direction.None;
-    internal static Vector3 dragStartPos;
-    internal static int Score;
+    public static Direction lastDrag = Direction.None;
+    public static Vector3 dragStartPos;
+    public static int Score;
 
     //An array of which Grid Nodes are moving
-    internal static bool[,] Stationary;
+    public static bool[,] Stationary;
 
     //A bunch of lists for matching nodes
-    internal static List<GridNode> NodeChainLeft = new List<GridNode>(),
+    public static List<GridNode> NodeChainLeft = new List<GridNode>(),
         NodeChainRight = new List<GridNode>(),
         NodeChainUp = new List<GridNode>(),
         NodeChainDown = new List<GridNode>();
     //A list of which nodes are about to be destroyed
-    internal static List<GridNode> DestroyingList = new List<GridNode>();
+    public static List<GridNode> DestroyingList = new List<GridNode>();
 
     //Which grid columns need new tiles and how many
-    internal static int[] RespawnCounts;
-    internal static bool CanDrag = true;
+    public static int[] RespawnCounts;
+    public static bool CanDrag = true;
+
+    //Delegate function for notifying a turn
+    public static MyDel onNotifySwap; 
+    public static MyDel onEOFSwap;
 
     #endregion
 
@@ -71,6 +79,7 @@ public class GameManager : MonoBehaviour
     public int m_RequiredChainStart = 2;
 
     public GameObject[] m_SpawnPrefabs = new GameObject[0];
+    public GameObject m_Pretified;
 
     private bool m_WasMoving = true;
     private bool m_IsGameOver = false;
@@ -247,5 +256,16 @@ public class GameManager : MonoBehaviour
     public static GameObject SpawnNodeItem(int index)
     {
         return Instantiate(instance.m_SpawnPrefabs[index]);
+    }
+
+    public static GameObject SpawnPetrified()
+    {
+        return Instantiate(instance.m_Pretified);
+    }
+
+    public static void NotifySwap()
+    {
+        if (onNotifySwap != null)
+            onNotifySwap();
     }
 }
