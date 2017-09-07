@@ -10,7 +10,7 @@ public class HighScores : MonoBehaviour
 
     void Start()
     {
-        currentDirectory = Application.dataPath;
+        currentDirectory = Application.persistentDataPath;
 
         // TESTING
         LoadScoresFromFile();
