@@ -2,7 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameSettings
+public class Mediator
+{
+    public static GameSettings gSettings;
+}
+
+public struct GameSettings
 {
     /// <summary>
     /// How many potential chains will spawn at the start of the game
@@ -17,9 +22,4 @@ public class GameSettings
 
     public int GridWidth = 5;
     public int GridHeight = 7;
-}
-
-public class Mediator
-{
-    public static GameSettings gSettings;
 }
