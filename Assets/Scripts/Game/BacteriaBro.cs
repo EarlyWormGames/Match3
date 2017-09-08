@@ -13,10 +13,17 @@ public class BacteriaBro : NodeItem
     private int m_Lifetime;
     private bool m_WasReversed;
 
+    private bool m_CanDie = false;
+
     void Awake()
     {
         GameManager.onEOFSwap += NotifySwap;
         LifeTimeDisplayUpdate();
+    }
+
+    protected override void OnUpdate()
+    {
+        m_CanDie = true;
     }
 
     /// <summary>
@@ -24,7 +31,7 @@ public class BacteriaBro : NodeItem
     /// </summary>
     public void NotifySwap()
     {
-        if (MarkDestroy || m_WasReversed)
+        if (MarkDestroy || m_WasReversed || !m_CanDie)
         {
             m_WasReversed = false;
             return;
@@ -56,7 +63,7 @@ public class BacteriaBro : NodeItem
 
     protected override void OnNotifyEndDestroy()
     {
-        if (MarkDestroy)
+        if (MarkDestroy || !m_CanDie)
             return;
 
         --m_Lifetime;

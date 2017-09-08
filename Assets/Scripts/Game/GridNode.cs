@@ -258,6 +258,7 @@ public class GridNode : MonoBehaviour
             }
             else //Otherwise, tell the gamemanager we just moved these two tiles
             {
+                GameManager.dragGNode.m_Shape.MarkSwap = true;
                 GameManager.dragNItem.MarkSwap = true;
                 GameManager.Stationary[GameManager.dragNItem.m_Parent.m_xIndex, GameManager.dragNItem.m_Parent.m_yIndex] = false;
                 GameManager.Stationary[GameManager.dragGNode.m_xIndex, GameManager.dragGNode.m_yIndex] = false;
@@ -298,6 +299,7 @@ public class GridNode : MonoBehaviour
                         if (GameManager.dragGNode.CheckMatch(Direction.None, true))
                         {
                             ok = true;
+                            GameManager.dragGNode.m_Shape.MarkSwap = true;
                             GameManager.dragNItem.MarkSwap = true;
                         }
                     }
@@ -311,6 +313,7 @@ public class GridNode : MonoBehaviour
                     else
                     {
                         GameManager.dragNItem.MarkSwap = true;
+                        GameManager.dragGNode.m_Shape.MarkSwap = true;
                         GameManager.NotifySwap();
                     }
                 }
@@ -552,9 +555,21 @@ public class GridNode : MonoBehaviour
 
         if (!onlyCheck) //Sometimes we only want to check if we can match, but not destroy the tiles
         {
+            foreach (var node in destroynodes)
+            {
+                if (node.m_Shape.MarkSwap)
+                {
+                    foreach (var otherNode in destroynodes)
+                    {
+                        otherNode.m_Shape.SwapChain = true;
+                    }
+                    break;
+                }
+            }
+
             if (ok)
             {
-                GameManager.NotifyScore(m_Shape.m_Colour, true, this);
+                GameManager.NotifyScore(m_Shape.m_Colour, m_Shape.SwapChain, this);
             }
 
             foreach (var node in destroynodes)
@@ -564,7 +579,7 @@ public class GridNode : MonoBehaviour
                     if (!GameManager.DestroyingList.Contains(node))
                     {
                         //Mark a bunch of things to ready destruction
-                        if (m_RespawnType == null)
+                        if (node.m_RespawnType == null)
                             ++GameManager.RespawnCounts[node.m_xIndex];
                         GameManager.CanDrag = false;
                         ++GameManager.Score;

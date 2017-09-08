@@ -85,6 +85,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject[] m_SpawnPrefabs = new GameObject[0];
     public GameObject m_Petrified;
+    public GameObject m_BBros;
 
     private bool m_WasMoving = true;
     private bool m_IsGameOver = false;
@@ -93,7 +94,8 @@ public class GameManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+        var obj = new GameObject();
+        obj.AddComponent<MelAnoma>();
     }
 
     // Update is called once per frame

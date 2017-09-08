@@ -24,6 +24,7 @@ public class NodeItem : MonoBehaviour
     internal Animator m_GemAnimator;
     internal bool MarkDestroy = false;
     internal bool MarkSwap = false;
+    internal bool SwapChain = false;
 
     private float m_DestroyTimer = 0;
     private bool m_destroyStart = false;
@@ -72,7 +73,11 @@ public class NodeItem : MonoBehaviour
                 m_Parent.EndDestroy();
             }
         }
+
+        OnUpdate();
     }
+
+    protected virtual void OnUpdate() { }
 
     public void DestroyMesh()
     {

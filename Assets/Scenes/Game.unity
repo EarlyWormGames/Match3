@@ -732,6 +732,7 @@ MonoBehaviour:
   - {fileID: 1000011841440206, guid: 0e0fe36c9f7f8464ea2391031966807d, type: 2}
   m_Petrified: {fileID: 1000013356204050, guid: 676e107eeafc5524b97910d76516565d,
     type: 2}
+  m_BBros: {fileID: 1000011841440206, guid: 0e0fe36c9f7f8464ea2391031966807d, type: 2}
 --- !u!4 &887100672
 Transform:
   m_ObjectHideFlags: 0
