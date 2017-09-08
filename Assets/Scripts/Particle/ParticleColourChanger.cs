@@ -19,12 +19,12 @@ public class ParticleColourChanger : MonoBehaviour {
                 }
                 break;
 
-            case ItemColour.Orange:
-                foreach (ParticleSystem ps in m_childParticles)
-                {
-                    ps.startColor = new Color(1, 0.5f, 0, ps.startColor.a);
-                }
-                break;
+            //case ItemColour.Orange:
+            //    foreach (ParticleSystem ps in m_childParticles)
+            //    {
+            //        ps.startColor = new Color(1, 0.5f, 0, ps.startColor.a);
+            //    }
+            //    break;
 
             case ItemColour.Yellow:
                 foreach (ParticleSystem ps in m_childParticles)
@@ -54,12 +54,12 @@ public class ParticleColourChanger : MonoBehaviour {
                 }
                 break;
 
-            case ItemColour.Pink:
-                foreach (ParticleSystem ps in m_childParticles)
-                {
-                    ps.startColor = new Color(1, 0, 0.5f, ps.startColor.a);
-                }
-                break;
+            //case ItemColour.Pink:
+            //    foreach (ParticleSystem ps in m_childParticles)
+            //    {
+            //        ps.startColor = new Color(1, 0, 0.5f, ps.startColor.a);
+            //    }
+            //    break;
         }
 	}
 	

@@ -13,6 +13,7 @@ public class BacteriaBro : NodeItem
     void Awake()
     {
         GameManager.onEOFSwap += NotifySwap;
+        m_LifeText.text = (m_Lifetime + 1).ToString();
     }
 
     /// <summary>
@@ -27,7 +28,6 @@ public class BacteriaBro : NodeItem
         }
 
         ++m_Lifetime;
-        m_LifeText.text = m_Lifetime.ToString();
         if (m_Lifetime >= m_Lifespan)
         {
             //Mark a bunch of things to ready destruction
@@ -39,6 +39,8 @@ public class BacteriaBro : NodeItem
             m_Parent.StartDestroy();
             m_Parent.m_SpawnPetrified = true;
         }
+        else
+            m_LifeText.text = (m_Lifetime + 1).ToString();
     }
 
     protected override void OnNotifyDestroy()
@@ -49,6 +51,7 @@ public class BacteriaBro : NodeItem
         m_WasReversed = true;
 
         --m_Lifetime;
+            m_LifeText.text = (m_Lifetime + 1).ToString();
         if (m_Lifetime < 0)
         {
             //Mark a bunch of things to ready destruction
@@ -60,8 +63,6 @@ public class BacteriaBro : NodeItem
             MarkDestroy = true;
             m_Parent.StartDestroy();
         }
-        else
-            m_LifeText.text = m_Lifetime.ToString();
     }
 
     private void OnDestroy()

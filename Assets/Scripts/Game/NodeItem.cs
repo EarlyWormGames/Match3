@@ -6,9 +6,7 @@ public enum ItemColour
 {
     Blue,
     Green,
-    Pink,
     Purple,
-    Orange,
     Yellow,
     Red,
 }
