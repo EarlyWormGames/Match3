@@ -49,9 +49,15 @@ public class BacteriaBro : NodeItem
             return;
 
         m_WasReversed = true;
+    }
+
+    protected override void OnNotifyEndDestroy()
+    {
+        if (MarkDestroy)
+            return;
 
         --m_Lifetime;
-            m_LifeText.text = (m_Lifetime + 1).ToString();
+        m_LifeText.text = (m_Lifetime + 1).ToString();
         if (m_Lifetime < 0)
         {
             //Mark a bunch of things to ready destruction

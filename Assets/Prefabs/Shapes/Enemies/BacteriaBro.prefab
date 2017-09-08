@@ -314,6 +314,7 @@ MonoBehaviour:
   m_CanSwap: 1
   m_CanDestroy: 0
   m_SpawnChance: 5
+  m_NotifiesDestroy: 0
   m_Lifespan: 3
   m_LifeText: {fileID: 114606513992313114}
 --- !u!198 &198018368141286962

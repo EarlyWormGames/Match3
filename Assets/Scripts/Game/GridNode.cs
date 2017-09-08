@@ -287,7 +287,6 @@ public class GridNode : MonoBehaviour
             //Second click, to swap items
             if (GameManager.dragGNode != this && m_Shape.CanSwap())
             {
-                GridNode other = GameManager.dragGNode;
                 Direction dir = GameManager.dragGNode.TrySwap(this);
 
                 //Only swap them if we can
