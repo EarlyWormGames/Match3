@@ -842,8 +842,7 @@ MonoBehaviour:
   - {fileID: 1000010728489230, guid: 8b40cffea67202d4bbf662b25de4c94a, type: 2}
   - {fileID: 1000010921973622, guid: af16961524284e54491133548920258b, type: 2}
   - {fileID: 1000011841440206, guid: 0e0fe36c9f7f8464ea2391031966807d, type: 2}
-  m_Pretified: {fileID: 1000013356204050, guid: 676e107eeafc5524b97910d76516565d,
-    type: 2}
+  m_Petrified: {fileID: 0}
 --- !u!4 &887100672
 Transform:
   m_ObjectHideFlags: 0

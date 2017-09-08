@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PercentageBar : MonoBehaviour {
+public class PercentageMovement : MonoBehaviour {
 
     public float Percentage = 0.0f;
 
