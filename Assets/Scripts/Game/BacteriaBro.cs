@@ -16,7 +16,7 @@ public class BacteriaBro : NodeItem
     void Awake()
     {
         GameManager.onEOFSwap += NotifySwap;
-        m_LifeText.text = (m_Lifetime + 1).ToString();
+        LifeTimeDisplayUpdate();
     }
 
     /// <summary>
