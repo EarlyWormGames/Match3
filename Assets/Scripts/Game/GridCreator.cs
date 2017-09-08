@@ -15,7 +15,7 @@ public class GridCreator : MonoBehaviour
     internal Vector3[] m_ColumnSpawns;
     internal Vector3[] m_ColumnDistances;
 
-    private bool DoOnce;
+    private int StartFrames = 5;
 
 
     // Use this for initialization
@@ -94,7 +94,7 @@ public class GridCreator : MonoBehaviour
     
     void Update()
     {
-        if (!DoOnce)
+        if (StartFrames > 0)
         {
             //DoOnce = true;
             for (int i = 0; i < m_GridWidth; ++i)
@@ -102,6 +102,7 @@ public class GridCreator : MonoBehaviour
                 m_ColumnDistances[i] = (m_Nodes[i, 0].transform.position - m_Nodes[i, 1].transform.position);
                 m_ColumnSpawns[i] = m_Nodes[i, 0].transform.position + m_ColumnDistances[i];
             }
+            --StartFrames;
         }
         //GameManager.instance.m_Grid.CheckColumns();
     }

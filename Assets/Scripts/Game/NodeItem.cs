@@ -18,6 +18,7 @@ public class NodeItem : MonoBehaviour
     public bool m_CanSwap = true;
     public bool m_CanDestroy = true;
     public int m_SpawnChance = 1;
+    public bool m_NotifiesDestroy = true;
 
     internal GridNode m_Parent;
     internal Animator m_GemAnimator;
@@ -98,18 +99,33 @@ public class NodeItem : MonoBehaviour
         m_destroyStart = true;
         m_DestroyTimer = 1f;
         m_Explosion.Play();
+
+        if (m_NotifiesDestroy)
+        {
+            if (m_Parent.m_Left != null)
+                m_Parent.m_Left.m_Shape.NotifyDestroy();
+            if (m_Parent.m_Right != null)
+                m_Parent.m_Right.m_Shape.NotifyDestroy();
+            if (m_Parent.m_Up != null)
+                m_Parent.m_Up.m_Shape.NotifyDestroy();
+            if (m_Parent.m_Down != null)
+                m_Parent.m_Down.m_Shape.NotifyDestroy();
+        }
     }
 
     public virtual void EndDestroy()
     {
-        if (m_Parent.m_Left != null)
-            m_Parent.m_Left.m_Shape.NotifyDestroy();
-        if (m_Parent.m_Right != null)
-            m_Parent.m_Right.m_Shape.NotifyDestroy();
-        if (m_Parent.m_Up != null)
-            m_Parent.m_Up.m_Shape.NotifyDestroy();
-        if (m_Parent.m_Down != null)
-            m_Parent.m_Down.m_Shape.NotifyDestroy();
+        if (m_NotifiesDestroy)
+        {
+            if (m_Parent.m_Left != null)
+                m_Parent.m_Left.m_Shape.NotifyEndDestroy();
+            if (m_Parent.m_Right != null)
+                m_Parent.m_Right.m_Shape.NotifyEndDestroy();
+            if (m_Parent.m_Up != null)
+                m_Parent.m_Up.m_Shape.NotifyEndDestroy();
+            if (m_Parent.m_Down != null)
+                m_Parent.m_Down.m_Shape.NotifyEndDestroy();
+        }
 
         if (GameManager.onEOFSwap != null && MarkSwap)
             GameManager.onEOFSwap();
@@ -137,5 +153,13 @@ public class NodeItem : MonoBehaviour
         OnNotifyDestroy();
     }
 
+    public void NotifyEndDestroy()
+    {
+        if (MarkDestroy)
+            return;
+        OnNotifyEndDestroy();
+    }
+
     protected virtual void OnNotifyDestroy() { }
+    protected virtual void OnNotifyEndDestroy() { }
 }
