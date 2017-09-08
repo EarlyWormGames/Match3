@@ -5,6 +5,7 @@ using UnityEngine;
 public class Mediator
 {
     public static GameSettings gSettings;
+    public static float TargetScore;
 }
 
 public class GameSettings
