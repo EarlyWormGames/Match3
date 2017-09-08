@@ -470,6 +470,9 @@ MonoBehaviour:
   m_NotifiesDestroy: 0
   m_Lifespan: 3
   m_LifeText: {fileID: 114606513992313114}
+  m_Sprite1: {fileID: 212690935102383508}
+  m_Sprite2: {fileID: 212004359209349610}
+  m_Sprite3: {fileID: 212725893358921794}
 --- !u!198 &198018368141286962
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -3815,7 +3818,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1070239800
+  randomSeed: 806762334
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -10339,7 +10342,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -548490788
+  randomSeed: 1758379990
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -16887,7 +16890,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1049092089
+  randomSeed: 1967292545
   InitialModule:
     serializedVersion: 3
     enabled: 1

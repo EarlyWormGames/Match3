@@ -7,9 +7,9 @@ public class BacteriaBro : NodeItem
 {
     public int m_Lifespan = 3;
     public Text m_LifeText;
-    public SpriteRenderer m_BBSprite2;
-    public SpriteRenderer m_BBSprite3;
-    public SpriteRenderer m_Sprite;
+    public SpriteRenderer m_Sprite1;
+    public SpriteRenderer m_Sprite2;
+    public SpriteRenderer m_Sprite3;
     private int m_Lifetime;
     private bool m_WasReversed;
 
@@ -84,24 +84,25 @@ public class BacteriaBro : NodeItem
         m_LifeText.text = (m_Lifetime + 1).ToString();
         if (m_Lifetime >= 1)
         {
-            m_BBSprite2.gameObject.SetActive(true);
+            m_Sprite2.gameObject.SetActive(true);
         }
         else
         {
-            m_BBSprite2.gameObject.SetActive(false);
+            m_Sprite2.gameObject.SetActive(false);
         }
         if (m_Lifetime >= 2)
         {
-            m_BBSprite3.gameObject.SetActive(true);
+            m_Sprite3.gameObject.SetActive(true);
         }
         else
         {
-            m_BBSprite3.gameObject.SetActive(false);
+            m_Sprite3.gameObject.SetActive(false);
         }
     }
+
     protected override void OnDestroyMesh()
     {
         m_LifeText.gameObject.SetActive(false);
-        m_Sprite.gameObject.SetActive(false);
+        m_Sprite1.gameObject.SetActive(false);
     }
 }
