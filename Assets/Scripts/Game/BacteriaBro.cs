@@ -7,6 +7,9 @@ public class BacteriaBro : NodeItem
 {
     public int m_Lifespan = 3;
     public Text m_LifeText;
+    public SpriteRenderer m_BBSprite2;
+    public SpriteRenderer m_BBSprite3;
+    public SpriteRenderer m_Sprite;
     private int m_Lifetime;
     private bool m_WasReversed;
 
@@ -36,11 +39,11 @@ public class BacteriaBro : NodeItem
 
             //Tell the node to destroy
             MarkDestroy = true;
+            m_Parent.m_RespawnType = GameManager.instance.m_Petrified;
             m_Parent.StartDestroy();
-            m_Parent.m_SpawnPetrified = true;
         }
         else
-            m_LifeText.text = (m_Lifetime + 1).ToString();
+            LifeTimeDisplayUpdate();
     }
 
     protected override void OnNotifyDestroy()
@@ -57,7 +60,7 @@ public class BacteriaBro : NodeItem
             return;
 
         --m_Lifetime;
-        m_LifeText.text = (m_Lifetime + 1).ToString();
+        LifeTimeDisplayUpdate();
         if (m_Lifetime < 0)
         {
             //Mark a bunch of things to ready destruction
@@ -74,5 +77,31 @@ public class BacteriaBro : NodeItem
     private void OnDestroy()
     {
         GameManager.onEOFSwap -= NotifySwap;
+    }
+
+    private void LifeTimeDisplayUpdate()
+    {
+        m_LifeText.text = (m_Lifetime + 1).ToString();
+        if (m_Lifetime >= 1)
+        {
+            m_BBSprite2.gameObject.SetActive(true);
+        }
+        else
+        {
+            m_BBSprite2.gameObject.SetActive(false);
+        }
+        if (m_Lifetime >= 2)
+        {
+            m_BBSprite3.gameObject.SetActive(true);
+        }
+        else
+        {
+            m_BBSprite3.gameObject.SetActive(false);
+        }
+    }
+    protected override void OnDestroyMesh()
+    {
+        m_LifeText.gameObject.SetActive(false);
+        m_Sprite.gameObject.SetActive(false);
     }
 }

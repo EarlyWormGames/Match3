@@ -22,7 +22,7 @@ public class GridNode : MonoBehaviour
     internal GridNode m_Left, m_Right, m_Up, m_Down;
     internal int m_xIndex, m_yIndex;
     internal Image m_Image;
-    internal bool m_SpawnPetrified;
+    internal GameObject m_RespawnType = null;
 
     public void Init()
     {
@@ -361,9 +361,9 @@ public class GridNode : MonoBehaviour
         m_Shape.m_Parent = this;
     }
 
-    public void SpawnPetrified(Vector3 a_position)
+    public void SpawnTile(Vector3 a_position, GameObject a_object)
     {
-        GameObject obj = GameManager.SpawnPetrified();
+        GameObject obj = Instantiate(a_object);
         m_Shape = obj.GetComponent<NodeItem>();
         m_Shape.transform.parent = transform.parent;
         m_Shape.transform.localScale = m_ShapeScale;
@@ -552,6 +552,11 @@ public class GridNode : MonoBehaviour
 
         if (!onlyCheck) //Sometimes we only want to check if we can match, but not destroy the tiles
         {
+            if (ok)
+            {
+                GameManager.NotifyScore(m_Shape.m_Colour, true, this);
+            }
+
             foreach (var node in destroynodes)
             {
                 if (node.m_Shape != null)
@@ -559,7 +564,8 @@ public class GridNode : MonoBehaviour
                     if (!GameManager.DestroyingList.Contains(node))
                     {
                         //Mark a bunch of things to ready destruction
-                        ++GameManager.RespawnCounts[node.m_xIndex];
+                        if (m_RespawnType == null)
+                            ++GameManager.RespawnCounts[node.m_xIndex];
                         GameManager.CanDrag = false;
                         ++GameManager.Score;
                         GameManager.DestroyingList.Add(node);
@@ -587,10 +593,10 @@ public class GridNode : MonoBehaviour
         m_Shape.EndDestroy();
         GameManager.DestroyingList.Remove(this);
 
-        if (m_SpawnPetrified)
+        if (m_RespawnType != null)
         {
-            m_SpawnPetrified = false;
-            SpawnPetrified(transform.position);
+            SpawnTile(transform.position, m_RespawnType);
+            m_RespawnType = null;
         }
     }
 

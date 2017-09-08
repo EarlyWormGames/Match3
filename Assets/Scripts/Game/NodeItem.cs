@@ -63,8 +63,7 @@ public class NodeItem : MonoBehaviour
             if (m_DestroyTimer <= 0.5f)
             {
                 //Disable the mesh after a certain amount of time
-                if (GetComponent<MeshRenderer>() != null)
-                    GetComponent<MeshRenderer>().enabled = false;
+                DestroyMesh();
             }
             if (m_DestroyTimer <= 0)
             {
@@ -74,6 +73,15 @@ public class NodeItem : MonoBehaviour
             }
         }
     }
+
+    public void DestroyMesh()
+    {
+        if (GetComponent<MeshRenderer>() != null)
+            GetComponent<MeshRenderer>().enabled = false;
+        OnDestroyMesh();
+    }
+
+    protected virtual void OnDestroyMesh() { }
 
     /// <summary>
     /// Swap this node with another
