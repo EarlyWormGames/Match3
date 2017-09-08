@@ -113,5 +113,7 @@ public class BacteriaBro : NodeItem
     {
         m_LifeText.gameObject.SetActive(false);
         m_Sprite1.gameObject.SetActive(false);
+        m_Sprite2.gameObject.SetActive(false);
+        m_Sprite3.gameObject.SetActive(false);
     }
 }
