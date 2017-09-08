@@ -7,7 +7,7 @@ public class Mediator
     public static GameSettings gSettings;
 }
 
-public struct GameSettings
+public class GameSettings
 {
     /// <summary>
     /// How many potential chains will spawn at the start of the game
