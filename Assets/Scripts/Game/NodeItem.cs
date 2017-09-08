@@ -32,6 +32,7 @@ public class NodeItem : MonoBehaviour
     void Start()
     {
         m_GemAnimator = GetComponent<Animator>();
+        if(m_Explosion != null)
         m_Explosion.Stop();
     }
 
@@ -106,6 +107,7 @@ public class NodeItem : MonoBehaviour
     {
         m_destroyStart = true;
         m_DestroyTimer = 1f;
+        if(m_Explosion != null)
         m_Explosion.Play();
 
         if (m_NotifiesDestroy)
