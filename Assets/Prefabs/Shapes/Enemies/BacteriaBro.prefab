@@ -317,6 +317,7 @@ MonoBehaviour:
   m_NotifiesDestroy: 0
   m_Lifespan: 3
   m_LifeText: {fileID: 114606513992313114}
+  m_Sprite: {fileID: 212725893358921794}
 --- !u!198 &198018368141286962
 ParticleSystem:
   m_ObjectHideFlags: 1

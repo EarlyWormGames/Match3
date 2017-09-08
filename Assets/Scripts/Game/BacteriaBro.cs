@@ -7,6 +7,7 @@ public class BacteriaBro : NodeItem
 {
     public int m_Lifespan = 3;
     public Text m_LifeText;
+    public SpriteRenderer m_Sprite;
     private int m_Lifetime;
     private bool m_WasReversed;
 
@@ -36,8 +37,8 @@ public class BacteriaBro : NodeItem
 
             //Tell the node to destroy
             MarkDestroy = true;
+            m_Parent.m_RespawnType = GameManager.instance.m_Petrified;
             m_Parent.StartDestroy();
-            m_Parent.m_SpawnPetrified = true;
         }
         else
             m_LifeText.text = (m_Lifetime + 1).ToString();
@@ -74,5 +75,11 @@ public class BacteriaBro : NodeItem
     private void OnDestroy()
     {
         GameManager.onEOFSwap -= NotifySwap;
+    }
+
+    protected override void OnDestroyMesh()
+    {
+        m_LifeText.gameObject.SetActive(false);
+        m_Sprite.gameObject.SetActive(false);
     }
 }

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public delegate void MyDel();
+    public delegate void ColourDel(ItemColour a_colour, bool a_swapped, GridNode a_node);
 
     #region STATIC_VARS
     #region STATIC_GETS
@@ -64,8 +65,12 @@ public class GameManager : MonoBehaviour
     public static bool CanDrag = true;
 
     //Delegate function for notifying a turn
+
+    #region DELEGATES
     public static MyDel onNotifySwap; 
     public static MyDel onEOFSwap;
+    public static ColourDel onScored;
+    #endregion
 
     #endregion
 
@@ -79,7 +84,7 @@ public class GameManager : MonoBehaviour
     public int m_RequiredChainStart = 2;
 
     public GameObject[] m_SpawnPrefabs = new GameObject[0];
-    public GameObject m_Pretified;
+    public GameObject m_Petrified;
 
     private bool m_WasMoving = true;
     private bool m_IsGameOver = false;
@@ -258,14 +263,15 @@ public class GameManager : MonoBehaviour
         return Instantiate(instance.m_SpawnPrefabs[index]);
     }
 
-    public static GameObject SpawnPetrified()
-    {
-        return Instantiate(instance.m_Pretified);
-    }
-
     public static void NotifySwap()
     {
         if (onNotifySwap != null)
             onNotifySwap();
+    }
+
+    public static void NotifyScore(ItemColour a_colour, bool a_wasSwapped, GridNode a_node)
+    {
+        if (onScored != null)
+            onScored(a_colour, a_wasSwapped, a_node);
     }
 }
