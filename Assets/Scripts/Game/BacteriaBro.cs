@@ -82,6 +82,8 @@ public class BacteriaBro : NodeItem
     private void LifeTimeDisplayUpdate()
     {
         m_LifeText.text = (m_Lifetime + 1).ToString();
+        m_LifeText.color = new Color((float)m_Lifetime / (m_Lifespan - 1), 0, 0);
+        m_LifeText.fontSize = 120 + m_Lifetime * 25;
         if (m_Lifetime >= 1)
         {
             m_Sprite2.gameObject.SetActive(true);
