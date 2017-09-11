@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WBCA : NodeItem
+public class WBCA : MonoBehaviour
 {
-    public override void OnEndDestroy()
+    public void DoIt()
     {
-        base.OnEndDestroy();
         foreach (var item in GameManager.instance.m_Grid.m_Nodes)
         {
             if (item.m_Shape.GetType() == typeof(BacteriaBro))
