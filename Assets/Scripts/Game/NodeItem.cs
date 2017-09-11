@@ -36,6 +36,14 @@ public class NodeItem : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        foreach (var item in GetComponents<NodeItem>())
+        {
+            if (item != this)
+            {
+                Destroy(item); //Destroy anything that isn't this script. Useful for inherited scripts
+            }
+        }
+
         m_GemAnimator = GetComponent<Animator>();
         if(m_Explosion != null)
         m_Explosion.Stop();

@@ -4,29 +4,10 @@ using UnityEngine;
 
 public class RottenItem : NodeItem
 {
-    int m_DecayTime = 3;
-
-    private void OnEnable()
-    {
-        GameManager.onEOFSwap += OnSwap;
-    }
-
-    private void OnDisable()
-    {
-        GameManager.onEOFSwap -= OnSwap;
-    }
-
-    void OnSwap()
-    {
-        if (m_DecayTime > 0)
-            --m_DecayTime;
-    }
-
+    internal bool m_WasDeleted = false;
     public override void OnEndDestroy()
     {
-        if (m_DecayTime <= 0)
+        if (!m_WasDeleted)
             --GameManager.Score;
-        else
-            ++GameManager.Score;
     }
 }
