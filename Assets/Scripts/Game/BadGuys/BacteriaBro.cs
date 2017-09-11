@@ -40,14 +40,9 @@ public class BacteriaBro : NodeItem
         ++m_Lifetime;
         if (m_Lifetime >= m_Lifespan)
         {
-            //Mark a bunch of things to ready destruction
-            GameManager.CanDrag = false;
-            GameManager.DestroyingList.Add(m_Parent);
-
             //Tell the node to destroy
-            MarkDestroy = true;
             m_Parent.m_RespawnType = GameManager.instance.m_Petrified;
-            m_Parent.StartDestroy();
+            m_Parent.StartDestroy(false);
         }
         else
             LifeTimeDisplayUpdate();
@@ -70,13 +65,6 @@ public class BacteriaBro : NodeItem
         LifeTimeDisplayUpdate();
         if (m_Lifetime < 0)
         {
-            //Mark a bunch of things to ready destruction
-            ++GameManager.RespawnCounts[m_Parent.m_xIndex];
-            GameManager.CanDrag = false;
-            GameManager.DestroyingList.Add(m_Parent);
-
-            //Tell the node to destroy
-            MarkDestroy = true;
             m_Parent.StartDestroy();
         }
     }

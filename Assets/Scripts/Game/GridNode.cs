@@ -578,14 +578,7 @@ public class GridNode : MonoBehaviour
                 {
                     if (!GameManager.DestroyingList.Contains(node))
                     {
-                        //Mark a bunch of things to ready destruction
-                        if (node.m_RespawnType == null)
-                            ++GameManager.RespawnCounts[node.m_xIndex];
-                        GameManager.CanDrag = false;
-                        GameManager.DestroyingList.Add(node);
-
                         //Tell the node to destroy
-                        node.m_Shape.MarkDestroy = true;
                         node.StartDestroy();
                     }
                 }
@@ -597,8 +590,14 @@ public class GridNode : MonoBehaviour
         return ok;
     }
 
-    public void StartDestroy()
+    public void StartDestroy(bool a_addToRespawn = true)
     {
+        GameManager.CanDrag = false;
+        if (m_RespawnType == null)
+            ++GameManager.RespawnCounts[m_xIndex];
+        if (a_addToRespawn)
+            GameManager.DestroyingList.Add(this);
+        m_Shape.MarkDestroy = true;
         m_Shape.StartDestroy();
     }
 

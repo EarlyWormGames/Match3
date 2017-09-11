@@ -2,15 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WBCA : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+public class WBCA : NodeItem
+{
+    public override void OnEndDestroy()
+    {
+        base.OnEndDestroy();
+        foreach (var item in GameManager.instance.m_Grid.m_Nodes)
+        {
+            if (item.m_Shape.GetType() == typeof(BacteriaBro))
+            {
+                item.StartDestroy();
+            }
+        }
+    }
 }
