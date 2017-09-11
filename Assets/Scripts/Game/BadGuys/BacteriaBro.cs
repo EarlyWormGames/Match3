@@ -116,4 +116,9 @@ public class BacteriaBro : NodeItem
         m_Sprite2.gameObject.SetActive(false);
         m_Sprite3.gameObject.SetActive(false);
     }
+
+    public override void OnEndDestroy()
+    {
+        //Do nothing
+    }
 }

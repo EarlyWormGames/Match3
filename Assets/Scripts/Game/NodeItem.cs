@@ -28,6 +28,7 @@ public class NodeItem : MonoBehaviour
 
     private float m_DestroyTimer = 0;
     private bool m_destroyStart = false;
+    private int m_SwapCountDown = 1;
 
     // Use this for initialization
     void Start()
@@ -49,13 +50,21 @@ public class NodeItem : MonoBehaviour
             //Tell the gamemanager we're moving
             if (!GameManager.isDragging)
                 GameManager.Stationary[m_Parent.m_xIndex, m_Parent.m_yIndex] = false;
+
+            if (MarkSwap)
+                m_SwapCountDown = 1;
         }
         else
         {
             //Tell the gamemanager we're not moving
             if (!GameManager.isDragging)
                 GameManager.Stationary[m_Parent.m_xIndex, m_Parent.m_yIndex] = true;
-        }
+
+            if (m_SwapCountDown <= 0 && !m_destroyStart)
+                MarkSwap = false;
+            else
+                --m_SwapCountDown;
+        }        
 
         //Is this tile about to be destroyed?
         if (m_destroyStart)
@@ -108,7 +117,7 @@ public class NodeItem : MonoBehaviour
         //a_other.CheckMatch();
     }
 
-    public virtual void StartDestroy()
+    public void StartDestroy()
     {
         m_destroyStart = true;
         m_DestroyTimer = 1f;
@@ -126,9 +135,11 @@ public class NodeItem : MonoBehaviour
             if (m_Parent.m_Down != null)
                 m_Parent.m_Down.m_Shape.NotifyDestroy();
         }
+
+        OnStartDestroy();
     }
 
-    public virtual void EndDestroy()
+    public void EndDestroy()
     {
         if (m_NotifiesDestroy)
         {
@@ -145,7 +156,15 @@ public class NodeItem : MonoBehaviour
         if (GameManager.onEOFSwap != null && MarkSwap)
             GameManager.onEOFSwap();
 
-        DestroyImmediate(gameObject);
+        OnEndDestroy();
+
+        Destroy(gameObject);
+    }
+
+    public virtual void OnStartDestroy() { }
+    public virtual void OnEndDestroy()
+    {
+        ++GameManager.Score;
     }
 
     public virtual bool CanSwap()

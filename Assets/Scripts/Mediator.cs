@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Mediator
 {
-    public static GameSettings gSettings;
-    public static float TargetScore;
+    public static GameSettings Settings;
 }
 
 public class GameSettings
@@ -23,4 +22,7 @@ public class GameSettings
 
     public int GridWidth = 5;
     public int GridHeight = 7;
+
+    public int TargetScore;
+    public float DifficultyMult = 1;
 }

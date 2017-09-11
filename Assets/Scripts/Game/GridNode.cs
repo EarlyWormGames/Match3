@@ -582,7 +582,6 @@ public class GridNode : MonoBehaviour
                         if (node.m_RespawnType == null)
                             ++GameManager.RespawnCounts[node.m_xIndex];
                         GameManager.CanDrag = false;
-                        ++GameManager.Score;
                         GameManager.DestroyingList.Add(node);
 
                         //Tell the node to destroy
