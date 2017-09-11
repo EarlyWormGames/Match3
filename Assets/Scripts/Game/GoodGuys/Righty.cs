@@ -2,15 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Righty : MonoBehaviour {
+public class Righty : NodeItem
+{
+    public GameObject m_MatchingNormal;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public override void OnEndDestroy()
+    {
+        base.OnEndDestroy();
+
+        foreach (var item in GameManager.instance.m_Grid.m_Nodes)
+        {
+            if (item.m_Shape.m_Colour == m_MatchedColour && !item.m_Shape.MarkDestroy)
+            {
+                item.m_RespawnType = m_MatchingNormal;
+                item.StartDestroy(false);
+            }
+        }
+    }
 }

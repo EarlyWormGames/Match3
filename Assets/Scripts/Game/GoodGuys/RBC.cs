@@ -8,7 +8,7 @@ public class RBC : MonoBehaviour
     {
         foreach (var item in GameManager.instance.m_Grid.m_Nodes)
         {
-            if (item.m_Shape.GetType() == typeof(JunkItem))
+            if (item.m_Shape.GetType() == typeof(JunkItem) && !item.m_Shape.MarkDestroy)
             {
                 item.StartDestroy();
             }

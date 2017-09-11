@@ -37,7 +37,7 @@ public class GridNode : MonoBehaviour
             {
                 if (m_Left.m_Shape != null)
                 {
-                    if (m_Left.m_Shape.m_Colour == ex.m_Colour)
+                    if (m_Left.m_Shape.CheckColour(ex))
                         continue;
                 }
             }
@@ -46,7 +46,7 @@ public class GridNode : MonoBehaviour
             {
                 if (m_Right.m_Shape != null)
                 {
-                    if (m_Right.m_Shape.m_Colour == ex.m_Colour)
+                    if (m_Right.m_Shape.CheckColour(ex))
                         continue;
                 }
             }
@@ -55,7 +55,7 @@ public class GridNode : MonoBehaviour
             {
                 if (m_Up.m_Shape != null)
                 {
-                    if (m_Up.m_Shape.m_Colour == ex.m_Colour)
+                    if (m_Up.m_Shape.CheckColour(ex))
                         continue;
                 }
             }
@@ -64,7 +64,7 @@ public class GridNode : MonoBehaviour
             {
                 if (m_Down.m_Shape != null)
                 {
-                    if (m_Down.m_Shape.m_Colour == ex.m_Colour)
+                    if (m_Down.m_Shape.CheckColour(ex))
                         continue;
                 }
             }
@@ -420,13 +420,16 @@ public class GridNode : MonoBehaviour
     /// <param name="dir"></param>
     /// <param name="onlyCheck"></param>
     /// <returns></returns>
-    public bool CheckMatch(Direction dir = Direction.None, bool onlyCheck = false)
+    public bool CheckMatch(Direction dir = Direction.None, bool onlyCheck = false, ItemColour a_col = ItemColour.NONE)
     {
         if (m_Shape == null)
             return false;
 
         if (m_Shape.MarkDestroy || !m_Shape.CanDestroy())
             return false;
+
+        if (a_col == ItemColour.NONE)
+            a_col = m_Shape.m_Colour;
 
         //====================================
         //Check each direction
@@ -438,7 +441,7 @@ public class GridNode : MonoBehaviour
             {
                 if (m_Left.m_Shape != null)
                 {
-                    if (m_Left.m_Shape.m_Colour == m_Shape.m_Colour)
+                    if (m_Left.m_Shape.CheckColour(m_Shape))
                     {
                         m_Left.CheckMatch(Direction.Left);
                     }
@@ -453,7 +456,7 @@ public class GridNode : MonoBehaviour
             {
                 if (m_Right.m_Shape != null)
                 {
-                    if (m_Right.m_Shape.m_Colour == m_Shape.m_Colour)
+                    if (m_Right.m_Shape.CheckColour(m_Shape))
                     {
                         m_Right.CheckMatch(Direction.Right);
                     }
@@ -468,7 +471,7 @@ public class GridNode : MonoBehaviour
             {
                 if (m_Up.m_Shape != null)
                 {
-                    if (m_Up.m_Shape.m_Colour == m_Shape.m_Colour)
+                    if (m_Up.m_Shape.CheckColour(m_Shape))
                     {
                         m_Up.CheckMatch(Direction.Up);
                     }
@@ -484,7 +487,7 @@ public class GridNode : MonoBehaviour
             {
                 if (m_Down.m_Shape != null)
                 {
-                    if (m_Down.m_Shape.m_Colour == m_Shape.m_Colour)
+                    if (m_Down.m_Shape.CheckColour(m_Shape))
                     {
                         m_Down.CheckMatch(Direction.Down);
                     }
@@ -496,7 +499,7 @@ public class GridNode : MonoBehaviour
         if (dir == Direction.None)
         {
             //Only the initiator of the search will get here
-            return DestroyCheck(onlyCheck);
+            return DestroyCheck(a_col, onlyCheck);
         }
         return false;
     }
@@ -506,7 +509,7 @@ public class GridNode : MonoBehaviour
     /// </summary>
     /// <param name="onlyCheck"></param>
     /// <returns></returns>
-    bool DestroyCheck(bool onlyCheck = false)
+    bool DestroyCheck(ItemColour a_col, bool onlyCheck = false)
     {
         bool ok = false;
         List<GridNode> destroynodes = new List<GridNode>();
@@ -579,6 +582,7 @@ public class GridNode : MonoBehaviour
                     if (!GameManager.DestroyingList.Contains(node))
                     {
                         //Tell the node to destroy
+                        node.m_Shape.m_MatchedColour = a_col;
                         node.StartDestroy();
                     }
                 }

@@ -9,6 +9,7 @@ public enum ItemColour
     Purple,
     Yellow,
     Red,
+    NONE
 }
 
 public class NodeItem : MonoBehaviour
@@ -19,12 +20,14 @@ public class NodeItem : MonoBehaviour
     public bool m_CanDestroy = true;
     public int m_SpawnChance = 1;
     public bool m_NotifiesDestroy = true;
+    public bool m_MatchAnyColour = false;
 
     internal GridNode m_Parent;
     internal Animator m_GemAnimator;
     internal bool MarkDestroy = false;
     internal bool MarkSwap = false;
     internal bool SwapChain = false;
+    internal ItemColour m_MatchedColour;
 
     private float m_DestroyTimer = 0;
     private bool m_destroyStart = false;
@@ -196,4 +199,9 @@ public class NodeItem : MonoBehaviour
 
     protected virtual void OnNotifyDestroy() { }
     protected virtual void OnNotifyEndDestroy() { }
+
+    public virtual bool CheckColour(NodeItem a_node)
+    {
+        return a_node.m_Colour == m_Colour || m_MatchAnyColour || a_node.m_MatchAnyColour;
+    }
 }
