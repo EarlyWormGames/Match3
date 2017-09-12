@@ -19,6 +19,12 @@ public class BacteriaBro : NodeItem
     void Awake()
     {
         GameManager.onEOFSwap += NotifySwap;
+        m_CanSwap = true;
+        m_CanDestroy = false;
+    }
+
+    private void Start()
+    {
         LifeTimeDisplayUpdate();
     }
 
@@ -66,9 +72,8 @@ public class BacteriaBro : NodeItem
         LifeTimeDisplayUpdate();
         if (m_Lifetime < 0)
         {
-            Destroy(m_ChildRoot);
+            GoodDestroy();
             var node = gameObject.AddComponent<NodeItem>();
-            node.m_Colour = m_Colour;
         }
     }
 
@@ -111,5 +116,20 @@ public class BacteriaBro : NodeItem
     public override void OnEndDestroy()
     {
         //Do nothing
+    }
+
+    public void TakeBBInfo(BacteriaBro a_other)
+    {
+        m_Lifespan = a_other.m_Lifespan;
+        m_LifeText = a_other.m_LifeText;
+        m_Sprite1 = a_other.m_Sprite1;
+        m_Sprite2 = a_other.m_Sprite2;
+        m_Sprite3 = a_other.m_Sprite3;
+        m_ChildRoot = a_other.gameObject;
+    }
+
+    void GoodDestroy()
+    {
+        Destroy(m_ChildRoot);
     }
 }

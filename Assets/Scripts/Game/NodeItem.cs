@@ -41,10 +41,9 @@ public class NodeItem : MonoBehaviour
             if (item != this)
             {
                 Destroy(item); //Destroy anything that isn't this script. Useful for inherited scripts
-                if (m_Parent == null)
+                if (m_Parent == null && item.m_Parent != null)
                 {
-                    m_Parent = item.m_Parent;
-                    m_Parent.m_Shape = this;
+                    TakeNodeInfo(item);
                 }
             }
         }
@@ -54,9 +53,19 @@ public class NodeItem : MonoBehaviour
         m_Explosion.Stop();
     }
 
+    public void TakeNodeInfo(NodeItem item)
+    {
+        m_Colour = item.m_Colour;
+        m_Parent = item.m_Parent;
+        m_Parent.m_Shape = this;
+    }
+
     // Update is called once per frame
     void Update()
     {
+        if (m_Parent == null)
+            return;
+
         //If we're far enough away from our parent node, we should move
         if ((m_Parent.transform.position - transform.position).magnitude > 0.01f)
         {

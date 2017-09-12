@@ -38,7 +38,23 @@ public class MelAnoma : MonoBehaviour
         else
         {
             //BAD!!!
-            a_node.m_RespawnType = GameManager.instance.m_BBros;
+            GameObject obj = GameManager.SpawnNodeItem();
+            var bbros = obj.AddComponent<BacteriaBro>();
+            bbros.m_Colour = obj.GetComponent<NodeItem>().m_Colour;
+            DestroyImmediate(obj.GetComponent<NodeItem>());
+
+            GameObject brosobj = Instantiate(GameManager.instance.m_BBros);
+
+            //Position the bacteria bro
+            Vector3 tempVec = brosobj.transform.position;
+            brosobj.transform.SetParent(obj.transform);
+            brosobj.transform.localPosition = tempVec;
+
+            bbros.TakeBBInfo(brosobj.GetComponent<BacteriaBro>());
+            DestroyImmediate(brosobj.GetComponent<BacteriaBro>());
+
+            a_node.m_RespawnType = obj;
+            a_node.m_RespawnIsSpawned = true;
         }
         --m_RequiredChains;
 
