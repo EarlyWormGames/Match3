@@ -27,7 +27,7 @@ public class MelAnoma : MonoBehaviour
 
     void ColourScored(ItemColour a_colour, bool a_wasSwapped, GridNode a_node)
     {
-        if (!a_wasSwapped || m_RequiredChains == 0)
+        if (!a_wasSwapped || m_RequiredChains <= 0)
             return;
 
         if (a_colour == m_RequestedColour)
