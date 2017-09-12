@@ -23,6 +23,7 @@ public class GridNode : MonoBehaviour
     internal int m_xIndex, m_yIndex;
     internal Image m_Image;
     internal GameObject m_RespawnType = null;
+    internal bool m_RespawnIsSpawned = false;
 
     public void Init()
     {
@@ -366,12 +367,16 @@ public class GridNode : MonoBehaviour
 
     public void SpawnTile(Vector3 a_position, GameObject a_object)
     {
-        GameObject obj = Instantiate(a_object);
+        GameObject obj = a_object;
+        if (!m_RespawnIsSpawned)
+            obj = Instantiate(a_object);
         m_Shape = obj.GetComponent<NodeItem>();
         m_Shape.transform.parent = transform.parent;
         m_Shape.transform.localScale = m_ShapeScale;
         m_Shape.transform.position = a_position;
         m_Shape.m_Parent = this;
+
+        m_RespawnIsSpawned = false;
     }
 
     /// <summary>
@@ -598,9 +603,10 @@ public class GridNode : MonoBehaviour
     {
         GameManager.CanDrag = false;
         if (m_RespawnType == null)
+        {
             ++GameManager.RespawnCounts[m_xIndex];
-        if (a_addToRespawn)
             GameManager.DestroyingList.Add(this);
+        }
         m_Shape.MarkDestroy = true;
         m_Shape.StartDestroy();
     }
