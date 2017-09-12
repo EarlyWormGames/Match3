@@ -6,8 +6,9 @@ using UnityEngine.UI;
 public class PauseMenuGUI : MonoBehaviour
 {
     public GameObject SettingsCog;
-	// Use this for initialization
-	void Start ()
+    public Animator PausePanel;
+    // Use this for initialization
+    void Start ()
     {
 		
 	}
@@ -28,11 +29,15 @@ public class PauseMenuGUI : MonoBehaviour
     {
         DisableSettingsCog();
         //PlayAnimation for pause gui
+        PausePanel.SetBool("Enter", true);
+        PausePanel.SetTrigger("Trigger");
     }
     public void ClosePauseMenu()
     {
         EnableSettingsCog();
         //PlayAnimation for pause gui
+        PausePanel.SetBool("Enter", false);
+        PausePanel.SetTrigger("Trigger");
     }
 
 
