@@ -5,20 +5,16 @@ using UnityEngine.PostProcessing;
 
 public class EWDepthOfField : MonoBehaviour {
 
+    public bool m_bfocus = true;
     public float BlurSpeed = 1.0f;
-
+    //focus levels settings
     float PauseFocusDistance = 0.1f;
     float GameFocusDistance = 1.0f;
-
-    bool m_bFocusOnGame = true;
-
-    bool blah;
-    
+    //settings during the game
     DepthOfFieldModel.Settings RunTimeSettings;
-
+    //Game Profile and DoF settings
     PostProcessingProfile profile;
     DepthOfFieldModel Depth;
-    
     //for setting back the asset file back to its orional state.
     DepthOfFieldModel.Settings StartSettings;
 
@@ -28,14 +24,13 @@ public class EWDepthOfField : MonoBehaviour {
         Depth = profile.depthOfField;
 
         StartSettings = Depth.settings;
-
-
+        RunTimeSettings = StartSettings;
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
-        if (m_bFocusOnGame)
+        if (m_bfocus)
         {
             //Unpaused
             if (RunTimeSettings.focusDistance < GameFocusDistance)
@@ -49,36 +44,19 @@ public class EWDepthOfField : MonoBehaviour {
             if (RunTimeSettings.focusDistance > PauseFocusDistance)
             {
                 RunTimeSettings.focusDistance -= BlurSpeed * Time.deltaTime;
-            }
+            }   
         }
-
+        //Assign settings to the post prosessing settings
         Depth.settings = RunTimeSettings;
     }
 
-
-
-    void SetFocus(float a_focus)
+    public void ToggleFocus()
     {
-
+        m_bfocus = !m_bfocus;
     }
 
     private void OnApplicationQuit()
     {
         Depth.settings = StartSettings;
     }
-
-    public void FocusOnPauseGUI()
-    {
-        SetFocus(1);
-    }
-
-    public void FocusOnGame()
-    {
-        SetFocus(1);
-    }
-
-
-
-
-
 }
