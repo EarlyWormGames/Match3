@@ -41,6 +41,11 @@ public class NodeItem : MonoBehaviour
             if (item != this)
             {
                 Destroy(item); //Destroy anything that isn't this script. Useful for inherited scripts
+                if (m_Parent == null)
+                {
+                    m_Parent = item.m_Parent;
+                    m_Parent.m_Shape = this;
+                }
             }
         }
 

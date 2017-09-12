@@ -10,6 +10,7 @@ public class BacteriaBro : NodeItem
     public SpriteRenderer m_Sprite1;
     public SpriteRenderer m_Sprite2;
     public SpriteRenderer m_Sprite3;
+    public GameObject m_ChildRoot;
     private int m_Lifetime;
     private bool m_WasReversed;
 
@@ -65,7 +66,9 @@ public class BacteriaBro : NodeItem
         LifeTimeDisplayUpdate();
         if (m_Lifetime < 0)
         {
-            m_Parent.StartDestroy();
+            Destroy(m_ChildRoot);
+            var node = gameObject.AddComponent<NodeItem>();
+            node.m_Colour = m_Colour;
         }
     }
 
