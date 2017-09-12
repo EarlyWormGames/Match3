@@ -5,12 +5,12 @@ using UnityEngine.PostProcessing;
 
 public class EWDepthOfField : MonoBehaviour {
 
-    
+    public float BlurSpeed = 1.0f;
 
     float PauseFocusDistance = 0.1f;
     float GameFocusDistance = 1.0f;
 
-    bool FocusOnGame = true;
+    bool m_bFocusOnGame = true;
 
     bool blah;
     
@@ -35,22 +35,22 @@ public class EWDepthOfField : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-
-        
-        if (FocusOnGame)
+        if (m_bFocusOnGame)
         {
-
+            //Unpaused
+            if (RunTimeSettings.focusDistance < GameFocusDistance)
+            {
+                RunTimeSettings.focusDistance += BlurSpeed * Time.deltaTime;
+            }
         }
         else
         {
-
+            //Pause
+            if (RunTimeSettings.focusDistance > PauseFocusDistance)
+            {
+                RunTimeSettings.focusDistance -= BlurSpeed * Time.deltaTime;
+            }
         }
-
-
-
-
-
-
 
         Depth.settings = RunTimeSettings;
     }
