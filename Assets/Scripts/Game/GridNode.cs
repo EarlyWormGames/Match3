@@ -29,44 +29,49 @@ public class GridNode : MonoBehaviour
     {
         //This do-while ensures that this tile won't spawn in a chain
         //It will then spawn the tile
+        int skipCount = -1;
         do
         {
+            ++skipCount;
             int index = GameManager.GetNodeIndex();
             NodeItem ex = GameManager.GetNodeDetails(index);
 
-            if (m_Left != null)
+            if (skipCount < 10)
             {
-                if (m_Left.m_Shape != null)
+                if (m_Left != null)
                 {
-                    if (m_Left.m_Shape.CheckColour(ex))
-                        continue;
+                    if (m_Left.m_Shape != null)
+                    {
+                        if (m_Left.m_Shape.CheckColour(ex))
+                            continue;
+                    }
                 }
-            }
 
-            if (m_Right != null)
-            {
-                if (m_Right.m_Shape != null)
+                if (m_Right != null)
                 {
-                    if (m_Right.m_Shape.CheckColour(ex))
-                        continue;
+                    if (m_Right.m_Shape != null)
+                    {
+                        if (m_Right.m_Shape.CheckColour(ex))
+                            continue;
+                    }
                 }
-            }
 
-            if (m_Up != null)
-            {
-                if (m_Up.m_Shape != null)
+                if (m_Up != null)
                 {
-                    if (m_Up.m_Shape.CheckColour(ex))
-                        continue;
+                    if (m_Up.m_Shape != null)
+                    {
+                        if (m_Up.m_Shape.CheckColour(ex))
+                            continue;
+                    }
                 }
-            }
 
-            if (m_Down != null)
-            {
-                if (m_Down.m_Shape != null)
+                if (m_Down != null)
                 {
-                    if (m_Down.m_Shape.CheckColour(ex))
-                        continue;
+                    if (m_Down.m_Shape != null)
+                    {
+                        if (m_Down.m_Shape.CheckColour(ex))
+                            continue;
+                    }
                 }
             }
 
@@ -230,6 +235,7 @@ public class GridNode : MonoBehaviour
         GameManager.isDragging = true;
         GameManager.dragGNode = this;
         GameManager.dragNItem = m_Shape;
+        m_Shape.MarkDrag = true;
         GameManager.dragStartPos = Input.mousePosition;
     }
 
@@ -268,6 +274,7 @@ public class GridNode : MonoBehaviour
         }
 
         //Finished, reset this data
+        GameManager.dragNItem.MarkDrag = false;
         GameManager.dragStartPos = Vector3.zero;
         GameManager.isDragging = false;
         GameManager.dragGNode = null;
@@ -283,6 +290,7 @@ public class GridNode : MonoBehaviour
             GameManager.dragGNode = this;
             GameManager.dragNItem = m_Shape;
             GameManager.isDragging = false;
+            GameManager.dragNItem.MarkDrag = true;
         }
         else if (GameManager.CanDrag)
         {
@@ -321,6 +329,7 @@ public class GridNode : MonoBehaviour
             }
 
             //Reset this data
+            GameManager.dragNItem.MarkDrag = false;
             GameManager.dragGNode = null;
             GameManager.dragNItem = null;
         }
@@ -614,7 +623,8 @@ public class GridNode : MonoBehaviour
     public void EndDestroy()
     {
         m_Shape.EndDestroy();
-        GameManager.DestroyingList.Remove(this);
+        if (GameManager.DestroyingList.Contains(this))
+            GameManager.DestroyingList.Remove(this);
 
         if (m_RespawnType != null)
         {

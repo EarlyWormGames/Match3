@@ -17,6 +17,8 @@ public class Lefty : NodeItem
 
         foreach (var item in GameManager.instance.m_Grid.m_Nodes)
         {
+            if (item.m_Shape == null)
+                continue;
             if (item.m_Shape.m_Colour == m_Colour && !item.m_Shape.MarkDestroy)
             {
                 item.StartDestroy();

@@ -74,6 +74,7 @@ public class BacteriaBro : NodeItem
         {
             GoodDestroy();
             var node = gameObject.AddComponent<NodeItem>();
+            GameManager.Stationary[m_Parent.m_xIndex, m_Parent.m_yIndex] = false;
         }
     }
 

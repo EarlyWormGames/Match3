@@ -21,11 +21,13 @@ public class NodeItem : MonoBehaviour
     public int m_SpawnChance = 1;
     public bool m_NotifiesDestroy = true;
     public bool m_MatchAnyColour = false;
+    public bool m_SwapOnly = false;
 
     internal GridNode m_Parent;
     internal Animator m_GemAnimator;
     internal bool MarkDestroy = false;
     internal bool MarkSwap = false;
+    internal bool MarkDrag = false;
     internal bool SwapChain = false;
     internal ItemColour m_MatchedColour;
 
@@ -224,8 +226,15 @@ public class NodeItem : MonoBehaviour
     protected virtual void OnNotifyDestroy() { }
     protected virtual void OnNotifyEndDestroy() { }
 
-    public virtual bool CheckColour(NodeItem a_node)
+    public virtual bool CheckColour(NodeItem a_node, bool a_override = false)
     {
-        return a_node.m_Colour == m_Colour || m_MatchAnyColour || a_node.m_MatchAnyColour;
+        bool wegoodcuh = true;
+        if (m_SwapOnly)
+            wegoodcuh = MarkSwap || MarkDrag;
+
+        if (a_node.m_SwapOnly)
+            wegoodcuh = a_node.MarkSwap || a_node.MarkDrag;
+
+        return ((a_node.m_Colour == m_Colour || m_MatchAnyColour || a_node.m_MatchAnyColour) && wegoodcuh) || a_override;
     }
 }

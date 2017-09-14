@@ -53,9 +53,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4142609083180544}
-  - component: {fileID: 33785687429508744}
-  - component: {fileID: 23592735678159282}
-  - component: {fileID: 114406389198063260}
   m_Layer: 0
   m_Name: Lefty
   m_TagString: Untagged
@@ -292,51 +289,12 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!23 &23592735678159282
-MeshRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1199259904860752}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_Materials:
-  - {fileID: 2100000, guid: d3fdd53a2b5dd904fad8d824266a4cad, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
 --- !u!33 &33000011564593694
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011841440206}
-  m_Mesh: {fileID: 4300000, guid: a59faa6df8bd9cd4c8779604face71a1, type: 3}
---- !u!33 &33785687429508744
-MeshFilter:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1199259904860752}
   m_Mesh: {fileID: 4300000, guid: a59faa6df8bd9cd4c8779604face71a1, type: 3}
 --- !u!114 &114185235449435964
 MonoBehaviour:
@@ -358,25 +316,6 @@ MonoBehaviour:
   m_MatchAnyColour: 0
   m_MatchingNormal: {fileID: 1000011841440206, guid: 0ed203d298c050b49bfabe788790e1c2,
     type: 2}
---- !u!114 &114406389198063260
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1199259904860752}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f1cff2028f174848a9f9f7fc954e133, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Colour: 0
-  m_Explosion: {fileID: 0}
-  m_CanSwap: 1
-  m_CanDestroy: 1
-  m_SpawnChance: 1
-  m_NotifiesDestroy: 1
-  m_MatchAnyColour: 0
-  m_MatchingNormal: {fileID: 0}
 --- !u!114 &114883731208393586
 MonoBehaviour:
   m_ObjectHideFlags: 1
