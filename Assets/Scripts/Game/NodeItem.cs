@@ -53,6 +53,8 @@ public class NodeItem : MonoBehaviour
         m_Explosion.Stop();
     }
 
+    public virtual void Init() { }
+
     public void TakeNodeInfo(NodeItem item)
     {
         m_Colour = item.m_Colour;

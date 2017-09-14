@@ -6,6 +6,11 @@ public class Lefty : NodeItem
 {
     public GameObject m_MatchingNormal;
 
+    public void Awake()
+    {
+        
+    }
+
     public override void OnEndDestroy()
     {
         base.OnEndDestroy();
@@ -14,8 +19,7 @@ public class Lefty : NodeItem
         {
             if (item.m_Shape.m_Colour == m_Colour && !item.m_Shape.MarkDestroy)
             {
-                item.m_RespawnType = m_MatchingNormal;
-                item.StartDestroy(false);
+                item.StartDestroy();
             }
         }
     }
