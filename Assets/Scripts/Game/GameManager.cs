@@ -104,6 +104,20 @@ public class GameManager : MonoBehaviour
         //Set the score display
         m_ScoreText.text = Score.ToString();
 
+        //If we have items to destroy, this list will be filled
+        if (DestroyingList.Count > 0)
+        {
+            m_WasEmpty = true;
+            CanDrag = false;
+            return;
+        }
+        else if (m_WasEmpty) //Enter when the list is empty, but just had items in it
+        {
+            m_Grid.FillEmpty();
+            m_WasEmpty = false;
+            CanDrag = true;
+        }
+
         //Don't bother check for matches while a piece is being dragged
         if (!isDragging)
         {
@@ -135,20 +149,7 @@ public class GameManager : MonoBehaviour
                 //No movement allowed while tiles are falling
                 CanDrag = false;
             }
-        }
-
-        //If we have items to destroy, this list will be filled
-        if (DestroyingList.Count > 0)
-        {
-            m_WasEmpty = true;
-            CanDrag = false;
-        }
-        else if (m_WasEmpty) //Enter when the list is empty, but just had items in it
-        {
-            m_Grid.FillEmpty();
-            m_WasEmpty = false;
-            CanDrag = true;
-        }
+        }        
     }
 
     public void GameOver()

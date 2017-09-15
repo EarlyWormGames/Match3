@@ -10,15 +10,22 @@ public class Righty : NodeItem
     {
         base.OnEndDestroy();
 
+        if (!MarkSwap)
+            return;
+
         foreach (var item in GameManager.instance.m_Grid.m_Nodes)
         {
+            if (item == m_Parent)
+                continue;
             if (item.m_Shape == null)
                 continue;
-            if (item.m_Shape.m_Colour == m_MatchedColour && !item.m_Shape.MarkDestroy)
+            if (item.m_Shape.MarkDestroy || !item.m_Shape.CanDestroy())
+                continue;
+
+            if (item.m_Shape.m_Colour == m_MatchedColour)
             {
                 item.m_RespawnType = m_MatchingNormal;
                 item.StartDestroy(false);
-                GameManager.Stationary[m_Parent.m_xIndex, m_Parent.m_yIndex] = false;
             }
         }
     }

@@ -97,6 +97,7 @@ public class GridNode : MonoBehaviour
     void Start()
     {
         m_Image = GetComponent<Image>();
+        m_RespawnType = null;
         //transform.position = new Vector3(transform.position.x, transform.position.y, 0);
     }
 
@@ -614,8 +615,8 @@ public class GridNode : MonoBehaviour
         if (m_RespawnType == null)
         {
             ++GameManager.RespawnCounts[m_xIndex];
-            GameManager.DestroyingList.Add(this);
         }
+        GameManager.DestroyingList.Add(this);
         m_Shape.MarkDestroy = true;
         m_Shape.StartDestroy();
     }
@@ -626,11 +627,14 @@ public class GridNode : MonoBehaviour
         if (GameManager.DestroyingList.Contains(this))
             GameManager.DestroyingList.Remove(this);
 
+        m_Shape = null;
+
         if (m_RespawnType != null)
         {
             SpawnTile(transform.position, m_RespawnType);
             m_RespawnType = null;
         }
+        GameManager.Stationary[m_xIndex, m_yIndex] = false;
     }
 
     /// <summary>
@@ -639,10 +643,12 @@ public class GridNode : MonoBehaviour
     /// <returns></returns>
     public bool SwapCheckMatch()
     {
+        if (m_Shape == null)
+            return false;
         if (!m_Shape.CanSwap())
             return false;
 
-        if (m_Left != null)
+        if (HasDirection(Direction.Left, true))
         {
             if (m_Shape.CanSwap() && m_Left.m_Shape.CanSwap())
             {
@@ -656,7 +662,7 @@ public class GridNode : MonoBehaviour
             }
         }
 
-        if (m_Right != null)
+        if (HasDirection(Direction.Right, true))
         {
             if (m_Shape.CanSwap() && m_Right.m_Shape.CanSwap())
             {
@@ -670,7 +676,7 @@ public class GridNode : MonoBehaviour
             }
         }
 
-        if (m_Up != null)
+        if (HasDirection(Direction.Up, true))
         {
             if (m_Shape.CanSwap() && m_Up.m_Shape.CanSwap())
             {
@@ -684,7 +690,7 @@ public class GridNode : MonoBehaviour
             }
         }
 
-        if (m_Down != null)
+        if (HasDirection(Direction.Down, true))
         {
             if (m_Shape.CanSwap() && m_Down.m_Shape.CanSwap())
             {
@@ -698,6 +704,70 @@ public class GridNode : MonoBehaviour
             }
         }
 
+        return false;
+    }
+
+    public bool HasDirection(Direction a_dir, bool a_ShapeInc = false)
+    {
+        switch (a_dir)
+        {
+            case Direction.Down:
+                {
+                    if (m_Down != null)
+                    {
+                        if (a_ShapeInc)
+                        {
+                            if (m_Down.m_Shape != null)
+                                return true;
+                        }
+                        else
+                            return true;
+                    }
+                    break;
+                }
+            case Direction.Up:
+                {
+                    if (m_Up != null)
+                    {
+                        if (a_ShapeInc)
+                        {
+                            if (m_Up.m_Shape != null)
+                                return true;
+                        }
+                        else
+                            return true;
+                    }
+                    break;
+                }
+            case Direction.Left:
+                {
+                    if (m_Left != null)
+                    {
+                        if (a_ShapeInc)
+                        {
+                            if (m_Left.m_Shape != null)
+                                return true;
+                        }
+                        else
+                            return true;
+                    }
+                    break;
+                }
+            case Direction.Right:
+                {
+                    if (m_Right != null)
+                    {
+                        if (a_ShapeInc)
+                        {
+                            if (m_Right.m_Shape != null)
+                                return true;
+                        }
+                        else
+                            return true;
+                    }
+                    break;
+                }
+        }
         return false;
     }
 }

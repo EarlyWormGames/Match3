@@ -155,13 +155,13 @@ public class NodeItem : MonoBehaviour
 
         if (m_NotifiesDestroy)
         {
-            if (m_Parent.m_Left != null)
+            if (m_Parent.HasDirection(Direction.Left, true))
                 m_Parent.m_Left.m_Shape.NotifyDestroy();
-            if (m_Parent.m_Right != null)
+            if (m_Parent.HasDirection(Direction.Right, true))
                 m_Parent.m_Right.m_Shape.NotifyDestroy();
-            if (m_Parent.m_Up != null)
+            if (m_Parent.HasDirection(Direction.Up, true))
                 m_Parent.m_Up.m_Shape.NotifyDestroy();
-            if (m_Parent.m_Down != null)
+            if (m_Parent.HasDirection(Direction.Down, true))
                 m_Parent.m_Down.m_Shape.NotifyDestroy();
         }
 
@@ -172,13 +172,13 @@ public class NodeItem : MonoBehaviour
     {
         if (m_NotifiesDestroy)
         {
-            if (m_Parent.m_Left != null)
+            if (m_Parent.HasDirection(Direction.Left, true))
                 m_Parent.m_Left.m_Shape.NotifyEndDestroy();
-            if (m_Parent.m_Right != null)
+            if (m_Parent.HasDirection(Direction.Right, true))
                 m_Parent.m_Right.m_Shape.NotifyEndDestroy();
-            if (m_Parent.m_Up != null)
+            if (m_Parent.HasDirection(Direction.Up, true))
                 m_Parent.m_Up.m_Shape.NotifyEndDestroy();
-            if (m_Parent.m_Down != null)
+            if (m_Parent.HasDirection(Direction.Down, true))
                 m_Parent.m_Down.m_Shape.NotifyEndDestroy();
         }
 

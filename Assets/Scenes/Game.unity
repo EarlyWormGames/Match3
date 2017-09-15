@@ -734,6 +734,11 @@ MonoBehaviour:
   - {fileID: 1000012510692222, guid: e916a6f9bd6cdd14a949fbd6557ffee4, type: 2}
   - {fileID: 1000013765287000, guid: a129d7e5041e6ce49a562f1ae6a80c38, type: 2}
   - {fileID: 1000011501826600, guid: eaff4a996eb0d5a4aaa6cb20f5476e7f, type: 2}
+  - {fileID: 1000011841440206, guid: de926a0b93e5da642be4c8782342e16b, type: 2}
+  - {fileID: 1000010880751780, guid: 930a1c0dd1e0ede46bab5a708d1068e4, type: 2}
+  - {fileID: 1000012510692222, guid: ad51f4342ca41554c98616fd75c961fe, type: 2}
+  - {fileID: 1000013765287000, guid: 41ab377656ee2384a9c2444255f795e6, type: 2}
+  - {fileID: 1000011501826600, guid: e4dc51f9b43a17f47b38aba94561517c, type: 2}
   m_Petrified: {fileID: 1000013356204050, guid: 676e107eeafc5524b97910d76516565d,
     type: 2}
   m_BBros: {fileID: 1000011841440206, guid: 0e0fe36c9f7f8464ea2391031966807d, type: 2}
@@ -1421,20 +1426,6 @@ Light:
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
-  m_FalloffTable:
-    m_Table[0]: 0
-    m_Table[1]: 0
-    m_Table[2]: 0
-    m_Table[3]: 0
-    m_Table[4]: 0
-    m_Table[5]: 0
-    m_Table[6]: 0
-    m_Table[7]: 0
-    m_Table[8]: 0
-    m_Table[9]: 0
-    m_Table[10]: 0
-    m_Table[11]: 0
-    m_Table[12]: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
