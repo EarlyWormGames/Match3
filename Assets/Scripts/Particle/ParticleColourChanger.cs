@@ -15,7 +15,8 @@ public class ParticleColourChanger : MonoBehaviour {
             case ItemColour.Red:
                 foreach (ParticleSystem ps in m_childParticles)
                 {
-                    ps.startColor = new Color(1, 0, 0, ps.startColor.a);
+                    ParticleSystem.MainModule main = ps.main;
+                    main.startColor = new Color(1, 0, 0, main.startColor.color.a);
                 }
                 break;
 
@@ -29,28 +30,32 @@ public class ParticleColourChanger : MonoBehaviour {
             case ItemColour.Yellow:
                 foreach (ParticleSystem ps in m_childParticles)
                 {
-                    ps.startColor = new Color(1, 1, 0, ps.startColor.a);
+                    ParticleSystem.MainModule main = ps.main;
+                    main.startColor = new Color(1, 1, 0, main.startColor.color.a);
                 }
                 break;
 
             case ItemColour.Green:
                 foreach (ParticleSystem ps in m_childParticles)
                 {
-                    ps.startColor = new Color(0, 1, 0, ps.startColor.a);
+                    ParticleSystem.MainModule main = ps.main;
+                    main.startColor = new Color(0, 1, 0, main.startColor.color.a);
                 }
                 break;
 
             case ItemColour.Blue:
                 foreach (ParticleSystem ps in m_childParticles)
                 {
-                    ps.startColor = new Color(0, 1, 0.8f, ps.startColor.a);
+                    ParticleSystem.MainModule main = ps.main;
+                    main.startColor = new Color(0, 1, 0.8f, main.startColor.color.a);
                 }
                 break;
 
             case ItemColour.Purple:
                 foreach (ParticleSystem ps in m_childParticles)
                 {
-                    ps.startColor = new Color(0.5f, 0, 1, ps.startColor.a);
+                    ParticleSystem.MainModule main = ps.main;
+                    main.startColor = new Color(0.5f, 0, 1, main.startColor.color.a);
                 }
                 break;
 

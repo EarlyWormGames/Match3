@@ -97,7 +97,6 @@ public class GameManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        Instantiate(m_MelAnomaPrefab);
     }
 
     // Update is called once per frame
@@ -284,5 +283,14 @@ public class GameManager : MonoBehaviour
     {
         if (onScored != null)
             onScored(a_colour, a_wasSwapped, a_node);
+
+        if (MelAnoma.instance == null && a_wasSwapped)
+        {
+            int rand = Random.Range(0, 10);
+            if (rand == 0)
+            {
+                Instantiate(instance.m_MelAnomaPrefab);
+            }
+        }
     }
 }

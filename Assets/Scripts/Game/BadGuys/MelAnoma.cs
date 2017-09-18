@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MelAnoma : MonoBehaviour
 {
+    public static MelAnoma instance;
+
     public int m_RequiredChains = 3;
     public GameObject m_UIPrefab;
     private ItemColour m_RequestedColour = ItemColour.NONE;
@@ -107,6 +109,7 @@ public class MelAnoma : MonoBehaviour
         {
             Destroy(m_UIObject.gameObject);
             Destroy(gameObject);
+            instance = null;
         }
     }
 
