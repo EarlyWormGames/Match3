@@ -10,20 +10,21 @@ public class Righty : NodeItem
     {
         base.OnEndDestroy();
 
+        //SWAP ONLY :angry_emoji:
         if (!MarkSwap)
             return;
 
         foreach (var item in GameManager.instance.m_Grid.m_Nodes)
         {
-            if (item == m_Parent)
-                continue;
-            if (item.m_Shape == null)
+            if (item == m_Parent || item.m_Shape == null)
                 continue;
             if (item.m_Shape.MarkDestroy || !item.m_Shape.CanDestroy())
                 continue;
 
+            //If it has the same colour as the one we matched with
             if (item.m_Shape.m_Colour == m_MatchedColour)
             {
+                //Destroy it and give it a new item
                 item.m_RespawnType = m_MatchingNormal;
                 item.StartDestroy(false);
             }
