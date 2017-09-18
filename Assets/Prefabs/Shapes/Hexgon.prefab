@@ -135,12 +135,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07ddd7e418031564bb8d19b970c5e9c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Colour: 2
+  m_Colour: 5
   m_Explosion: {fileID: 0}
   m_CanSwap: 0
   m_CanDestroy: 0
   m_SpawnChance: 4
   m_NotifiesDestroy: 1
+  m_MatchAnyColour: 0
+  m_SwapOnly: 0
 --- !u!198 &198697918173693986
 ParticleSystem:
   m_ObjectHideFlags: 1
