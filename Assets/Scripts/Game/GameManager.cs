@@ -74,6 +74,7 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
+    public Canvas m_MainCanvas;
     public GridCreator m_Grid;
     public Text m_ScoreText;
     public GameObject m_ScorePanel;
@@ -86,6 +87,7 @@ public class GameManager : MonoBehaviour
     public GameObject[] m_SpawnPrefabs = new GameObject[0];
     public GameObject m_Petrified;
     public GameObject m_BBros;
+    public GameObject m_MelAnomaPrefab;
 
     private bool m_WasMoving = true;
     private bool m_IsGameOver = false;
@@ -94,8 +96,7 @@ public class GameManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        var obj = new GameObject();
-        obj.AddComponent<MelAnoma>();
+        Instantiate(m_MelAnomaPrefab);
     }
 
     // Update is called once per frame

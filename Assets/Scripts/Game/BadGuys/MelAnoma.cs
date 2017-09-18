@@ -5,13 +5,25 @@ using UnityEngine;
 public class MelAnoma : MonoBehaviour
 {
     public int m_RequiredChains = 3;
+    public GameObject m_UIPrefab;
     private ItemColour m_RequestedColour;
+    private MelAnomaUI m_UIObject;
 
     // Use this for initialization
     void Awake()
     {
         GameManager.onScored += ColourScored;
         m_RequestedColour = (ItemColour)Random.Range(0, System.Enum.GetNames(typeof(ItemColour)).Length);
+
+        m_UIObject = Instantiate(m_UIPrefab).GetComponent<MelAnomaUI>();
+        m_UIObject.transform.SetParent(GameManager.instance.m_MainCanvas.transform, false);
+        m_UIObject.SetText(m_RequestedColour);
+
+        //Assign the delegates
+        m_UIObject.m_ShowDone += ShowDone;
+        m_UIObject.m_HideDone += HideDone;
+
+        m_UIObject.Show();
     }
 
     private void OnDestroy()
@@ -33,7 +45,8 @@ public class MelAnoma : MonoBehaviour
         if (a_colour == m_RequestedColour)
         {
             //GOOD!
-            m_RequiredChains = 0;
+            End();
+            return;
         }
         else
         {
@@ -59,10 +72,26 @@ public class MelAnoma : MonoBehaviour
         --m_RequiredChains;
 
         m_RequestedColour = (ItemColour)Random.Range(0, System.Enum.GetNames(typeof(ItemColour)).Length);
+        m_UIObject.SetText(m_RequestedColour);
     }
 
     void End()
     {
+        m_RequiredChains = 0;
+        m_UIObject.Hide();
+    }
 
+    void ShowDone()
+    {
+
+    }
+
+    void HideDone()
+    {
+        if (m_RequiredChains <= 0)
+        {
+            Destroy(m_UIObject);
+            Destroy(this);
+        }
     }
 }
