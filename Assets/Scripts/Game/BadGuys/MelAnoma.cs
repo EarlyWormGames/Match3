@@ -105,8 +105,8 @@ public class MelAnoma : MonoBehaviour
     {
         if (m_RequiredChains <= 0)
         {
-            Destroy(m_UIObject);
-            Destroy(this);
+            Destroy(m_UIObject.gameObject);
+            Destroy(gameObject);
         }
     }
 
