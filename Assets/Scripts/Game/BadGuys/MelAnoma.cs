@@ -6,7 +6,7 @@ public class MelAnoma : MonoBehaviour
 {
     public int m_RequiredChains = 3;
     public GameObject m_UIPrefab;
-    private ItemColour m_RequestedColour;
+    private ItemColour m_RequestedColour = ItemColour.NONE;
     private MelAnomaUI m_UIObject;
 
     // Use this for initialization
@@ -15,13 +15,12 @@ public class MelAnoma : MonoBehaviour
         //Get a delegate callback when a colour has been scored
         GameManager.onScored += ColourScored;
 
-        //Generate a new colour request
-        m_RequestedColour = (ItemColour)Random.Range(0, System.Enum.GetNames(typeof(ItemColour)).Length);
-
         //Create our new UI object
         m_UIObject = Instantiate(m_UIPrefab).GetComponent<MelAnomaUI>();
         m_UIObject.transform.SetParent(GameManager.instance.m_MainCanvas.transform, false);
-        m_UIObject.SetText(m_RequestedColour);
+
+        //Generate a new colour request
+        NewColour();
 
         //Assign some delegates for the UI animating
         m_UIObject.m_ShowDone += ShowDone;
@@ -59,6 +58,7 @@ public class MelAnoma : MonoBehaviour
             //BAD!!!
             //Create a new Bacteria Bro
             GameObject obj = GameManager.SpawnNodeItem();
+            obj.transform.position = new Vector3(100, 100, 100);
             var bbros = obj.AddComponent<BacteriaBro>();
             bbros.m_Colour = obj.GetComponent<NodeItem>().m_Colour;
             DestroyImmediate(obj.GetComponent<NodeItem>());
@@ -80,9 +80,14 @@ public class MelAnoma : MonoBehaviour
         }
         --m_RequiredChains;
 
+        if (m_RequiredChains <= 0)
+        {
+            End();
+            return;
+        }
+
         //Generate a new colour and tell the UI object
-        m_RequestedColour = (ItemColour)Random.Range(0, System.Enum.GetNames(typeof(ItemColour)).Length);
-        m_UIObject.SetText(m_RequestedColour);
+        NewColour();
     }
 
     void End()
@@ -103,5 +108,16 @@ public class MelAnoma : MonoBehaviour
             Destroy(m_UIObject);
             Destroy(this);
         }
+    }
+
+    void NewColour()
+    {
+        //Generate a new colour (definitely not the same)
+        ItemColour prevcol = m_RequestedColour;
+        do
+        {
+            m_RequestedColour = (ItemColour)Random.Range(0, System.Enum.GetNames(typeof(ItemColour)).Length - 1);
+        } while (m_RequestedColour == prevcol);
+        m_UIObject.SetText(m_RequestedColour);
     }
 }
