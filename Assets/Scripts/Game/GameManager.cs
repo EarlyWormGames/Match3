@@ -51,6 +51,7 @@ public class GameManager : MonoBehaviour
 
     //An array of which Grid Nodes are moving
     public static bool[,] Stationary;
+    public List<GridNode> MovingTiles = new List<GridNode>();
 
     //A bunch of lists for matching nodes
     public static List<GridNode> NodeChainLeft = new List<GridNode>(),
@@ -123,14 +124,19 @@ public class GameManager : MonoBehaviour
         if (!isDragging)
         {
             bool ok = true;
-            foreach (var move in Stationary)
+            for (int x = 0; x < m_Grid.m_GridWidth; ++x)
             {
-                //If any item in this array is false, a tile is moving
-                if (!move)
+                for (int y = 0; y < m_Grid.m_GridHeight; ++y)
                 {
-                    ok = false;
-                    m_WasMoving = true;
-                    break;
+                    //If any item in this array is false, a tile is moving
+                    if (!Stationary[x, y])
+                    {
+                        ok = false;
+                        m_WasMoving = true;
+
+                        if (!MovingTiles.Contains(m_Grid.m_Nodes[x, y]))
+                            MovingTiles.Add(m_Grid.m_Nodes[x, y]);
+                    }
                 }
             }
 
@@ -142,7 +148,8 @@ public class GameManager : MonoBehaviour
                 {
                     //Check for matches
                     m_WasMoving = false;
-                    m_Grid.MatchCheck();
+                    m_Grid.MatchCheck(MovingTiles.ToArray());
+                    MovingTiles.Clear();
                 }
             }
             else

@@ -131,6 +131,20 @@ public class GridCreator : MonoBehaviour
     }
 
     /// <summary>
+    /// Check specific nodes for matches
+    /// </summary>
+    public void MatchCheck(GridNode[] a_nodes)
+    {
+        foreach (var node in a_nodes)
+        {
+            if (node.m_Shape != null)
+            {
+                node.CheckMatch();
+            }
+        }
+    }
+
+    /// <summary>
     /// Fill the empty nodes by first dropping, then spawning new tiles
     /// </summary>
     public void FillEmpty()
