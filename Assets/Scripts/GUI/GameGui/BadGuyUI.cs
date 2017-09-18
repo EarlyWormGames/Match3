@@ -24,12 +24,12 @@ public class BadGuyUI : MonoBehaviour
 
     public void Show()
     {
-
+        m_Animator.SetBool("Hide", false);
     }
 
     public void Hide()
     {
-
+        m_Animator.SetBool("Hide", true);
     }
 
     public void ShowDone()
