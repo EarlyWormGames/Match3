@@ -220,10 +220,12 @@ public class GridNode : MonoBehaviour
         {
             //FOR TESTING
             //Highlights this node if it can swap into a match
+#if UNITY_EDITOR
             if (SwapCheckMatch())
                 m_Image.color = m_HighlightColour;
             else
                 m_Image.color = Color.clear;
+#endif
         }
     }
 
