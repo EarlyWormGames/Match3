@@ -464,9 +464,9 @@ public class GridNode : MonoBehaviour
             {
                 if (m_Left.m_Shape != null)
                 {
-                    if (m_Left.m_Shape.CheckColour(m_Shape, a_col))
+                    if (m_Left.m_Shape.CheckColour(m_Shape, a_col, onlyCheck))
                     {
-                        m_Left.CheckMatch(Direction.Left, ref a_col);
+                        m_Left.CheckMatch(Direction.Left, ref a_col, onlyCheck);
                         left = a_col;
                     }
                 }
@@ -486,9 +486,9 @@ public class GridNode : MonoBehaviour
             {
                 if (m_Right.m_Shape != null)
                 {
-                    if (m_Right.m_Shape.CheckColour(m_Shape, a_col))
+                    if (m_Right.m_Shape.CheckColour(m_Shape, a_col, onlyCheck))
                     {
-                        m_Right.CheckMatch(Direction.Right, ref a_col);
+                        m_Right.CheckMatch(Direction.Right, ref a_col, onlyCheck);
                         right = a_col;
                     }
                 }
@@ -508,9 +508,9 @@ public class GridNode : MonoBehaviour
             {
                 if (m_Up.m_Shape != null)
                 {
-                    if (m_Up.m_Shape.CheckColour(m_Shape, a_col))
+                    if (m_Up.m_Shape.CheckColour(m_Shape, a_col, onlyCheck))
                     {
-                        m_Up.CheckMatch(Direction.Up, ref a_col);
+                        m_Up.CheckMatch(Direction.Up, ref a_col, onlyCheck);
                         up = a_col;
                     }
                 }
@@ -530,9 +530,9 @@ public class GridNode : MonoBehaviour
             {
                 if (m_Down.m_Shape != null)
                 {
-                    if (m_Down.m_Shape.CheckColour(m_Shape, a_col))
+                    if (m_Down.m_Shape.CheckColour(m_Shape, a_col, onlyCheck))
                     {
-                        m_Down.CheckMatch(Direction.Down, ref a_col);
+                        m_Down.CheckMatch(Direction.Down, ref a_col, onlyCheck);
                         down = a_col;
                     }
                 }

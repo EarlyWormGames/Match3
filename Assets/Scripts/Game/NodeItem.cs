@@ -226,14 +226,14 @@ public class NodeItem : MonoBehaviour
     protected virtual void OnNotifyDestroy() { }
     protected virtual void OnNotifyEndDestroy() { }
 
-    public virtual bool CheckColour(NodeItem a_node, ItemColour a_col)
+    public virtual bool CheckColour(NodeItem a_node, ItemColour a_col, bool a_override = false)
     {
         bool wegoodcuh = true;
         if (m_SwapOnly)
-            wegoodcuh = MarkSwap || MarkDrag;
+            wegoodcuh = MarkSwap || MarkDrag || a_override;
 
         if (a_node.m_SwapOnly)
-            wegoodcuh = a_node.MarkSwap || a_node.MarkDrag;
+            wegoodcuh = a_node.MarkSwap || a_node.MarkDrag || a_override;
 
         return (m_Colour == a_col || a_col == ItemColour.NONE) && wegoodcuh;
     }

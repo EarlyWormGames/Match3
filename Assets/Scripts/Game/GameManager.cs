@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
 
     //An array of which Grid Nodes are moving
     public static bool[,] Stationary;
-    public List<GridNode> MovingTiles = new List<GridNode>();
+    public static List<GridNode> MovingTiles = new List<GridNode>();
 
     //A bunch of lists for matching nodes
     public static List<GridNode> NodeChainLeft = new List<GridNode>(),
@@ -224,6 +224,7 @@ public class GameManager : MonoBehaviour
         NodeChainUp = new List<GridNode>();
         NodeChainDown = new List<GridNode>();
         DestroyingList = new List<GridNode>();
+        MovingTiles = new List<GridNode>();
         CanDrag = true;
     }
 
