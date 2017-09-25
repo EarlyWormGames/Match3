@@ -232,7 +232,10 @@ MonoBehaviour:
   m_Explosion: {fileID: 198417009210072396}
   m_CanSwap: 1
   m_CanDestroy: 1
-  m_SpawnChance: 20
+  m_SpawnChance: 30
+  m_NotifiesDestroy: 1
+  m_MatchAnyColour: 0
+  m_SwapOnly: 0
 --- !u!198 &198155841385824370
 ParticleSystem:
   m_ObjectHideFlags: 1
