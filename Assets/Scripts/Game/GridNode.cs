@@ -42,7 +42,7 @@ public class GridNode : MonoBehaviour
                 {
                     if (m_Left.m_Shape != null)
                     {
-                        if (m_Left.m_Shape.CheckColour(ex))
+                        if (m_Left.m_Shape.CheckColour(ex, ex.m_Colour))
                             continue;
                     }
                 }
@@ -51,7 +51,7 @@ public class GridNode : MonoBehaviour
                 {
                     if (m_Right.m_Shape != null)
                     {
-                        if (m_Right.m_Shape.CheckColour(ex))
+                        if (m_Right.m_Shape.CheckColour(ex, ex.m_Colour))
                             continue;
                     }
                 }
@@ -60,7 +60,7 @@ public class GridNode : MonoBehaviour
                 {
                     if (m_Up.m_Shape != null)
                     {
-                        if (m_Up.m_Shape.CheckColour(ex))
+                        if (m_Up.m_Shape.CheckColour(ex, ex.m_Colour))
                             continue;
                     }
                 }
@@ -69,7 +69,7 @@ public class GridNode : MonoBehaviour
                 {
                     if (m_Down.m_Shape != null)
                     {
-                        if (m_Down.m_Shape.CheckColour(ex))
+                        if (m_Down.m_Shape.CheckColour(ex, ex.m_Colour))
                             continue;
                     }
                 }
@@ -251,9 +251,11 @@ public class GridNode : MonoBehaviour
         if (GameManager.lastDrag != Direction.None)
         {
             bool ok = false;
-            if (!GameManager.dragNItem.m_Parent.CheckMatch(Direction.None, true))
+            ItemColour col = ItemColour.NONE;
+            if (!GameManager.dragNItem.m_Parent.CheckMatch(Direction.None, ref col, true))
             {
-                if (GameManager.dragGNode.CheckMatch(Direction.None, true))
+                col = ItemColour.NONE;
+                if (GameManager.dragGNode.CheckMatch(Direction.None, ref col, true))
                 {
                     ok = true;
                 }
@@ -306,9 +308,11 @@ public class GridNode : MonoBehaviour
                 if (dir != Direction.None)
                 {
                     bool ok = false;
-                    if (!GameManager.dragNItem.m_Parent.CheckMatch(Direction.None, true))
+                    ItemColour col = ItemColour.NONE;
+                    if (!GameManager.dragNItem.m_Parent.CheckMatch(Direction.None, ref col, true))
                     {
-                        if (GameManager.dragGNode.CheckMatch(Direction.None, true))
+                        col = ItemColour.NONE;
+                        if (GameManager.dragGNode.CheckMatch(Direction.None, ref col, true))
                         {
                             ok = true;
                             GameManager.dragGNode.m_Shape.MarkSwap = true;
@@ -437,7 +441,7 @@ public class GridNode : MonoBehaviour
     /// <param name="dir"></param>
     /// <param name="onlyCheck"></param>
     /// <returns></returns>
-    public bool CheckMatch(Direction dir = Direction.None, bool onlyCheck = false, ItemColour a_col = ItemColour.NONE)
+    public bool CheckMatch(Direction dir, ref ItemColour a_col, bool onlyCheck = false)
     {
         if (m_Shape == null)
             return false;
@@ -445,7 +449,9 @@ public class GridNode : MonoBehaviour
         if (m_Shape.MarkDestroy || !m_Shape.CanDestroy())
             return false;
 
-        if (a_col == ItemColour.NONE)
+        ItemColour left = ItemColour.NONE, right = ItemColour.NONE, up = ItemColour.NONE, down = ItemColour.NONE;
+
+        if (a_col == ItemColour.NONE && !m_Shape.m_MatchAnyColour)
             a_col = m_Shape.m_Colour;
 
         //====================================
@@ -458,12 +464,19 @@ public class GridNode : MonoBehaviour
             {
                 if (m_Left.m_Shape != null)
                 {
-                    if (m_Left.m_Shape.CheckColour(m_Shape))
+                    if (m_Left.m_Shape.CheckColour(m_Shape, a_col))
                     {
-                        m_Left.CheckMatch(Direction.Left);
+                        m_Left.CheckMatch(Direction.Left, ref a_col);
+                        left = a_col;
                     }
                 }
             }
+        }
+
+        if (dir == Direction.None)
+        {
+            if (m_Shape.m_MatchAnyColour)
+                a_col = ItemColour.NONE;
         }
 
         if (dir == Direction.None || dir == Direction.Right)
@@ -473,12 +486,19 @@ public class GridNode : MonoBehaviour
             {
                 if (m_Right.m_Shape != null)
                 {
-                    if (m_Right.m_Shape.CheckColour(m_Shape))
+                    if (m_Right.m_Shape.CheckColour(m_Shape, a_col))
                     {
-                        m_Right.CheckMatch(Direction.Right);
+                        m_Right.CheckMatch(Direction.Right, ref a_col);
+                        right = a_col;
                     }
                 }
             }
+        }
+
+        if (dir == Direction.None)
+        {
+            if (m_Shape.m_MatchAnyColour)
+                a_col = ItemColour.NONE;
         }
 
         if (dir == Direction.None || dir == Direction.Up)
@@ -488,14 +508,20 @@ public class GridNode : MonoBehaviour
             {
                 if (m_Up.m_Shape != null)
                 {
-                    if (m_Up.m_Shape.CheckColour(m_Shape))
+                    if (m_Up.m_Shape.CheckColour(m_Shape, a_col))
                     {
-                        m_Up.CheckMatch(Direction.Up);
+                        m_Up.CheckMatch(Direction.Up, ref a_col);
+                        up = a_col;
                     }
                 }
             }
         }
 
+        if (dir == Direction.None)
+        {
+            if (m_Shape.m_MatchAnyColour)
+                a_col = ItemColour.NONE;
+        }
 
         if (dir == Direction.None || dir == Direction.Down)
         {
@@ -504,9 +530,10 @@ public class GridNode : MonoBehaviour
             {
                 if (m_Down.m_Shape != null)
                 {
-                    if (m_Down.m_Shape.CheckColour(m_Shape))
+                    if (m_Down.m_Shape.CheckColour(m_Shape, a_col))
                     {
-                        m_Down.CheckMatch(Direction.Down);
+                        m_Down.CheckMatch(Direction.Down, ref a_col);
+                        down = a_col;
                     }
                 }
             }
@@ -515,8 +542,67 @@ public class GridNode : MonoBehaviour
 
         if (dir == Direction.None)
         {
+            ItemColour winnerlr = left;
+            int lr = 0;
+            if (left != right)
+            {
+                if (GameManager.NodeChainLeft.Count >= GameManager.NodeChainRight.Count)
+                {
+                    GameManager.NodeChainRight.Clear();
+                    lr = GameManager.NodeChainLeft.Count;
+                    winnerlr = left;
+                }
+                else
+                {
+                    GameManager.NodeChainLeft.Clear();
+                    lr = GameManager.NodeChainRight.Count;
+                    winnerlr = right;
+                }
+            }
+            else
+                lr = GameManager.NodeChainLeft.Count + GameManager.NodeChainRight.Count;
+
+            ItemColour winnerud = up;
+            int ud = 0;
+            if (up != down)
+            {
+                if (GameManager.NodeChainUp.Count >= GameManager.NodeChainDown.Count)
+                {
+                    GameManager.NodeChainDown.Clear();
+                    ud = GameManager.NodeChainUp.Count;
+                    winnerud = up;
+                }
+                else
+                {
+                    GameManager.NodeChainUp.Clear();
+                    ud = GameManager.NodeChainDown.Count;
+                    winnerud = down;
+                }
+            }
+            else
+                ud = GameManager.NodeChainUp.Count + GameManager.NodeChainDown.Count;
+
+            ItemColour finalWinner = winnerlr;
+            if (lr >= ud)
+            {
+                if (winnerlr != winnerud)
+                {
+                    GameManager.NodeChainUp.Clear();
+                    GameManager.NodeChainDown.Clear();
+                }
+            }
+            else
+            {
+                finalWinner = winnerud;
+                if (winnerlr != winnerud)
+                {
+                    GameManager.NodeChainLeft.Clear();
+                    GameManager.NodeChainRight.Clear();
+                }
+            }
+
             //Only the initiator of the search will get here
-            return DestroyCheck(a_col, onlyCheck);
+            return DestroyCheck(finalWinner, onlyCheck);
         }
         return false;
     }
@@ -650,12 +736,13 @@ public class GridNode : MonoBehaviour
         if (!m_Shape.CanSwap())
             return false;
 
+        ItemColour col = ItemColour.NONE;
         if (HasDirection(Direction.Left, true))
         {
             if (m_Shape.CanSwap() && m_Left.m_Shape.CanSwap())
             {
                 m_Shape.Swap(m_Left.m_Shape, Direction.Left);
-                if (m_Left.CheckMatch(Direction.None, true))
+                if (m_Left.CheckMatch(Direction.None, ref col, true))
                 {
                     m_Shape.Swap(m_Left.m_Shape, Direction.Left);
                     return true;
@@ -664,12 +751,13 @@ public class GridNode : MonoBehaviour
             }
         }
 
+        col = ItemColour.NONE;
         if (HasDirection(Direction.Right, true))
         {
             if (m_Shape.CanSwap() && m_Right.m_Shape.CanSwap())
             {
                 m_Shape.Swap(m_Right.m_Shape, Direction.Right);
-                if (m_Right.CheckMatch(Direction.None, true))
+                if (m_Right.CheckMatch(Direction.None, ref col, true))
                 {
                     m_Shape.Swap(m_Right.m_Shape, Direction.Right);
                     return true;
@@ -678,12 +766,13 @@ public class GridNode : MonoBehaviour
             }
         }
 
+        col = ItemColour.NONE;
         if (HasDirection(Direction.Up, true))
         {
             if (m_Shape.CanSwap() && m_Up.m_Shape.CanSwap())
             {
                 m_Shape.Swap(m_Up.m_Shape, Direction.Up);
-                if (m_Up.CheckMatch(Direction.None, true))
+                if (m_Up.CheckMatch(Direction.None, ref col, true))
                 {
                     m_Shape.Swap(m_Up.m_Shape, Direction.Up);
                     return true;
@@ -692,12 +781,13 @@ public class GridNode : MonoBehaviour
             }
         }
 
+        col = ItemColour.NONE;
         if (HasDirection(Direction.Down, true))
         {
             if (m_Shape.CanSwap() && m_Down.m_Shape.CanSwap())
             {
                 m_Shape.Swap(m_Down.m_Shape, Direction.Down);
-                if (m_Down.CheckMatch(Direction.None, true))
+                if (m_Down.CheckMatch(Direction.None, ref col, true))
                 {
                     m_Shape.Swap(m_Down.m_Shape, Direction.Down);
                     return true;

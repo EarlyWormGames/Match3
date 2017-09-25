@@ -226,7 +226,7 @@ public class NodeItem : MonoBehaviour
     protected virtual void OnNotifyDestroy() { }
     protected virtual void OnNotifyEndDestroy() { }
 
-    public virtual bool CheckColour(NodeItem a_node, bool a_override = false)
+    public virtual bool CheckColour(NodeItem a_node, ItemColour a_col)
     {
         bool wegoodcuh = true;
         if (m_SwapOnly)
@@ -235,6 +235,6 @@ public class NodeItem : MonoBehaviour
         if (a_node.m_SwapOnly)
             wegoodcuh = a_node.MarkSwap || a_node.MarkDrag;
 
-        return ((a_node.m_Colour == m_Colour || m_MatchAnyColour || a_node.m_MatchAnyColour) && wegoodcuh) || a_override;
+        return (m_Colour == a_col || a_col == ItemColour.NONE) && wegoodcuh;
     }
 }

@@ -125,7 +125,8 @@ public class GridCreator : MonoBehaviour
         {
             if (node.m_Shape != null)
             {
-                node.CheckMatch();
+                ItemColour col = ItemColour.NONE;
+                node.CheckMatch(Direction.None, ref col);
             }
         }
     }
@@ -139,7 +140,8 @@ public class GridCreator : MonoBehaviour
         {
             if (node.m_Shape != null)
             {
-                node.CheckMatch();
+                ItemColour col = ItemColour.NONE;
+                node.CheckMatch(Direction.None, ref col);
             }
         }
     }
