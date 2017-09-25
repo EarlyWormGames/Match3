@@ -11,6 +11,7 @@ public class MelAnoma : MonoBehaviour
     private ItemColour m_RequestedColour = ItemColour.NONE;
     private MelAnomaUI m_UIObject;
 
+    Component[] blah;
     // Use this for initialization
     void Awake()
     {
