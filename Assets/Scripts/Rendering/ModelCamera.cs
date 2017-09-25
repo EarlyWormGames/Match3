@@ -18,4 +18,9 @@ public class ModelCamera : MonoBehaviour
         camera.orthographicSize = 1.6f;
         camera.enabled = false;
     }
+
+    void OnPostRender()
+    {
+        gameObject.SetActive(false);
+    }
 }
