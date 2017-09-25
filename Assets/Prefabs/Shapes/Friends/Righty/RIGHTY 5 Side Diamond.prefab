@@ -3807,7 +3807,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 0.559}
+      maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 0, b: 0, a: 1}
@@ -3869,7 +3869,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 1
-      scalar: 0.8
+      scalar: 1
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -3882,7 +3882,7 @@ ParticleSystem:
           tangentMode: 0
         - serializedVersion: 2
           time: 0.25
-          value: 0.6
+          value: 0.8
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -3894,7 +3894,7 @@ ParticleSystem:
           tangentMode: 0
         - serializedVersion: 2
           time: 0.75
-          value: 0.6
+          value: 0.8
           inSlope: -0.006556511
           outSlope: -0.006556511
           tangentMode: 0
@@ -4200,7 +4200,7 @@ ParticleSystem:
     sphericalDirectionAmount: 1
     randomPositionAmount: 0.1
     radius:
-      value: 0.4
+      value: 0.27
       mode: 0
       spread: 0
       speed:
@@ -4246,12 +4246,12 @@ ParticleSystem:
           m_RotationOrder: 4
     arc:
       value: 360
-      mode: 1
+      mode: 0
       spread: 0
       speed:
         serializedVersion: 2
         minMaxState: 0
-        scalar: -2.69
+        scalar: -1.82
         minScalar: 1
         maxCurve:
           serializedVersion: 2
@@ -4638,19 +4638,19 @@ ParticleSystem:
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 0, b: 0, a: 0}
-        key1: {r: 1, g: 0.7057867, b: 0, a: 1}
+        key1: {r: 0.90344834, g: 1, b: 0, a: 1}
         key2: {r: 0, g: 0.8941987, b: 0.15417223, a: 1}
-        key3: {r: 0, g: 0.17943954, b: 1, a: 0}
+        key3: {r: 0, g: 0.71034503, b: 1, a: 0}
         key4: {r: 0.7793102, g: 0, b: 1, a: 0}
-        key5: {r: 0, g: 0, b: 0, a: 0}
+        key5: {r: 0.7793102, g: 0, b: 1, a: 0}
         key6: {r: 0, g: 0, b: 0, a: 0}
         key7: {r: 0, g: 0, b: 0, a: 0}
         ctime0: 0
         ctime1: 14264
         ctime2: 31418
-        ctime3: 48959
+        ctime3: 49922
         ctime4: 65535
-        ctime5: 0
+        ctime5: 65535
         ctime6: 0
         ctime7: 0
         atime0: 0
