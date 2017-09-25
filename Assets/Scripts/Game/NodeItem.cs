@@ -22,6 +22,7 @@ public class NodeItem : MonoBehaviour
     public bool m_NotifiesDestroy = true;
     public bool m_MatchAnyColour = false;
     public bool m_SwapOnly = false;
+    public Vector3 m_Scale = new Vector3(1, 1, 1);
 
     internal GridNode m_Parent;
     internal Animator m_GemAnimator;

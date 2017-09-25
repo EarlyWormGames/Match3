@@ -15,7 +15,6 @@ public enum Direction
 
 public class GridNode : MonoBehaviour
 {
-    public Vector3 m_ShapeScale = new Vector3(2, 2, 2);
     public Color m_HighlightColour;
 
     internal NodeItem m_Shape;
@@ -78,8 +77,8 @@ public class GridNode : MonoBehaviour
             //If it gets here, it will spawn an item
             GameObject obj = GameManager.SpawnNodeItem(index);
             m_Shape = obj.GetComponent<NodeItem>();
-            m_Shape.transform.parent = transform.parent;
-            m_Shape.transform.localScale = m_ShapeScale;
+            m_Shape.transform.SetParent(transform.parent.parent, false);
+            m_Shape.transform.localScale = m_Shape.m_Scale;
             m_Shape.transform.localPosition = transform.position;
             m_Shape.m_Parent = this;
 
@@ -375,8 +374,8 @@ public class GridNode : MonoBehaviour
     {
         GameObject obj = GameManager.SpawnNodeItem();
         m_Shape = obj.GetComponent<NodeItem>();
-        m_Shape.transform.parent = transform.parent;
-        m_Shape.transform.localScale = m_ShapeScale;
+        m_Shape.transform.SetParent(transform.parent.parent, false);
+        m_Shape.transform.localScale = m_Shape.m_Scale;
         m_Shape.transform.position = a_position;
         m_Shape.m_Parent = this;
     }
@@ -387,8 +386,8 @@ public class GridNode : MonoBehaviour
         if (!m_RespawnIsSpawned)
             obj = Instantiate(a_object);
         m_Shape = obj.GetComponent<NodeItem>();
-        m_Shape.transform.parent = transform.parent;
-        m_Shape.transform.localScale = m_ShapeScale;
+        m_Shape.transform.SetParent(transform.parent.parent, false);
+        m_Shape.transform.localScale = m_Shape.m_Scale;
         m_Shape.transform.position = a_position;
         m_Shape.m_Parent = this;
 
