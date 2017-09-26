@@ -11,16 +11,9 @@ public class ModelCamera : MonoBehaviour
     // Use this for initialization
     void Awake()
     {
-        m_Texture = new RenderTexture(128, 128, 24);
+        m_Texture = new RenderTexture(1024, 1024, 24);
         camera = GetComponent<Camera>();
         camera.targetTexture = m_Texture;
         camera.orthographic = true;
-        camera.orthographicSize = 1.6f;
-        camera.enabled = false;
-    }
-
-    void OnPostRender()
-    {
-        gameObject.SetActive(false);
     }
 }

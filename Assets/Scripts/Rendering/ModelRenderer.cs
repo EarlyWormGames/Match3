@@ -13,11 +13,8 @@ public class ModelRenderer : MonoBehaviour
     void Start()
     {
         m_Renderer = GetComponent<RawImage>();
-        m_Renderer.texture = ModelSpawner.instance.UseRenderTexture(m_RenderIndex);
-    }
+        m_Renderer.texture = ModelSpawner.instance.GetTexture();
 
-    void OnDestroy()
-    {
-        ModelSpawner.instance.UnuseRenderTexture(m_RenderIndex);
+        m_Renderer.uvRect = ModelSpawner.instance.UsePortion(m_RenderIndex);
     }
 }
