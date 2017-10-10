@@ -55,11 +55,10 @@ GameObject:
   m_Component:
   - component: {fileID: 224854836492824280}
   - component: {fileID: 222357235586414972}
-  - component: {fileID: 114434670688856574}
-  - component: {fileID: 114795424165229618}
-  - component: {fileID: 114916885997760468}
+  - component: {fileID: 114929010916042914}
+  - component: {fileID: 114606174558084460}
   m_Layer: 0
-  m_Name: Red1
+  m_Name: Cupcake
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -165,7 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f28747f5cdf474e42adaa611c7a4ec57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114434670688856574
+--- !u!114 &114606174558084460
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -173,45 +172,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 1333852350469656}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07ddd7e418031564bb8d19b970c5e9c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Colour: 4
-  m_Explosion: {fileID: 198243300568140268}
-  m_CanSwap: 1
-  m_CanDestroy: 1
-  m_SpawnChance: 50
-  m_NotifiesDestroy: 1
-  m_MatchAnyColour: 0
-  m_SwapOnly: 0
-  m_Scale: {x: 1, y: 1, z: 1}
---- !u!114 &114795424165229618
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1333852350469656}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -98529514, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Texture: {fileID: 0}
-  m_UVRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
---- !u!114 &114916885997760468
+  m_Sprite: {fileID: 21300000, guid: 0e7b52fcef42d1943bad3f3182077c9e, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!114 &114929010916042914
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -219,10 +199,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1333852350469656}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b95e9baeecab794dbe304e372a3ef5d, type: 3}
+  m_Script: {fileID: 11500000, guid: 94177b421253d6f48874f28607c62dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_RenderIndex: 9
+  m_Colour: 4
+  m_Explosion: {fileID: 198243300568140268}
+  m_CanSwap: 1
+  m_CanDestroy: 1
+  m_SpawnChance: 25
+  m_NotifiesDestroy: 1
+  m_MatchAnyColour: 0
+  m_SwapOnly: 0
+  m_Scale: {x: 1, y: 1, z: 1}
 --- !u!198 &198243300568140268
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -13556,5 +13544,5 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 75, y: 75}
+  m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}

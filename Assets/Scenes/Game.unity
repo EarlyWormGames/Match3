@@ -792,25 +792,14 @@ MonoBehaviour:
   m_RequiredChainStart: 4
   m_SpawnPrefabs:
   - {fileID: 1333852350469656, guid: df69062121cdc3c4c9057011b531d60f, type: 2}
-  - {fileID: 1333852350469656, guid: 0ac3149fdc0e85545a9d8107c5fc8222, type: 2}
-  - {fileID: 1333852350469656, guid: ab90de5e302e2b44e934b7dd1f9d901a, type: 2}
   - {fileID: 1333852350469656, guid: dab8104663cf61144b83a09f2d021904, type: 2}
   - {fileID: 1333852350469656, guid: 4aff9ffa7f001c44788ea3758b2d07c7, type: 2}
   - {fileID: 1333852350469656, guid: b067a10798aca56489fbc6211b5e6e76, type: 2}
   - {fileID: 1333852350469656, guid: dba7a31bad719c843833d75d3f343ce2, type: 2}
   - {fileID: 1333852350469656, guid: e0f642ef10756f248b63dda17cca72d4, type: 2}
-  - {fileID: 1333852350469656, guid: f2f6e2013571d744ba027f3dcbcf8541, type: 2}
-  - {fileID: 1333852350469656, guid: f7a3ae5c7363b5042b8368f8ac01400c, type: 2}
-  - {fileID: 1333852350469656, guid: b35973f58cfb35546ac62377a747f2f8, type: 2}
-  - {fileID: 1333852350469656, guid: 29be67fb97e7f3f44be6b8adce33ac07, type: 2}
-  - {fileID: 1333852350469656, guid: 395a96d20efbb984088c3844024283b7, type: 2}
-  - {fileID: 1333852350469656, guid: b7d840c4dffc8374e8e3a0650c9f2d0b, type: 2}
-  - {fileID: 1333852350469656, guid: 3b0e7a4230a44944ba284f1fe93b1609, type: 2}
   - {fileID: 1000011841440206, guid: fae4ecaa8a239e440899bf5280b895fa, type: 2}
   - {fileID: 1000011841440206, guid: 80bd1b676723b56408170a51c48ec911, type: 2}
   - {fileID: 1000011841440206, guid: 00b1e2574e271a247aa05adaa626a2cc, type: 2}
-  - {fileID: 1000011841440206, guid: dd4c552d79053e340afaedf2a012ce6d, type: 2}
-  - {fileID: 1000011841440206, guid: 3e7f7f18fece9a54b839caea126f18c7, type: 2}
   m_Petrified: {fileID: 1333852350469656, guid: e8c313be6de74634b9a92bc3f0553ddc,
     type: 2}
   m_BBros: {fileID: 1000011841440206, guid: 0e0fe36c9f7f8464ea2391031966807d, type: 2}

@@ -12,7 +12,7 @@ public class ParticleColourChanger : MonoBehaviour {
         m_childParticles = GetComponentsInChildren<ParticleSystem>();
         switch (m_gemParent.m_Colour)
         {
-            case ItemColour.Red:
+            case ItemColour.Capsicum:
                 foreach (ParticleSystem ps in m_childParticles)
                 {
                     ParticleSystem.MainModule main = ps.main;
@@ -27,7 +27,7 @@ public class ParticleColourChanger : MonoBehaviour {
             //    }
             //    break;
 
-            case ItemColour.Yellow:
+            case ItemColour.Cake:
                 foreach (ParticleSystem ps in m_childParticles)
                 {
                     ParticleSystem.MainModule main = ps.main;
@@ -35,7 +35,7 @@ public class ParticleColourChanger : MonoBehaviour {
                 }
                 break;
 
-            case ItemColour.Green:
+            case ItemColour.Broccoli:
                 foreach (ParticleSystem ps in m_childParticles)
                 {
                     ParticleSystem.MainModule main = ps.main;
@@ -43,7 +43,7 @@ public class ParticleColourChanger : MonoBehaviour {
                 }
                 break;
 
-            case ItemColour.Blue:
+            case ItemColour.Cupcake:
                 foreach (ParticleSystem ps in m_childParticles)
                 {
                     ParticleSystem.MainModule main = ps.main;
@@ -51,7 +51,7 @@ public class ParticleColourChanger : MonoBehaviour {
                 }
                 break;
 
-            case ItemColour.Purple:
+            case ItemColour.Icecream:
                 foreach (ParticleSystem ps in m_childParticles)
                 {
                     ParticleSystem.MainModule main = ps.main;
@@ -66,10 +66,5 @@ public class ParticleColourChanger : MonoBehaviour {
             //    }
             //    break;
         }
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 }

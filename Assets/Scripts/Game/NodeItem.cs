@@ -4,11 +4,12 @@ using UnityEngine;
 
 public enum ItemColour
 {
-    Blue,
-    Green,
-    Purple,
-    Yellow,
-    Red,
+    Broccoli,
+    Cake,
+    Capsicum,
+    Carrot,
+    Cupcake,
+    Icecream,
     NONE
 }
 
