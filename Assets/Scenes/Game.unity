@@ -800,6 +800,9 @@ MonoBehaviour:
   - {fileID: 1000011841440206, guid: fae4ecaa8a239e440899bf5280b895fa, type: 2}
   - {fileID: 1000011841440206, guid: 80bd1b676723b56408170a51c48ec911, type: 2}
   - {fileID: 1000011841440206, guid: 00b1e2574e271a247aa05adaa626a2cc, type: 2}
+  - {fileID: 1000011841440206, guid: e3700d5df3054d24880600793f8ad95c, type: 2}
+  - {fileID: 1000011841440206, guid: 26a60a8433fcee14e8d7d4abd639b7be, type: 2}
+  - {fileID: 1000011841440206, guid: e7eb83db9b8e44745b63b87b2e0c02e6, type: 2}
   m_Petrified: {fileID: 1333852350469656, guid: e8c313be6de74634b9a92bc3f0553ddc,
     type: 2}
   m_BBros: {fileID: 1000011841440206, guid: 0e0fe36c9f7f8464ea2391031966807d, type: 2}
