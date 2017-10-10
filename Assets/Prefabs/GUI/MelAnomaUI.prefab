@@ -199,21 +199,15 @@ MonoBehaviour:
   m_Animator: {fileID: 95374978427245554}
   m_ColourText: {fileID: 114724164180662710}
   m_Colours:
-  - text: Red
-    colour: {r: 1, g: 0, b: 0, a: 1}
-    itemType: 4
-  - text: Blue
-    colour: {r: 0, g: 0.46206856, b: 1, a: 1}
+  - text: Broccoli
+    colour: {r: 0.32520285, g: 0.8897059, b: 0, a: 1}
     itemType: 0
-  - text: Green
-    colour: {r: 0.25025356, g: 0.77205884, b: 0, a: 1}
-    itemType: 1
-  - text: Yellow
-    colour: {r: 0.9558824, g: 0.8899595, b: 0, a: 1}
-    itemType: 3
-  - text: Purple
-    colour: {r: 0.65517235, g: 0, b: 1, a: 1}
+  - text: Capsicum
+    colour: {r: 0.875, g: 0.14797792, b: 0.14797792, a: 1}
     itemType: 2
+  - text: Carrot
+    colour: {r: 1, g: 0.68275857, b: 0, a: 1}
+    itemType: 3
 --- !u!222 &222073846867803366
 CanvasRenderer:
   m_ObjectHideFlags: 1

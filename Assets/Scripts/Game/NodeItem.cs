@@ -36,6 +36,7 @@ public class NodeItem : MonoBehaviour
     private float m_DestroyTimer = 0;
     private bool m_destroyStart = false;
     private int m_SwapCountDown = 1;
+    private bool m_bWasMoving;
 
     // Use this for initialization
     void Start()
@@ -75,6 +76,9 @@ public class NodeItem : MonoBehaviour
         //If we're far enough away from our parent node, we should move
         if ((m_Parent.transform.position - transform.position).magnitude > 0.01f)
         {
+            //We'll use this later once this tile stops moving
+            m_bWasMoving = true;
+
             //Use an ease-out lerp to move
             transform.position = Vector3.Lerp(transform.position, m_Parent.transform.position, Time.deltaTime * GameManager.instance.m_NodeMoveSpeed);
 
@@ -95,6 +99,14 @@ public class NodeItem : MonoBehaviour
                 MarkSwap = false;
             else
                 --m_SwapCountDown;
+
+            if (m_bWasMoving)
+            {
+                m_bWasMoving = false;
+
+                //For animations and such
+                OnStopMovement();
+            }
         }        
 
         //Is this tile about to be destroyed?
@@ -239,4 +251,6 @@ public class NodeItem : MonoBehaviour
 
         return (m_Colour == a_col || a_col == ItemColour.NONE) && wegoodcuh;
     }
+
+    protected virtual void OnStopMovement() { }
 }
