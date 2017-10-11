@@ -43,6 +43,7 @@ public class NodeItem : MonoBehaviour
     private bool m_bWasActive;
 
     private Image[] m_ImageComps;
+    private SpriteRenderer[] m_SpriteComps;
     private ParticleSystem[] m_Particles;
 
     // Use this for initialization
@@ -65,6 +66,7 @@ public class NodeItem : MonoBehaviour
         m_Explosion.Stop();
 
         m_ImageComps = GetComponentsInChildren<Image>();
+        m_SpriteComps = GetComponentsInChildren<SpriteRenderer>();
         m_Particles = GetComponentsInChildren<ParticleSystem>();
         m_bWasActive = true;
 
@@ -96,6 +98,11 @@ public class NodeItem : MonoBehaviour
             foreach (var img in m_ImageComps)
             {
                 img.enabled = m_bIsActive;
+            }
+
+            foreach (var sprite in m_SpriteComps)
+            {
+                sprite.enabled = m_bIsActive;
             }
 
             foreach (var part in m_Particles)
