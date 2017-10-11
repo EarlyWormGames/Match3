@@ -23,7 +23,7 @@ public class BacteriaBro : NodeItem
         m_CanDestroy = false;
     }
 
-    private void Start()
+    protected override void OnStart()
     {
         LifeTimeDisplayUpdate();
     }

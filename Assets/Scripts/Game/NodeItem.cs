@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum ItemColour
 {
@@ -33,11 +34,16 @@ public class NodeItem : MonoBehaviour
     internal bool MarkDrag = false;
     internal bool SwapChain = false;
     internal ItemColour m_MatchedColour;
+    internal bool m_bIsActive = true;
 
     private float m_DestroyTimer = 0;
     private bool m_destroyStart = false;
     private int m_SwapCountDown = 1;
     private bool m_bWasMoving;
+    private bool m_bWasActive;
+
+    private Image[] m_ImageComps;
+    private ParticleSystem[] m_Particles;
 
     // Use this for initialization
     void Start()
@@ -57,7 +63,15 @@ public class NodeItem : MonoBehaviour
         m_GemAnimator = GetComponent<Animator>();
         if(m_Explosion != null)
         m_Explosion.Stop();
+
+        m_ImageComps = GetComponentsInChildren<Image>();
+        m_Particles = GetComponentsInChildren<ParticleSystem>();
+        m_bWasActive = true;
+
+        OnStart();
     }
+
+    protected virtual void OnStart() { }
 
     public virtual void Init() { }
 
@@ -73,6 +87,25 @@ public class NodeItem : MonoBehaviour
     {
         if (m_Parent == null)
             return;
+
+        m_bIsActive = m_Parent.m_yIndex != 0;
+
+        if (m_bWasActive != m_bIsActive)
+        {
+            m_bWasActive = m_bIsActive;
+            foreach (var img in m_ImageComps)
+            {
+                img.enabled = m_bIsActive;
+            }
+
+            foreach (var part in m_Particles)
+            {
+                if (part.main.playOnAwake && m_bIsActive)
+                    part.Play();
+                else
+                    part.Stop();
+            }
+        }
 
         //If we're far enough away from our parent node, we should move
         if ((m_Parent.transform.position - transform.position).magnitude > 0.01f)
@@ -213,7 +246,7 @@ public class NodeItem : MonoBehaviour
 
     public virtual bool CanSwap()
     {
-        return m_CanSwap;
+        return m_CanSwap && m_bIsActive;
     }
 
     public virtual bool CanDestroy()
@@ -258,6 +291,9 @@ public class NodeItem : MonoBehaviour
                 wegoodcuh = false;
             }
         }
+
+        if (!m_bIsActive || !a_node.m_bIsActive)
+            wegoodcuh = false;
 
         return (m_Colour == a_col || a_col == ItemColour.NONE) && wegoodcuh;
     }

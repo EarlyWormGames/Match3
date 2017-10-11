@@ -81,6 +81,7 @@ public class GameManager : MonoBehaviour
     public GameObject m_ScorePanel;
     public Text m_EndScore;
     public Text m_NameText;
+    public PercentageMovement m_ScoreBar;
 
     public float m_NodeMoveSpeed = 5f;
     public int m_RequiredChainStart = 2;
@@ -97,7 +98,10 @@ public class GameManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+        if (Mediator.Settings == null)
+        {
+            Mediator.Settings = new GameSettings();
+        }
     }
 
     // Update is called once per frame
@@ -105,6 +109,8 @@ public class GameManager : MonoBehaviour
     {
         //Set the score display
         m_ScoreText.text = Score.ToString();
+
+        m_ScoreBar.Percentage = (float)Score / Mediator.Settings.TargetScore;
 
         //If we have items to destroy, this list will be filled
         if (DestroyingList.Count > 0)

@@ -23,6 +23,6 @@ public class GameSettings
     public int GridWidth = 5;
     public int GridHeight = 7;
 
-    public int TargetScore;
+    public int TargetScore = 100;
     public float DifficultyMult = 1;
 }

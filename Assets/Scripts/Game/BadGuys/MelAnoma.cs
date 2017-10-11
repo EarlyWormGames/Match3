@@ -11,7 +11,6 @@ public class MelAnoma : MonoBehaviour
     private ItemColour m_RequestedColour = ItemColour.NONE;
     private MelAnomaUI m_UIObject;
 
-    Component[] blah;
     // Use this for initialization
     void Awake()
     {
@@ -118,10 +117,14 @@ public class MelAnoma : MonoBehaviour
     {
         //Generate a new colour (definitely not the same)
         ItemColour prevcol = m_RequestedColour;
+        int index = 0;
         do
         {
-            m_RequestedColour = (ItemColour)Random.Range(0, System.Enum.GetNames(typeof(ItemColour)).Length - 1);
+            index = Random.Range(0, m_UIObject.m_Colours.Length - 1);
+            m_RequestedColour = m_UIObject.m_Colours[index].itemType;
+
         } while (m_RequestedColour == prevcol);
+
         m_UIObject.SetText(m_RequestedColour);
     }
 }
