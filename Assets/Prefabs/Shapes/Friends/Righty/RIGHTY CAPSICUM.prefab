@@ -231,7 +231,8 @@ MonoBehaviour:
   m_CanDestroy: 1
   m_SpawnChance: 2
   m_NotifiesDestroy: 1
-  m_MatchAnyColour: 1
+  m_MatchAnyColour: 0
+  m_MatchAnyButOwn: 1
   m_SwapOnly: 1
   m_Scale: {x: 1, y: 1, z: 1}
   m_MatchingNormal: {fileID: 1333852350469656, guid: 4aff9ffa7f001c44788ea3758b2d07c7,

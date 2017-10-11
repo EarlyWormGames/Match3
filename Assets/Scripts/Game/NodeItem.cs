@@ -22,6 +22,7 @@ public class NodeItem : MonoBehaviour
     public int m_SpawnChance = 1;
     public bool m_NotifiesDestroy = true;
     public bool m_MatchAnyColour = false;
+    public bool m_MatchAnyButOwn = false;
     public bool m_SwapOnly = false;
     public Vector3 m_Scale = new Vector3(1, 1, 1);
 
@@ -248,6 +249,15 @@ public class NodeItem : MonoBehaviour
 
         if (a_node.m_SwapOnly)
             wegoodcuh = a_node.MarkSwap || a_node.MarkDrag || a_override;
+
+        if (a_col != ItemColour.NONE)
+        {
+            if (a_node.m_MatchAnyButOwn && a_col == a_node.m_Colour ||
+                m_MatchAnyButOwn && a_col == m_Colour)
+            {
+                wegoodcuh = false;
+            }
+        }
 
         return (m_Colour == a_col || a_col == ItemColour.NONE) && wegoodcuh;
     }

@@ -259,6 +259,7 @@ MonoBehaviour:
   m_SpawnChance: 2
   m_NotifiesDestroy: 1
   m_MatchAnyColour: 0
+  m_MatchAnyButOwn: 0
   m_SwapOnly: 0
   m_Scale: {x: 1, y: 1, z: 1}
   m_MatchingNormal: {fileID: 1000011841440206, guid: 0ed203d298c050b49bfabe788790e1c2,

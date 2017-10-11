@@ -450,7 +450,7 @@ public class GridNode : MonoBehaviour
 
         ItemColour left = ItemColour.NONE, right = ItemColour.NONE, up = ItemColour.NONE, down = ItemColour.NONE;
 
-        if (a_col == ItemColour.NONE && !m_Shape.m_MatchAnyColour)
+        if (a_col == ItemColour.NONE && (!m_Shape.m_MatchAnyColour || !m_Shape.m_MatchAnyButOwn))
             a_col = m_Shape.m_Colour;
 
         //====================================
@@ -474,7 +474,7 @@ public class GridNode : MonoBehaviour
 
         if (dir == Direction.None)
         {
-            if (m_Shape.m_MatchAnyColour)
+            if (m_Shape.m_MatchAnyColour || m_Shape.m_MatchAnyButOwn)
                 a_col = ItemColour.NONE;
         }
 
@@ -496,7 +496,7 @@ public class GridNode : MonoBehaviour
 
         if (dir == Direction.None)
         {
-            if (m_Shape.m_MatchAnyColour)
+            if (m_Shape.m_MatchAnyColour || m_Shape.m_MatchAnyButOwn)
                 a_col = ItemColour.NONE;
         }
 
@@ -518,7 +518,7 @@ public class GridNode : MonoBehaviour
 
         if (dir == Direction.None)
         {
-            if (m_Shape.m_MatchAnyColour)
+            if (m_Shape.m_MatchAnyColour || m_Shape.m_MatchAnyButOwn)
                 a_col = ItemColour.NONE;
         }
 
@@ -545,40 +545,40 @@ public class GridNode : MonoBehaviour
             int lr = 0;
             if (left != right)
             {
-                if (GameManager.NodeChainLeft.Count >= GameManager.NodeChainRight.Count)
+                if (GameManager.NodeChainLeft.Count >= GameManager.NodeChainRight.Count && (m_Shape.m_MatchAnyButOwn ? left != m_Shape.m_Colour : true))
                 {
                     GameManager.NodeChainRight.Clear();
                     lr = GameManager.NodeChainLeft.Count;
                     winnerlr = left;
                 }
-                else
+                else if (m_Shape.m_MatchAnyButOwn ? right != m_Shape.m_Colour : true)
                 {
                     GameManager.NodeChainLeft.Clear();
                     lr = GameManager.NodeChainRight.Count;
                     winnerlr = right;
                 }
             }
-            else
+            else if (m_Shape.m_MatchAnyButOwn ? left != m_Shape.m_Colour : true)
                 lr = GameManager.NodeChainLeft.Count + GameManager.NodeChainRight.Count;
 
             ItemColour winnerud = up;
             int ud = 0;
             if (up != down)
             {
-                if (GameManager.NodeChainUp.Count >= GameManager.NodeChainDown.Count)
+                if (GameManager.NodeChainUp.Count >= GameManager.NodeChainDown.Count && (m_Shape.m_MatchAnyButOwn ? up != m_Shape.m_Colour : true))
                 {
                     GameManager.NodeChainDown.Clear();
                     ud = GameManager.NodeChainUp.Count;
                     winnerud = up;
                 }
-                else
+                else if (m_Shape.m_MatchAnyButOwn ? down != m_Shape.m_Colour : true)
                 {
                     GameManager.NodeChainUp.Clear();
                     ud = GameManager.NodeChainDown.Count;
                     winnerud = down;
                 }
             }
-            else
+            else if (m_Shape.m_MatchAnyButOwn ? up != m_Shape.m_Colour : true)
                 ud = GameManager.NodeChainUp.Count + GameManager.NodeChainDown.Count;
 
             ItemColour finalWinner = winnerlr;
