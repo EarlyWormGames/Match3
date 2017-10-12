@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WBCA : MonoBehaviour
+public class WBCA : NodeItem
 {
-    public void DoIt()
+    public override void OnEndDestroy()
     {
+        base.OnEndDestroy();
+        
         foreach (var item in GameManager.instance.m_Grid.m_Nodes)
         {
             if (item.m_Shape == null)

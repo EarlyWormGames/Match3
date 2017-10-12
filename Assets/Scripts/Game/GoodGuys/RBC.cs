@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RBC : MonoBehaviour
+public class RBC : NodeItem
 {
-    public void DoIt()
+    public override void OnEndDestroy()
     {
+        base.OnEndDestroy();
+
         foreach (var item in GameManager.instance.m_Grid.m_Nodes)
         {
             if (item.m_Shape == null)
@@ -13,7 +15,7 @@ public class RBC : MonoBehaviour
             //Finds all junk items and destroys them
             if (item.m_Shape.GetType() == typeof(JunkItem) && !item.m_Shape.MarkDestroy)
             {
-                item.StartDestroy();
+                item.StartDestroy(false);
             }
         }
     }

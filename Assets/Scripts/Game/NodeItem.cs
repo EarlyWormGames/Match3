@@ -35,6 +35,7 @@ public class NodeItem : MonoBehaviour
     internal bool SwapChain = false;
     internal ItemColour m_MatchedColour;
     internal bool m_bIsActive = true;
+    internal bool m_bUseScore = true;
 
     private float m_DestroyTimer = 0;
     private bool m_destroyStart = false;
@@ -225,12 +226,14 @@ public class NodeItem : MonoBehaviour
         //a_other.CheckMatch();
     }
 
-    public void StartDestroy()
+    public void StartDestroy(bool a_useScore = true)
     {
         m_destroyStart = true;
         m_DestroyTimer = 1f;
         if(m_Explosion != null)
         m_Explosion.Play();
+
+        m_bUseScore = a_useScore;
 
         if (m_NotifiesDestroy)
         {
@@ -272,7 +275,8 @@ public class NodeItem : MonoBehaviour
     public virtual void OnStartDestroy() { }
     public virtual void OnEndDestroy()
     {
-        ++GameManager.Score;
+        if (m_bUseScore)
+            ++GameManager.Score;
     }
 
     public virtual bool CanSwap()

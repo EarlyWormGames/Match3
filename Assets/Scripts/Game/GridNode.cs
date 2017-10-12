@@ -707,10 +707,10 @@ public class GridNode : MonoBehaviour
         return ok;
     }
 
-    public void StartDestroy(bool a_addToRespawn = true)
+    public void StartDestroy(bool a_useScore = true)
     {
         GameManager.CanDrag = false;
-        m_Shape.StartDestroy();
+        m_Shape.StartDestroy(a_useScore);
         if (m_RespawnType == null)
         {
             ++GameManager.RespawnCounts[m_xIndex];

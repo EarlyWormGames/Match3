@@ -52,7 +52,7 @@ public class BacteriaBro : NodeItem
         {
             //Tell the node to destroy
             m_Parent.m_RespawnType = GameManager.instance.m_Petrified;
-            m_Parent.StartDestroy(false);
+            m_Parent.StartDestroy();
         }
         else
             LifeTimeDisplayUpdate();

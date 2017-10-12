@@ -26,7 +26,7 @@ public class Righty : NodeItem
             {
                 //Destroy it and give it a new item
                 item.m_RespawnType = m_MatchingNormal;
-                item.StartDestroy(false);
+                item.StartDestroy();
                 GameManager.Stationary[item.m_xIndex, item.m_yIndex] = false;
                 GameManager.MovingTiles.Add(item);
             }

@@ -6,6 +6,7 @@ public class JunkItem : NodeItem
 {
     public override void OnEndDestroy()
     {
-        --GameManager.Score;
+        if (m_bUseScore)
+            --GameManager.Score;
     }
 }
