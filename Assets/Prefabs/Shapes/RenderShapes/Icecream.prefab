@@ -179,7 +179,7 @@ MonoBehaviour:
   m_Explosion: {fileID: 198243300568140268}
   m_CanSwap: 1
   m_CanDestroy: 1
-  m_SpawnChance: 25
+  m_SpawnChance: 40
   m_NotifiesDestroy: 1
   m_MatchAnyColour: 0
   m_MatchAnyButOwn: 0

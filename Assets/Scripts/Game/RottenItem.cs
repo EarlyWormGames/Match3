@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class RottenItem : NodeItem
 {
-    internal bool m_WasDeleted = false;
     public override void OnEndDestroy()
     {
-        if (!m_WasDeleted)
+        if (m_bUseScore)
             --GameManager.Score;
     }
 }

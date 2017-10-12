@@ -10,7 +10,7 @@ public class RBC : NodeItem
 
         foreach (var item in GameManager.instance.m_Grid.m_Nodes)
         {
-            if (item.m_Shape == null)
+            if (item.m_Shape == null || item.m_yIndex == 0)
                 continue;
             //Finds all junk items and destroys them
             if (item.m_Shape.GetType() == typeof(JunkItem) && !item.m_Shape.MarkDestroy)

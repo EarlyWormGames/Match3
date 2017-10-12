@@ -855,6 +855,9 @@ MonoBehaviour:
   - {fileID: 1000011841440206, guid: c8179694a32f071448de33ffa8dfc199, type: 2}
   - {fileID: 1000011841440206, guid: 356b94413f9cf6442b8d4c1899bbf98c, type: 2}
   - {fileID: 1000011841440206, guid: 7a8df9cca9b2f2547bea8924623bfd73, type: 2}
+  - {fileID: 1343774020424446, guid: eb50510e40c2c3e4b81be39df4b28199, type: 2}
+  - {fileID: 1542355696856174, guid: 54b20d27ad790ab419369587d83eb332, type: 2}
+  - {fileID: 1203249394513544, guid: 7f6d616ad711f3e4c80135b438d7c6ab, type: 2}
   m_Petrified: {fileID: 1333852350469656, guid: e8c313be6de74634b9a92bc3f0553ddc,
     type: 2}
   m_BBros: {fileID: 1000011841440206, guid: 0e0fe36c9f7f8464ea2391031966807d, type: 2}
