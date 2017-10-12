@@ -23,6 +23,9 @@ public class GridNode : MonoBehaviour
     internal Image m_Image;
     internal GameObject m_RespawnType = null;
     internal bool m_RespawnIsSpawned = false;
+    internal bool m_bOverrideVis = false;
+
+    private bool m_bWasVis = false;
 
     public void Init()
     {
@@ -226,6 +229,14 @@ public class GridNode : MonoBehaviour
                 m_Image.color = Color.clear;
 #endif
         }
+    }
+
+    public void OverrideVis(bool a_vis)
+    {
+        if (m_Shape != null)
+            m_Shape.OverrideVis(a_vis);
+
+        m_bOverrideVis = a_vis;
     }
 
     public void MouseDown(BaseEventData eventData)
@@ -699,13 +710,13 @@ public class GridNode : MonoBehaviour
     public void StartDestroy(bool a_addToRespawn = true)
     {
         GameManager.CanDrag = false;
+        m_Shape.StartDestroy();
         if (m_RespawnType == null)
         {
             ++GameManager.RespawnCounts[m_xIndex];
         }
         GameManager.DestroyingList.Add(this);
         m_Shape.MarkDestroy = true;
-        m_Shape.StartDestroy();
     }
 
     public void EndDestroy()

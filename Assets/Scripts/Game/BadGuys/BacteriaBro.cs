@@ -7,10 +7,13 @@ public class BacteriaBro : NodeItem
 {
     public int m_Lifespan = 3;
     public Text m_LifeText;
-    public SpriteRenderer m_Sprite1;
-    public SpriteRenderer m_Sprite2;
-    public SpriteRenderer m_Sprite3;
+    public Image m_Sprite1;
+    public Image m_Sprite2;
+    public Image m_Sprite3;
     public GameObject m_ChildRoot;
+
+    internal GameObject m_RespawnType;
+
     private int m_Lifetime;
     private bool m_WasReversed;
 
@@ -72,9 +75,8 @@ public class BacteriaBro : NodeItem
         LifeTimeDisplayUpdate();
         if (m_Lifetime < 0)
         {
-            GoodDestroy();
-            var node = gameObject.AddComponent<NodeItem>();
-            GameManager.Stationary[m_Parent.m_xIndex, m_Parent.m_yIndex] = false;
+            m_Parent.m_RespawnType = m_RespawnType;
+            m_Parent.StartDestroy();
         }
     }
 

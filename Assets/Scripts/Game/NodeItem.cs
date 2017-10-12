@@ -46,6 +46,14 @@ public class NodeItem : MonoBehaviour
     private SpriteRenderer[] m_SpriteComps;
     private ParticleSystem[] m_Particles;
 
+    private void Awake()
+    {
+        m_ImageComps = GetComponentsInChildren<Image>();
+        m_SpriteComps = GetComponentsInChildren<SpriteRenderer>();
+        m_Particles = GetComponentsInChildren<ParticleSystem>();
+        m_bWasActive = true;
+    }
+
     // Use this for initialization
     void Start()
     {
@@ -64,11 +72,6 @@ public class NodeItem : MonoBehaviour
         m_GemAnimator = GetComponent<Animator>();
         if(m_Explosion != null)
         m_Explosion.Stop();
-
-        m_ImageComps = GetComponentsInChildren<Image>();
-        m_SpriteComps = GetComponentsInChildren<SpriteRenderer>();
-        m_Particles = GetComponentsInChildren<ParticleSystem>();
-        m_bWasActive = true;
 
         OnStart();
     }
@@ -97,17 +100,17 @@ public class NodeItem : MonoBehaviour
             m_bWasActive = m_bIsActive;
             foreach (var img in m_ImageComps)
             {
-                img.enabled = m_bIsActive;
+                img.enabled = m_bIsActive || GameManager.TopViewTime > 0 || m_Parent.m_bOverrideVis;
             }
 
             foreach (var sprite in m_SpriteComps)
             {
-                sprite.enabled = m_bIsActive;
+                sprite.enabled = m_bIsActive || GameManager.TopViewTime > 0 || m_Parent.m_bOverrideVis;
             }
 
             foreach (var part in m_Particles)
             {
-                if (part.main.playOnAwake && m_bIsActive)
+                if (part.main.playOnAwake && (m_bIsActive || GameManager.TopViewTime > 0 || m_Parent.m_bOverrideVis))
                     part.Play();
                 else
                     part.Stop();
@@ -169,6 +172,27 @@ public class NodeItem : MonoBehaviour
         }
 
         OnUpdate();
+    }
+
+    public void OverrideVis(bool a_vis)
+    {
+        foreach (var img in m_ImageComps)
+        {
+            img.enabled = a_vis;
+        }
+
+        foreach (var sprite in m_SpriteComps)
+        {
+            sprite.enabled = a_vis;
+        }
+
+        foreach (var part in m_Particles)
+        {
+            if (part.main.playOnAwake && a_vis)
+                part.Play();
+            else
+                part.Stop();
+        }
     }
 
     protected virtual void OnUpdate() { }

@@ -49,6 +49,8 @@ public class GameManager : MonoBehaviour
     public static Vector3 dragStartPos;
     public static int Score;
 
+    public static int TopViewTime = 0;
+
     //An array of which Grid Nodes are moving
     public static bool[,] Stationary;
     public static List<GridNode> MovingTiles = new List<GridNode>();
@@ -66,7 +68,6 @@ public class GameManager : MonoBehaviour
     public static bool CanDrag = true;
 
     //Delegate function for notifying a turn
-
     #region DELEGATES
     public static MyDel onNotifySwap; 
     public static MyDel onEOFSwap;
@@ -163,7 +164,19 @@ public class GameManager : MonoBehaviour
                 //No movement allowed while tiles are falling
                 CanDrag = false;
             }
-        }        
+
+            if (TopViewTime > 0)
+            {
+                bool show = false;
+                if (TopViewTime > 0)
+                    show = true;
+
+                for (int i = 0; i < instance.m_Grid.m_GridWidth; ++i)
+                {
+                    instance.m_Grid.m_Nodes[i, 0].OverrideVis(show);
+                }
+            }
+        }
     }
 
     public void GameOver()
@@ -232,6 +245,7 @@ public class GameManager : MonoBehaviour
         DestroyingList = new List<GridNode>();
         MovingTiles = new List<GridNode>();
         CanDrag = true;
+        TopViewTime = 0;
     }
 
     /// <summary>
@@ -298,6 +312,27 @@ public class GameManager : MonoBehaviour
             if (rand == 0)
             {
                 Instantiate(instance.m_MelAnomaPrefab);
+            }
+        }
+
+        if (a_wasSwapped)
+        {
+            bool ok = false;
+            if (TopViewTime > 0)
+            {
+                --TopViewTime;
+                ok = true;
+            }
+
+            if (ok)
+            {
+                bool show = false;
+                for (int i = 0; i < instance.m_Grid.m_GridWidth; ++i)
+                {
+                    if (TopViewTime > 0)
+                        show = true;
+                    instance.m_Grid.m_Nodes[i, 0].OverrideVis(show);
+                }
             }
         }
     }

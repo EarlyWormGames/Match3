@@ -846,6 +846,9 @@ MonoBehaviour:
   - {fileID: 1000011841440206, guid: e3700d5df3054d24880600793f8ad95c, type: 2}
   - {fileID: 1000011841440206, guid: 26a60a8433fcee14e8d7d4abd639b7be, type: 2}
   - {fileID: 1000011841440206, guid: e7eb83db9b8e44745b63b87b2e0c02e6, type: 2}
+  - {fileID: 1343774020424446, guid: 2026197c48371ef498472243b7a95596, type: 2}
+  - {fileID: 1542355696856174, guid: c9cf7e7d6dd3f374d8d4e1c9ba3f2ef4, type: 2}
+  - {fileID: 1203249394513544, guid: 98cb27c28447f2245a395ac5cecd7089, type: 2}
   m_Petrified: {fileID: 1333852350469656, guid: e8c313be6de74634b9a92bc3f0553ddc,
     type: 2}
   m_BBros: {fileID: 1000011841440206, guid: 0e0fe36c9f7f8464ea2391031966807d, type: 2}
@@ -935,7 +938,7 @@ Prefab:
     - target: {fileID: 224698772862052208, guid: cd604d788831c7a40b4c78dc07b33775,
         type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 224698772862052208, guid: cd604d788831c7a40b4c78dc07b33775,
         type: 2}

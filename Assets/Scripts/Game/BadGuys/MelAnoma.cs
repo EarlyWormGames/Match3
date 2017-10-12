@@ -14,6 +14,8 @@ public class MelAnoma : MonoBehaviour
     // Use this for initialization
     void Awake()
     {
+        instance = this;
+
         //Get a delegate callback when a colour has been scored
         GameManager.onScored += ColourScored;
 
@@ -59,22 +61,19 @@ public class MelAnoma : MonoBehaviour
         {
             //BAD!!!
             //Create a new Bacteria Bro
-            GameObject obj = GameManager.SpawnNodeItem();
-            obj.transform.position = new Vector3(100, 100, 100);
-            var bbros = obj.AddComponent<BacteriaBro>();
-            bbros.m_Colour = obj.GetComponent<NodeItem>().m_Colour;
-            DestroyImmediate(obj.GetComponent<NodeItem>());
+            int index = GameManager.GetNodeIndex();
+            NodeItem prefab = GameManager.GetNodeDetails(index);
+            GameObject obj = Instantiate(GameManager.instance.m_BBros);
+            BacteriaBro bbro = obj.GetComponent<BacteriaBro>();
+            bbro.m_Colour = prefab.m_Colour;
 
-            GameObject brosobj = Instantiate(GameManager.instance.m_BBros);
+            bbro.m_RespawnType = prefab.gameObject;
 
-            //Position the bacteria bro
-            Vector3 tempVec = brosobj.transform.position;
-            brosobj.transform.SetParent(obj.transform);
-            brosobj.transform.localPosition = tempVec;
+            GameObject child = GameManager.SpawnNodeItem(index);
+            child.transform.SetParent(bbro.transform, false);
+            child.transform.SetAsFirstSibling();
 
-            //Take the info from the prefab, then destroy the script on it
-            bbros.TakeBBInfo(brosobj.GetComponent<BacteriaBro>());
-            DestroyImmediate(brosobj.GetComponent<BacteriaBro>());
+            bbro.transform.SetParent(GameManager.instance.m_Grid.transform, false);
 
             //Tell it that it has a respawn object so it doesn't make the grid move
             a_node.m_RespawnType = obj;
