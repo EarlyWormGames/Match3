@@ -849,6 +849,12 @@ MonoBehaviour:
   - {fileID: 1343774020424446, guid: 2026197c48371ef498472243b7a95596, type: 2}
   - {fileID: 1542355696856174, guid: c9cf7e7d6dd3f374d8d4e1c9ba3f2ef4, type: 2}
   - {fileID: 1203249394513544, guid: 98cb27c28447f2245a395ac5cecd7089, type: 2}
+  - {fileID: 1000011841440206, guid: 12233e3d5498a404babf39f2fc2e4e8a, type: 2}
+  - {fileID: 1000011841440206, guid: 319603f249d8190429cf86f3c4a33162, type: 2}
+  - {fileID: 1000011841440206, guid: 65c559b4c62d8c24ab6ae19ad5df5820, type: 2}
+  - {fileID: 1000011841440206, guid: c8179694a32f071448de33ffa8dfc199, type: 2}
+  - {fileID: 1000011841440206, guid: 356b94413f9cf6442b8d4c1899bbf98c, type: 2}
+  - {fileID: 1000011841440206, guid: 7a8df9cca9b2f2547bea8924623bfd73, type: 2}
   m_Petrified: {fileID: 1333852350469656, guid: e8c313be6de74634b9a92bc3f0553ddc,
     type: 2}
   m_BBros: {fileID: 1000011841440206, guid: 0e0fe36c9f7f8464ea2391031966807d, type: 2}

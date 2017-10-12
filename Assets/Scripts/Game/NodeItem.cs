@@ -43,9 +43,9 @@ public class NodeItem : MonoBehaviour
     private bool m_bWasMoving;
     private bool m_bWasActive;
 
-    private Image[] m_ImageComps;
-    private SpriteRenderer[] m_SpriteComps;
-    private ParticleSystem[] m_Particles;
+    private Image[] m_ImageComps = new Image[0];
+    private SpriteRenderer[] m_SpriteComps = new SpriteRenderer[0];
+    private ParticleSystem[] m_Particles = new ParticleSystem[0];
 
     private void Awake()
     {

@@ -20,10 +20,10 @@ GameObject:
   m_Component:
   - component: {fileID: 224119730897480962}
   - component: {fileID: 222459266918356544}
-  - component: {fileID: 114739525958316432}
   - component: {fileID: 114110529580870140}
+  - component: {fileID: 114838085611555414}
   m_Layer: 0
-  m_Name: RIGHTY CARROT
+  m_Name: LEFTY CARROT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -131,7 +131,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4142609083180544
 Transform:
   m_ObjectHideFlags: 1
@@ -140,7 +140,7 @@ Transform:
   m_GameObject: {fileID: 1199259904860752}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.31}
-  m_LocalScale: {x: 20, y: 20, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children:
   - {fileID: 4720130838433628}
   m_Father: {fileID: 224119730897480962}
@@ -252,7 +252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f28747f5cdf474e42adaa611c7a4ec57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114739525958316432
+--- !u!114 &114838085611555414
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -260,7 +260,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000011841440206}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1bcbbd4987559a349aa007d7af5c2cb3, type: 3}
+  m_Script: {fileID: 11500000, guid: 3ff5bc591032ce045b96e673efdb37f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Colour: 3
@@ -270,11 +270,9 @@ MonoBehaviour:
   m_SpawnChance: 1
   m_NotifiesDestroy: 1
   m_MatchAnyColour: 0
-  m_MatchAnyButOwn: 1
-  m_SwapOnly: 1
+  m_MatchAnyButOwn: 0
+  m_SwapOnly: 0
   m_Scale: {x: 1, y: 1, z: 1}
-  m_MatchingNormal: {fileID: 1333852350469656, guid: b067a10798aca56489fbc6211b5e6e76,
-    type: 2}
 --- !u!114 &114883731208393586
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -345,7 +343,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -265384412
+  randomSeed: -1634175701
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -3631,7 +3629,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 649241155
+  randomSeed: -293671742
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -6893,7 +6891,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 2095791820
+  randomSeed: -1307625489
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -10155,7 +10153,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1942187036
+  randomSeed: 1726467007
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -13441,7 +13439,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1746603024
+  randomSeed: -1378677142
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -16942,7 +16940,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 14bb9ae34f0c4bc44b88d4026d1fbae9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5607117ec06278648a48bebf1e52b999, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
