@@ -5,11 +5,18 @@ using UnityEngine;
 public class DrDecay : MonoBehaviour
 {
     public float DamageMult = 0.2f;
+    public GameObject m_UIPrefab;
+    private DrDecayUI m_UIObject;
 
     // Use this for initialization
     void Start()
     {
+        m_UIObject = Instantiate(m_UIPrefab).GetComponent<DrDecayUI>();
+        m_UIObject.transform.SetParent(GameManager.instance.m_MainCanvas.transform, false);
 
+        //Assign some delegates for the UI animating
+        m_UIObject.m_ShowDone += ShowDone;
+        m_UIObject.m_HideDone += HideDone;
     }
 
     // Update is called once per frame
@@ -22,5 +29,16 @@ public class DrDecay : MonoBehaviour
     {
         int sub = (int)(Mediator.Settings.TargetScore * (DamageMult * (Mediator.Settings.DifficultyMult / 2f)));
         GameManager.Score = Mathf.Clamp(GameManager.Score - sub, 0, Mediator.Settings.TargetScore);
+    }
+
+    void ShowDone()
+    {
+        DamageScore();
+    }
+
+    void HideDone()
+    {
+        Destroy(m_UIObject.gameObject);
+        Destroy(gameObject);
     }
 }

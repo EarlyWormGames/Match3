@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class MelAnoma : MonoBehaviour
 {
-    public static MelAnoma instance;
-
     public int m_RequiredChains = 3;
     public GameObject m_UIPrefab;
     private ItemColour m_RequestedColour = ItemColour.NONE;
@@ -14,8 +12,6 @@ public class MelAnoma : MonoBehaviour
     // Use this for initialization
     void Awake()
     {
-        instance = this;
-
         //Get a delegate callback when a colour has been scored
         GameManager.onScored += ColourScored;
 
@@ -108,7 +104,6 @@ public class MelAnoma : MonoBehaviour
         {
             Destroy(m_UIObject.gameObject);
             Destroy(gameObject);
-            instance = null;
         }
     }
 
@@ -119,7 +114,7 @@ public class MelAnoma : MonoBehaviour
         int index = 0;
         do
         {
-            index = Random.Range(0, m_UIObject.m_Colours.Length - 1);
+            index = Random.Range(0, m_UIObject.m_Colours.Length);
             m_RequestedColour = m_UIObject.m_Colours[index].itemType;
 
         } while (m_RequestedColour == prevcol);

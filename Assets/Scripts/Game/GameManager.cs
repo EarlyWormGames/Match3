@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
         }
     }
     private static int spawnMax;
-#endregion
+    #endregion
 
     public static bool isDragging;
     public static GridNode dragGNode;
@@ -69,7 +69,7 @@ public class GameManager : MonoBehaviour
 
     //Delegate function for notifying a turn
     #region DELEGATES
-    public static MyDel onNotifySwap; 
+    public static MyDel onNotifySwap;
     public static MyDel onEOFSwap;
     public static ColourDel onScored;
     #endregion
@@ -91,6 +91,8 @@ public class GameManager : MonoBehaviour
     public GameObject m_Petrified;
     public GameObject m_BBros;
     public GameObject m_MelAnomaPrefab;
+    public GameObject m_AshMaticPrefab;
+    public GameObject m_DrDecayPrefab;
 
     private bool m_WasMoving = true;
     private bool m_IsGameOver = false;
@@ -306,12 +308,24 @@ public class GameManager : MonoBehaviour
         if (onScored != null)
             onScored(a_colour, a_wasSwapped, a_node);
 
-        if (MelAnoma.instance == null && a_wasSwapped)
+        if (BadGuyUI.instance == null && a_wasSwapped)
         {
-            int rand = Random.Range(0, 10);
+            int rand = Random.Range(0, 15);
             if (rand == 0)
             {
-                Instantiate(instance.m_MelAnomaPrefab);
+                rand = Random.Range(0, 3);
+                switch (rand)
+                {
+                    case 0:
+                        Instantiate(instance.m_MelAnomaPrefab);
+                        break;
+                    case 1:
+                        Instantiate(instance.m_AshMaticPrefab);
+                        break;
+                    case 2:
+                        Instantiate(instance.m_DrDecayPrefab);
+                        break;
+                }
             }
         }
 

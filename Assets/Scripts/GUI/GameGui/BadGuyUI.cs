@@ -5,6 +5,7 @@ using UnityEngine;
 public class BadGuyUI : MonoBehaviour
 {
     public delegate void FinishDel();
+    public static BadGuyUI instance;
 
     public Animator m_Animator;
     public FinishDel m_ShowDone;
@@ -13,7 +14,7 @@ public class BadGuyUI : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+        instance = this;
     }
 
     // Update is called once per frame

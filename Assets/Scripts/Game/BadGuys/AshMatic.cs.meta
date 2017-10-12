@@ -1,10 +1,13 @@
 fileFormatVersion: 2
 guid: 6f66036ddeea7d04f9f3f0cc560aa078
-timeCreated: 1505161244
+timeCreated: 1507796394
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - m_RottenFood: {fileID: 1333852350469656, guid: ad8e86be52ea01a4a8946d34f7c63099,
+      type: 2}
+  - m_UIPrefab: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

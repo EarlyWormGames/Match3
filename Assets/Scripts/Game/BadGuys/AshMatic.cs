@@ -5,11 +5,18 @@ using UnityEngine;
 public class AshMatic : MonoBehaviour
 {    
     public GameObject m_RottenFood;
+    public GameObject m_UIPrefab;
+    private AshMaticUI m_UIObject;
 
     // Use this for initialization
     void Start()
     {
+        m_UIObject = Instantiate(m_UIPrefab).GetComponent<AshMaticUI>();
+        m_UIObject.transform.SetParent(GameManager.instance.m_MainCanvas.transform, false);
 
+        //Assign some delegates for the UI animating
+        m_UIObject.m_ShowDone += ShowDone;
+        m_UIObject.m_HideDone += HideDone;
     }
 
     // Update is called once per frame
@@ -18,28 +25,34 @@ public class AshMatic : MonoBehaviour
 
     }
 
+    void ShowDone()
+    {
+        DoIt();
+    }
+
+    void HideDone()
+    {
+        Destroy(m_UIObject.gameObject);
+        Destroy(gameObject);
+    }
+
     public void DoIt()
     {
-        int randX = Random.Range(0, Mediator.Settings.GridWidth);
-        int randY = Random.Range(0, Mediator.Settings.GridHeight);
-
-        GameManager.instance.m_Grid.m_Nodes[randX, randY].m_Shape.gameObject.AddComponent<RottenItem>();
-        GameObject rottenObj = Instantiate(m_RottenFood);
-        rottenObj.transform.SetParent(GameManager.instance.m_Grid.m_Nodes[randX, randY].m_Shape.transform, false);
-
+        NodeItem item = null;
         do
         {
-            int randX2 = Random.Range(0, Mediator.Settings.GridWidth);
-            int randY2 = Random.Range(0, Mediator.Settings.GridHeight);
+            int randX = Random.Range(0, Mediator.Settings.GridWidth);
+            int randY = Random.Range(0, Mediator.Settings.GridHeight);
 
-            if (randX == randX2 && randY == randY2)
-                continue;
+            item = GameManager.instance.m_Grid.m_Nodes[randX, randY].m_Shape;
 
-            GameManager.instance.m_Grid.m_Nodes[randX2, randY2].m_Shape.gameObject.AddComponent<RottenItem>();
-            rottenObj = Instantiate(m_RottenFood);
-            rottenObj.transform.SetParent(GameManager.instance.m_Grid.m_Nodes[randX2, randY2].m_Shape.transform, false);
-            break;
+        } while (item.GetType() == typeof(NodeItem));
 
-        } while (true);
+        RottenItem spawn = Instantiate(m_RottenFood).GetComponent<RottenItem>();
+        spawn.m_Colour = item.m_Colour;
+
+        item.m_Parent.m_RespawnType = spawn.gameObject;
+        item.m_Parent.m_RespawnIsSpawned = true;
+        item.m_Parent.StartDestroy(false);
     }
 }
