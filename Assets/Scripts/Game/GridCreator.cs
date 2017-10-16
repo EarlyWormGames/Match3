@@ -9,6 +9,7 @@ public class GridCreator : MonoBehaviour
     public GameObject m_NodePrefab;
     public int m_GridWidth = 6;
     public int m_GridHeight = 9;
+    public GridLayoutGroup m_Layout;
 
     internal GridNode[,] m_Nodes;
     internal GridLayoutGroup m_Grid;
@@ -22,6 +23,8 @@ public class GridCreator : MonoBehaviour
     void Start()
     {
         m_Grid = GetComponent<GridLayoutGroup>();
+
+        m_Layout.constraintCount = m_GridWidth;
 
         m_Nodes = new GridNode[m_GridWidth, m_GridHeight];
         m_ColumnSpawns = new Vector3[m_GridWidth];

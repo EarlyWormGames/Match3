@@ -379,6 +379,7 @@ MonoBehaviour:
     type: 2}
   m_GridWidth: 7
   m_GridHeight: 9
+  m_Layout: {fileID: 334552921}
 --- !u!1 &384733244
 GameObject:
   m_ObjectHideFlags: 0
@@ -833,6 +834,7 @@ MonoBehaviour:
   m_ScoreBar: {fileID: 1178063298}
   m_NodeMoveSpeed: 7
   m_RequiredChainStart: 4
+  m_BadGuySpawnChance: 10
   m_SpawnPrefabs:
   - {fileID: 1333852350469656, guid: df69062121cdc3c4c9057011b531d60f, type: 2}
   - {fileID: 1333852350469656, guid: dab8104663cf61144b83a09f2d021904, type: 2}
