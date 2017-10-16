@@ -5,6 +5,7 @@ using UnityEngine;
 public class DrDecay : MonoBehaviour
 {
     public float DamageMult = 0.2f;
+    public float m_WaitSeconds = 1;
     public GameObject m_UIPrefab;
     private DrDecayUI m_UIObject;
 
@@ -34,6 +35,13 @@ public class DrDecay : MonoBehaviour
     void ShowDone()
     {
         DamageScore();
+        StartCoroutine(WaitTimer());
+    }
+
+    IEnumerator WaitTimer()
+    {
+        yield return new WaitForSeconds(m_WaitSeconds);
+        m_UIObject.Hide();
     }
 
     void HideDone()

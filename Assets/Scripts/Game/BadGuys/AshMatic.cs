@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class AshMatic : MonoBehaviour
-{    
-    public GameObject m_RottenFood;
+{
     public GameObject m_UIPrefab;
+    public float m_WaitSeconds = 1;
     private AshMaticUI m_UIObject;
 
     // Use this for initialization
@@ -17,6 +17,8 @@ public class AshMatic : MonoBehaviour
         //Assign some delegates for the UI animating
         m_UIObject.m_ShowDone += ShowDone;
         m_UIObject.m_HideDone += HideDone;
+
+        m_UIObject.Show();
     }
 
     // Update is called once per frame
@@ -28,6 +30,13 @@ public class AshMatic : MonoBehaviour
     void ShowDone()
     {
         DoIt();
+        StartCoroutine(WaitTimer());
+    }
+
+    IEnumerator WaitTimer()
+    {
+        yield return new WaitForSeconds(m_WaitSeconds);
+        m_UIObject.Hide();
     }
 
     void HideDone()
@@ -48,7 +57,7 @@ public class AshMatic : MonoBehaviour
 
         } while (item.GetType() == typeof(NodeItem));
 
-        RottenItem spawn = Instantiate(m_RottenFood).GetComponent<RottenItem>();
+        RottenItem spawn = Instantiate(GameManager.instance.m_RottenFood).GetComponent<RottenItem>();
         spawn.m_Colour = item.m_Colour;
 
         item.m_Parent.m_RespawnType = spawn.gameObject;

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public delegate void MyDel();
+    public delegate void BoolDel(bool a_bool);
     public delegate void ColourDel(ItemColour a_colour, bool a_swapped, GridNode a_node);
 
     #region STATIC_VARS
@@ -72,6 +73,7 @@ public class GameManager : MonoBehaviour
     public static MyDel onNotifySwap;
     public static MyDel onEOFSwap;
     public static ColourDel onScored;
+    public static BoolDel onRefill;
     #endregion
 
     #endregion
@@ -86,10 +88,12 @@ public class GameManager : MonoBehaviour
 
     public float m_NodeMoveSpeed = 5f;
     public int m_RequiredChainStart = 2;
+    public int m_BadGuySpawnChance = 10;
 
     public GameObject[] m_SpawnPrefabs = new GameObject[0];
     public GameObject m_Petrified;
     public GameObject m_BBros;
+    public GameObject m_RottenFood;
     public GameObject m_MelAnomaPrefab;
     public GameObject m_AshMaticPrefab;
     public GameObject m_DrDecayPrefab;
@@ -97,6 +101,7 @@ public class GameManager : MonoBehaviour
     private bool m_WasMoving = true;
     private bool m_IsGameOver = false;
     private bool m_WasEmpty;
+    private bool m_bSwapped;
 
     // Use this for initialization
     void Start()
@@ -308,29 +313,37 @@ public class GameManager : MonoBehaviour
         if (onScored != null)
             onScored(a_colour, a_wasSwapped, a_node);
 
-        if (BadGuyUI.instance == null && a_wasSwapped)
+        instance.m_bSwapped = a_wasSwapped;
+    }
+
+    public void Refilled()
+    {
+        if (onRefill != null)
+            onRefill(m_bSwapped);
+
+        if (m_bSwapped)
         {
-            int rand = Random.Range(0, 15);
-            if (rand == 0)
+            if (BadGuyUI.instance == null)
             {
-                rand = Random.Range(0, 3);
-                switch (rand)
+                int rand = Random.Range(0, m_BadGuySpawnChance);
+                if (rand == 0)
                 {
-                    case 0:
-                        Instantiate(instance.m_MelAnomaPrefab);
-                        break;
-                    case 1:
-                        Instantiate(instance.m_AshMaticPrefab);
-                        break;
-                    case 2:
-                        Instantiate(instance.m_DrDecayPrefab);
-                        break;
+                    rand = Random.Range(0, 3);
+                    switch (rand)
+                    {
+                        case 0:
+                            Instantiate(instance.m_MelAnomaPrefab);
+                            break;
+                        case 1:
+                            Instantiate(instance.m_AshMaticPrefab);
+                            break;
+                        case 2:
+                            Instantiate(instance.m_DrDecayPrefab);
+                            break;
+                    }
                 }
             }
-        }
 
-        if (a_wasSwapped)
-        {
             bool ok = false;
             if (TopViewTime > 0)
             {
@@ -349,5 +362,6 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
+        m_bSwapped = false;
     }
 }

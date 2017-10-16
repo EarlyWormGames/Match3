@@ -215,17 +215,17 @@ MonoBehaviour:
   m_MainImage: {fileID: 114454365720464376}
   m_Sprites:
   - colour: 0
-    sprite: {fileID: 21300000, guid: 344a3c0cd1d6267458d645e3204ed16b, type: 3}
+    sprite: {fileID: 21300000, guid: 0b00568ed08f89543a5321bab461af63, type: 3}
   - colour: 1
-    sprite: {fileID: 21300000, guid: 01d2d22a3b2ca5f4cb787a231f9ada73, type: 3}
+    sprite: {fileID: 21300000, guid: 539e323a4141b3d459e9e30aa2e7bcf6, type: 3}
   - colour: 2
-    sprite: {fileID: 21300000, guid: 62379495e11269d4c8e4bfc340010ddd, type: 3}
+    sprite: {fileID: 21300000, guid: 1c5fbf84b9544fb42877c9cdb92c8249, type: 3}
   - colour: 3
-    sprite: {fileID: 21300000, guid: 2d55c492d2de8ac4c8676bc85c220cb7, type: 3}
+    sprite: {fileID: 21300000, guid: a717482c0eaadc64fae12d158d77acfb, type: 3}
   - colour: 4
-    sprite: {fileID: 21300000, guid: 0e7b52fcef42d1943bad3f3182077c9e, type: 3}
+    sprite: {fileID: 21300000, guid: 745d6af77acf22c4aa8ed572f55028cc, type: 3}
   - colour: 5
-    sprite: {fileID: 21300000, guid: 696fa832f6f434b49b9e21e69980f37a, type: 3}
+    sprite: {fileID: 21300000, guid: 4199babfc6dd6fe4781fde1ee3616949, type: 3}
 --- !u!198 &198243300568140268
 ParticleSystem:
   m_ObjectHideFlags: 1

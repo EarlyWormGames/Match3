@@ -174,6 +174,7 @@ public class GridCreator : MonoBehaviour
             GameManager.RespawnCounts[i] = 0;
         }
 
+        GameManager.instance.Refilled();
         CheckColumns();
     }
 

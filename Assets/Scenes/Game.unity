@@ -861,7 +861,13 @@ MonoBehaviour:
   m_Petrified: {fileID: 1333852350469656, guid: e8c313be6de74634b9a92bc3f0553ddc,
     type: 2}
   m_BBros: {fileID: 1000011841440206, guid: 0e0fe36c9f7f8464ea2391031966807d, type: 2}
+  m_RottenFood: {fileID: 1333852350469656, guid: ad8e86be52ea01a4a8946d34f7c63099,
+    type: 2}
   m_MelAnomaPrefab: {fileID: 1754583457375786, guid: ecd94e38aeff4b644a194b483e3064e6,
+    type: 2}
+  m_AshMaticPrefab: {fileID: 1754583457375786, guid: 4ee0927bd4417724788f7ffab78b6cb4,
+    type: 2}
+  m_DrDecayPrefab: {fileID: 1754583457375786, guid: b0d0cdd93a85fdd40a45efed7c5dee60,
     type: 2}
 --- !u!4 &887100672
 Transform:
