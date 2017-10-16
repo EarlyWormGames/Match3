@@ -119,8 +119,9 @@ GameObject:
   - component: {fileID: 122376319}
   - component: {fileID: 122376318}
   - component: {fileID: 122376320}
+  - component: {fileID: 122376321}
   m_Layer: 5
-  m_Name: Image (18)
+  m_Name: Level 18
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -137,7 +138,7 @@ RectTransform:
   m_LocalScale: {x: 1.1047125, y: 0.3016104, z: 1.1047125}
   m_Children: []
   m_Father: {fileID: 2071611816}
-  m_RootOrder: 18
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -229,6 +230,23 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &122376321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 122376316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc83aad6ab6896846ae0cf6d5e798457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RequiredChain: 4
+  ColourChance: 1
+  GridWidth: 5
+  GridHeight: 7
+  TargetScore: 100
+  DifficultyMult: 1
 --- !u!1 &183762786
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,8 +258,9 @@ GameObject:
   - component: {fileID: 183762789}
   - component: {fileID: 183762788}
   - component: {fileID: 183762790}
+  - component: {fileID: 183762791}
   m_Layer: 5
-  m_Name: Image (20)
+  m_Name: Level 20
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -258,7 +277,7 @@ RectTransform:
   m_LocalScale: {x: 1.1047125, y: 0.3016104, z: 1.1047125}
   m_Children: []
   m_Father: {fileID: 2071611816}
-  m_RootOrder: 20
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -350,6 +369,23 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &183762791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 183762786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc83aad6ab6896846ae0cf6d5e798457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RequiredChain: 4
+  ColourChance: 1
+  GridWidth: 5
+  GridHeight: 7
+  TargetScore: 100
+  DifficultyMult: 1
 --- !u!1 &322557161
 GameObject:
   m_ObjectHideFlags: 0
@@ -361,8 +397,9 @@ GameObject:
   - component: {fileID: 322557164}
   - component: {fileID: 322557163}
   - component: {fileID: 322557165}
+  - component: {fileID: 322557166}
   m_Layer: 5
-  m_Name: Image (12)
+  m_Name: Level 12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -379,7 +416,7 @@ RectTransform:
   m_LocalScale: {x: 1.1047125, y: 0.3016104, z: 1.1047125}
   m_Children: []
   m_Father: {fileID: 2071611816}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -471,6 +508,23 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &322557166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 322557161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc83aad6ab6896846ae0cf6d5e798457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RequiredChain: 4
+  ColourChance: 1
+  GridWidth: 5
+  GridHeight: 7
+  TargetScore: 100
+  DifficultyMult: 1
 --- !u!1 &360834763
 GameObject:
   m_ObjectHideFlags: 0
@@ -482,8 +536,9 @@ GameObject:
   - component: {fileID: 360834766}
   - component: {fileID: 360834765}
   - component: {fileID: 360834767}
+  - component: {fileID: 360834768}
   m_Layer: 5
-  m_Name: Image (3)
+  m_Name: Level 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -592,6 +647,23 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &360834768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 360834763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc83aad6ab6896846ae0cf6d5e798457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RequiredChain: 4
+  ColourChance: 1
+  GridWidth: 5
+  GridHeight: 7
+  TargetScore: 100
+  DifficultyMult: 1
 --- !u!1 &449081096
 GameObject:
   m_ObjectHideFlags: 0
@@ -603,8 +675,9 @@ GameObject:
   - component: {fileID: 449081099}
   - component: {fileID: 449081098}
   - component: {fileID: 449081100}
+  - component: {fileID: 449081101}
   m_Layer: 5
-  m_Name: Image (8)
+  m_Name: Level 8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -621,7 +694,7 @@ RectTransform:
   m_LocalScale: {x: 1.1047125, y: 0.3016104, z: 1.1047125}
   m_Children: []
   m_Father: {fileID: 2071611816}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -713,6 +786,23 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &449081101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 449081096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc83aad6ab6896846ae0cf6d5e798457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RequiredChain: 4
+  ColourChance: 1
+  GridWidth: 5
+  GridHeight: 7
+  TargetScore: 100
+  DifficultyMult: 1
 --- !u!1 &457530319
 GameObject:
   m_ObjectHideFlags: 0
@@ -724,8 +814,9 @@ GameObject:
   - component: {fileID: 457530322}
   - component: {fileID: 457530321}
   - component: {fileID: 457530323}
+  - component: {fileID: 457530324}
   m_Layer: 5
-  m_Name: Image (4)
+  m_Name: Level 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -834,6 +925,23 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &457530324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 457530319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc83aad6ab6896846ae0cf6d5e798457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RequiredChain: 4
+  ColourChance: 1
+  GridWidth: 5
+  GridHeight: 7
+  TargetScore: 100
+  DifficultyMult: 1
 --- !u!1 &461680687
 GameObject:
   m_ObjectHideFlags: 0
@@ -968,8 +1076,9 @@ GameObject:
   - component: {fileID: 541686702}
   - component: {fileID: 541686701}
   - component: {fileID: 541686703}
+  - component: {fileID: 541686704}
   m_Layer: 5
-  m_Name: Image (19)
+  m_Name: Level 19
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -986,7 +1095,7 @@ RectTransform:
   m_LocalScale: {x: 2.2646606, y: 0.3016104, z: 1.1047125}
   m_Children: []
   m_Father: {fileID: 2071611816}
-  m_RootOrder: 19
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1078,6 +1187,23 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &541686704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 541686699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc83aad6ab6896846ae0cf6d5e798457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RequiredChain: 4
+  ColourChance: 1
+  GridWidth: 5
+  GridHeight: 7
+  TargetScore: 100
+  DifficultyMult: 1
 --- !u!1 &574672032
 GameObject:
   m_ObjectHideFlags: 0
@@ -1089,8 +1215,9 @@ GameObject:
   - component: {fileID: 574672035}
   - component: {fileID: 574672034}
   - component: {fileID: 574672036}
+  - component: {fileID: 574672037}
   m_Layer: 5
-  m_Name: Image (5)
+  m_Name: Level 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1199,6 +1326,23 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &574672037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 574672032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc83aad6ab6896846ae0cf6d5e798457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RequiredChain: 4
+  ColourChance: 1
+  GridWidth: 5
+  GridHeight: 7
+  TargetScore: 100
+  DifficultyMult: 1
 --- !u!1 &703026450
 GameObject:
   m_ObjectHideFlags: 0
@@ -1313,8 +1457,9 @@ GameObject:
   - component: {fileID: 814725840}
   - component: {fileID: 814725839}
   - component: {fileID: 814725841}
+  - component: {fileID: 814725842}
   m_Layer: 5
-  m_Name: Image (21)
+  m_Name: Level 21
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1331,7 +1476,7 @@ RectTransform:
   m_LocalScale: {x: 1.1047125, y: 0.3016104, z: 1.1047125}
   m_Children: []
   m_Father: {fileID: 2071611816}
-  m_RootOrder: 21
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1423,6 +1568,23 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &814725842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 814725837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc83aad6ab6896846ae0cf6d5e798457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RequiredChain: 4
+  ColourChance: 1
+  GridWidth: 5
+  GridHeight: 7
+  TargetScore: 100
+  DifficultyMult: 1
 --- !u!1 &834911836
 GameObject:
   m_ObjectHideFlags: 0
@@ -1508,8 +1670,9 @@ GameObject:
   - component: {fileID: 876452159}
   - component: {fileID: 876452158}
   - component: {fileID: 876452160}
+  - component: {fileID: 876452161}
   m_Layer: 5
-  m_Name: Image (15)
+  m_Name: Level 15
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1526,7 +1689,7 @@ RectTransform:
   m_LocalScale: {x: 1.1047125, y: 0.3016104, z: 1.1047125}
   m_Children: []
   m_Father: {fileID: 2071611816}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1618,6 +1781,23 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &876452161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 876452156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc83aad6ab6896846ae0cf6d5e798457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RequiredChain: 4
+  ColourChance: 1
+  GridWidth: 5
+  GridHeight: 7
+  TargetScore: 100
+  DifficultyMult: 1
 --- !u!1 &903750714
 GameObject:
   m_ObjectHideFlags: 0
@@ -1751,8 +1931,9 @@ GameObject:
   - component: {fileID: 980658903}
   - component: {fileID: 980658902}
   - component: {fileID: 980658904}
+  - component: {fileID: 980658905}
   m_Layer: 5
-  m_Name: Image (22)
+  m_Name: Level 22
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1769,7 +1950,7 @@ RectTransform:
   m_LocalScale: {x: 1.1047125, y: 0.3016104, z: 1.1047125}
   m_Children: []
   m_Father: {fileID: 2071611816}
-  m_RootOrder: 22
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1861,6 +2042,23 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &980658905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 980658900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc83aad6ab6896846ae0cf6d5e798457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RequiredChain: 4
+  ColourChance: 1
+  GridWidth: 5
+  GridHeight: 7
+  TargetScore: 100
+  DifficultyMult: 1
 --- !u!1 &1180525075
 GameObject:
   m_ObjectHideFlags: 0
@@ -1940,8 +2138,9 @@ GameObject:
   - component: {fileID: 1191671200}
   - component: {fileID: 1191671199}
   - component: {fileID: 1191671201}
+  - component: {fileID: 1191671202}
   m_Layer: 5
-  m_Name: Image (9)
+  m_Name: Level 9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1958,7 +2157,7 @@ RectTransform:
   m_LocalScale: {x: 1.1047125, y: 0.3016104, z: 1.1047125}
   m_Children: []
   m_Father: {fileID: 2071611816}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2050,6 +2249,23 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &1191671202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1191671197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc83aad6ab6896846ae0cf6d5e798457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RequiredChain: 4
+  ColourChance: 1
+  GridWidth: 5
+  GridHeight: 7
+  TargetScore: 100
+  DifficultyMult: 1
 --- !u!1 &1247796106
 GameObject:
   m_ObjectHideFlags: 0
@@ -2061,8 +2277,9 @@ GameObject:
   - component: {fileID: 1247796109}
   - component: {fileID: 1247796108}
   - component: {fileID: 1247796110}
+  - component: {fileID: 1247796111}
   m_Layer: 5
-  m_Name: Image (17)
+  m_Name: Level 17
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2079,7 +2296,7 @@ RectTransform:
   m_LocalScale: {x: 1.1047125, y: 0.3016104, z: 1.1047125}
   m_Children: []
   m_Father: {fileID: 2071611816}
-  m_RootOrder: 17
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2171,6 +2388,23 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &1247796111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1247796106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc83aad6ab6896846ae0cf6d5e798457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RequiredChain: 4
+  ColourChance: 1
+  GridWidth: 5
+  GridHeight: 7
+  TargetScore: 100
+  DifficultyMult: 1
 --- !u!1 &1253836162
 GameObject:
   m_ObjectHideFlags: 0
@@ -2182,8 +2416,9 @@ GameObject:
   - component: {fileID: 1253836165}
   - component: {fileID: 1253836164}
   - component: {fileID: 1253836166}
+  - component: {fileID: 1253836167}
   m_Layer: 5
-  m_Name: Image (23)
+  m_Name: Level 23
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2200,7 +2435,7 @@ RectTransform:
   m_LocalScale: {x: 1.1047125, y: 0.3016104, z: 1.1047125}
   m_Children: []
   m_Father: {fileID: 2071611816}
-  m_RootOrder: 23
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2292,6 +2527,23 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &1253836167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1253836162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc83aad6ab6896846ae0cf6d5e798457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RequiredChain: 4
+  ColourChance: 1
+  GridWidth: 5
+  GridHeight: 7
+  TargetScore: 100
+  DifficultyMult: 1
 --- !u!1 &1257720072
 GameObject:
   m_ObjectHideFlags: 0
@@ -2399,8 +2651,9 @@ GameObject:
   - component: {fileID: 1268075470}
   - component: {fileID: 1268075469}
   - component: {fileID: 1268075471}
+  - component: {fileID: 1268075472}
   m_Layer: 5
-  m_Name: Image (11)
+  m_Name: Level 11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2417,7 +2670,7 @@ RectTransform:
   m_LocalScale: {x: 1.1047125, y: 0.3016104, z: 1.1047125}
   m_Children: []
   m_Father: {fileID: 2071611816}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2509,6 +2762,23 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &1268075472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1268075467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc83aad6ab6896846ae0cf6d5e798457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RequiredChain: 4
+  ColourChance: 1
+  GridWidth: 5
+  GridHeight: 7
+  TargetScore: 100
+  DifficultyMult: 1
 --- !u!1 &1343110456
 GameObject:
   m_ObjectHideFlags: 0
@@ -2588,8 +2858,9 @@ GameObject:
   - component: {fileID: 1358818846}
   - component: {fileID: 1358818845}
   - component: {fileID: 1358818847}
+  - component: {fileID: 1358818848}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: Level 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2698,6 +2969,23 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &1358818848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1358818843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc83aad6ab6896846ae0cf6d5e798457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RequiredChain: 4
+  ColourChance: 1
+  GridWidth: 5
+  GridHeight: 7
+  TargetScore: 100
+  DifficultyMult: 1
 --- !u!1 &1400734007
 GameObject:
   m_ObjectHideFlags: 0
@@ -3107,7 +3395,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1343110458}
   m_HandleRect: {fileID: 1343110457}
   m_Direction: 0
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -3159,8 +3447,9 @@ GameObject:
   - component: {fileID: 1570759238}
   - component: {fileID: 1570759237}
   - component: {fileID: 1570759239}
+  - component: {fileID: 1570759240}
   m_Layer: 5
-  m_Name: Image (13)
+  m_Name: Level 13
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3177,7 +3466,7 @@ RectTransform:
   m_LocalScale: {x: 1.1047125, y: 0.3016104, z: 1.1047125}
   m_Children: []
   m_Father: {fileID: 2071611816}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3269,127 +3558,23 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!1 &1578623330
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1578623331}
-  - component: {fileID: 1578623333}
-  - component: {fileID: 1578623332}
-  - component: {fileID: 1578623334}
-  m_Layer: 5
-  m_Name: Image (6)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1578623331
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1578623330}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.1047125, y: 0.3016104, z: 1.1047125}
-  m_Children: []
-  m_Father: {fileID: 2071611816}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 60.759182, y: -268.73486}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1578623332
+--- !u!114 &1570759240
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1578623330}
+  m_GameObject: {fileID: 1570759235}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: dc83aad6ab6896846ae0cf6d5e798457, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 3d81b70eb5364984fbceb8c1345e508c, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
---- !u!222 &1578623333
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1578623330}
---- !u!114 &1578623334
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1578623330}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 1, g: 0.03676468, b: 0.03676468, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 1578623332}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2088147286}
-        m_MethodName: ChangeSceneTo
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Game
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
-      Culture=neutral, PublicKeyToken=null
+  RequiredChain: 4
+  ColourChance: 1
+  GridWidth: 5
+  GridHeight: 7
+  TargetScore: 100
+  DifficultyMult: 1
 --- !u!1 &1606563148
 GameObject:
   m_ObjectHideFlags: 0
@@ -3401,8 +3586,9 @@ GameObject:
   - component: {fileID: 1606563151}
   - component: {fileID: 1606563150}
   - component: {fileID: 1606563152}
+  - component: {fileID: 1606563153}
   m_Layer: 5
-  m_Name: Image (16)
+  m_Name: Level 16
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3419,7 +3605,7 @@ RectTransform:
   m_LocalScale: {x: 1.1047125, y: 0.3016104, z: 1.1047125}
   m_Children: []
   m_Father: {fileID: 2071611816}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3511,6 +3697,23 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &1606563153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1606563148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc83aad6ab6896846ae0cf6d5e798457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RequiredChain: 4
+  ColourChance: 1
+  GridWidth: 5
+  GridHeight: 7
+  TargetScore: 100
+  DifficultyMult: 1
 --- !u!1 &1641503976
 GameObject:
   m_ObjectHideFlags: 0
@@ -3522,8 +3725,9 @@ GameObject:
   - component: {fileID: 1641503979}
   - component: {fileID: 1641503978}
   - component: {fileID: 1641503980}
+  - component: {fileID: 1641503981}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Level 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3632,6 +3836,23 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &1641503981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1641503976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc83aad6ab6896846ae0cf6d5e798457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RequiredChain: 0
+  ColourChance: 1
+  GridWidth: 2
+  GridHeight: 2
+  TargetScore: 100
+  DifficultyMult: 1
 --- !u!1 &1653804644
 GameObject:
   m_ObjectHideFlags: 0
@@ -3742,7 +3963,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1482509900}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.39229745
+  m_Size: 0
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3793,8 +4014,9 @@ GameObject:
   - component: {fileID: 1688985022}
   - component: {fileID: 1688985021}
   - component: {fileID: 1688985023}
+  - component: {fileID: 1688985024}
   m_Layer: 5
-  m_Name: Image (24)
+  m_Name: Level 24
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3811,7 +4033,7 @@ RectTransform:
   m_LocalScale: {x: 1.1047125, y: 0.3016104, z: 1.1047125}
   m_Children: []
   m_Father: {fileID: 2071611816}
-  m_RootOrder: 24
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3903,6 +4125,23 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &1688985024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1688985019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc83aad6ab6896846ae0cf6d5e798457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RequiredChain: 4
+  ColourChance: 1
+  GridWidth: 5
+  GridHeight: 7
+  TargetScore: 100
+  DifficultyMult: 1
 --- !u!1 &1697123969
 GameObject:
   m_ObjectHideFlags: 0
@@ -3914,8 +4153,9 @@ GameObject:
   - component: {fileID: 1697123972}
   - component: {fileID: 1697123971}
   - component: {fileID: 1697123973}
+  - component: {fileID: 1697123974}
   m_Layer: 5
-  m_Name: Image (10)
+  m_Name: Level 10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3932,7 +4172,7 @@ RectTransform:
   m_LocalScale: {x: 1.1047125, y: 0.3016104, z: 1.1047125}
   m_Children: []
   m_Father: {fileID: 2071611816}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4024,6 +4264,23 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &1697123974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1697123969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc83aad6ab6896846ae0cf6d5e798457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RequiredChain: 4
+  ColourChance: 1
+  GridWidth: 5
+  GridHeight: 7
+  TargetScore: 100
+  DifficultyMult: 1
 --- !u!1 &1772681079
 GameObject:
   m_ObjectHideFlags: 0
@@ -4035,8 +4292,9 @@ GameObject:
   - component: {fileID: 1772681082}
   - component: {fileID: 1772681081}
   - component: {fileID: 1772681083}
+  - component: {fileID: 1772681084}
   m_Layer: 5
-  m_Name: Image (14)
+  m_Name: Level 14
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4053,7 +4311,7 @@ RectTransform:
   m_LocalScale: {x: 1.1047125, y: 0.3016104, z: 1.1047125}
   m_Children: []
   m_Father: {fileID: 2071611816}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4145,6 +4403,23 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &1772681084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1772681079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc83aad6ab6896846ae0cf6d5e798457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RequiredChain: 4
+  ColourChance: 1
+  GridWidth: 5
+  GridHeight: 7
+  TargetScore: 100
+  DifficultyMult: 1
 --- !u!1 &1887387942
 GameObject:
   m_ObjectHideFlags: 0
@@ -4156,8 +4431,9 @@ GameObject:
   - component: {fileID: 1887387945}
   - component: {fileID: 1887387944}
   - component: {fileID: 1887387946}
+  - component: {fileID: 1887387947}
   m_Layer: 5
-  m_Name: Image (25)
+  m_Name: Level 25
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4174,7 +4450,7 @@ RectTransform:
   m_LocalScale: {x: 1.1047125, y: 0.3016104, z: 1.1047125}
   m_Children: []
   m_Father: {fileID: 2071611816}
-  m_RootOrder: 25
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4266,6 +4542,23 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &1887387947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1887387942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc83aad6ab6896846ae0cf6d5e798457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RequiredChain: 4
+  ColourChance: 1
+  GridWidth: 5
+  GridHeight: 7
+  TargetScore: 100
+  DifficultyMult: 1
 --- !u!1 &1924892069
 GameObject:
   m_ObjectHideFlags: 0
@@ -4297,7 +4590,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 2067.4104}
+  m_AnchoredPosition: {x: 0, y: 2728.8474}
   m_SizeDelta: {x: 0, y: 3402.01}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1962674664
@@ -4311,8 +4604,9 @@ GameObject:
   - component: {fileID: 1962674667}
   - component: {fileID: 1962674666}
   - component: {fileID: 1962674668}
+  - component: {fileID: 1962674669}
   m_Layer: 5
-  m_Name: Image (2)
+  m_Name: Level 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4421,6 +4715,23 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &1962674669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1962674664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc83aad6ab6896846ae0cf6d5e798457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RequiredChain: 4
+  ColourChance: 1
+  GridWidth: 5
+  GridHeight: 7
+  TargetScore: 100
+  DifficultyMult: 1
 --- !u!1 &2070848648
 GameObject:
   m_ObjectHideFlags: 0
@@ -4432,8 +4743,9 @@ GameObject:
   - component: {fileID: 2070848651}
   - component: {fileID: 2070848650}
   - component: {fileID: 2070848652}
+  - component: {fileID: 2070848653}
   m_Layer: 5
-  m_Name: Image (7)
+  m_Name: Level 7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4450,7 +4762,7 @@ RectTransform:
   m_LocalScale: {x: 1.1047125, y: 0.3016104, z: 1.1047125}
   m_Children: []
   m_Father: {fileID: 2071611816}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4542,6 +4854,23 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &2070848653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2070848648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc83aad6ab6896846ae0cf6d5e798457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RequiredChain: 4
+  ColourChance: 1
+  GridWidth: 5
+  GridHeight: 7
+  TargetScore: 100
+  DifficultyMult: 1
 --- !u!1 &2071611815
 GameObject:
   m_ObjectHideFlags: 0
@@ -4575,7 +4904,6 @@ RectTransform:
   - {fileID: 360834764}
   - {fileID: 457530320}
   - {fileID: 574672033}
-  - {fileID: 1578623331}
   - {fileID: 2070848649}
   - {fileID: 449081097}
   - {fileID: 1191671198}
