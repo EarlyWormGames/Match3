@@ -78,18 +78,22 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
+    [Header("UI Connections")]
     public Canvas m_MainCanvas;
     public GridCreator m_Grid;
-    public Text m_ScoreText;
     public GameObject m_ScorePanel;
-    public Text m_EndScore;
     public Text m_NameText;
     public PercentageMovement m_ScoreBar;
+    public Text m_TurnsText;
+    public GameObject m_WinPanel;
+    public GameObject m_LosePanel;
 
+    [Header("Values")]
     public float m_NodeMoveSpeed = 5f;
     public int m_RequiredChainStart = 2;
     public int m_BadGuySpawnChance = 10;
 
+    [Header("Prefabs")]
     public GameObject[] m_SpawnPrefabs = new GameObject[0];
     public GameObject m_Petrified;
     public GameObject m_BBros;
@@ -98,27 +102,37 @@ public class GameManager : MonoBehaviour
     public GameObject m_AshMaticPrefab;
     public GameObject m_DrDecayPrefab;
 
+    internal int m_TurnsLeft;
+    internal bool m_IsGameOver = false;
+
     private bool m_WasMoving = true;
-    private bool m_IsGameOver = false;
     private bool m_WasEmpty;
     private bool m_bSwapped;
 
     // Use this for initialization
-    void Start()
+    void Awake()
     {
         if (Mediator.Settings == null)
         {
             Mediator.Settings = new GameSettings();
         }
+        
+        m_TurnsLeft = Mediator.Settings.Turns;
+        m_TurnsText.text = m_TurnsLeft.ToString();
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Set the score display
-        m_ScoreText.text = Score.ToString();
+        if (m_IsGameOver) return;
 
+        //Set the score display
         m_ScoreBar.Percentage = (float)Score / Mediator.Settings.TargetScore;
+
+        if (Score >= Mediator.Settings.TargetScore)
+        {
+            GameOver(true);
+        }
 
         //If we have items to destroy, this list will be filled
         if (DestroyingList.Count > 0)
@@ -186,16 +200,27 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void GameOver()
+    public void GameOver(bool a_success)
     {
-        //WAMP-WAMP, game over man!
+        //It's game-over man! Game-over!
         if (!m_IsGameOver)
         {
             Debug.Log("GAME OVER");
             m_IsGameOver = true;
 
-            m_ScorePanel.SetActive(true);
-            m_EndScore.text = Score.ToString();
+            //m_ScorePanel.SetActive(true);
+            //m_EndScore.text = Score.ToString();
+
+            if (a_success)
+            {
+                //Misison passed! Respect +
+                m_WinPanel.SetActive(true);
+            }
+            else
+            {
+                //Mission failed. We'll get 'em next time
+                m_LosePanel.SetActive(true);
+            }
         }
     }
 
@@ -228,7 +253,7 @@ public class GameManager : MonoBehaviour
         return Direction.None;
     }
 
-    public void SubmitScore()
+    public void SubmitScore(string levelToLoad = "Menu")
     {
         //Once the game is over, submit the score to file
         GetComponent<HighScores>().AddScore(Score);
@@ -236,7 +261,7 @@ public class GameManager : MonoBehaviour
 
         //Disable the score panel and load a different scene
         m_ScorePanel.SetActive(false);
-        GetComponent<Fading>().BeginFade(1, "Menu");
+        GetComponent<Fading>().BeginFade(1, levelToLoad);
 
         //Reset all these vars, since they are static
         isDragging = false;
@@ -323,6 +348,14 @@ public class GameManager : MonoBehaviour
 
         if (m_bSwapped)
         {
+            --m_TurnsLeft;
+            m_TurnsText.text = m_TurnsLeft.ToString();
+
+            if (m_TurnsLeft <= 0)
+            {
+                GameOver(false);
+            }
+
             if (BadGuyUI.instance == null)
             {
                 int rand = Random.Range(0, m_BadGuySpawnChance);

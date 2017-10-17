@@ -25,8 +25,6 @@ public class GridNode : MonoBehaviour
     internal bool m_RespawnIsSpawned = false;
     internal bool m_bOverrideVis = false;
 
-    private bool m_bWasVis = false;
-
     public void Init()
     {
         //This do-while ensures that this tile won't spawn in a chain
@@ -106,6 +104,7 @@ public class GridNode : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.instance.m_IsGameOver) return;
         if (GameManager.isDragging)
         {
             if (GameManager.dragGNode == this)

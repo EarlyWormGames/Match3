@@ -91,6 +91,7 @@ public class NodeItem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.instance.m_IsGameOver) return;
         if (m_Parent == null)
             return;
 

@@ -128,9 +128,6 @@ public class ModelSpawner : MonoBehaviour
     /// <returns></returns>
     public float GetRequiredOrthographicSize(Bounds a_targetBounds, int a_width, int a_height)
     {
-        float screenRatio = (float)Screen.width / (float)Screen.height;
-        float targetRatio = a_targetBounds.size.x / a_targetBounds.size.y;
-
         return a_targetBounds.size.y / 2;
     }
 }

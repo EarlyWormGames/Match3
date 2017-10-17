@@ -20,9 +20,11 @@ public class GameSettings
     /// </summary>
     public int ColourChance = 1;
 
-    public int GridWidth = 5;
-    public int GridHeight = 7;
+    public int GridWidth = 7;
+    public int GridHeight = 9;
 
     public int TargetScore = 100;
     public float DifficultyMult = 1;
+
+    public int Turns = 5;
 }
