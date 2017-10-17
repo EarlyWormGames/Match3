@@ -21,8 +21,20 @@ public class ChangeScene : MonoBehaviour {
 
     public void ChangeSceneTo(string TargetScene)
     {
+        if (TargetScene == "")
+        {
+            Debug.LogError("You DUN goofed - change the inspector TargetScene to a scene that exsists in the build settings.");
+        }
+        else
+        {
+            fade.BeginFade(1, TargetScene);
+        }
+    }
+
+    public void ChangeSceneToAndSetUpMediator(string TargetScene)
+    {
         SetupMediator();
-        
+
         if (TargetScene == "")
         {
             Debug.LogError("You DUN goofed - change the inspector TargetScene to a scene that exsists in the build settings.");
