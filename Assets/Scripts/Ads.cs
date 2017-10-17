@@ -19,6 +19,8 @@ public class AdManager
             Advertisement.Initialize(id, true);
     }
 
+    private static System.Action<ShowResult> onShowTurn;
+
     public static void Show(System.Action<ShowResult> callback)
     {
         if (Advertisement.isShowing || !Advertisement.IsReady("rewardedVideo"))
@@ -37,20 +39,23 @@ public class AdManager
 
     public static int item;
 
-    public static void AdForTurns()
+    public static void AdForTurns(System.Action<ShowResult> callback)
     {
-        AdManager.Show(TurnAdShown);
+        Show(TurnAdShown);
+        onShowTurn = callback;
     }
 
     public static void TurnAdShown(ShowResult result)
     {
         //Give turn if success
+
+        onShowTurn(result);
     }
 
     public static void AdForItem(int a_item)
     {
         item = a_item;
-        AdManager.Show(ItemAdShown);
+        Show(ItemAdShown);
     }
 
     public static void ItemAdShown(ShowResult result)
@@ -60,7 +65,7 @@ public class AdManager
 
     public static void AdForRevive()
     {
-        AdManager.Show(ReviveAdShown);
+        Show(ReviveAdShown);
     }
 
     public static void ReviveAdShown(ShowResult result)
