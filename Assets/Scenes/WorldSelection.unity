@@ -3847,10 +3847,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc83aad6ab6896846ae0cf6d5e798457, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RequiredChain: 0
+  RequiredChain: 1
   ColourChance: 1
-  GridWidth: 2
-  GridHeight: 2
+  GridWidth: 3
+  GridHeight: 3
   TargetScore: 100
   DifficultyMult: 1
 --- !u!1 &1653804644
@@ -3963,7 +3963,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1482509900}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0
+  m_Size: 0.39225236
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -4590,7 +4590,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 2728.8474}
+  m_AnchoredPosition: {x: 0, y: 2067.544}
   m_SizeDelta: {x: 0, y: 3402.01}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1962674664
