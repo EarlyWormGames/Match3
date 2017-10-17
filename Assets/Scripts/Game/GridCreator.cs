@@ -24,12 +24,8 @@ public class GridCreator : MonoBehaviour
     {
         m_Grid = GetComponent<GridLayoutGroup>();
 
-
-        if (Mediator.Settings != null)
-        {
-            m_GridWidth = Mediator.Settings.GridWidth;
-            m_GridHeight = Mediator.Settings.GridHeight;
-        }
+        m_GridWidth = Mediator.Settings.GridWidth;
+        m_GridHeight = Mediator.Settings.GridHeight;
 
         m_Layout.constraintCount = m_GridWidth;
 
@@ -104,6 +100,7 @@ public class GridCreator : MonoBehaviour
     
     void Update()
     {
+        if (GameManager.instance.m_IsGameOver) return;
         if (StartFrames > 0)
         {
             //DoOnce = true;
@@ -214,7 +211,7 @@ public class GridCreator : MonoBehaviour
         if (!ok)
         {
             if (!onlyCheck)
-                GameManager.instance.GameOver();
+                GameManager.instance.GameOver(false);
             else
                 return 0;
         }
