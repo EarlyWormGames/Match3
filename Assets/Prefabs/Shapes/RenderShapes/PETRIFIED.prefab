@@ -176,7 +176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07ddd7e418031564bb8d19b970c5e9c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Colour: 0
+  m_Colour: 6
   m_Explosion: {fileID: 198243300568140268}
   m_CanSwap: 0
   m_CanDestroy: 0
