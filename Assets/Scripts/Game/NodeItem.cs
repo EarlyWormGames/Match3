@@ -18,6 +18,7 @@ public class NodeItem : MonoBehaviour
 {
     public ItemColour m_Colour;
     public ParticleSystem m_Explosion;
+    public ParticleSystem m_AfterExplosion;
     public bool m_CanSwap = true;
     public bool m_CanDestroy = true;
     public int m_SpawnChance = 1;
@@ -160,7 +161,7 @@ public class NodeItem : MonoBehaviour
         {
             //Destruction is done on a timer
             m_DestroyTimer -= Time.deltaTime;
-            if (m_DestroyTimer <= 0.5f)
+            if (m_DestroyTimer <= 0.1f)
             {
                 //Disable the mesh after a certain amount of time
                 DestroyMesh();
@@ -169,6 +170,10 @@ public class NodeItem : MonoBehaviour
             {
                 //Timer is done, destroy this object
                 m_destroyStart = false;
+                if (m_AfterExplosion != null)
+                {
+                    Destroy(Instantiate(m_AfterExplosion, m_Parent.transform).gameObject, 1);
+                }
                 m_Parent.EndDestroy();
             }
         }
@@ -230,7 +235,7 @@ public class NodeItem : MonoBehaviour
     public void StartDestroy(bool a_useScore = true)
     {
         m_destroyStart = true;
-        m_DestroyTimer = 1f;
+        m_DestroyTimer = 0.25f;
         if(m_Explosion != null)
         m_Explosion.Play();
 

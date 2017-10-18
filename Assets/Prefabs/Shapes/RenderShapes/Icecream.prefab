@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 222345414221772070}
   - component: {fileID: 114899318959596912}
   m_Layer: 0
-  m_Name: Image
+  m_Name: GemPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,6 +74,7 @@ GameObject:
   - component: {fileID: 222357235586414972}
   - component: {fileID: 114690729289005672}
   - component: {fileID: 95388359562872116}
+  - component: {fileID: 114302370382413050}
   m_Layer: 0
   m_Name: Icecream
   m_TagString: Untagged
@@ -198,6 +199,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f28747f5cdf474e42adaa611c7a4ec57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114302370382413050
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1333852350469656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1bf833fe1c539c4b84586e985929a87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114690729289005672
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -211,6 +223,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Colour: 5
   m_Explosion: {fileID: 198243300568140268}
+  m_AfterExplosion: {fileID: 198053742295793474, guid: 59775767eafeeeb469b4f8233091edf1,
+    type: 2}
   m_CanSwap: 1
   m_CanDestroy: 1
   m_SpawnChance: 150

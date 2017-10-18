@@ -57,6 +57,7 @@ GameObject:
   - component: {fileID: 222357235586414972}
   - component: {fileID: 114929010916042914}
   - component: {fileID: 95034390012108368}
+  - component: {fileID: 114967934248966350}
   m_Layer: 0
   m_Name: Cupcake
   m_TagString: Untagged
@@ -238,6 +239,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Colour: 4
   m_Explosion: {fileID: 198243300568140268}
+  m_AfterExplosion: {fileID: 198299310794584066, guid: 7aa330e5aac136d449cc81fad3a3d04a,
+    type: 2}
   m_CanSwap: 1
   m_CanDestroy: 1
   m_SpawnChance: 150
@@ -246,6 +249,17 @@ MonoBehaviour:
   m_MatchAnyButOwn: 0
   m_SwapOnly: 0
   m_Scale: {x: 1, y: 1, z: 1}
+--- !u!114 &114967934248966350
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1333852350469656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1bf833fe1c539c4b84586e985929a87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!198 &198243300568140268
 ParticleSystem:
   m_ObjectHideFlags: 1
