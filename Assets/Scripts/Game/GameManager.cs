@@ -119,6 +119,8 @@ public class GameManager : MonoBehaviour
         
         m_TurnsLeft = Mediator.Settings.Turns;
         m_TurnsText.text = m_TurnsLeft.ToString();
+
+        Score = (int)(Mediator.Settings.TargetScore / 2f);
     }
 
     // Update is called once per frame
@@ -213,7 +215,7 @@ public class GameManager : MonoBehaviour
 
             if (a_success)
             {
-                //Misison passed! Respect +
+                //Misison passed! Respect+
                 m_WinPanel.SetActive(true);
             }
             else
