@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: d847be44687b56f4482d17fa8bbf24ff
+timeCreated: 1506403642
+licenseType: Free
+ShaderImporter:
+  defaultTextures:
+  - _HealthyTex: {fileID: 2800000, guid: 093fcfe4887a666489611af9445f7e2a, type: 3}
+  - _DecayedTex: {fileID: 2800000, guid: 3f72844c2ba33eb40bd2f3bed27e3b38, type: 3}
+  - _ZombieTex: {fileID: 2800000, guid: 79c21182a5defe74e8abc657c6fef64d, type: 3}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

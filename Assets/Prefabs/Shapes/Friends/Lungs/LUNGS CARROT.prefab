@@ -270,6 +270,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Colour: 3
   m_Explosion: {fileID: 198954166451727074}
+  m_AfterExplosion: {fileID: 0}
   m_CanSwap: 1
   m_CanDestroy: 1
   m_SpawnChance: 1

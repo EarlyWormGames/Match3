@@ -10,6 +10,9 @@ public class BacteriaBro : NodeItem
     public Image m_Sprite1;
     public Image m_Sprite2;
     public Image m_Sprite3;
+    public ParticleSystem m_Sprite1Explosion;
+    public ParticleSystem m_Sprite2Explosion;
+    public ParticleSystem m_Sprite3Explosion;
     public GameObject m_ChildRoot;
 
     internal GameObject m_RespawnType;
@@ -73,8 +76,13 @@ public class BacteriaBro : NodeItem
 
         --m_Lifetime;
         LifeTimeDisplayUpdate();
+        if (m_Lifetime == 0)
+            m_Sprite3Explosion.Play();
+        if (m_Lifetime == 1)
+            m_Sprite2Explosion.Play();
         if (m_Lifetime < 0)
         {
+            m_Sprite1Explosion.Play();
             m_Parent.m_RespawnType = m_RespawnType;
             m_Parent.StartDestroy();
         }
