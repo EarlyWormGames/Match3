@@ -1003,7 +1003,7 @@ Prefab:
     - target: {fileID: 224403313912059342, guid: 050b39d4dbe3bda4b8d69ef48bb1de04,
         type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 224403313912059342, guid: 050b39d4dbe3bda4b8d69ef48bb1de04,
         type: 2}
@@ -1804,9 +1804,10 @@ MonoBehaviour:
   m_TurnsText: {fileID: 1202165862}
   m_WinPanel: {fileID: 335096166}
   m_LosePanel: {fileID: 1966112564}
+  m_RefreshButton: {fileID: 0}
   m_NodeMoveSpeed: 7
   m_RequiredChainStart: 4
-  m_BadGuySpawnChance: 5
+  m_BadGuySpawnChance: 1
   m_SpawnPrefabs:
   - {fileID: 1333852350469656, guid: df69062121cdc3c4c9057011b531d60f, type: 2}
   - {fileID: 1333852350469656, guid: dab8104663cf61144b83a09f2d021904, type: 2}
@@ -1927,7 +1928,7 @@ Prefab:
     - target: {fileID: 224698772862052208, guid: cd604d788831c7a40b4c78dc07b33775,
         type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 224698772862052208, guid: cd604d788831c7a40b4c78dc07b33775,
         type: 2}
@@ -2366,7 +2367,7 @@ Prefab:
     - target: {fileID: 224538691014110992, guid: 15a9305f21c786d45962a1bbedbb5fb9,
         type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 224538691014110992, guid: 15a9305f21c786d45962a1bbedbb5fb9,
         type: 2}
