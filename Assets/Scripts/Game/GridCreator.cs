@@ -211,7 +211,7 @@ public class GridCreator : MonoBehaviour
         if (!ok)
         {
             if (!onlyCheck)
-                GameManager.instance.GameOver(false);
+                GameManager.instance.GameOver(false, true);
             else
                 return 0;
         }

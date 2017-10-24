@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Lefty : NodeItem
 {
-    public GameObject m_MatchingNormal;
-
     public void Awake()
     {
         

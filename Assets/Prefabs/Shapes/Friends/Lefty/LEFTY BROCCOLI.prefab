@@ -195,6 +195,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Colour: 0
   m_Explosion: {fileID: 198095659432751050}
+  m_AfterExplosion: {fileID: 0}
   m_CanSwap: 1
   m_CanDestroy: 1
   m_SpawnChance: 1
@@ -203,8 +204,6 @@ MonoBehaviour:
   m_MatchAnyButOwn: 0
   m_SwapOnly: 0
   m_Scale: {x: 1, y: 1, z: 1}
-  m_MatchingNormal: {fileID: 1333852350469656, guid: df69062121cdc3c4c9057011b531d60f,
-    type: 2}
 --- !u!114 &114460876281016752
 MonoBehaviour:
   m_ObjectHideFlags: 1

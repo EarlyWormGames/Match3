@@ -23,7 +23,7 @@ public class GridNode : MonoBehaviour
     internal Image m_Image;
     internal GameObject m_RespawnType = null;
     internal bool m_RespawnIsSpawned = false;
-    internal bool m_bOverrideVis = false;
+    internal bool m_bOverrideVis = true;
 
     public void Init()
     {

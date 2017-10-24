@@ -87,6 +87,7 @@ public class GameManager : MonoBehaviour
     public Text m_TurnsText;
     public GameObject m_WinPanel;
     public GameObject m_LosePanel;
+    public Button m_RefreshButton;
 
     [Header("Values")]
     public float m_NodeMoveSpeed = 5f;
@@ -188,21 +189,18 @@ public class GameManager : MonoBehaviour
                 CanDrag = false;
             }
 
-            if (TopViewTime > 0)
-            {
-                bool show = false;
-                if (TopViewTime > 0)
-                    show = true;
-
-                for (int i = 0; i < instance.m_Grid.m_GridWidth; ++i)
-                {
-                    instance.m_Grid.m_Nodes[i, 0].OverrideVis(show);
-                }
-            }
+            EyePanel.instance.gameObject.SetActive(TopViewTime <= 0);
+            //if (TopViewTime > 0)
+            //{
+            //    for (int i = 0; i < instance.m_Grid.m_GridWidth; ++i)
+            //    {
+            //        instance.m_Grid.m_Nodes[i, 0].OverrideVis(true);
+            //    }
+            //}
         }
     }
 
-    public void GameOver(bool a_success)
+    public void GameOver(bool a_success, bool a_completeFailure = false)
     {
         //It's game-over man! Game-over!
         if (!m_IsGameOver)
@@ -222,6 +220,11 @@ public class GameManager : MonoBehaviour
             {
                 //Mission failed. We'll get 'em next time
                 m_LosePanel.SetActive(true);
+
+                if (a_completeFailure)
+                {
+                    m_RefreshButton.interactable = false;
+                }
             }
         }
     }
@@ -388,13 +391,13 @@ public class GameManager : MonoBehaviour
 
             if (ok)
             {
-                bool show = false;
-                for (int i = 0; i < instance.m_Grid.m_GridWidth; ++i)
-                {
-                    if (TopViewTime > 0)
-                        show = true;
-                    instance.m_Grid.m_Nodes[i, 0].OverrideVis(show);
-                }
+                //bool show = false;
+                //for (int i = 0; i < instance.m_Grid.m_GridWidth; ++i)
+                //{
+                //    if (TopViewTime > 0)
+                //        show = true;
+                //    instance.m_Grid.m_Nodes[i, 0].OverrideVis(show);
+                //}
             }
         }
         m_bSwapped = false;
