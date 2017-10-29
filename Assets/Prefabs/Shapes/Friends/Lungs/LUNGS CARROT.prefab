@@ -88,7 +88,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4170491133443974}
   - component: {fileID: 198954166451727074}
-  - component: {fileID: 114877434003495546}
   - component: {fileID: 199871551058209062}
   m_Layer: 0
   m_Name: Explosion
@@ -270,10 +269,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Colour: 3
   m_Explosion: {fileID: 198954166451727074}
-  m_AfterExplosion: {fileID: 0}
+  m_AfterExplosion: {fileID: 198884427900631986, guid: 73f15ce7f41bbdb4aa26a382443f7023,
+    type: 2}
+  m_AfterEXDestroyTime: 1.5
+  m_RelativeAfterEX: 0
   m_CanSwap: 1
   m_CanDestroy: 1
-  m_SpawnChance: 1
+  m_SpawnChance: 10
   m_NotifiesDestroy: 1
   m_MatchAnyColour: 0
   m_MatchAnyButOwn: 0
@@ -306,17 +308,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114877434003495546
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1805299055801624}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f28747f5cdf474e42adaa611c7a4ec57, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!198 &198155601513148122
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -376,7 +367,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -137101358
+  randomSeed: 981043186
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -3644,7 +3635,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 618931613
+  randomSeed: -354206141
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -6930,7 +6921,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1671313782
+  randomSeed: -1480967245
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -10216,7 +10207,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1186204601
+  randomSeed: 646091584
   InitialModule:
     serializedVersion: 3
     enabled: 1

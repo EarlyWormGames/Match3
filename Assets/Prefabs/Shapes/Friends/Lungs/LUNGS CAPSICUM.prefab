@@ -122,7 +122,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4391852187713204}
   - component: {fileID: 198225633889987506}
-  - component: {fileID: 114201594407467030}
   - component: {fileID: 199412764423671680}
   m_Layer: 0
   m_Name: Explosion
@@ -216,26 +215,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Colour: 2
   m_Explosion: {fileID: 198225633889987506}
-  m_AfterExplosion: {fileID: 0}
+  m_AfterExplosion: {fileID: 198884427900631986, guid: 73f15ce7f41bbdb4aa26a382443f7023,
+    type: 2}
+  m_AfterEXDestroyTime: 1.5
+  m_RelativeAfterEX: 0
   m_CanSwap: 1
   m_CanDestroy: 1
-  m_SpawnChance: 1
+  m_SpawnChance: 10
   m_NotifiesDestroy: 1
   m_MatchAnyColour: 0
   m_MatchAnyButOwn: 0
   m_SwapOnly: 0
   m_Scale: {x: 1, y: 1, z: 1}
---- !u!114 &114201594407467030
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1689794365345950}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f28747f5cdf474e42adaa611c7a4ec57, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114650796119751656
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -376,7 +367,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 2036627502
+  randomSeed: -1224820339
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -3662,7 +3653,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -2107338161
+  randomSeed: 1463029048
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -6924,7 +6915,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 895416468
+  randomSeed: 1919203521
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -10192,7 +10183,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 545103469
+  randomSeed: 1715782628
   InitialModule:
     serializedVersion: 3
     enabled: 1

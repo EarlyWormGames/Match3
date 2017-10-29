@@ -4,67 +4,70 @@ using UnityEngine;
 
 public class ParticleColourChanger : MonoBehaviour {
 
+
+    public Material CapsicumMat;
+    public Material CakeMat;
+    public Material BroccoliMat;
+    public Material CupcakeMat;
+    public Material IcecreamMat;
+    public Material CarrotMat;
     internal ParticleSystem[] m_childParticles;
     internal NodeItem m_gemParent;
+    internal ItemColour m_gemColour;
 	// Use this for initialization
 	void Start () {
         m_gemParent = GetComponentInParent<NodeItem>();
+        if(m_gemParent != null)
+        {
+            m_gemColour = m_gemParent.m_Colour;
+        }
         m_childParticles = GetComponentsInChildren<ParticleSystem>();
-        switch (m_gemParent.m_Colour)
+        switch (m_gemColour)
         {
             case ItemColour.Capsicum:
                 foreach (ParticleSystem ps in m_childParticles)
                 {
-                    ParticleSystem.MainModule main = ps.main;
-                    main.startColor = new Color(1, 0, 0, main.startColor.color.a);
+                    ps.GetComponent<ParticleSystemRenderer>().material = CapsicumMat;
                 }
                 break;
-
-            //case ItemColour.Orange:
-            //    foreach (ParticleSystem ps in m_childParticles)
-            //    {
-            //        ps.startColor = new Color(1, 0.5f, 0, ps.startColor.a);
-            //    }
-            //    break;
 
             case ItemColour.Cake:
                 foreach (ParticleSystem ps in m_childParticles)
                 {
-                    ParticleSystem.MainModule main = ps.main;
-                    main.startColor = new Color(1, 1, 0, main.startColor.color.a);
+                    ps.GetComponent<ParticleSystemRenderer>().material = CakeMat;
                 }
                 break;
 
             case ItemColour.Broccoli:
                 foreach (ParticleSystem ps in m_childParticles)
                 {
-                    ParticleSystem.MainModule main = ps.main;
-                    main.startColor = new Color(0, 1, 0, main.startColor.color.a);
+                    ps.GetComponent<ParticleSystemRenderer>().material = BroccoliMat;
                 }
                 break;
 
             case ItemColour.Cupcake:
                 foreach (ParticleSystem ps in m_childParticles)
                 {
-                    ParticleSystem.MainModule main = ps.main;
-                    main.startColor = new Color(0, 1, 0.8f, main.startColor.color.a);
+                    ps.GetComponent<ParticleSystemRenderer>().material = CupcakeMat;
                 }
                 break;
 
             case ItemColour.Icecream:
                 foreach (ParticleSystem ps in m_childParticles)
                 {
-                    ParticleSystem.MainModule main = ps.main;
-                    main.startColor = new Color(0.5f, 0, 1, main.startColor.color.a);
+                    ps.GetComponent<ParticleSystemRenderer>().material = IcecreamMat;
                 }
                 break;
 
-            //case ItemColour.Pink:
-            //    foreach (ParticleSystem ps in m_childParticles)
-            //    {
-            //        ps.startColor = new Color(1, 0, 0.5f, ps.startColor.a);
-            //    }
-            //    break;
+            case ItemColour.Carrot:
+                foreach (ParticleSystem ps in m_childParticles)
+                {
+                    ps.GetComponent<ParticleSystemRenderer>().material = CarrotMat;
+                }
+                break;
+
+            default:
+                break;
         }
 	}
 }

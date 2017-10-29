@@ -19,6 +19,8 @@ public class NodeItem : MonoBehaviour
     public ItemColour m_Colour;
     public ParticleSystem m_Explosion;
     public ParticleSystem m_AfterExplosion;
+    public float m_AfterEXDestroyTime = 1;
+    public bool m_RelativeAfterEX = true;
     public bool m_CanSwap = true;
     public bool m_CanDestroy = true;
     public int m_SpawnChance = 1;
@@ -172,7 +174,12 @@ public class NodeItem : MonoBehaviour
                 m_destroyStart = false;
                 if (m_AfterExplosion != null)
                 {
-                    Destroy(Instantiate(m_AfterExplosion, m_Parent.transform).gameObject, 1);
+                    GameObject AfterEX = Instantiate(m_AfterExplosion, m_RelativeAfterEX ? m_Parent.transform : null).gameObject;
+                    if(AfterEX.GetComponent<ParticleColourChanger>() != null)
+                    {
+                        AfterEX.GetComponent<ParticleColourChanger>().m_gemColour = m_Colour;
+                    }
+                    Destroy(AfterEX, m_AfterEXDestroyTime);
                 }
                 m_Parent.EndDestroy();
             }

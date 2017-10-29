@@ -71,7 +71,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4951726588969318}
   - component: {fileID: 198095659432751050}
-  - component: {fileID: 114883731208393586}
   - component: {fileID: 199136848098686380}
   m_Layer: 0
   m_Name: Explosion
@@ -244,7 +243,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Colour: 2
   m_Explosion: {fileID: 198095659432751050}
-  m_AfterExplosion: {fileID: 0}
+  m_AfterExplosion: {fileID: 198548865488717090, guid: fdeac571915290044a5cdc0a47600ca4,
+    type: 2}
+  m_AfterEXDestroyTime: 2
+  m_RelativeAfterEX: 0
   m_CanSwap: 1
   m_CanDestroy: 1
   m_SpawnChance: 1
@@ -266,6 +268,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f28747f5cdf474e42adaa611c7a4ec57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CapsicumMat: {fileID: 0}
+  CakeMat: {fileID: 0}
+  BroccoliMat: {fileID: 0}
+  CupcakeMat: {fileID: 0}
+  IcecreamMat: {fileID: 0}
+  CarrotMat: {fileID: 0}
 --- !u!114 &114618302356131690
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -293,17 +301,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114883731208393586
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1309955700643620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f28747f5cdf474e42adaa611c7a4ec57, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114958569392727848
 MonoBehaviour:
   m_ObjectHideFlags: 1
