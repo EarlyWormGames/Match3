@@ -1,8 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class LevelSettings : MonoBehaviour {
+public class LevelSettings : MonoBehaviour
+{
+    public static LevelSettings selected;
 
     public int RequiredChain = 4;
 
@@ -13,13 +16,20 @@ public class LevelSettings : MonoBehaviour {
 
     public int TargetScore = 100;
     public float DifficultyMult = 1;
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    private void OnEnable()
+    {
+        GetComponent<Button>().onClick.AddListener(OnClick);
+    }
+
+    private void OnDisable()
+    {
+        GetComponent<Button>().onClick.RemoveAllListeners();
+    }
+
+    void OnClick()
+    {
+        selected = this;
+        PlayPanel.instance.gameObject.SetActive(true);
+    }
 }

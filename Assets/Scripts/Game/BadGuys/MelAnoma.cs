@@ -59,17 +59,16 @@ public class MelAnoma : MonoBehaviour
             //Create a new Bacteria Bro
             int index = GameManager.GetNodeIndex();
             NodeItem prefab = GameManager.GetNodeDetails(index);
-            GameObject obj = Instantiate(GameManager.instance.m_BBros);
+            GameObject obj = Instantiate(GameManager.instance.m_BBros, a_node.transform.position, new Quaternion(), GameManager.instance.m_Grid.transform);
             BacteriaBro bbro = obj.GetComponent<BacteriaBro>();
             bbro.m_Colour = prefab.m_Colour;
 
             bbro.m_RespawnType = prefab.gameObject;
+            bbro.gameObject.SetActive(false);
 
             GameObject child = GameManager.SpawnNodeItem(index);
             child.transform.SetParent(bbro.transform, false);
             child.transform.SetAsFirstSibling();
-
-            bbro.transform.SetParent(GameManager.instance.m_Grid.transform, false);
 
             //Tell it that it has a respawn object so it doesn't make the grid move
             a_node.m_RespawnType = obj;

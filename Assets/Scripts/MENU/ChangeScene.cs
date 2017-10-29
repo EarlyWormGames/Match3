@@ -47,11 +47,10 @@ public class ChangeScene : MonoBehaviour {
 
     void SetupMediator()
     {
-        GameObject SelectedLevel = GameObject.Find(EventSystem.current.currentSelectedGameObject.name);
+        LevelSettings LS = LevelSettings.selected;
 
-        if (SelectedLevel)
+        if (LS != null)
         {
-            LevelSettings LS = SelectedLevel.GetComponent<LevelSettings>();
             if(Mediator.Settings == null)
                 Mediator.Settings = new GameSettings();
 

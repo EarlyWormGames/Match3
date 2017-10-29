@@ -395,6 +395,8 @@ public class GridNode : MonoBehaviour
         GameObject obj = a_object;
         if (!m_RespawnIsSpawned)
             obj = Instantiate(a_object);
+        else
+            obj.SetActive(true);
         m_Shape = obj.GetComponent<NodeItem>();
         m_Shape.transform.SetParent(transform.parent.parent, false);
         m_Shape.transform.localScale = m_Shape.m_Scale;

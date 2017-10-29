@@ -5,11 +5,21 @@ using UnityEngine.Advertisements;
 
 public class MenuAds : MonoBehaviour
 {
+    public int LevelCount = 10;
+    private static MenuAds instance;
 
     // Use this for initialization
     void Start()
     {
-        SavedData.Load();
+        if (instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        instance = this;
+        SaveData.Load(LevelCount);
+        DontDestroyOnLoad(gameObject);
     }
 
     public void GetTurns()
@@ -19,7 +29,7 @@ public class MenuAds : MonoBehaviour
 
     public void TurnAdOver(ShowResult result)
     {
-        SavedData.FreeTurns += 3;
-        SavedData.Save();
+        SaveData.FreeTurns += 3;
+        SaveData.Save();
     }
 }

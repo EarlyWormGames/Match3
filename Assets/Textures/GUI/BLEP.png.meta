@@ -1,10 +1,9 @@
 fileFormatVersion: 2
-guid: e0b997bb072859343b5c124be841ae40
-timeCreated: 1508890518
+guid: b002d1c399ccca246947f08fdb782531
+timeCreated: 1508890762
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: RoundedCubeInside_0
+  fileIDToRecycleName: {}
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -42,10 +41,10 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 1
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteBorder: {x: 25, y: 25, z: 25, w: 25}
   spritePixelsToUnits: 100
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -98,29 +97,7 @@ TextureImporter:
     overridden: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: RoundedCubeInside_0
-      rect:
-        serializedVersion: 2
-        x: 10
-        y: 10
-        width: 980
-        height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -463.418, y: 39.999992}
-        - {x: -489.4121, y: 15.066429}
-        - {x: -490, y: -12.072308}
-        - {x: -466.76953, y: -40}
-        - {x: 464.89062, y: -40}
-        - {x: 488.23633, y: -12.357437}
-        - {x: 488.23633, y: 14.890648}
-        - {x: 463.12695, y: 40}
-      physicsShape: []
-      tessellationDetail: 0
+    sprites: []
     outline: []
     physicsShape: []
   spritePackingTag: 

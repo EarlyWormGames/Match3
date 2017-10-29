@@ -381,24 +381,6 @@ public class GameManager : MonoBehaviour
                     }
                 }
             }
-
-            bool ok = false;
-            if (TopViewTime > 0)
-            {
-                --TopViewTime;
-                ok = true;
-            }
-
-            if (ok)
-            {
-                //bool show = false;
-                //for (int i = 0; i < instance.m_Grid.m_GridWidth; ++i)
-                //{
-                //    if (TopViewTime > 0)
-                //        show = true;
-                //    instance.m_Grid.m_Nodes[i, 0].OverrideVis(show);
-                //}
-            }
         }
         m_bSwapped = false;
     }

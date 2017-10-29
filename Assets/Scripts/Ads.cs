@@ -71,12 +71,11 @@ public class AdManager
     public static void ReviveAdShown(ShowResult result)
     {
         //Revive if success
-
         if (result == ShowResult.Finished)
         {
             GameManager.Score = Mathf.Max(GameManager.Score, (int)(Mediator.Settings.TargetScore * 0.75f));
 
-            GameManager.instance.m_TurnsLeft = 5;
+            GameManager.instance.m_TurnsLeft = Mediator.Settings.Turns / 2;
             GameManager.instance.m_TurnsText.text = (5).ToString();
             GameManager.instance.m_LosePanel.SetActive(false);
             GameManager.instance.m_IsGameOver = false;
