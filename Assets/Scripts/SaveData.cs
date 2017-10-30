@@ -27,11 +27,14 @@ public class SaveData
             loadedDoc.LoadXml(contents);
 
             //Grab our free turns value
-            XmlElement freeTurns = loadedDoc.GetElementById("FreeTurns");
+            string query = string.Format("//*[@id='{0}']", "FreeTurns");
+            XmlElement freeTurns = (XmlElement)loadedDoc.SelectSingleNode(query);
             FreeTurns = Convert.ToInt32(freeTurns.InnerText);
 
             //Grab the scores (1,2,3 stars) for the levels
-            XmlElement levels = loadedDoc.GetElementById("Levels");
+            query = string.Format("//*[@id='{0}']", "Levels");
+            XmlElement levels = (XmlElement)loadedDoc.SelectSingleNode(query);
+
             int i = 0;
             foreach (var child in levels.ChildNodes)
             {
