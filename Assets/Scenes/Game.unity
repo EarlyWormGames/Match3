@@ -1615,7 +1615,7 @@ MonoBehaviour:
   m_RefreshButton: {fileID: 1728751311}
   m_NodeMoveSpeed: 7
   m_RequiredChainStart: 4
-  m_BadGuySpawnChance: 10
+  m_BadGuySpawnChance: 15
   m_SpawnPrefabs:
   - {fileID: 1333852350469656, guid: df69062121cdc3c4c9057011b531d60f, type: 2}
   - {fileID: 1333852350469656, guid: dab8104663cf61144b83a09f2d021904, type: 2}
