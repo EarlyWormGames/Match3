@@ -27,4 +27,5 @@ public class GameSettings
     public float DifficultyMult = 1;
 
     public int Turns = 15;
+    public int Level = -1;
 }

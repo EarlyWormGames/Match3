@@ -61,6 +61,7 @@ public class ChangeScene : MonoBehaviour {
             Mediator.Settings.TargetScore = LS.TargetScore;
             Mediator.Settings.DifficultyMult = LS.DifficultyMult;
             Mediator.Settings.Turns = LS.TurnsGoal;
+            Mediator.Settings.Level = LS.transform.GetSiblingIndex();
         }
         else
         {

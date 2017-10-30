@@ -215,6 +215,28 @@ public class GameManager : MonoBehaviour
             {
                 //Misison passed! Respect+
                 m_WinPanel.SetActive(true);
+
+                if (Mediator.Settings.Level > -1)
+                {
+                    //Save the score to file
+                    int finalscore = 1;
+
+                    if (m_TurnsLeft >= (Mediator.Settings.Turns / 5))
+                    {
+                        finalscore = 2;
+                    }
+
+                    if (m_TurnsLeft >= (Mediator.Settings.Turns / 2))
+                    {
+                        finalscore = 3;
+                    }
+
+                    if (finalscore > SaveData.LevelScores[Mediator.Settings.Level])
+                    {
+                        SaveData.LevelScores[Mediator.Settings.Level] = finalscore;
+                        SaveData.Save();
+                    }
+                }
             }
             else
             {
