@@ -5,8 +5,9 @@ using UnityEngine.Advertisements;
 
 public class MenuAds : MonoBehaviour
 {
+    public static MenuAds instance;
     public int LevelCount = 10;
-    private static MenuAds instance;
+    public bool IsDev = true;
 
     // Use this for initialization
     void Start()

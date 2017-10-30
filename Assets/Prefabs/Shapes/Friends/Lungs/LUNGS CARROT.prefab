@@ -275,7 +275,7 @@ MonoBehaviour:
   m_RelativeAfterEX: 0
   m_CanSwap: 1
   m_CanDestroy: 1
-  m_SpawnChance: 10
+  m_SpawnChance: 1
   m_NotifiesDestroy: 1
   m_MatchAnyColour: 0
   m_MatchAnyButOwn: 0
