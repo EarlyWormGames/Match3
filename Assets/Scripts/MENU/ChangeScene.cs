@@ -60,6 +60,7 @@ public class ChangeScene : MonoBehaviour {
             Mediator.Settings.GridHeight = LS.GridHeight + 1;
             Mediator.Settings.TargetScore = LS.TargetScore;
             Mediator.Settings.DifficultyMult = LS.DifficultyMult;
+            Mediator.Settings.Turns = LS.TurnsGoal;
         }
         else
         {

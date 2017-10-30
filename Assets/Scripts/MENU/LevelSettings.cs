@@ -17,6 +17,8 @@ public class LevelSettings : MonoBehaviour
     public int TargetScore = 100;
     public float DifficultyMult = 1;
 
+    public int TurnsGoal = 15;
+
     private void OnEnable()
     {
         GetComponent<Button>().onClick.AddListener(OnClick);

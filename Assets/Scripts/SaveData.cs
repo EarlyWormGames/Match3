@@ -10,8 +10,16 @@ public class SaveData
 {
     public static int FreeTurns;
     public static int[] LevelScores;
+    public static int LevelCount = 25;
+    public static bool IsDev = true;
 
     private static XmlDocument loadedDoc;
+
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+    static void Init()
+    {
+        Load(LevelCount);
+    }
 
     public static void Load(int LevelCount)
     {

@@ -211,6 +211,8 @@ MonoBehaviour:
   m_Colour: 3
   m_Explosion: {fileID: 198095659432751050}
   m_AfterExplosion: {fileID: 0}
+  m_AfterEXDestroyTime: 1
+  m_RelativeAfterEX: 1
   m_CanSwap: 1
   m_CanDestroy: 1
   m_SpawnChance: 1
@@ -230,6 +232,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f28747f5cdf474e42adaa611c7a4ec57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CapsicumMat: {fileID: 0}
+  CakeMat: {fileID: 0}
+  BroccoliMat: {fileID: 0}
+  CupcakeMat: {fileID: 0}
+  IcecreamMat: {fileID: 0}
+  CarrotMat: {fileID: 0}
 --- !u!114 &114993723966102716
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -13614,6 +13622,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -175.8, y: 0.00021350384}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}

@@ -87,7 +87,6 @@ public class GameManager : MonoBehaviour
     public Text m_TurnsText;
     public GameObject m_WinPanel;
     public GameObject m_LosePanel;
-    public Button m_RefreshButton;
 
     [Header("Values")]
     public float m_NodeMoveSpeed = 5f;
@@ -105,6 +104,7 @@ public class GameManager : MonoBehaviour
 
     internal int m_TurnsLeft;
     internal bool m_IsGameOver = false;
+    internal bool m_TotalGameOver = false;
 
     private bool m_WasMoving = true;
     private bool m_WasEmpty;
@@ -223,7 +223,7 @@ public class GameManager : MonoBehaviour
 
                 if (a_completeFailure)
                 {
-                    m_RefreshButton.interactable = false;
+                    m_TotalGameOver = true;
                 }
             }
         }

@@ -50,7 +50,7 @@ public class PlayPanel : MonoBehaviour
     void ShowLockedLevel(int levelNum)
     {
         GameText.text = "This level is locked.\nBeat level " + (levelNum - 1).ToString() + " to unlock.";
-        if (MenuAds.instance.IsDev)
+        if (SaveData.IsDev)
             PlayButton.gameObject.SetActive(true);
     }
 
