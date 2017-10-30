@@ -306,7 +306,7 @@ public class GridNode : MonoBehaviour
             GameManager.isDragging = false;
             GameManager.dragNItem.MarkDrag = true;
         }
-        else if (GameManager.CanDrag)
+        else if (GameManager.CanDrag && GameManager.dragNItem != null)
         {
             //Second click, to swap items
             if (GameManager.dragGNode != this && m_Shape.CanSwap())

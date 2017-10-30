@@ -189,7 +189,7 @@ public class GameManager : MonoBehaviour
                 CanDrag = false;
             }
 
-            EyePanel.instance.gameObject.SetActive(TopViewTime <= 0);
+            EyePanel.instance.SetImage(TopViewTime <= 0);
             //if (TopViewTime > 0)
             //{
             //    for (int i = 0; i < instance.m_Grid.m_GridWidth; ++i)
