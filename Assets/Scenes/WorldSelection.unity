@@ -590,7 +590,7 @@ RectTransform:
   m_LocalScale: {x: 1.1047125, y: 0.3016104, z: 1.1047125}
   m_Children: []
   m_Father: {fileID: 2071611816}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -846,7 +846,7 @@ RectTransform:
   m_LocalScale: {x: 1.1047125, y: 0.3016104, z: 1.1047125}
   m_Children: []
   m_Father: {fileID: 2071611816}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2234,6 +2234,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StarPanel: {fileID: 1080051920}
   GameText: {fileID: 830027139}
+  PlayButton: {fileID: 669780627}
 --- !u!1 &980658900
 GameObject:
   m_ObjectHideFlags: 0
@@ -3263,7 +3264,7 @@ RectTransform:
   m_LocalScale: {x: 1.1047125, y: 0.3016104, z: 1.1047125}
   m_Children: []
   m_Father: {fileID: 2071611816}
-  m_RootOrder: 1
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3481,7 +3482,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 946bca06f02a36f4dbf3b387f3357113, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -3770,8 +3771,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1343110458}
   m_HandleRect: {fileID: 1343110457}
   m_Direction: 0
-  m_Value: 1
-  m_Size: 1
+  m_Value: 0.5
+  m_Size: 0.99999994
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5146,7 +5147,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 2067.41}
+  m_AnchoredPosition: {x: 0, y: 2067.4102}
   m_SizeDelta: {x: 0, y: 3402.01}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1962674664
@@ -5179,7 +5180,7 @@ RectTransform:
   m_LocalScale: {x: 1.1047125, y: 0.3016104, z: 1.1047125}
   m_Children: []
   m_Father: {fileID: 2071611816}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5433,10 +5434,10 @@ RectTransform:
   m_LocalScale: {x: 0.90521294, y: 3.3155353, z: 0.90521294}
   m_Children:
   - {fileID: 1641503977}
-  - {fileID: 1358818844}
   - {fileID: 1962674665}
   - {fileID: 360834764}
   - {fileID: 457530320}
+  - {fileID: 1358818844}
   - {fileID: 574672033}
   - {fileID: 2070848649}
   - {fileID: 449081097}
