@@ -93,7 +93,6 @@ public class SaveData
         {
             var child = (item as XmlElement);
             child.InnerText = LevelScores[i].ToString();
-            levels.AppendChild(child);
 
             ++i;
         }
