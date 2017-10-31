@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SettingsCanvasManager : MonoBehaviour {
 
+    bool m_bOpen = false;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -13,4 +15,17 @@ public class SettingsCanvasManager : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    
+
+
+    public void OpenSettingsMenu()
+    {
+        m_bOpen = true;
+    }
+
+    public void ClsoeSettingsMenu()
+    {
+        m_bOpen = false;
+    }
 }
