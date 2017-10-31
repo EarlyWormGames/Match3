@@ -23,7 +23,7 @@ public class AdManager
 
     public static void Show(System.Action<ShowResult> callback)
     {
-        if (Advertisement.isShowing || !Advertisement.IsReady("rewardedVideo"))
+        if (!CanShowAd())
             return;
 
         ShowOptions options = new ShowOptions();
@@ -34,7 +34,7 @@ public class AdManager
 
     public static bool CanShowAd()
     {
-        return !(Advertisement.isShowing || !Advertisement.IsReady("rewardedVideo"));
+        return (!Advertisement.isShowing && Advertisement.IsReady("rewardedVideo"));
     }
 
     public static int item;
@@ -79,6 +79,12 @@ public class AdManager
             GameManager.instance.m_TurnsText.text = (5).ToString();
             GameManager.instance.m_LosePanel.SetActive(false);
             GameManager.instance.m_IsGameOver = false;
+
+            if (GameManager.instance.m_TotalGameOver)
+            {
+                GameManager.instance.m_Grid.ResetBoard();
+                GameManager.instance.m_TotalGameOver = false;
+            }
         }
     }
 }
