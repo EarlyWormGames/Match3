@@ -6,17 +6,16 @@ using UnityEngine.UI;
 public class StarShower : MonoBehaviour
 {
     public Image[] Stars;
+    public bool OnStart = false;
 
     // Use this for initialization
     void Start()
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        if (OnStart)
+        {
+            int level = transform.parent.GetSiblingIndex();
+            ShowStars(SaveData.LevelScores[level]);
+        }
     }
 
     public void ShowStars(int amount)
