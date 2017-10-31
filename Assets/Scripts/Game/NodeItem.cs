@@ -159,7 +159,7 @@ public class NodeItem : MonoBehaviour
         }        
 
         //Is this tile about to be destroyed?
-        if (m_destroyStart)
+        if (m_destroyStart || MarkDestroy)
         {
             //Destruction is done on a timer
             m_DestroyTimer -= Time.deltaTime;

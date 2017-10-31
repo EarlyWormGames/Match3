@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -84,9 +85,10 @@ public class GameManager : MonoBehaviour
     public GameObject m_ScorePanel;
     public Text m_NameText;
     public PercentageMovement m_ScoreBar;
-    public Text m_TurnsText;
+    public TextMeshProUGUI m_TurnsText;
     public GameObject m_WinPanel;
     public GameObject m_LosePanel;
+    public StarShower m_Stars;
 
     [Header("Values")]
     public float m_NodeMoveSpeed = 5f;
@@ -236,6 +238,8 @@ public class GameManager : MonoBehaviour
                         SaveData.LevelScores[Mediator.Settings.Level] = finalscore;
                         SaveData.Save();
                     }
+
+                    m_Stars.ShowStars(finalscore);
                 }
             }
             else

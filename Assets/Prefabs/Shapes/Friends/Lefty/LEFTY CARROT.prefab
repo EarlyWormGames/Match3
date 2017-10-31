@@ -211,6 +211,8 @@ MonoBehaviour:
   m_Colour: 3
   m_Explosion: {fileID: 198095659432751050}
   m_AfterExplosion: {fileID: 0}
+  m_AfterEXDestroyTime: 1
+  m_RelativeAfterEX: 1
   m_CanSwap: 1
   m_CanDestroy: 1
   m_SpawnChance: 1
@@ -252,11 +254,17 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1309955700643620}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f28747f5cdf474e42adaa611c7a4ec57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CapsicumMat: {fileID: 0}
+  CakeMat: {fileID: 0}
+  BroccoliMat: {fileID: 0}
+  CupcakeMat: {fileID: 0}
+  IcecreamMat: {fileID: 0}
+  CarrotMat: {fileID: 0}
 --- !u!198 &198018368141286962
 ParticleSystem:
   m_ObjectHideFlags: 1
