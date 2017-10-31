@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
-[RequireComponent(typeof(Text))]
+[RequireComponent(typeof(TextMeshProUGUI))]
 public class TextByIndex : MonoBehaviour
 {
     public bool UseParent = true;
@@ -12,6 +13,6 @@ public class TextByIndex : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        GetComponent<Text>().text = ((UseParent? transform.parent.GetSiblingIndex() : transform.GetSiblingIndex()) + AddAmount).ToString();
+        GetComponent<TextMeshProUGUI>().text = ((UseParent? transform.parent.GetSiblingIndex() : transform.GetSiblingIndex()) + AddAmount).ToString();
     }
 }
