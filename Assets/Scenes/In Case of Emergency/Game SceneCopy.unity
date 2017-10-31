@@ -600,6 +600,7 @@ MonoBehaviour:
   m_TurnsText: {fileID: 0}
   m_WinPanel: {fileID: 0}
   m_LosePanel: {fileID: 0}
+  m_Stars: {fileID: 0}
   m_NodeMoveSpeed: 8
   m_RequiredChainStart: 4
   m_BadGuySpawnChance: 10
