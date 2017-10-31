@@ -460,6 +460,9 @@ public class GridNode : MonoBehaviour
         if (m_Shape.MarkDestroy || !m_Shape.CanDestroy())
             return false;
 
+        if (m_yIndex == 0)
+            return false;
+
         ItemColour left = ItemColour.NONE, right = ItemColour.NONE, up = ItemColour.NONE, down = ItemColour.NONE;
 
         if (a_col == ItemColour.NONE && (!m_Shape.m_MatchAnyColour || !m_Shape.m_MatchAnyButOwn))
@@ -710,6 +713,9 @@ public class GridNode : MonoBehaviour
 
     public void StartDestroy(bool a_useScore = true)
     {
+        if (GameManager.DestroyingList.Contains(this))
+            return;
+
         GameManager.CanDrag = false;
         m_Shape.StartDestroy(a_useScore);
         if (m_RespawnType == null)

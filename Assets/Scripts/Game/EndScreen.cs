@@ -16,7 +16,7 @@ public class EndScreen : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        m_ReviveButton.interactable = AdManager.CanShowAd() && !GameManager.instance.m_TotalGameOver;
+        m_ReviveButton.interactable = AdManager.CanShowAd();
     }
 
     public void MoreTurns()

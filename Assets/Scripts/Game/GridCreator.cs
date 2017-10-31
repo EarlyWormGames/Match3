@@ -217,4 +217,44 @@ public class GridCreator : MonoBehaviour
         }
         return swapCount;
     }
+
+    public void ResetBoard()
+    {
+        foreach (var node in m_Nodes)
+        {
+            node.DestroyNode();
+        }
+
+        int count = 0;
+        do
+        {
+            //Initialise all nodes
+            foreach (var node in m_Nodes)
+            {
+                node.Init();
+            }
+
+            if (count >= 100)
+            {
+                //After 100 tries, just give up
+                break;
+            }
+
+            if (CheckColumns(true) == GameManager.instance.m_RequiredChainStart)
+            {
+                //We're done, break out of the do while
+                break;
+            }
+            else
+            {
+                //If the chain count is wrong, try again
+                foreach (var node in m_Nodes)
+                {
+                    node.DestroyNode();
+                }
+            }
+            ++count;
+
+        } while (true);
+    }
 }
