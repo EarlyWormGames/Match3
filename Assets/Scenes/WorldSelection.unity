@@ -3087,7 +3087,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RequiredChain: 4
   ColourChance: 1
-  GridWidth: 5
+  GridWidth: 6
   GridHeight: 6
   TargetScore: 50
   DifficultyMult: 1
@@ -7759,7 +7759,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -114.17512, y: -0.0002065897}
+  m_AnchoredPosition: {x: -114.17511, y: -0.0002065897}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &861735426
@@ -15538,7 +15538,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RequiredChain: 4
   ColourChance: 87
-  GridWidth: 5
+  GridWidth: 6
   GridHeight: 6
   TargetScore: 20
   DifficultyMult: 0.39
@@ -15653,7 +15653,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1482509900}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.39223787
+  m_Size: 0.39209616
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -18106,7 +18106,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 2067.5625}
+  m_AnchoredPosition: {x: 0, y: 2067.5007}
   m_SizeDelta: {x: 0, y: 3402.01}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1941667973
@@ -18495,7 +18495,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RequiredChain: 4
   ColourChance: 1
-  GridWidth: 5
+  GridWidth: 6
   GridHeight: 6
   TargetScore: 40
   DifficultyMult: 1
