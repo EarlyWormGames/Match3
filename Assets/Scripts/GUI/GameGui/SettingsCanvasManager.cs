@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SettingsCanvasManager : MonoBehaviour {
 
@@ -33,4 +34,6 @@ public class SettingsCanvasManager : MonoBehaviour {
         OptionsAnim.SetBool("Enter", false);
         OptionsAnim.SetTrigger("Triger");
     }
+
+  
 }
