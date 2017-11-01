@@ -5,6 +5,7 @@ using UnityEngine;
 public class SettingsCanvasManager : MonoBehaviour {
 
     bool m_bOpen = false;
+    public Animator OptionsAnim;
 
 	// Use this for initialization
 	void Start () {
@@ -22,10 +23,14 @@ public class SettingsCanvasManager : MonoBehaviour {
     public void OpenSettingsMenu()
     {
         m_bOpen = true;
+        OptionsAnim.SetBool("Enter", true);
+        OptionsAnim.SetTrigger("Triger");
     }
 
     public void ClsoeSettingsMenu()
     {
         m_bOpen = false;
+        OptionsAnim.SetBool("Enter", false);
+        OptionsAnim.SetTrigger("Triger");
     }
 }
