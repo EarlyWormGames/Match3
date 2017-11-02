@@ -32,6 +32,6 @@ public class LevelSettings : MonoBehaviour
     void OnClick()
     {
         selected = this;
-        PlayPanel.instance.gameObject.SetActive(true);
+        PlayPanel.instance.Renderer.SetActive(true);
     }
 }

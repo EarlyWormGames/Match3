@@ -10,12 +10,13 @@ public class PlayPanel : MonoBehaviour
     public StarShower StarPanel;
     public Text GameText;
     public Button PlayButton;
+    public GameObject Renderer;
 
     // Use this for initialization
     void Awake()
     {
         instance = this;
-        gameObject.SetActive(false);
+        Renderer.SetActive(false);
     }
 
     // Update is called once per frame
@@ -26,6 +27,8 @@ public class PlayPanel : MonoBehaviour
 
     private void OnEnable()
     {
+        if (LevelSettings.selected == null)
+            return;
 
         if (LevelSettings.selected.transform.GetSiblingIndex() > 0)
         {
