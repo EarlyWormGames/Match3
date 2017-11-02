@@ -3,22 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SettingsCanvasManager : MonoBehaviour {
+public class SettingsCanvasManager : MonoBehaviour
+{
 
     bool m_bOpen = false;
     public Animator OptionsAnim;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    // Use this for initialization
+    void Start()
+    {
 
-    
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+
 
 
     public void OpenSettingsMenu()
@@ -28,12 +31,12 @@ public class SettingsCanvasManager : MonoBehaviour {
         OptionsAnim.SetTrigger("Triger");
     }
 
-    public void ClsoeSettingsMenu()
+    public void CloseSettingsMenu()
     {
         m_bOpen = false;
         OptionsAnim.SetBool("Enter", false);
         OptionsAnim.SetTrigger("Triger");
     }
 
-  
+
 }
