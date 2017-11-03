@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Analytics;
 
 public class GameManager : MonoBehaviour
 {
@@ -116,6 +117,8 @@ public class GameManager : MonoBehaviour
     private bool m_WasEmpty;
     private bool m_bSwapped;
 
+    private float GameTimer;
+
     // Use this for initialization
     void Awake()
     {
@@ -133,6 +136,8 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        GameTimer += Time.deltaTime;
+
         if (m_IsGameOver) return;
 
         //Set the score display
@@ -243,6 +248,17 @@ public class GameManager : MonoBehaviour
                         SaveData.Save();
                     }
 
+                    Analytics.CustomEvent("Game Won", new Dictionary<string, object>
+                      {
+                        { "level", Mediator.Settings.Level },
+                        { "score", Score },
+                        { "target-score", Mediator.Settings.TargetScore },
+                        { "turns-left", m_TurnsLeft },
+                        { "target-turns", Mediator.Settings.Turns},
+                        { "final-score", finalscore },
+                        { "Time-played", GameTimer}
+                      });
+
                     m_Stars.ShowStars(finalscore);
                 }
             }
@@ -252,11 +268,27 @@ public class GameManager : MonoBehaviour
                 {
                     m_IsGameOver = false;
                     m_Grid.ResetBoard();
+
+                    Analytics.CustomEvent("Reset Board", new Dictionary<string, object>
+                      {
+                        { "level", Mediator.Settings.Level },
+                        { "Time-played", GameTimer}
+                      });
                 }
                 else
                 {
                     //Mission failed. We'll get 'em next time
                     m_LosePanel.SetActive(true);
+
+                    Analytics.CustomEvent("Game Lost", new Dictionary<string, object>
+                      {
+                            { "level", Mediator.Settings.Level },
+                            { "score", Score },
+                            { "target-score", Mediator.Settings.TargetScore },
+                            { "turns-left", m_TurnsLeft },
+                            { "target-turns", Mediator.Settings.Turns},
+                            { "Time-played", GameTimer}
+                      });
                 }
             }
         }

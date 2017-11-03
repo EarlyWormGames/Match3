@@ -347,6 +347,7 @@ GameObject:
   - component: {fileID: 1081090396}
   - component: {fileID: 1081090395}
   - component: {fileID: 1081090397}
+  - component: {fileID: 1081090398}
   m_Layer: 0
   m_Name: SplashManager
   m_TagString: Untagged
@@ -392,6 +393,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FadeOutTexture: {fileID: 2800000, guid: 764e4c55f5c29be4192114cdcfd27abf, type: 3}
   FadeSpeed: 0.8
+--- !u!114 &1081090398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1081090394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 357138ddca8686841833c6490b1ffc67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1127825119
 GameObject:
   m_ObjectHideFlags: 0

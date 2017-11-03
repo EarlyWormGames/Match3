@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
+using UnityEngine.Analytics;
 
 public class ChangeScene : MonoBehaviour {
     
@@ -29,6 +30,16 @@ public class ChangeScene : MonoBehaviour {
         {
             fade.BeginFade(1, TargetScene);
         }
+    }
+
+    public void ReturnFromGame(string TargetScene)
+    {
+        Analytics.CustomEvent("Return To Menu", new Dictionary<string, object>
+            {
+                { "level", Mediator.Settings.Level }
+            });
+
+        ChangeSceneTo(TargetScene);
     }
 
     public void ChangeSceneToAndSetUpMediator(string TargetScene)
@@ -62,6 +73,11 @@ public class ChangeScene : MonoBehaviour {
             Mediator.Settings.DifficultyMult = LS.DifficultyMult;
             Mediator.Settings.Turns = LS.TurnsGoal;
             Mediator.Settings.Level = LS.transform.GetSiblingIndex();
+
+            Analytics.CustomEvent("Game Started", new Dictionary<string, object>
+                {
+                    { "level", Mediator.Settings.Level }
+                });
         }
         else
         {

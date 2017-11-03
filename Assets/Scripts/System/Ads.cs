@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Advertisements;
+using UnityEngine.Analytics;
 
 public class AdManager
 {
@@ -73,6 +74,8 @@ public class AdManager
         //Revive if success
         if (result == ShowResult.Finished)
         {
+            Analytics.CustomEvent("Revived");
+
             GameManager.Score = Mathf.Max(GameManager.Score, (int)(Mediator.Settings.TargetScore * 0.75f));
 
             GameManager.instance.m_TurnsLeft = Mediator.Settings.Turns / 2;
