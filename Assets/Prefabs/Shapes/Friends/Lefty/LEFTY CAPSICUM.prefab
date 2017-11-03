@@ -183,7 +183,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Colour: 2
   m_Explosion: {fileID: 198095659432751050}
-  m_AfterExplosion: {fileID: 0}
+  m_AfterExplosion: {fileID: 198175919089479792, guid: 84b0ea9c072b01046a0d65e19aca8ea5,
+    type: 2}
   m_AfterEXDestroyTime: 1
   m_RelativeAfterEX: 1
   m_CanSwap: 1
@@ -254,17 +255,17 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1309955700643620}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f28747f5cdf474e42adaa611c7a4ec57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CapsicumMat: {fileID: 0}
-  CakeMat: {fileID: 0}
-  BroccoliMat: {fileID: 0}
-  CupcakeMat: {fileID: 0}
-  IcecreamMat: {fileID: 0}
-  CarrotMat: {fileID: 0}
+  CapsicumMat: {fileID: 2100000, guid: 30d6a7dab6f0bf24f9c008fb58b21934, type: 2}
+  CakeMat: {fileID: 2100000, guid: 21c0a63957784c246aa3d3057a977397, type: 2}
+  BroccoliMat: {fileID: 2100000, guid: c069d150e659e8c4394fe36f954b4eea, type: 2}
+  CupcakeMat: {fileID: 2100000, guid: c116742ffd5de4440a9a97f0185fc7f4, type: 2}
+  IcecreamMat: {fileID: 2100000, guid: e773faf4e52631848a0c876e2e920f81, type: 2}
+  CarrotMat: {fileID: 2100000, guid: 2087fd5e6e88e6d4fa2e378a5dfcd377, type: 2}
 --- !u!198 &198018368141286962
 ParticleSystem:
   m_ObjectHideFlags: 1
