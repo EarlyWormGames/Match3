@@ -220,6 +220,8 @@ public class GridCreator : MonoBehaviour
 
     public void ResetBoard()
     {
+        GameManager.DestroyingList.Clear();
+
         foreach (var node in m_Nodes)
         {
             node.DestroyNode();
