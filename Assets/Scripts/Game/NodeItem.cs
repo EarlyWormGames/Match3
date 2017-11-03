@@ -44,7 +44,6 @@ public class NodeItem : MonoBehaviour
     private bool m_destroyStart = false;
     private int m_SwapCountDown = 1;
     private bool m_bWasMoving;
-    private bool m_bWasActive;
 
     private Image[] m_ImageComps = new Image[0];
     private SpriteRenderer[] m_SpriteComps = new SpriteRenderer[0];
@@ -55,7 +54,6 @@ public class NodeItem : MonoBehaviour
         m_ImageComps = GetComponentsInChildren<Image>();
         m_SpriteComps = GetComponentsInChildren<SpriteRenderer>();
         m_Particles = GetComponentsInChildren<ParticleSystem>();
-        m_bWasActive = true;
     }
 
     // Use this for initialization

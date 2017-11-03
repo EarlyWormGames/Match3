@@ -379,6 +379,7 @@ MonoBehaviour:
     type: 2}
   m_GridWidth: 7
   m_GridHeight: 9
+  m_Layout: {fileID: 0}
 --- !u!1 &384733244
 GameObject:
   m_ObjectHideFlags: 0
@@ -571,7 +572,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 41b1f3ffd1ef47b4bbbfd0aa1b008042, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e3fd84f6683f0554b9c1926267958810, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -784,38 +785,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MainCanvas: {fileID: 1988797968}
   m_Grid: {fileID: 334552922}
-  m_ScoreText: {fileID: 955646110}
   m_ScorePanel: {fileID: 2054079037}
-  m_EndScore: {fileID: 1919371470}
   m_NameText: {fileID: 0}
+  m_ScoreBar: {fileID: 0}
+  m_TurnsText: {fileID: 0}
+  m_WinPanel: {fileID: 0}
+  m_LosePanel: {fileID: 0}
+  m_Stars: {fileID: 0}
   m_NodeMoveSpeed: 7
   m_RequiredChainStart: 4
+  m_BadGuySpawnChance: 10
+  ShowHints: 1
   m_SpawnPrefabs:
   - {fileID: 1333852350469656, guid: df69062121cdc3c4c9057011b531d60f, type: 2}
-  - {fileID: 1333852350469656, guid: 0ac3149fdc0e85545a9d8107c5fc8222, type: 2}
-  - {fileID: 1333852350469656, guid: ab90de5e302e2b44e934b7dd1f9d901a, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 1333852350469656, guid: dab8104663cf61144b83a09f2d021904, type: 2}
   - {fileID: 1333852350469656, guid: 4aff9ffa7f001c44788ea3758b2d07c7, type: 2}
   - {fileID: 1333852350469656, guid: b067a10798aca56489fbc6211b5e6e76, type: 2}
   - {fileID: 1333852350469656, guid: dba7a31bad719c843833d75d3f343ce2, type: 2}
   - {fileID: 1333852350469656, guid: e0f642ef10756f248b63dda17cca72d4, type: 2}
-  - {fileID: 1333852350469656, guid: f2f6e2013571d744ba027f3dcbcf8541, type: 2}
-  - {fileID: 1333852350469656, guid: f7a3ae5c7363b5042b8368f8ac01400c, type: 2}
-  - {fileID: 1333852350469656, guid: b35973f58cfb35546ac62377a747f2f8, type: 2}
-  - {fileID: 1333852350469656, guid: 29be67fb97e7f3f44be6b8adce33ac07, type: 2}
-  - {fileID: 1333852350469656, guid: 395a96d20efbb984088c3844024283b7, type: 2}
-  - {fileID: 1333852350469656, guid: b7d840c4dffc8374e8e3a0650c9f2d0b, type: 2}
-  - {fileID: 1333852350469656, guid: 3b0e7a4230a44944ba284f1fe93b1609, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 1000011841440206, guid: fae4ecaa8a239e440899bf5280b895fa, type: 2}
   - {fileID: 1000011841440206, guid: 80bd1b676723b56408170a51c48ec911, type: 2}
   - {fileID: 1000011841440206, guid: 00b1e2574e271a247aa05adaa626a2cc, type: 2}
-  - {fileID: 1000011841440206, guid: dd4c552d79053e340afaedf2a012ce6d, type: 2}
-  - {fileID: 1000011841440206, guid: 3e7f7f18fece9a54b839caea126f18c7, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
   m_Petrified: {fileID: 1333852350469656, guid: e8c313be6de74634b9a92bc3f0553ddc,
     type: 2}
   m_BBros: {fileID: 1000011841440206, guid: 0e0fe36c9f7f8464ea2391031966807d, type: 2}
+  m_RottenFood: {fileID: 0}
   m_MelAnomaPrefab: {fileID: 1754583457375786, guid: ecd94e38aeff4b644a194b483e3064e6,
     type: 2}
+  m_AshMaticPrefab: {fileID: 0}
+  m_DrDecayPrefab: {fileID: 0}
 --- !u!4 &887100672
 Transform:
   m_ObjectHideFlags: 0
@@ -840,7 +849,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1348b0b0219af64f866752188133560, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FadeOutTexture: {fileID: 2800000, guid: 3a0a8e892cb051b40a582d71d4994e0c, type: 3}
+  FadeOutTexture: {fileID: 2800000, guid: 764e4c55f5c29be4192114cdcfd27abf, type: 3}
   FadeSpeed: 0.8
 --- !u!114 &887100674
 MonoBehaviour:

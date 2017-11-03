@@ -1679,37 +1679,7 @@ MonoBehaviour:
   yDist: 5
   DefaultMat: {fileID: 2100000, guid: 932bfbb102946e04796ee9ade9385119, type: 2}
   Models:
-  - prefab: {fileID: 100000, guid: a59faa6df8bd9cd4c8779604face71a1, type: 3}
-    rotation: {x: -90, y: 0, z: 0}
-  - prefab: {fileID: 100000, guid: aa56074584965524093e852b02a99de7, type: 3}
-    rotation: {x: -90, y: 0, z: 0}
-  - prefab: {fileID: 100000, guid: fce0ecff534816b49af71ef31033c259, type: 3}
-    rotation: {x: -90, y: 0, z: 0}
-  - prefab: {fileID: 100000, guid: 8b4719f3fd5020040bdbb5595fda39aa, type: 3}
-    rotation: {x: -90, y: 0, z: 0}
-  - prefab: {fileID: 100000, guid: 6579b708f10e00c448d8ddbc06ba95fe, type: 3}
-    rotation: {x: -90, y: 0, z: 0}
-  - prefab: {fileID: 100000, guid: d5201c54bfe2c0242acafec0421e0d8e, type: 3}
-    rotation: {x: -90, y: 0, z: 0}
-  - prefab: {fileID: 100000, guid: 911b2aca4190de843ba6fc029bf3734d, type: 3}
-    rotation: {x: -90, y: 0, z: 0}
-  - prefab: {fileID: 100000, guid: 6217dd83a11a7df46b82193c138a8ce2, type: 3}
-    rotation: {x: -90, y: 0, z: 0}
-  - prefab: {fileID: 100000, guid: 9d0e73dbf5dfc6e4e800cbe52651ac4d, type: 3}
-    rotation: {x: -90, y: 0, z: 0}
-  - prefab: {fileID: 100000, guid: f5e70b692f804d346a44df961b6ad5a8, type: 3}
-    rotation: {x: -90, y: 0, z: 0}
   - prefab: {fileID: 100000, guid: 88298ecb4d0fcff45879b1338c17fe54, type: 3}
-    rotation: {x: -90, y: 0, z: 0}
-  - prefab: {fileID: 100000, guid: 34a866017115e1f4693b2328671afe14, type: 3}
-    rotation: {x: -90, y: 0, z: 0}
-  - prefab: {fileID: 100000, guid: bc0cdff0b0fdafc46bbdbda4b3717d71, type: 3}
-    rotation: {x: -90, y: 0, z: 0}
-  - prefab: {fileID: 100000, guid: 3be870bd3141f9741b70abdfb4242cb6, type: 3}
-    rotation: {x: -90, y: 0, z: 0}
-  - prefab: {fileID: 100000, guid: 486351f15650ce5408452352641fc317, type: 3}
-    rotation: {x: -90, y: 0, z: 0}
-  - prefab: {fileID: 100000, guid: 973011b81536fe2408cc13aa49700e3b, type: 3}
     rotation: {x: -90, y: 0, z: 0}
 --- !u!4 &384733246
 Transform:
@@ -2481,7 +2451,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 41b1f3ffd1ef47b4bbbfd0aa1b008042, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e3fd84f6683f0554b9c1926267958810, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3044,7 +3014,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1348b0b0219af64f866752188133560, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FadeOutTexture: {fileID: 2800000, guid: 3a0a8e892cb051b40a582d71d4994e0c, type: 3}
+  FadeOutTexture: {fileID: 2800000, guid: 764e4c55f5c29be4192114cdcfd27abf, type: 3}
   FadeSpeed: 0.8
 --- !u!114 &887100674
 MonoBehaviour:
