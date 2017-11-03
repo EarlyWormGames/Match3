@@ -241,6 +241,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f28747f5cdf474e42adaa611c7a4ec57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CapsicumMat: {fileID: 2100000, guid: 30d6a7dab6f0bf24f9c008fb58b21934, type: 2}
+  CakeMat: {fileID: 2100000, guid: 21c0a63957784c246aa3d3057a977397, type: 2}
+  BroccoliMat: {fileID: 2100000, guid: c069d150e659e8c4394fe36f954b4eea, type: 2}
+  CupcakeMat: {fileID: 2100000, guid: c116742ffd5de4440a9a97f0185fc7f4, type: 2}
+  IcecreamMat: {fileID: 2100000, guid: e773faf4e52631848a0c876e2e920f81, type: 2}
+  CarrotMat: {fileID: 2100000, guid: 2087fd5e6e88e6d4fa2e378a5dfcd377, type: 2}
 --- !u!114 &114094784537877732
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -282,6 +288,8 @@ MonoBehaviour:
   m_Colour: 0
   m_Explosion: {fileID: 198457057175041042}
   m_AfterExplosion: {fileID: 0}
+  m_AfterEXDestroyTime: 1
+  m_RelativeAfterEX: 1
   m_CanSwap: 1
   m_CanDestroy: 1
   m_SpawnChance: 1
@@ -376,7 +384,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 545103469
+  randomSeed: -190376628
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -3662,7 +3670,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -2107338161
+  randomSeed: -145461440
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -6924,7 +6932,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 895416468
+  randomSeed: -2025916733
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -10192,7 +10200,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 2036627502
+  randomSeed: 1756276874
   InitialModule:
     serializedVersion: 3
     enabled: 1
