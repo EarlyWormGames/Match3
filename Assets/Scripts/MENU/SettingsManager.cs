@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -76,6 +77,14 @@ public class SettingsManager : MonoBehaviour {
     public void ConfirmationYES()
     {
         ConfirmationPanel.SetActive(false);
+
+        if (File.Exists(Application.persistentDataPath + "\\" + "highscores.txt"))
+            File.Delete(Application.persistentDataPath + "\\" + "highscores.txt");
+        if (File.Exists(Application.persistentDataPath + "\\" + "SaveData.txt"))
+            File.Delete(Application.persistentDataPath + "\\" + "SaveData.txt");
+
+        FindObjectOfType<HighScores>().LoadScoresFromFile();
+        SaveData.Load(SaveData.LevelCount);
     }
     public void ConfirmationNO()
     {
