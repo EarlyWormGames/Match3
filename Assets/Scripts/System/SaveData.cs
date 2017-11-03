@@ -11,7 +11,7 @@ public class SaveData
     public static int FreeTurns;
     public static int[] LevelScores;
     public static int LevelCount = 25;
-    public static bool IsDev = true;
+    public static bool IsDev = false;
 
     private static XmlDocument loadedDoc;
 
