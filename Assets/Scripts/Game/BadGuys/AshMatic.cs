@@ -51,7 +51,7 @@ public class AshMatic : MonoBehaviour
         do
         {
             int randX = Random.Range(0, Mediator.Settings.GridWidth);
-            int randY = Random.Range(0, Mediator.Settings.GridHeight);
+            int randY = Random.Range(1, Mediator.Settings.GridHeight);
 
             item = GameManager.instance.m_Grid.m_Nodes[randX, randY].m_Shape;
 

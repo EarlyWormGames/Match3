@@ -43,6 +43,12 @@ public class RottenItem : NodeItem
         if (!a_wasSwap)
             return;
 
+        if (m_Parent == null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         List<GridNode> nodes = new List<GridNode>();
         if (m_Parent.HasDirection(Direction.Right, true))
         {
@@ -79,6 +85,9 @@ public class RottenItem : NodeItem
     public override void OnEndDestroy()
     {
         if (m_bUseScore)
+        {
             --GameManager.Score;
+            GameManager.Score -= GameManager.LastChainGoodCount;
+        }
     }
 }

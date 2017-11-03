@@ -695,6 +695,8 @@ public class GridNode : MonoBehaviour
                 GameManager.NotifyScore(m_Shape.m_Colour, m_Shape.SwapChain, this);
             }
 
+            GameManager.LastChainCount = 0;
+            GameManager.LastChainGoodCount = 0;
             foreach (var node in destroynodes)
             {
                 if (node.m_Shape != null)
@@ -704,6 +706,11 @@ public class GridNode : MonoBehaviour
                         //Tell the node to destroy
                         node.m_Shape.m_MatchedColour = a_col;
                         node.StartDestroy();
+
+                        ++GameManager.LastChainCount;
+
+                        if (node.GetType() == typeof(NodeItem))
+                            ++GameManager.LastChainGoodCount;
                     }
                 }
             }
