@@ -247,6 +247,7 @@ public class GameManager : MonoBehaviour
                         SaveData.LevelScores[Mediator.Settings.Level] = finalscore;
                         SaveData.Save();
                     }
+                    m_Stars.ShowStars(finalscore);
 
                     Analytics.CustomEvent("Game Won", new Dictionary<string, object>
                       {
@@ -259,7 +260,6 @@ public class GameManager : MonoBehaviour
                         { "Time-played", GameTimer}
                       });
 
-                    m_Stars.ShowStars(finalscore);
                 }
             }
             else
@@ -403,12 +403,15 @@ public class GameManager : MonoBehaviour
             onNotifySwap();
     }
 
-    public static void NotifyScore(ItemColour a_colour, bool a_wasSwapped, GridNode a_node)
+    public static void NotifyScore(ItemColour a_colour, GridNode a_node)
     {
         if (onScored != null)
-            onScored(a_colour, a_wasSwapped, a_node);
+            onScored(a_colour, instance.m_bSwapped, a_node);
+    }
 
-        instance.m_bSwapped = a_wasSwapped;
+    public static void MarkSwap()
+    {
+        instance.m_bSwapped = true;
     }
 
     public void Refilled()

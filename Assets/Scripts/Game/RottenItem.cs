@@ -87,7 +87,7 @@ public class RottenItem : NodeItem
         if (m_bUseScore)
         {
             --GameManager.Score;
-            GameManager.Score -= GameManager.LastChainGoodCount;
+            GameManager.Score -= GameManager.LastChainGoodCount * 2;
         }
     }
 }

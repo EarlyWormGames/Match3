@@ -7,6 +7,8 @@ public class PersistantData : MonoBehaviour
 {
     public static PersistantData instance;
 
+    public GameObject Prefab;
+
     private float Timer;
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
@@ -17,6 +19,8 @@ public class PersistantData : MonoBehaviour
 
         instance = new GameObject().AddComponent<PersistantData>();
         DontDestroyOnLoad(instance.gameObject);
+
+        DontDestroyOnLoad(Instantiate(instance.Prefab));
     }
 
     // Update is called once per frame

@@ -287,6 +287,7 @@ public class GridNode : MonoBehaviour
                 GameManager.Stationary[GameManager.dragNItem.m_Parent.m_xIndex, GameManager.dragNItem.m_Parent.m_yIndex] = false;
                 GameManager.Stationary[GameManager.dragGNode.m_xIndex, GameManager.dragGNode.m_yIndex] = false;
                 GameManager.NotifySwap();
+                GameManager.MarkSwap();
             }
         }
 
@@ -692,7 +693,7 @@ public class GridNode : MonoBehaviour
 
             if (ok)
             {
-                GameManager.NotifyScore(m_Shape.m_Colour, m_Shape.SwapChain, this);
+                GameManager.NotifyScore(m_Shape.m_Colour, this);
             }
 
             GameManager.LastChainCount = 0;
@@ -709,7 +710,7 @@ public class GridNode : MonoBehaviour
 
                         ++GameManager.LastChainCount;
 
-                        if (node.GetType() == typeof(NodeItem))
+                        if (node.m_Shape.GetType() == typeof(NodeItem))
                             ++GameManager.LastChainGoodCount;
                     }
                 }

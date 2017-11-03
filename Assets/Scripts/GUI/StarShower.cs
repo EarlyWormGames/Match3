@@ -22,9 +22,9 @@ public class StarShower : MonoBehaviour
     {
         amount = Mathf.Clamp(amount, 0, Stars.Length);
         //Default, just enable them
-        for (int i = 0; i < amount; ++i)
+        for (int i = 0; i < Stars.Length; ++i)
         {
-            Stars[i].gameObject.SetActive(true);
+            Stars[i].gameObject.SetActive(i < amount);
         }
     }
 

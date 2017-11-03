@@ -78,10 +78,10 @@ public class SettingsManager : MonoBehaviour {
     {
         ConfirmationPanel.SetActive(false);
 
-        if (File.Exists(Application.persistentDataPath + "\\" + "highscores.txt"))
-            File.Delete(Application.persistentDataPath + "\\" + "highscores.txt");
-        if (File.Exists(Application.persistentDataPath + "\\" + "SaveData.txt"))
-            File.Delete(Application.persistentDataPath + "\\" + "SaveData.txt");
+        if (File.Exists(Application.persistentDataPath + "/" + "highscores.txt"))
+            File.Delete(Application.persistentDataPath + "/" + "highscores.txt");
+        if (File.Exists(Application.persistentDataPath + "/" + "SaveData.txt"))
+            File.Delete(Application.persistentDataPath + "/" + "SaveData.txt");
 
         FindObjectOfType<HighScores>().LoadScoresFromFile();
         SaveData.Load(SaveData.LevelCount);
