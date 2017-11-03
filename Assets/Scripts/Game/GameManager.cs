@@ -94,6 +94,7 @@ public class GameManager : MonoBehaviour
     public float m_NodeMoveSpeed = 5f;
     public int m_RequiredChainStart = 2;
     public int m_BadGuySpawnChance = 10;
+    public bool ShowHints = true;
 
     [Header("Prefabs")]
     public GameObject[] m_SpawnPrefabs = new GameObject[0];
@@ -409,5 +410,10 @@ public class GameManager : MonoBehaviour
             }
         }
         m_bSwapped = false;
+    }
+
+    public void ToggleHints()
+    {
+        ShowHints = !ShowHints;
     }
 }

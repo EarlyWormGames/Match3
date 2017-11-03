@@ -55,6 +55,9 @@ public class AshMatic : MonoBehaviour
 
             item = GameManager.instance.m_Grid.m_Nodes[randX, randY].m_Shape;
 
+            if (item != null)
+                continue;
+
         } while (item.GetType() == typeof(NodeItem));
 
         RottenItem spawn = Instantiate(GameManager.instance.m_RottenFood).GetComponent<RottenItem>();
