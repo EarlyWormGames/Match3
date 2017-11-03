@@ -17,6 +17,7 @@ public class PlayPanel : MonoBehaviour
     {
         instance = this;
         Renderer.SetActive(false);
+        StarPanel.HideStars();
     }
 
     // Update is called once per frame
