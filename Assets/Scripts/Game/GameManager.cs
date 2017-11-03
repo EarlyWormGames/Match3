@@ -245,12 +245,15 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                //Mission failed. We'll get 'em next time
-                m_LosePanel.SetActive(true);
-
                 if (a_completeFailure)
                 {
-                    m_TotalGameOver = true;
+                    m_IsGameOver = false;
+                    m_Grid.ResetBoard();
+                }
+                else
+                {
+                    //Mission failed. We'll get 'em next time
+                    m_LosePanel.SetActive(true);
                 }
             }
         }

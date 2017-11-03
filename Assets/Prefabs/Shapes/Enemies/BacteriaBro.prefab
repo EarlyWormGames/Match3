@@ -527,6 +527,8 @@ MonoBehaviour:
   m_Colour: 3
   m_Explosion: {fileID: 198095659432751050}
   m_AfterExplosion: {fileID: 0}
+  m_AfterEXDestroyTime: 1
+  m_RelativeAfterEX: 1
   m_CanSwap: 1
   m_CanDestroy: 0
   m_SpawnChance: 5
@@ -33370,7 +33372,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0

@@ -100,28 +100,6 @@ public class NodeItem : MonoBehaviour
 
         m_bIsActive = m_Parent.m_yIndex != 0;
 
-        //if (m_bWasActive != m_bIsActive)
-        //{
-        //    m_bWasActive = m_bIsActive;
-        //    foreach (var img in m_ImageComps)
-        //    {
-        //        img.enabled = m_bIsActive || GameManager.TopViewTime > 0 || m_Parent.m_bOverrideVis;
-        //    }
-        //
-        //    foreach (var sprite in m_SpriteComps)
-        //    {
-        //        sprite.enabled = m_bIsActive || GameManager.TopViewTime > 0 || m_Parent.m_bOverrideVis;
-        //    }
-        //
-        //    foreach (var part in m_Particles)
-        //    {
-        //        if (part.main.playOnAwake && (m_bIsActive || GameManager.TopViewTime > 0 || m_Parent.m_bOverrideVis))
-        //            part.Play();
-        //        else
-        //            part.Stop();
-        //    }
-        //}
-
         //If we're far enough away from our parent node, we should move
         if ((m_Parent.transform.position - transform.position).magnitude > 0.01f)
         {
@@ -142,7 +120,14 @@ public class NodeItem : MonoBehaviour
         {
             //Tell the gamemanager we're not moving
             if (!GameManager.isDragging)
+            {
                 GameManager.Stationary[m_Parent.m_xIndex, m_Parent.m_yIndex] = true;
+
+                if (MarkDrag)
+                {
+
+                }
+            }
 
             if (m_SwapCountDown <= 0 && !m_destroyStart)
                 MarkSwap = false;

@@ -301,57 +301,57 @@ public class GridNode : MonoBehaviour
 
     public void MouseClick(BaseEventData eventData)
     {
-        if (GameManager.dragGNode == null && GameManager.CanDrag && m_Shape.CanSwap())
-        {
-            //First click, to select a tile
-            GameManager.dragGNode = this;
-            GameManager.dragNItem = m_Shape;
-            GameManager.isDragging = false;
-            GameManager.dragNItem.MarkDrag = true;
-        }
-        else if (GameManager.CanDrag && GameManager.dragNItem != null)
-        {
-            //Second click, to swap items
-            if (GameManager.dragGNode != this && m_Shape.CanSwap())
-            {
-                Direction dir = GameManager.dragGNode.TrySwap(this);
-
-                //Only swap them if we can
-                if (dir != Direction.None)
-                {
-                    bool ok = false;
-                    ItemColour col = ItemColour.NONE;
-                    if (!GameManager.dragNItem.m_Parent.CheckMatch(Direction.None, ref col, true))
-                    {
-                        col = ItemColour.NONE;
-                        if (GameManager.dragGNode.CheckMatch(Direction.None, ref col, true))
-                        {
-                            ok = true;
-                            GameManager.dragGNode.m_Shape.MarkSwap = true;
-                            GameManager.dragNItem.MarkSwap = true;
-                        }
-                    }
-                    else
-                        ok = true;
-
-                    if (!ok)
-                    {
-                        GameManager.dragNItem.Swap(GameManager.dragGNode.m_Shape, GameManager.GetOpposite(dir));
-                    }
-                    else
-                    {
-                        GameManager.dragNItem.MarkSwap = true;
-                        GameManager.dragGNode.m_Shape.MarkSwap = true;
-                        GameManager.NotifySwap();
-                    }
-                }
-            }
-
-            //Reset this data
-            GameManager.dragNItem.MarkDrag = false;
-            GameManager.dragGNode = null;
-            GameManager.dragNItem = null;
-        }
+        //if (GameManager.dragGNode == null && GameManager.CanDrag && m_Shape.CanSwap())
+        //{
+        //    //First click, to select a tile
+        //    GameManager.dragGNode = this;
+        //    GameManager.dragNItem = m_Shape;
+        //    GameManager.isDragging = false;
+        //    GameManager.dragNItem.MarkDrag = true;
+        //}
+        //else if (GameManager.CanDrag && GameManager.dragNItem != null)
+        //{
+        //    //Second click, to swap items
+        //    if (GameManager.dragGNode != this && m_Shape.CanSwap())
+        //    {
+        //        Direction dir = GameManager.dragGNode.TrySwap(this);
+        //
+        //        //Only swap them if we can
+        //        if (dir != Direction.None)
+        //        {
+        //            bool ok = false;
+        //            ItemColour col = ItemColour.NONE;
+        //            if (!GameManager.dragNItem.m_Parent.CheckMatch(Direction.None, ref col, true))
+        //            {
+        //                col = ItemColour.NONE;
+        //                if (GameManager.dragGNode.CheckMatch(Direction.None, ref col, true))
+        //                {
+        //                    ok = true;
+        //                    GameManager.dragGNode.m_Shape.MarkSwap = true;
+        //                    GameManager.dragNItem.MarkSwap = true;
+        //                }
+        //            }
+        //            else
+        //                ok = true;
+        //
+        //            if (!ok)
+        //            {
+        //                GameManager.dragNItem.Swap(GameManager.dragGNode.m_Shape, GameManager.GetOpposite(dir));
+        //            }
+        //            else
+        //            {
+        //                GameManager.dragNItem.MarkSwap = true;
+        //                GameManager.dragGNode.m_Shape.MarkSwap = true;
+        //                GameManager.NotifySwap();
+        //            }
+        //        }
+        //    }
+        //
+        //    //Reset this data
+        //    GameManager.dragNItem.MarkDrag = false;
+        //    GameManager.dragGNode = null;
+        //    GameManager.dragNItem = null;
+        //}
     }
 
     /// <summary>
