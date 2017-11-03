@@ -217,8 +217,8 @@ PlayerSettings:
   AndroidTargetDevice: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: C:/Users/Josh/Documents/GitHub/Match3/user.keystore
-  AndroidKeyaliasName: 
+  AndroidKeystoreName: G:/Match3/user.keystore
+  AndroidKeyaliasName: humanracematch3
   AndroidTVCompatibility: 1
   AndroidIsGame: 1
   androidEnableBanner: 1
