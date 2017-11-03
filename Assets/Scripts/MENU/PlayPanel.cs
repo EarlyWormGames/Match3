@@ -25,8 +25,22 @@ public class PlayPanel : MonoBehaviour
 
     }
 
-    private void OnEnable()
+    void ShowLevelCard(int levelNum, int score)
     {
+        GameText.text = "You have selected level: " + levelNum.ToString();
+        StarPanel.ShowStars(score);
+        PlayButton.gameObject.SetActive(true);
+    }
+
+    void ShowLockedLevel(int levelNum)
+    {
+        GameText.text = "This level is locked.\nBeat level " + (levelNum - 1).ToString() + " to unlock.";
+    }
+
+    public void Show()
+    {
+        Renderer.SetActive(true);
+
         if (LevelSettings.selected == null)
             return;
 
@@ -43,20 +57,9 @@ public class PlayPanel : MonoBehaviour
         ShowLevelCard(LevelSettings.selected.transform.GetSiblingIndex() + 1, score);
     }
 
-    void ShowLevelCard(int levelNum, int score)
+    public void Hide()
     {
-        GameText.text = "You have selected level: " + levelNum.ToString();
-        StarPanel.ShowStars(score);
-        PlayButton.gameObject.SetActive(true);
-    }
-
-    void ShowLockedLevel(int levelNum)
-    {
-        GameText.text = "This level is locked.\nBeat level " + (levelNum - 1).ToString() + " to unlock.";
-    }
-
-    private void OnDisable()
-    {
+        Renderer.SetActive(false);
         StarPanel.HideStars();
         PlayButton.gameObject.SetActive(false);
     }
