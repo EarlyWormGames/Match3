@@ -6,7 +6,7 @@ public class DebugDisabler : MonoBehaviour
 {
 
     // Use this for initialization
-    void Awake()
+    void OnEnable()
     {
         if (!SaveData.IsDev)
             gameObject.SetActive(false);
