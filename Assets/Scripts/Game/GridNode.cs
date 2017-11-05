@@ -247,6 +247,9 @@ public class GridNode : MonoBehaviour
         if (!GameManager.CanDrag || !m_Shape.CanSwap())
             return;
 
+        if (Input.touchCount > 1)
+            return;
+
         GameManager.isDragging = true;
         GameManager.dragGNode = this;
         GameManager.dragNItem = m_Shape;
