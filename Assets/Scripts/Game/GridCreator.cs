@@ -25,6 +25,7 @@ public class GridCreator : MonoBehaviour
         m_GridHeight = Mediator.Settings.GridHeight;
 
         parentRect = gameObject.GetComponent<RectTransform>();
+        m_Layout.constraintCount = m_GridWidth;
 
         m_Nodes = new GridNode[m_GridWidth, m_GridHeight];
         m_ColumnSpawns = new Vector3[m_GridWidth];
