@@ -12,22 +12,19 @@ public class GridCreator : MonoBehaviour
     public GridLayoutGroup m_Layout;
 
     internal GridNode[,] m_Nodes;
-    internal GridLayoutGroup m_Grid;
     internal Vector3[] m_ColumnSpawns;
     internal Vector3[] m_ColumnDistances;
 
     private int StartFrames = 5;
-
+    RectTransform parentRect;
 
     // Use this for initialization
     void Start()
     {
-        m_Grid = GetComponent<GridLayoutGroup>();
-
         m_GridWidth = Mediator.Settings.GridWidth;
         m_GridHeight = Mediator.Settings.GridHeight;
 
-        m_Layout.constraintCount = m_GridWidth;
+        parentRect = gameObject.GetComponent<RectTransform>();
 
         m_Nodes = new GridNode[m_GridWidth, m_GridHeight];
         m_ColumnSpawns = new Vector3[m_GridWidth];
@@ -40,8 +37,8 @@ public class GridCreator : MonoBehaviour
                 GameObject obj = Instantiate(m_NodePrefab);
                 m_Nodes[j, i] = obj.GetComponent<GridNode>();
                 //Child and size it correctly
-                obj.transform.SetParent(m_Grid.transform, false);
-                obj.transform.localScale = m_Grid.transform.localScale;
+                obj.transform.SetParent(m_Layout.transform, false);
+                obj.transform.localScale = m_Layout.transform.localScale;
                 obj.transform.localPosition = new Vector3();
 
                 m_Nodes[j, i].m_xIndex = j;
@@ -100,6 +97,7 @@ public class GridCreator : MonoBehaviour
     
     void Update()
     {
+        m_Layout.cellSize = new Vector2(parentRect.rect.width / (float)m_GridWidth, parentRect.rect.height / (float)(m_GridHeight + 1));
         if (GameManager.instance.m_IsGameOver) return;
         if (StartFrames > 0)
         {

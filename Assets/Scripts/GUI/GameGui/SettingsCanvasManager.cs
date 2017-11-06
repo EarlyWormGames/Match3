@@ -29,6 +29,7 @@ public class SettingsCanvasManager : MonoBehaviour
         m_bOpen = true;
         OptionsAnim.SetBool("Enter", true);
         OptionsAnim.SetTrigger("Triger");
+        GameManager.CanDrag = false;
     }
 
     public void CloseSettingsMenu()
@@ -36,6 +37,7 @@ public class SettingsCanvasManager : MonoBehaviour
         m_bOpen = false;
         OptionsAnim.SetBool("Enter", false);
         OptionsAnim.SetTrigger("Triger");
+        GameManager.CanDrag = true;
     }
 
 
