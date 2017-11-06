@@ -121,7 +121,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 0.3.4
+  bundleVersion: 0.3.5
   preloadedAssets: []
   metroInputSource: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -143,13 +143,13 @@ PlayerSettings:
   applicationIdentifier:
     Android: com.EarlyWorm.Health_Match3
   buildNumber: {}
-  AndroidBundleVersionCode: 10304
+  AndroidBundleVersionCode: 11000
   AndroidMinSdkVersion: 16
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 1
   aotOptions: 
   stripEngineCode: 1
-  iPhoneStrippingLevel: 0
+  iPhoneStrippingLevel: 3
   iPhoneScriptCallOptimization: 0
   ForceInternetPermission: 0
   ForceSDCardPermission: 0
@@ -509,12 +509,12 @@ PlayerSettings:
   scriptingDefineSymbols: {}
   platformArchitecture: {}
   scriptingBackend:
-    Android: 1
+    Android: 0
   incrementalIl2cppBuild: {}
   additionalIl2CppArgs: 
   scriptingRuntimeVersion: 0
   apiCompatibilityLevelPerPlatform:
-    Android: 1
+    Android: 2
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
   metroPackageName: Match3
