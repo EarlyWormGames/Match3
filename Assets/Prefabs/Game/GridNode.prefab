@@ -132,25 +132,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ece5f66e03f665b4a93ed40e71b103c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ShapePrefabs:
-  - {fileID: 1000011841440206, guid: 0ed203d298c050b49bfabe788790e1c2, type: 2}
-  - {fileID: 1000010880751780, guid: c3c0707254334a64ca8198f7486e977d, type: 2}
-  - {fileID: 1000012510692222, guid: f5c872ee906a85b46aa65e0ab683ed9f, type: 2}
-  - {fileID: 1000013765287000, guid: 38dea0631a962ad45b71e2759e4240d8, type: 2}
-  - {fileID: 1000011501826600, guid: b34bf25cecb5fc24c91de3edea19cb13, type: 2}
-  - {fileID: 1000013105924406, guid: 6a7274aefcc6cef4fbbfba924cc7f657, type: 2}
-  - {fileID: 1000013931470818, guid: 5c02591794acece409986647ed6329a7, type: 2}
-  - {fileID: 1000013656696560, guid: cd34118c604e29141afea74caecd70f2, type: 2}
-  - {fileID: 1000010694622314, guid: c4bf8b30fce268044a786a8600922324, type: 2}
-  - {fileID: 1000010714891294, guid: 5a0537415d4017c4fad7a4986f502dc1, type: 2}
-  - {fileID: 1000013356204050, guid: 676e107eeafc5524b97910d76516565d, type: 2}
-  - {fileID: 1000010646675420, guid: 1a73058088a4b204bb3a13aff5c48489, type: 2}
-  - {fileID: 1000010986879176, guid: 8f226a393243a0141bace5fd6b60bafa, type: 2}
-  - {fileID: 1000010728489230, guid: 8b40cffea67202d4bbf662b25de4c94a, type: 2}
-  - {fileID: 1000010921973622, guid: af16961524284e54491133548920258b, type: 2}
-  - {fileID: 1000012946874890, guid: 586acbe765df7c34385298970076297e, type: 2}
-  m_ShapeScale: {x: 28, y: 28, z: 28}
   m_HighlightColour: {r: 1, g: 0, b: 0, a: 0.497}
+  m_SelectedParticle: {fileID: 198982391922720716, guid: 24155cef417747b4ea5fd4bf9d8287e9,
+    type: 2}
 --- !u!222 &222924280571869270
 CanvasRenderer:
   m_ObjectHideFlags: 1
