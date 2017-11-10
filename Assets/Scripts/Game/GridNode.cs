@@ -16,6 +16,7 @@ public enum Direction
 public class GridNode : MonoBehaviour
 {
     public Color m_HighlightColour;
+    public ParticleSystem m_SelectedParticle;
 
     internal NodeItem m_Shape;
     internal GridNode m_Left, m_Right, m_Up, m_Down;
@@ -24,6 +25,7 @@ public class GridNode : MonoBehaviour
     internal GameObject m_RespawnType = null;
     internal bool m_RespawnIsSpawned = false;
     internal bool m_bOverrideVis = true;
+    internal GameObject m_SelectedParticleGameObject;
 
     public void Init()
     {
@@ -136,6 +138,11 @@ public class GridNode : MonoBehaviour
                                 {
                                     if (m_Left.m_Shape.CanSwap())
                                     {
+                                        if (m_SelectedParticleGameObject != null)
+                                        {
+                                            m_SelectedParticleGameObject.SetActive(true);
+                                            m_SelectedParticleGameObject.transform.rotation = Quaternion.Euler(0, 0, 180);
+                                        }
                                         m_Shape.Swap(m_Left.m_Shape, Direction.Left);
                                         GameManager.lastDrag = Direction.Left;
                                     }
@@ -153,6 +160,11 @@ public class GridNode : MonoBehaviour
                                 {
                                     if (m_Right.m_Shape.CanSwap())
                                     {
+                                        if (m_SelectedParticleGameObject != null)
+                                        {
+                                            m_SelectedParticleGameObject.SetActive(true);
+                                            m_SelectedParticleGameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+                                        }
                                         m_Shape.Swap(m_Right.m_Shape, Direction.Right);
                                         GameManager.lastDrag = Direction.Right;
                                     }
@@ -173,6 +185,11 @@ public class GridNode : MonoBehaviour
                                 {
                                     if (m_Down.m_Shape.CanSwap())
                                     {
+                                        if (m_SelectedParticleGameObject != null)
+                                        {
+                                            m_SelectedParticleGameObject.SetActive(true);
+                                            m_SelectedParticleGameObject.transform.rotation = Quaternion.Euler(0, 0, -90);
+                                        }
                                         m_Shape.Swap(m_Down.m_Shape, Direction.Down);
                                         GameManager.lastDrag = Direction.Down;
                                     }
@@ -190,6 +207,11 @@ public class GridNode : MonoBehaviour
                                 {
                                     if (m_Up.m_Shape.CanSwap())
                                     {
+                                        if (m_SelectedParticleGameObject != null)
+                                        {
+                                            m_SelectedParticleGameObject.SetActive(true);
+                                            m_SelectedParticleGameObject.transform.rotation = Quaternion.Euler(0, 0, 90);
+                                        }
                                         m_Shape.Swap(m_Up.m_Shape, Direction.Up);
                                         GameManager.lastDrag = Direction.Up;
                                     }
@@ -203,6 +225,7 @@ public class GridNode : MonoBehaviour
                     //If the last direction we swapped was different, swap back first so we can swap the correct tile
                     if (unswap)
                     {
+                        m_SelectedParticleGameObject.SetActive(false);
                         GameManager.dragNItem.Swap(m_Shape, GameManager.GetOpposite(GameManager.lastDrag));
                         GameManager.lastDrag = Direction.None;
                     }
@@ -210,6 +233,7 @@ public class GridNode : MonoBehaviour
                 else
                 {
                     //Drag was undone, swap back
+                    m_SelectedParticleGameObject.SetActive(false);
                     if (GameManager.lastDrag != Direction.None)
                         GameManager.dragNItem.Swap(m_Shape, GameManager.GetOpposite(GameManager.lastDrag));
                     GameManager.lastDrag = Direction.None;
@@ -253,6 +277,7 @@ public class GridNode : MonoBehaviour
         GameManager.isDragging = true;
         GameManager.dragGNode = this;
         GameManager.dragNItem = m_Shape;
+        m_SelectedParticleGameObject = Instantiate(m_SelectedParticle, transform).transform.GetChild(0).gameObject;
         m_Shape.MarkDrag = true;
         GameManager.dragStartPos = Input.mousePosition;
     }
@@ -298,6 +323,7 @@ public class GridNode : MonoBehaviour
         GameManager.dragNItem.MarkDrag = false;
         GameManager.dragStartPos = Vector3.zero;
         GameManager.isDragging = false;
+        Destroy(m_SelectedParticleGameObject.transform.parent.gameObject);
         GameManager.dragGNode = null;
         GameManager.dragNItem = null;
         GameManager.lastDrag = Direction.None;
