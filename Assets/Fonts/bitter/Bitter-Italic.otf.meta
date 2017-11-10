@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 7f6333e84a972444eb6a44f550b62141
+timeCreated: 1510039798
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Bitter
+  fontNames:
+  - Bitter
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 2dd0bdcd733009c438aeb15ac9abef64, type: 3}
+  - {fileID: 12800000, guid: 0b48af9f6f615284d8f34bba617060c9, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

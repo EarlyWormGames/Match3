@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 92c40079f46dfb54aa9d9e886f52152c
+timeCreated: 1510039798
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Typo Round Thin Demo
+  fontNames:
+  - Typo Round Thin Demo
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
