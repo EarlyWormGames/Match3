@@ -131,18 +131,20 @@ public class GridNode : MonoBehaviour
                     {
                         if (dir.x < 0)
                         {
+                            if (m_SelectedParticleGameObject != null)
+                            {
+                                m_SelectedParticleGameObject.SetActive(true);
+                                m_SelectedParticleGameObject.transform.rotation = Quaternion.Euler(0, 0, 180);
+                            }
                             if (GameManager.lastDrag == Direction.None)
                             {
                                 //Do left
                                 if (m_Left != null)
                                 {
+                                    
                                     if (m_Left.m_Shape.CanSwap())
                                     {
-                                        if (m_SelectedParticleGameObject != null)
-                                        {
-                                            m_SelectedParticleGameObject.SetActive(true);
-                                            m_SelectedParticleGameObject.transform.rotation = Quaternion.Euler(0, 0, 180);
-                                        }
+                                        
                                         m_Shape.Swap(m_Left.m_Shape, Direction.Left);
                                         GameManager.lastDrag = Direction.Left;
                                     }
@@ -153,18 +155,20 @@ public class GridNode : MonoBehaviour
                         }
                         else
                         {
+                            if (m_SelectedParticleGameObject != null)
+                            {
+                                m_SelectedParticleGameObject.SetActive(true);
+                                m_SelectedParticleGameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+                            }
                             if (GameManager.lastDrag == Direction.None)
                             {
                                 //Do left
                                 if (m_Right != null)
                                 {
+                                    
                                     if (m_Right.m_Shape.CanSwap())
                                     {
-                                        if (m_SelectedParticleGameObject != null)
-                                        {
-                                            m_SelectedParticleGameObject.SetActive(true);
-                                            m_SelectedParticleGameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
-                                        }
+                                        
                                         m_Shape.Swap(m_Right.m_Shape, Direction.Right);
                                         GameManager.lastDrag = Direction.Right;
                                     }
@@ -178,18 +182,20 @@ public class GridNode : MonoBehaviour
                     {
                         if (dir.y < 0)
                         {
+                            if (m_SelectedParticleGameObject != null)
+                            {
+                                m_SelectedParticleGameObject.SetActive(true);
+                                m_SelectedParticleGameObject.transform.rotation = Quaternion.Euler(0, 0, -90);
+                            }
                             if (GameManager.lastDrag == Direction.None)
                             {
                                 //Do left
                                 if (m_Down != null)
                                 {
+                                    
                                     if (m_Down.m_Shape.CanSwap())
                                     {
-                                        if (m_SelectedParticleGameObject != null)
-                                        {
-                                            m_SelectedParticleGameObject.SetActive(true);
-                                            m_SelectedParticleGameObject.transform.rotation = Quaternion.Euler(0, 0, -90);
-                                        }
+                                        
                                         m_Shape.Swap(m_Down.m_Shape, Direction.Down);
                                         GameManager.lastDrag = Direction.Down;
                                     }
@@ -200,18 +206,20 @@ public class GridNode : MonoBehaviour
                         }
                         else
                         {
+                            if (m_SelectedParticleGameObject != null)
+                            {
+                                m_SelectedParticleGameObject.SetActive(true);
+                                m_SelectedParticleGameObject.transform.rotation = Quaternion.Euler(0, 0, 90);
+                            }
                             if (GameManager.lastDrag == Direction.None)
                             {
                                 //Do left
                                 if (m_Up != null)
                                 {
+                                    
                                     if (m_Up.m_Shape.CanSwap())
                                     {
-                                        if (m_SelectedParticleGameObject != null)
-                                        {
-                                            m_SelectedParticleGameObject.SetActive(true);
-                                            m_SelectedParticleGameObject.transform.rotation = Quaternion.Euler(0, 0, 90);
-                                        }
+                                        
                                         m_Shape.Swap(m_Up.m_Shape, Direction.Up);
                                         GameManager.lastDrag = Direction.Up;
                                     }
