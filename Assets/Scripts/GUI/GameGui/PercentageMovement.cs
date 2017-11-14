@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class PercentageMovement : MonoBehaviour
 {
 
-    public float Percentage = 0.0f;
+    public float Percentage = 0.5f;
+    public float LerpSpeed = 1;
 
     public Image m_Image;
 
@@ -21,6 +22,7 @@ public class PercentageMovement : MonoBehaviour
         {
             ObjectToMove = this.gameObject;
         }
+        m_Image.fillAmount = Mathf.Lerp(0, 1, Percentage);
     }
 
     // Update is called once per frame
@@ -42,7 +44,7 @@ public class PercentageMovement : MonoBehaviour
             float Lerp = Mathf.Lerp(0, 1, Percentage);
 
             //Movement of the Object
-            m_Image.fillAmount = Lerp;
+            m_Image.fillAmount = Mathf.Lerp(m_Image.fillAmount, Lerp, Time.deltaTime * LerpSpeed);
         }
     }
 }
