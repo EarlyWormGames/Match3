@@ -119,6 +119,7 @@ public class GameManager : MonoBehaviour
     private bool m_WasMoving = true;
     private bool m_WasEmpty;
     private bool m_bSwapped;
+    private int m_TurnsMade = 0;
 
     private float GameTimer;
 
@@ -437,6 +438,7 @@ public class GameManager : MonoBehaviour
 
         if (m_bSwapped)
         {
+            ++m_TurnsMade;
             --m_TurnsLeft;
             m_TurnsText.text = m_TurnsLeft.ToString();
 
@@ -445,7 +447,7 @@ public class GameManager : MonoBehaviour
                 GameOver(false);
             }
 
-            if (BadGuyUI.instance == null)
+            if (BadGuyUI.instance == null && m_TurnsMade > 3)
             {
                 int rand = Random.Range(0, m_BadGuySpawnChance);
                 if (rand == 0)
