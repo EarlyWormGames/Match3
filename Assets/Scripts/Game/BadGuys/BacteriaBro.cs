@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class BacteriaBro : NodeItem
 {
     public int m_Lifespan = 3;
-    public Text m_LifeText;
+    public TextMeshProUGUI m_LifeText;
     public Image m_Sprite1;
     public Image m_Sprite2;
     public Image m_Sprite3;
