@@ -140,16 +140,19 @@ public class GridCreator : MonoBehaviour
     /// <summary>
     /// Check specific nodes for matches
     /// </summary>
-    public void MatchCheck(GridNode[] a_nodes)
+    public bool MatchCheck(GridNode[] a_nodes)
     {
+        bool ret = false;
         foreach (var node in a_nodes)
         {
             if (node.m_Shape != null)
             {
                 ItemColour col = ItemColour.NONE;
-                node.CheckMatch(Direction.None, ref col);
+                if (node.CheckMatch(Direction.None, ref col))
+                    ret = true;
             }
         }
+        return ret;
     }
 
     /// <summary>

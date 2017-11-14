@@ -193,11 +193,11 @@ public class GameManager : MonoBehaviour
                 {
                     //Check for matches
                     m_WasMoving = false;
-                    m_Grid.MatchCheck(MovingTiles.ToArray());
+                    ok = !m_Grid.MatchCheck(MovingTiles.ToArray());
                     MovingTiles.Clear();
                 }
 
-                if (m_bSetGameOver)
+                if (m_bSetGameOver && ok)
                 {
                     m_bSetGameOver = false;
                     DoGameOver(m_bSetSuccess, m_bSetTotalGO);
