@@ -113,6 +113,9 @@ public class GameManager : MonoBehaviour
     internal bool m_IsGameOver = false;
     internal bool m_TotalGameOver = false;
 
+    private bool m_bSetGameOver = false;
+    private bool m_bSetSuccess;
+    private bool m_bSetTotalGO;
     private bool m_WasMoving = true;
     private bool m_WasEmpty;
     private bool m_bSwapped;
@@ -193,6 +196,12 @@ public class GameManager : MonoBehaviour
                     m_Grid.MatchCheck(MovingTiles.ToArray());
                     MovingTiles.Clear();
                 }
+
+                if (m_bSetGameOver)
+                {
+                    m_bSetGameOver = false;
+                    DoGameOver(m_bSetSuccess, m_bSetTotalGO);
+                }
             }
             else
             {
@@ -212,6 +221,13 @@ public class GameManager : MonoBehaviour
     }
 
     public void GameOver(bool a_success, bool a_completeFailure = false)
+    {
+        m_bSetGameOver = true;
+        m_bSetSuccess = a_success;
+        m_bSetTotalGO = a_completeFailure;
+    }
+
+    private void DoGameOver(bool a_success, bool a_completeFailure = false)
     {
         //It's game-over man! Game-over!
         if (!m_IsGameOver)
