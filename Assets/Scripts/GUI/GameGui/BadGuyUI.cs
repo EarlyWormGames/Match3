@@ -10,11 +10,13 @@ public class BadGuyUI : MonoBehaviour
     public Animator m_Animator;
     public FinishDel m_ShowDone;
     public FinishDel m_HideDone;
+    public bool UseInstance = true;
 
     // Use this for initialization
     void Start()
     {
-        instance = this;
+        if (UseInstance)
+            instance = this;
     }
 
     // Update is called once per frame
