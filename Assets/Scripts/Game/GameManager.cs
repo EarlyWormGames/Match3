@@ -108,6 +108,7 @@ public class GameManager : MonoBehaviour
     public GameObject m_MelAnomaPrefab;
     public GameObject m_AshMaticPrefab;
     public GameObject m_DrDecayPrefab;
+    public GameObject m_DJPrefab;
 
     internal int m_TurnsLeft;
     internal bool m_IsGameOver = false;
@@ -284,7 +285,7 @@ public class GameManager : MonoBehaviour
                 if (a_completeFailure)
                 {
                     m_IsGameOver = false;
-                    m_Grid.ResetBoard();
+                    Instantiate(m_DJPrefab);
 
                     Analytics.CustomEvent("Reset Board", new Dictionary<string, object>
                       {

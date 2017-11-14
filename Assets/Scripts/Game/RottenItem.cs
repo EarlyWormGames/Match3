@@ -15,6 +15,8 @@ public class RottenItem : NodeItem
     public Image m_MainImage;
     public SpriteType[] m_Sprites;
 
+    private bool hasSpread = false;
+
     protected override void OnStart()
     {
         base.OnStart();
@@ -49,6 +51,9 @@ public class RottenItem : NodeItem
             return;
         }
 
+        if (hasSpread)
+            return;
+
         List<GridNode> nodes = new List<GridNode>();
         if (m_Parent.HasDirection(Direction.Right, true))
         {
@@ -79,6 +84,7 @@ public class RottenItem : NodeItem
             nodes[rand].m_RespawnType = spawn.gameObject;
             nodes[rand].m_RespawnIsSpawned = true;
             nodes[rand].StartDestroy(false);
+            hasSpread = true;
         }
     }
 
