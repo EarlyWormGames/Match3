@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class SettingsManager : MonoBehaviour {
 
@@ -26,20 +27,20 @@ public class SettingsManager : MonoBehaviour {
 
     void UnMuteMusic()
     {
-        UI_Music.GetComponentInChildren<Text>().text = "Music:\nMUTE?";
+        UI_Music.GetComponentInChildren<TextMeshProUGUI>().text = "Music:\nMUTE?";
     }
     void MuteMusic()
     {
-        UI_Music.GetComponentInChildren<Text>().text = "Music:\nMUTED";
+        UI_Music.GetComponentInChildren<TextMeshProUGUI>().text = "Music:\nMUTED";
     }
 
     void UnMuteSFX()
     {
-        UI_SFX.GetComponentInChildren<Text>().text = "SFX:\nMUTE?";
+        UI_SFX.GetComponentInChildren<TextMeshProUGUI>().text = "SFX:\nMUTE?";
     }
     void MuteSFX()
     {
-        UI_SFX.GetComponentInChildren<Text>().text = "SFX:\nMUTED";
+        UI_SFX.GetComponentInChildren<TextMeshProUGUI>().text = "SFX:\nMUTED";
     }
 
     public void ResetScores()

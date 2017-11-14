@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayPanel : MonoBehaviour
 {
     public static PlayPanel instance;
 
     public StarShower StarPanel;
-    public Text GameText;
+    public TextMeshProUGUI GameText;
     public Button PlayButton;
     public GameObject Renderer;
 

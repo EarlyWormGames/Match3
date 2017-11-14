@@ -87,7 +87,7 @@ public class GameManager : MonoBehaviour
     public Canvas m_MainCanvas;
     public GridCreator m_Grid;
     public GameObject m_ScorePanel;
-    public Text m_NameText;
+    public TextMeshProUGUI m_NameText;
     public PercentageMovement m_ScoreBar;
     public TextMeshProUGUI m_TurnsText;
     public GameObject m_WinPanel;
