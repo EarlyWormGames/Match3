@@ -146,12 +146,16 @@ public class NodeItem : MonoBehaviour
         {
             //Destruction is done on a timer
             m_DestroyTimer -= Time.deltaTime;
-            if (m_DestroyTimer <= 0.1f)
+            if (GameManager.DestroyingList.Count >= 4)
+            {
+                transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(2f, 1f, 1), Time.deltaTime * 3);
+            }
+            if (m_DestroyTimer <= (GameManager.DestroyingList.Count >= 4 ? -0.05f : 0.1f))
             {
                 //Disable the mesh after a certain amount of time
                 DestroyMesh();
             }
-            if (m_DestroyTimer <= 0)
+            if (m_DestroyTimer <= (GameManager.DestroyingList.Count >= 4 ? -0.15f : 0f))
             {
                 //Timer is done, destroy this object
                 m_destroyStart = false;
@@ -225,9 +229,11 @@ public class NodeItem : MonoBehaviour
     public void StartDestroy(bool a_useScore = true)
     {
         m_destroyStart = true;
-        m_DestroyTimer = 0.25f;
+        
         if(m_Explosion != null)
         m_Explosion.Play();
+        
+        m_DestroyTimer = 0.25f;
 
         m_bUseScore = a_useScore;
 

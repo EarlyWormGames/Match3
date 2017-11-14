@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 222220740547996636}
   - component: {fileID: 114993723966102716}
   m_Layer: 0
-  m_Name: RBC (1)
+  m_Name: RBC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -324,7 +324,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -2051257361
+  randomSeed: -517276262
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -3610,7 +3610,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1997831725
+  randomSeed: -370417484
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -6872,7 +6872,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1004656387
+  randomSeed: -1572935207
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -10158,7 +10158,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1403611233
+  randomSeed: 656425820
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -13615,13 +13615,13 @@ RectTransform:
   m_GameObject: {fileID: 1830842530497386}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.000048, y: 1.000048, z: 1.000048}
+  m_LocalScale: {x: 1.2724875, y: 1.2724875, z: 1.2724875}
   m_Children: []
   m_Father: {fileID: 224119730897480962}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 6.4}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}

@@ -7,7 +7,9 @@ public class StarShower : MonoBehaviour
 {
     public Image[] Stars;
     public bool OnStart = false;
+    public float StarDelay;
 
+    private int rank;
     // Use this for initialization
     void Start()
     {
@@ -20,12 +22,9 @@ public class StarShower : MonoBehaviour
 
     public void ShowStars(int amount)
     {
-        amount = Mathf.Clamp(amount, 0, Stars.Length);
+        rank = Mathf.Clamp(amount, 0, Stars.Length);
         //Default, just enable them
-        for (int i = 0; i < Stars.Length; ++i)
-        {
-            Stars[i].gameObject.SetActive(i < amount);
-        }
+        StartCoroutine("StaggerStars");
     }
 
     public void HideStars()
@@ -33,6 +32,15 @@ public class StarShower : MonoBehaviour
         for (int i = 0; i < Stars.Length; ++i)
         {
             Stars[i].gameObject.SetActive(false);
+        }
+    }
+
+    IEnumerator StaggerStars()
+    {
+        for (int i = 0; i < Stars.Length; ++i)
+        {
+            Stars[i].gameObject.SetActive(i < rank);
+            yield return new WaitForSeconds(StarDelay);
         }
     }
 }
