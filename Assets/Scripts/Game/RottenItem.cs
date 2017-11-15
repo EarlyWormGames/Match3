@@ -51,7 +51,8 @@ public class RottenItem : NodeItem
             return;
         }
 
-        if (hasSpread)
+        int i = Random.Range(0, 4);
+        if (i != 0)
             return;
 
         List<GridNode> nodes = new List<GridNode>();
@@ -92,8 +93,7 @@ public class RottenItem : NodeItem
     {
         if (m_bUseScore)
         {
-            --GameManager.Score;
-            GameManager.Score -= GameManager.LastChainGoodCount * 2;
+            GameManager.Score = GameManager.LastScore - GameManager.LastChainCount;
         }
     }
 }

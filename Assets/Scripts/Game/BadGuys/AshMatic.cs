@@ -20,6 +20,9 @@ public class AshMatic : BadGuy
         m_UIObject = Instantiate(m_UIPrefab).GetComponent<AshMaticUI>();
         m_UIObject.transform.SetParent(GameManager.instance.m_MainCanvas.transform, false);
 
+        if (hideOnShow)
+            Destroy(m_UIObject.transform.GetChild(0).gameObject);
+
         //Assign some delegates for the UI animating
         m_UIObject.m_ShowDone += ShowDone;
         m_UIObject.m_HideDone += HideDone;

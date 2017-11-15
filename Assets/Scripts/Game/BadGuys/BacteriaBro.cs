@@ -21,6 +21,7 @@ public class BacteriaBro : NodeItem
 
     private int m_Lifetime;
     private bool m_WasReversed;
+    private float m_FontStartSize;
 
     private bool m_CanDie = false;
 
@@ -33,6 +34,7 @@ public class BacteriaBro : NodeItem
 
     protected override void OnStart()
     {
+        m_FontStartSize = m_LifeText.fontSize;
         LifeTimeDisplayUpdate();
     }
 
@@ -100,7 +102,7 @@ public class BacteriaBro : NodeItem
     {
         m_LifeText.text = (m_Lifetime + 1).ToString();
         m_LifeText.color = new Color((float)m_Lifetime / (m_Lifespan - 1), 0, 0);
-        m_LifeText.fontSize = 120 + m_Lifetime * 25;
+        m_LifeText.fontSize = m_FontStartSize + m_Lifetime * 5;
         if (m_Lifetime >= 1)
         {
             m_Sprite2.gameObject.SetActive(true);

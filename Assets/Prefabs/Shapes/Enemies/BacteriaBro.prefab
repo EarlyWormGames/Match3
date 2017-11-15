@@ -499,8 +499,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 35
-  m_fontSizeBase: 35
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -684,7 +684,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1629350497
+  randomSeed: 741318956
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -7232,7 +7232,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 535209273
+  randomSeed: 1624430838
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -13756,7 +13756,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 494565853
+  randomSeed: 898247166
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -17042,7 +17042,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 133036761
+  randomSeed: 1819195985
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -20304,7 +20304,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -546627062
+  randomSeed: -1604872368
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -23571,7 +23571,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1951048337
+  randomSeed: -624109257
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -26838,7 +26838,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1233933127
+  randomSeed: -1786683378
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -30105,7 +30105,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1743999161
+  randomSeed: 1439032458
   InitialModule:
     serializedVersion: 3
     enabled: 1

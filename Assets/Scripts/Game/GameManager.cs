@@ -73,6 +73,8 @@ public class GameManager : MonoBehaviour
     public static int LastChainCount = 0;
     public static int LastChainGoodCount = 0;
 
+    public static int LastScore;
+
     //Delegate function for notifying a turn
     #region DELEGATES
     public static MyDel onNotifySwap;

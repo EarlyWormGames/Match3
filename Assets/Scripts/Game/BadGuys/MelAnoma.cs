@@ -27,6 +27,9 @@ public class MelAnoma : BadGuy
         m_UIObject = Instantiate(m_UIPrefab).GetComponent<MelAnomaUI>();
         m_UIObject.transform.SetParent(GameManager.instance.m_MainCanvas.transform, false);
 
+        if (hideOnShow)
+            Destroy(m_UIObject.transform.GetChild(0).gameObject);
+
         //Generate a new colour request
         NewColour();
 

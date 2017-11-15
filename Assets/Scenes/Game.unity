@@ -4690,6 +4690,7 @@ MonoBehaviour:
   - {fileID: 1230069641}
   - {fileID: 285436603}
   OnStart: 0
+  ParentLevel: 2
   StarDelay: 0.5
 --- !u!1 &1094746533
 GameObject:
