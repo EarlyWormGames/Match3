@@ -7,6 +7,7 @@ public class StarShower : MonoBehaviour
 {
     public Image[] Stars;
     public bool OnStart = false;
+    public int ParentLevel = 2;
     public float StarDelay;
 
     private int rank;
@@ -15,7 +16,14 @@ public class StarShower : MonoBehaviour
     {
         if (OnStart)
         {
-            int level = transform.parent.GetSiblingIndex();
+            Transform t = transform;
+            for (int i = 0; i < ParentLevel; ++i)
+            {
+                if (t.parent != null)
+                    t = t.parent;
+            }
+
+            int level = t.GetSiblingIndex();
             ShowStars(SaveData.LevelScores[level]);
         }
     }
