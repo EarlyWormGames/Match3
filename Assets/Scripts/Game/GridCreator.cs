@@ -10,6 +10,8 @@ public class GridCreator : MonoBehaviour
     public int m_GridWidth = 6;
     public int m_GridHeight = 9;
     public GridLayoutGroup m_Layout;
+    public NodeItem[] StartNodes;
+    public List<GameObject> FillArray = new List<GameObject>();
 
     internal GridNode[,] m_Nodes;
     internal Vector3[] m_ColumnSpawns;
@@ -21,8 +23,11 @@ public class GridCreator : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        m_GridWidth = Mediator.Settings.GridWidth;
-        m_GridHeight = Mediator.Settings.GridHeight;
+        if (StartNodes.Length < 1)
+        {
+            m_GridWidth = Mediator.Settings.GridWidth;
+            m_GridHeight = Mediator.Settings.GridHeight;
+        }
 
         parentRect = gameObject.GetComponent<RectTransform>();
         m_Layout.constraintCount = m_GridWidth;
@@ -30,6 +35,9 @@ public class GridCreator : MonoBehaviour
         m_Nodes = new GridNode[m_GridWidth, m_GridHeight];
         m_ColumnSpawns = new Vector3[m_GridWidth];
         m_ColumnDistances = new Vector3[m_GridWidth];
+        GameManager.Stationary = new bool[m_GridWidth, m_GridHeight];
+        GameManager.RespawnCounts = new int[m_GridWidth];
+
         for (int i = 0; i < m_GridHeight; ++i)
         {
             for (int j = 0; j < m_GridWidth; ++j)
@@ -58,6 +66,19 @@ public class GridCreator : MonoBehaviour
                     m_Nodes[j, i - 1].m_Down = m_Nodes[j, i];
                 }
             }
+        }
+
+        if (StartNodes.Length > 0)
+        {
+            int i = 0;
+            foreach (var node in m_Nodes)
+            {
+                StartNodes[i].m_Parent = node;
+                node.m_Shape = StartNodes[i];
+
+                ++i;
+            }
+            return;
         }
 
         int count = 0;
@@ -91,9 +112,6 @@ public class GridCreator : MonoBehaviour
             ++count;
 
         } while (true);
-
-        GameManager.Stationary = new bool[m_GridWidth, m_GridHeight];
-        GameManager.RespawnCounts = new int[m_GridWidth];
     }
     
     void Update()
@@ -178,7 +196,13 @@ public class GridCreator : MonoBehaviour
             for (int j = GameManager.RespawnCounts[i] - 1; j >= 0; --j)
             {
                 lastPos += m_ColumnDistances[i];
-                m_Nodes[i, j].SpawnTile(lastPos);
+                if (FillArray.Count > 0)
+                {
+                    m_Nodes[i, j].SpawnTile(lastPos, FillArray[0]);
+                    FillArray.RemoveAt(0);
+                }
+                else
+                    m_Nodes[i, j].SpawnTile(lastPos);
             }
             GameManager.RespawnCounts[i] = 0;
         }
