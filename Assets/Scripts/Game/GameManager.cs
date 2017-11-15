@@ -47,6 +47,7 @@ public class GameManager : MonoBehaviour
     public static bool isDragging;
     public static GridNode dragGNode;
     public static NodeItem dragNItem;
+    public static List<NodeItem> lastSwapped = new List<NodeItem>();
     //The direction of the last drag
     public static Direction lastDrag = Direction.None;
     public static Vector3 dragStartPos;

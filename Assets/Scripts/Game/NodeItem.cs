@@ -329,6 +329,10 @@ public class NodeItem : MonoBehaviour
             }
         }
 
+        if ((a_node.m_SwapOnly && a_node.m_MatchAnyButOwn) ||
+            (m_SwapOnly && m_MatchAnyButOwn))
+            wegoodcuh = false;
+
         if (!m_bIsActive || !a_node.m_bIsActive)
             wegoodcuh = false;
 

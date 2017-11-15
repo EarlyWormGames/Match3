@@ -6,6 +6,24 @@ public class Righty : NodeItem
 {
     public GameObject m_MatchingNormal;
 
+    protected override void OnStopMovement()
+    {
+        base.OnStopMovement();
+
+        if (MarkSwap)
+        {
+            foreach (var swapped in GameManager.lastSwapped)
+            {
+                if (swapped != this)
+                {
+                    m_MatchedColour = swapped.m_Colour;
+                    m_Parent.StartDestroy();
+                    break;
+                }
+            }
+        }
+    }
+
     public override void OnEndDestroy()
     {
         base.OnEndDestroy();
