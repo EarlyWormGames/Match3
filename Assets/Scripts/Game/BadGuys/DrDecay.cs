@@ -2,12 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DrDecay : MonoBehaviour
+public class DrDecay : BadGuy
 {
     public float DamageMult = 0.2f;
     public float m_WaitSeconds = 1;
     public GameObject m_UIPrefab;
     private DrDecayUI m_UIObject;
+    private bool hideOnShow;
+
+    public override void NoEffect()
+    {
+        hideOnShow = true;
+    }
 
     // Use this for initialization
     void Start()
@@ -28,6 +34,12 @@ public class DrDecay : MonoBehaviour
 
     void DamageScore()
     {
+        if (hideOnShow)
+        {
+            m_UIObject.Hide();
+            return;
+        }
+
         int sub = (int)(Mediator.Settings.TargetScore * (DamageMult * (Mediator.Settings.DifficultyMult / 2f)));
         GameManager.Score = Mathf.Clamp(GameManager.Score - sub, 0, Mediator.Settings.TargetScore);
     }

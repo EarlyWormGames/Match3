@@ -2,11 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AshMatic : MonoBehaviour
+public class AshMatic : BadGuy
 {
     public GameObject m_UIPrefab;
     public float m_WaitSeconds = 1;
     private AshMaticUI m_UIObject;
+    private bool hideOnShow;
+
+    public override void NoEffect()
+    {
+        hideOnShow = true;
+    }
 
     // Use this for initialization
     void Start()
@@ -47,6 +53,12 @@ public class AshMatic : MonoBehaviour
 
     public void DoIt()
     {
+        if (hideOnShow)
+        {
+            m_UIObject.Hide();
+            return;
+        }
+
         NodeItem item = null;
         do
         {

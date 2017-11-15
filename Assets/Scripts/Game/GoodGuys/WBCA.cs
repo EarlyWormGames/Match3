@@ -8,6 +8,6 @@ public class WBCA : NodeItem
     {
         base.OnEndDestroy();
 
-        GameManager.instance.m_WBCATurnsLeft = GameManager.instance.m_WBCATurns;
+        GameManager.instance.ShowWBCA();
     }
 }

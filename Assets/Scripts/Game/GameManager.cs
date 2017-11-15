@@ -93,6 +93,7 @@ public class GameManager : MonoBehaviour
     public GameObject m_WinPanel;
     public GameObject m_LosePanel;
     public StarShower m_Stars;
+    public Animator m_WBCA;
 
     [Header("Values")]
     public float m_NodeMoveSpeed = 5f;
@@ -114,8 +115,8 @@ public class GameManager : MonoBehaviour
     internal int m_TurnsLeft;
     internal bool m_IsGameOver = false;
     internal bool m_TotalGameOver = false;
-    internal int m_WBCATurnsLeft;
 
+    private int m_WBCATurnsLeft;
     private bool m_bSetGameOver = false;
     private bool m_bSetSuccess;
     private bool m_bSetTotalGO;
@@ -434,6 +435,13 @@ public class GameManager : MonoBehaviour
         instance.m_bSwapped = true;
     }
 
+    public void ShowWBCA()
+    {
+        if (m_WBCATurnsLeft <= 0)
+            m_WBCA.SetTrigger("Show");
+        m_WBCATurnsLeft = m_WBCATurns;
+    }
+
     public void Refilled()
     {
         if (onRefill != null)
@@ -441,6 +449,11 @@ public class GameManager : MonoBehaviour
 
         if (m_bSwapped)
         {
+            if (m_WBCATurnsLeft == 1)
+            {
+                m_WBCA.SetTrigger("Hide");
+            }
+
             ++m_TurnsMade;
             --m_TurnsLeft;
             --m_WBCATurnsLeft;
@@ -451,7 +464,6 @@ public class GameManager : MonoBehaviour
             {
                 GameOver(false);
             }
-
             if (BadGuyUI.instance == null && m_TurnsMade > 3 && m_WBCATurnsLeft <= 0)
             {
                 int rand = Random.Range(0, m_BadGuySpawnChance);
@@ -475,6 +487,27 @@ public class GameManager : MonoBehaviour
             else if (m_WBCATurnsLeft > 0)
             {
                 //Draw a Bad Guy but also draw a WBCA to stop them
+                int rand = Random.Range(0, m_BadGuySpawnChance);
+                BadGuy bg = null;
+                if (rand == 0)
+                {
+                    rand = Random.Range(0, 3);
+                    switch (rand)
+                    {
+                        case 0:
+                            bg = Instantiate(instance.m_MelAnomaPrefab).GetComponent<BadGuy>();
+                            break;
+                        case 1:
+                            bg = Instantiate(instance.m_AshMaticPrefab).GetComponent<BadGuy>();
+                            break;
+                        case 2:
+                            bg = Instantiate(instance.m_DrDecayPrefab).GetComponent<BadGuy>();
+                            break;
+                    }
+
+                    if (bg != null)
+                        bg.NoEffect();
+                }
             }
         }
         m_bSwapped = false;
