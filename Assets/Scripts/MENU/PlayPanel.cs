@@ -12,6 +12,7 @@ public class PlayPanel : MonoBehaviour
     public TextMeshProUGUI GameText;
     public Button PlayButton;
     public GameObject Renderer;
+    public int dragThreshold = 10;
 
     // Use this for initialization
     void Awake()
@@ -19,6 +20,12 @@ public class PlayPanel : MonoBehaviour
         instance = this;
         Renderer.SetActive(false);
         StarPanel.HideStars();
+    }
+
+    private void Start()
+    {
+        Debug.Log(UnityEngine.EventSystems.EventSystem.current.pixelDragThreshold);
+        UnityEngine.EventSystems.EventSystem.current.pixelDragThreshold = dragThreshold;
     }
 
     // Update is called once per frame
