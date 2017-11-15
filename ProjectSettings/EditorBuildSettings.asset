@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/WorldSelection.unity
     guid: 20eac70f38bc16649a4f494852aa4a82
   - enabled: 1
-    path: Assets/Scenes/Beastiary.unity
+    path: Assets/Scenes/Bestiary.unity
     guid: 577190d21ba4df541896fe1e784d0705
   - enabled: 0
     path: Assets/Scenes/In Case of Emergency/Game SceneCopy.unity
