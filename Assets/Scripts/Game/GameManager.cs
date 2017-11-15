@@ -486,7 +486,7 @@ public class GameManager : MonoBehaviour
                     }
                 }
             }
-            else if (m_WBCATurnsLeft > 0)
+            else if (BadGuyUI.instance == null && m_WBCATurnsLeft > 0)
             {
                 //Draw a Bad Guy but also draw a WBCA to stop them
                 int rand = Random.Range(0, m_BadGuySpawnChance);

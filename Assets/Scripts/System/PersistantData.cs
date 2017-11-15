@@ -11,7 +11,7 @@ public class PersistantData : MonoBehaviour
 
     private float Timer;
 
-    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
     public static void Init()
     {
         if (instance != null)
