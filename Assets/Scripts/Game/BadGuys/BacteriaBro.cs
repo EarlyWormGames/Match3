@@ -16,6 +16,7 @@ public class BacteriaBro : NodeItem
     public ParticleSystem m_Sprite3Explosion;
     public GameObject m_ChildRoot;
 
+    internal bool AllowCountUp = false;
     internal GameObject m_RespawnType;
 
     private int m_Lifetime;
@@ -51,7 +52,8 @@ public class BacteriaBro : NodeItem
             return;
         }
 
-        ++m_Lifetime;
+        if (AllowCountUp)
+            ++m_Lifetime;
         if (m_Lifetime >= m_Lifespan)
         {
             //Tell the node to destroy

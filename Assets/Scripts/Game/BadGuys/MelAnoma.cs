@@ -9,6 +9,8 @@ public class MelAnoma : MonoBehaviour
     private ItemColour m_RequestedColour = ItemColour.NONE;
     private MelAnomaUI m_UIObject;
 
+    private List<BacteriaBro> bros = new List<BacteriaBro>();
+
     // Use this for initialization
     void Awake()
     {
@@ -73,6 +75,8 @@ public class MelAnoma : MonoBehaviour
             //Tell it that it has a respawn object so it doesn't make the grid move
             a_node.m_RespawnType = obj;
             a_node.m_RespawnIsSpawned = true;
+
+            bros.Add(bbro);
         }
         --m_RequiredChains;
 
@@ -90,6 +94,12 @@ public class MelAnoma : MonoBehaviour
     {
         m_RequiredChains = 0;
         m_UIObject.Hide();
+
+        foreach (var bro in bros)
+        {
+            if (bro != null)
+                bro.AllowCountUp = true;
+        }
     }
 
     void ShowDone()
@@ -108,16 +118,16 @@ public class MelAnoma : MonoBehaviour
 
     void NewColour()
     {
-        //Generate a new colour (definitely not the same)
-        ItemColour prevcol = m_RequestedColour;
-        int index = 0;
-        do
-        {
-            index = Random.Range(0, m_UIObject.m_Colours.Length);
-            m_RequestedColour = m_UIObject.m_Colours[index].itemType;
-
-        } while (m_RequestedColour == prevcol);
-
-        m_UIObject.SetText(m_RequestedColour);
+        ////Generate a new colour (definitely not the same)
+        //ItemColour prevcol = m_RequestedColour;
+        //int index = 0;
+        //do
+        //{
+        //    index = Random.Range(0, m_UIObject.m_Colours.Length);
+        //    m_RequestedColour = m_UIObject.m_Colours[index].itemType;
+        //
+        //} while (m_RequestedColour == prevcol);
+        //
+        //m_UIObject.SetText(m_RequestedColour);
     }
 }
