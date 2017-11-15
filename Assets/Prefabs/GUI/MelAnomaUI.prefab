@@ -197,6 +197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Animator: {fileID: 95374978427245554}
+  UseInstance: 1
   m_ColourText: {fileID: 114724164180662710}
   m_Colours:
   - text: Broccoli
@@ -260,7 +261,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 141.36, y: -131.4}
+  m_AnchoredPosition: {x: 141.36, y: -202.86}
   m_SizeDelta: {x: 240.4, y: 289.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224295551879278642

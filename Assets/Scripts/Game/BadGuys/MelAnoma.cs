@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MelAnoma : MonoBehaviour
+public class MelAnoma : BadGuy
 {
     public int m_RequiredChains = 3;
     public GameObject m_UIPrefab;
@@ -10,6 +10,12 @@ public class MelAnoma : MonoBehaviour
     private MelAnomaUI m_UIObject;
 
     private List<BacteriaBro> bros = new List<BacteriaBro>();
+    private bool hideOnShow;
+
+    public override void NoEffect()
+    {
+        hideOnShow = true;
+    }
 
     // Use this for initialization
     void Awake()
@@ -46,7 +52,7 @@ public class MelAnoma : MonoBehaviour
 
     void ColourScored(ItemColour a_colour, bool a_wasSwapped, GridNode a_node)
     {
-        if (!a_wasSwapped || m_RequiredChains <= 0)
+        if (!a_wasSwapped || m_RequiredChains <= 0 || hideOnShow)
             return;
 
         if (a_colour == m_RequestedColour)
@@ -87,7 +93,7 @@ public class MelAnoma : MonoBehaviour
         }
 
         //Generate a new colour and tell the UI object
-        NewColour();
+        //NewColour();
     }
 
     void End()
@@ -104,7 +110,8 @@ public class MelAnoma : MonoBehaviour
 
     void ShowDone()
     {
-
+        if (hideOnShow)
+            End();
     }
 
     void HideDone()
@@ -118,16 +125,16 @@ public class MelAnoma : MonoBehaviour
 
     void NewColour()
     {
-        ////Generate a new colour (definitely not the same)
-        //ItemColour prevcol = m_RequestedColour;
-        //int index = 0;
-        //do
-        //{
-        //    index = Random.Range(0, m_UIObject.m_Colours.Length);
-        //    m_RequestedColour = m_UIObject.m_Colours[index].itemType;
-        //
-        //} while (m_RequestedColour == prevcol);
-        //
-        //m_UIObject.SetText(m_RequestedColour);
+        //Generate a new colour (definitely not the same)
+        ItemColour prevcol = m_RequestedColour;
+        int index = 0;
+        do
+        {
+            index = Random.Range(0, m_UIObject.m_Colours.Length);
+            m_RequestedColour = m_UIObject.m_Colours[index].itemType;
+        
+        } while (m_RequestedColour == prevcol);
+        
+        m_UIObject.SetText(m_RequestedColour);
     }
 }
