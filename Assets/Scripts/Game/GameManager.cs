@@ -99,6 +99,7 @@ public class GameManager : MonoBehaviour
     public int m_RequiredChainStart = 2;
     public int m_BadGuySpawnChance = 10;
     public bool ShowHints = true;
+    public int m_WBCATurns = 5;
 
     [Header("Prefabs")]
     public GameObject[] m_SpawnPrefabs = new GameObject[0];
@@ -113,6 +114,7 @@ public class GameManager : MonoBehaviour
     internal int m_TurnsLeft;
     internal bool m_IsGameOver = false;
     internal bool m_TotalGameOver = false;
+    internal int m_WBCATurnsLeft;
 
     private bool m_bSetGameOver = false;
     private bool m_bSetSuccess;
@@ -121,7 +123,7 @@ public class GameManager : MonoBehaviour
     private bool m_WasEmpty;
     private bool m_bSwapped;
     private int m_TurnsMade = 0;
-
+    
     private float GameTimer;
 
     // Use this for initialization
@@ -441,6 +443,8 @@ public class GameManager : MonoBehaviour
         {
             ++m_TurnsMade;
             --m_TurnsLeft;
+            --m_WBCATurnsLeft;
+
             m_TurnsText.text = m_TurnsLeft.ToString();
 
             if (m_TurnsLeft <= 0)
@@ -448,7 +452,7 @@ public class GameManager : MonoBehaviour
                 GameOver(false);
             }
 
-            if (BadGuyUI.instance == null && m_TurnsMade > 3)
+            if (BadGuyUI.instance == null && m_TurnsMade > 3 && m_WBCATurnsLeft <= 0)
             {
                 int rand = Random.Range(0, m_BadGuySpawnChance);
                 if (rand == 0)
@@ -467,6 +471,10 @@ public class GameManager : MonoBehaviour
                             break;
                     }
                 }
+            }
+            else if (m_WBCATurnsLeft > 0)
+            {
+                //Draw a Bad Guy but also draw a WBCA to stop them
             }
         }
         m_bSwapped = false;
