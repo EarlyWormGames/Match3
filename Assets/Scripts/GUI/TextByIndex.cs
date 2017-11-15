@@ -7,12 +7,19 @@ using TMPro;
 [RequireComponent(typeof(TextMeshProUGUI))]
 public class TextByIndex : MonoBehaviour
 {
-    public bool UseParent = true;
+    public int UseParentLevel = 2;
     public int AddAmount = 1;
 
     // Use this for initialization
     void Start()
     {
-        GetComponent<TextMeshProUGUI>().text = ((UseParent? transform.parent.GetSiblingIndex() : transform.GetSiblingIndex()) + AddAmount).ToString();
+        Transform t = transform;
+        for (int i = 0; i < UseParentLevel; ++i)
+        {
+            if (t.parent != null)
+                t = t.parent;
+        }
+
+        GetComponent<TextMeshProUGUI>().text = (t.GetSiblingIndex() + AddAmount).ToString();
     }
 }
