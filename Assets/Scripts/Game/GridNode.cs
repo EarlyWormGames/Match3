@@ -285,6 +285,10 @@ public class GridNode : MonoBehaviour
 
         if (GameManager.lastDrag != Direction.None)
         {
+            GameManager.lastSwapped.Clear();
+            GameManager.lastSwapped.Add(GameManager.dragGNode.m_Shape);
+            GameManager.lastSwapped.Add(GameManager.dragNItem);
+
             bool ok = false;
             ItemColour col = ItemColour.NONE;
             if (!GameManager.dragNItem.m_Parent.CheckMatch(Direction.None, ref col, true))
@@ -305,10 +309,6 @@ public class GridNode : MonoBehaviour
             }
             else //Otherwise, tell the gamemanager we just moved these two tiles
             {
-                GameManager.lastSwapped.Clear();
-                GameManager.lastSwapped.Add(GameManager.dragGNode.m_Shape);
-                GameManager.lastSwapped.Add(GameManager.dragNItem);
-
                 GameManager.dragGNode.m_Shape.MarkSwap = true;
                 GameManager.dragNItem.MarkSwap = true;
                 GameManager.Stationary[GameManager.dragNItem.m_Parent.m_xIndex, GameManager.dragNItem.m_Parent.m_yIndex] = false;
@@ -495,8 +495,25 @@ public class GridNode : MonoBehaviour
         if (m_yIndex == 0)
             return false;
 
-        if (onlyCheck && m_Shape.m_SwapOnly && m_Shape.m_MatchAnyButOwn && a_col != m_Shape.m_Colour)
-            return true;
+        if (m_Shape.m_SwapOnly && m_Shape.m_MatchAnyButOwn)
+        {
+            if (a_col != ItemColour.NONE && onlyCheck)
+            {
+                if (a_col != m_Shape.m_Colour)
+                    return true;
+            }
+            else
+            {
+                foreach (var swap in GameManager.lastSwapped)
+                {
+                    if (swap != m_Shape)
+                    {
+                        if (swap.m_Colour != m_Shape.m_Colour)
+                            return true;
+                    }
+                }
+            }
+        }
 
         ItemColour left = ItemColour.NONE, right = ItemColour.NONE, up = ItemColour.NONE, down = ItemColour.NONE;
 
@@ -793,6 +810,9 @@ public class GridNode : MonoBehaviour
             return false;
         if (!m_Shape.CanSwap())
             return false;
+
+        GameManager.lastSwapped.Clear();
+        GameManager.lastSwapped.Add(m_Shape);
 
         ItemColour col = ItemColour.NONE;
         if (HasDirection(Direction.Left, true))
