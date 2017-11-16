@@ -36,7 +36,7 @@ public class PlayPanel : MonoBehaviour
 
     void ShowLevelCard(int levelNum, int score)
     {
-        GameText.text = "You have selected level: " + levelNum.ToString();
+        GameText.text = "You have selected level: " + levelNum.ToString() + " Goal: " + LevelSettings.selected.TurnsGoal +  " Turns.";
         StarPanel.ShowStars(score);
         PlayButton.gameObject.SetActive(true);
     }
