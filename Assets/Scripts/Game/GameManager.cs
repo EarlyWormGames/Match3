@@ -142,6 +142,9 @@ public class GameManager : MonoBehaviour
         m_TurnsText.text = m_TurnsLeft.ToString();
 
         Score = (int)(Mediator.Settings.TargetScore / 2f);
+
+        if (Mediator.Settings.SpawnObject != null)
+            Instantiate(Mediator.Settings.SpawnObject);
     }
 
     // Update is called once per frame

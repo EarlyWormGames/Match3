@@ -28,4 +28,6 @@ public class GameSettings
 
     public int Turns = 15;
     public int Level = -1;
+
+    public GameObject SpawnObject;
 }
