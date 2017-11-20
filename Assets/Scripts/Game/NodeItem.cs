@@ -72,6 +72,10 @@ public class NodeItem : MonoBehaviour
         }
 
         m_GemAnimator = GetComponent<Animator>();
+        if(m_GemAnimator == null)
+        {
+            m_GemAnimator = GetComponentInChildren<Animator>();
+        }
         if(m_Explosion != null)
         m_Explosion.Stop();
 
