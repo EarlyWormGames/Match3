@@ -18,6 +18,14 @@ public class LevelSettings : MonoBehaviour
     public float DifficultyMult = 1;
 
     public int TurnsGoal = 15;
+    public int LevelNum;
+
+    public bool isArcade;
+
+    private void Start()
+    {
+        LevelNum = transform.GetSiblingIndex();
+    }
 
     private void OnEnable()
     {
@@ -26,10 +34,10 @@ public class LevelSettings : MonoBehaviour
 
     private void OnDisable()
     {
-        GetComponent<Button>().onClick.RemoveAllListeners();
+        GetComponent<Button>().onClick.RemoveListener(OnClick);
     }
 
-    void OnClick()
+    protected virtual void OnClick()
     {
         selected = this;
         PlayPanel.instance.Show();

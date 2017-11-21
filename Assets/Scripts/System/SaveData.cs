@@ -12,6 +12,7 @@ public class SaveData
     public static int[] LevelScores;
     public static int LevelCount = 25;
     public static bool IsDev = false;
+    public static int LastArcade = -1;
 
     private static XmlDocument loadedDoc;
 
@@ -35,13 +36,20 @@ public class SaveData
             loadedDoc.LoadXml(contents);
 
             //Grab our free turns value
-            string query = string.Format("//*[@id='{0}']", "FreeTurns");
-            XmlElement freeTurns = (XmlElement)loadedDoc.SelectSingleNode(query);
+            XmlElement freeTurns = (XmlElement)loadedDoc.SelectSingleNode("/SaveData/FreeTurns");
             FreeTurns = Convert.ToInt32(freeTurns.InnerText);
 
+            XmlElement arcade = (XmlElement)loadedDoc.SelectSingleNode("/SaveData/Arcade");
+            if (arcade == null)
+            {
+                arcade = loadedDoc.CreateElement("Arcade");
+                loadedDoc.DocumentElement.AppendChild(arcade);
+            }
+
+            arcade.InnerText = LastArcade.ToString();
+
             //Grab the scores (1,2,3 stars) for the levels
-            query = string.Format("//*[@id='{0}']", "Levels");
-            XmlElement levels = (XmlElement)loadedDoc.SelectSingleNode(query);
+            XmlElement levels = (XmlElement)loadedDoc.SelectSingleNode("/SaveData/Levels");
 
             int i = 0;
             foreach (var child in levels.ChildNodes)
@@ -62,14 +70,15 @@ public class SaveData
 
             //Save our free turns as an xmlelement
             XmlElement freeTurns = loadedDoc.CreateElement("FreeTurns");
-            freeTurns.SetAttribute("id", "FreeTurns");
-            freeTurns.InnerText = FreeTurns.ToString();
             root.AppendChild(freeTurns);
 
             //Create the parent of all the level elements
             XmlElement levels = loadedDoc.CreateElement("Levels");
-            levels.SetAttribute("id", "Levels");
             root.AppendChild(levels);
+
+            //Create the parent of all the level elements
+            XmlElement arcade = loadedDoc.CreateElement("Arcade");
+            root.AppendChild(arcade);
 
             Save();
         }
@@ -77,15 +86,14 @@ public class SaveData
 
     public static void Save()
     {
-        //Save our free turns as an xmlelement
-        string query = string.Format("//*[@id='{0}']", "FreeTurns"); // or "//book[@id='{0}']"
-        XmlElement freeTurns = (XmlElement)loadedDoc.SelectSingleNode(query);
-        //XmlElement freeTurns = loadedDoc.GetElementById("FreeTurns");
+        XmlElement freeTurns = (XmlElement)loadedDoc.SelectSingleNode("/SaveData/FreeTurns");
         freeTurns.InnerText = FreeTurns.ToString();
 
+        XmlElement arcade = (XmlElement)loadedDoc.SelectSingleNode("/SaveData/Arcade");
+        arcade.InnerText = LastArcade.ToString();
+
         //Create the parent of all the level elements
-        query = string.Format("//*[@id='{0}']", "Levels");
-        XmlElement levels = (XmlElement)loadedDoc.SelectSingleNode(query);
+        XmlElement levels = (XmlElement)loadedDoc.SelectSingleNode("/SaveData/Levels");
 
         int i = 0;
         //Add all of the level scores to the document

@@ -5,20 +5,23 @@ using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 using UnityEngine.Analytics;
 
-public class ChangeScene : MonoBehaviour {
-    
+public class ChangeScene : MonoBehaviour
+{
+
     Fading fade;
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         fade = GetComponent<Fading>();
 
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 
     public void ChangeSceneTo(string TargetScene)
     {
@@ -62,7 +65,7 @@ public class ChangeScene : MonoBehaviour {
 
         if (LS != null)
         {
-            if(Mediator.Settings == null)
+            if (Mediator.Settings == null)
                 Mediator.Settings = new GameSettings();
 
             Mediator.Settings.RequiredChain = LS.RequiredChain;
@@ -72,12 +75,23 @@ public class ChangeScene : MonoBehaviour {
             Mediator.Settings.TargetScore = LS.TargetScore;
             Mediator.Settings.DifficultyMult = LS.DifficultyMult;
             Mediator.Settings.Turns = LS.TurnsGoal;
-            Mediator.Settings.Level = LS.transform.GetSiblingIndex();
+            Mediator.Settings.Level = LS.LevelNum;
+            Mediator.Settings.isArcade = LS.isArcade;
 
-            Analytics.CustomEvent("Game Started", new Dictionary<string, object>
+            if (!LS.isArcade)
+            {
+                Analytics.CustomEvent("Game Started", new Dictionary<string, object>
                 {
                     { "level", Mediator.Settings.Level }
                 });
+            }
+            else
+            {
+                Analytics.CustomEvent("Arcade Started", new Dictionary<string, object>
+                {
+                    { "level", Mediator.Settings.Level }
+                });
+            }
         }
         else
         {
