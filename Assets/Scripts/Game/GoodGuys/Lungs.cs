@@ -15,6 +15,7 @@ public class Lungs : NodeItem
             //Finds all rotten items and destroys them
             if (item.m_Shape.GetType() == typeof(RottenItem) && !item.m_Shape.MarkDestroy)
             {
+                item.m_Shape.m_AfterExplosion = item.m_Shape.GetComponent<RottenItem>().m_CleaningExplosion;
                 item.StartDestroy(false);
             }
         }

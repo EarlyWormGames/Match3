@@ -14,6 +14,7 @@ public class RottenItem : NodeItem
 
     public Image m_MainImage;
     public SpriteType[] m_Sprites;
+    public ParticleSystem m_CleaningExplosion;
 
     private bool hasSpread = false;
 
