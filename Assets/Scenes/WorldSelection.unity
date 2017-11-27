@@ -298,7 +298,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 172, y: 575}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &122376318
 MonoBehaviour:
@@ -306,7 +306,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 122376316}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -392,6 +392,8 @@ MonoBehaviour:
   TargetScore: 100
   DifficultyMult: 1
   TurnsGoal: 15
+  LevelNum: 0
+  isArcade: 0
 --- !u!1 &183762786
 GameObject:
   m_ObjectHideFlags: 0
@@ -428,7 +430,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 33, y: 911}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &183762788
 MonoBehaviour:
@@ -436,7 +438,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 183762786}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -522,6 +524,8 @@ MonoBehaviour:
   TargetScore: 100
   DifficultyMult: 1
   TurnsGoal: 15
+  LevelNum: 0
+  isArcade: 0
 --- !u!1 &231164451
 GameObject:
   m_ObjectHideFlags: 0
@@ -627,7 +631,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4504552617973228, guid: 2e6591b7b17f53742876454850846038, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114554203916473984, guid: 2e6591b7b17f53742876454850846038,
         type: 2}
@@ -752,7 +756,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4504552617973228, guid: 2e6591b7b17f53742876454850846038, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114554203916473984, guid: 2e6591b7b17f53742876454850846038,
         type: 2}
@@ -809,7 +813,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4504552617973228, guid: 2e6591b7b17f53742876454850846038, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114554203916473984, guid: 2e6591b7b17f53742876454850846038,
         type: 2}
@@ -865,7 +869,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 168, y: -36}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &322557163
 MonoBehaviour:
@@ -873,7 +877,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 322557161}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -959,6 +963,8 @@ MonoBehaviour:
   TargetScore: 100
   DifficultyMult: 1
   TurnsGoal: 15
+  LevelNum: 0
+  isArcade: 0
 --- !u!1001 &336176413
 Prefab:
   m_ObjectHideFlags: 0
@@ -996,7 +1002,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4504552617973228, guid: 2e6591b7b17f53742876454850846038, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114554203916473984, guid: 2e6591b7b17f53742876454850846038,
         type: 2}
@@ -1186,7 +1192,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 198, y: -1172}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &360834765
 MonoBehaviour:
@@ -1194,7 +1200,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 360834763}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -1280,6 +1286,8 @@ MonoBehaviour:
   TargetScore: 50
   DifficultyMult: 1
   TurnsGoal: 15
+  LevelNum: 0
+  isArcade: 0
 --- !u!1 &449081096
 GameObject:
   m_ObjectHideFlags: 0
@@ -1316,7 +1324,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -191, y: -552}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &449081098
 MonoBehaviour:
@@ -1324,7 +1332,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 449081096}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -1410,6 +1418,8 @@ MonoBehaviour:
   TargetScore: 200
   DifficultyMult: 1
   TurnsGoal: 30
+  LevelNum: 0
+  isArcade: 0
 --- !u!1 &456011177
 GameObject:
   m_ObjectHideFlags: 0
@@ -1526,7 +1536,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 275, y: -994}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &457530321
 MonoBehaviour:
@@ -1534,7 +1544,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 457530319}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -1620,6 +1630,8 @@ MonoBehaviour:
   TargetScore: 65
   DifficultyMult: 1
   TurnsGoal: 20
+  LevelNum: 0
+  isArcade: 0
 --- !u!1 &461680687
 GameObject:
   m_ObjectHideFlags: 0
@@ -1779,7 +1791,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 151, y: 761}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &541686701
 MonoBehaviour:
@@ -1787,7 +1799,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 541686699}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -1873,6 +1885,8 @@ MonoBehaviour:
   TargetScore: 100
   DifficultyMult: 1
   TurnsGoal: 15
+  LevelNum: 0
+  isArcade: 0
 --- !u!1 &542646569
 GameObject:
   m_ObjectHideFlags: 0
@@ -2063,7 +2077,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4504552617973228, guid: 2e6591b7b17f53742876454850846038, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114554203916473984, guid: 2e6591b7b17f53742876454850846038,
         type: 2}
@@ -2119,7 +2133,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 191, y: -653}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &574672034
 MonoBehaviour:
@@ -2127,7 +2141,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 574672032}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -2213,6 +2227,8 @@ MonoBehaviour:
   TargetScore: 120
   DifficultyMult: 1
   TurnsGoal: 25
+  LevelNum: 0
+  isArcade: 0
 --- !u!1 &669780625
 GameObject:
   m_ObjectHideFlags: 0
@@ -2532,7 +2548,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4504552617973228, guid: 2e6591b7b17f53742876454850846038, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114554203916473984, guid: 2e6591b7b17f53742876454850846038,
         type: 2}
@@ -2588,7 +2604,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -174, y: 998}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &814725839
 MonoBehaviour:
@@ -2596,7 +2612,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 814725837}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -2682,6 +2698,8 @@ MonoBehaviour:
   TargetScore: 100
   DifficultyMult: 1
   TurnsGoal: 15
+  LevelNum: 0
+  isArcade: 0
 --- !u!1 &834911836
 GameObject:
   m_ObjectHideFlags: 0
@@ -2940,7 +2958,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -127, y: 186}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &876452158
 MonoBehaviour:
@@ -2948,7 +2966,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 876452156}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -3034,6 +3052,8 @@ MonoBehaviour:
   TargetScore: 100
   DifficultyMult: 1
   TurnsGoal: 15
+  LevelNum: 0
+  isArcade: 0
 --- !u!1001 &896495067
 Prefab:
   m_ObjectHideFlags: 0
@@ -3071,7 +3091,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4504552617973228, guid: 2e6591b7b17f53742876454850846038, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114554203916473984, guid: 2e6591b7b17f53742876454850846038,
         type: 2}
@@ -3250,7 +3270,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4504552617973228, guid: 2e6591b7b17f53742876454850846038, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114554203916473984, guid: 2e6591b7b17f53742876454850846038,
         type: 2}
@@ -3307,7 +3327,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4504552617973228, guid: 2e6591b7b17f53742876454850846038, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114554203916473984, guid: 2e6591b7b17f53742876454850846038,
         type: 2}
@@ -3421,7 +3441,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4504552617973228, guid: 2e6591b7b17f53742876454850846038, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114554203916473984, guid: 2e6591b7b17f53742876454850846038,
         type: 2}
@@ -3535,7 +3555,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -61, y: 1161}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &980658902
 MonoBehaviour:
@@ -3543,7 +3563,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 980658900}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -3629,6 +3649,8 @@ MonoBehaviour:
   TargetScore: 100
   DifficultyMult: 1
   TurnsGoal: 15
+  LevelNum: 0
+  isArcade: 0
 --- !u!1001 &1020764782
 Prefab:
   m_ObjectHideFlags: 0
@@ -3666,7 +3688,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4504552617973228, guid: 2e6591b7b17f53742876454850846038, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114554203916473984, guid: 2e6591b7b17f53742876454850846038,
         type: 2}
@@ -3912,7 +3934,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4504552617973228, guid: 2e6591b7b17f53742876454850846038, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114554203916473984, guid: 2e6591b7b17f53742876454850846038,
         type: 2}
@@ -3969,7 +3991,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4504552617973228, guid: 2e6591b7b17f53742876454850846038, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114554203916473984, guid: 2e6591b7b17f53742876454850846038,
         type: 2}
@@ -4093,7 +4115,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -250, y: -385}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1191671199
 MonoBehaviour:
@@ -4101,7 +4123,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1191671197}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -4187,6 +4209,8 @@ MonoBehaviour:
   TargetScore: 250
   DifficultyMult: 1
   TurnsGoal: 35
+  LevelNum: 0
+  isArcade: 0
 --- !u!1001 &1208531208
 Prefab:
   m_ObjectHideFlags: 0
@@ -4224,7 +4248,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4504552617973228, guid: 2e6591b7b17f53742876454850846038, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114554203916473984, guid: 2e6591b7b17f53742876454850846038,
         type: 2}
@@ -4280,7 +4304,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -29, y: 467}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1247796108
 MonoBehaviour:
@@ -4288,7 +4312,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1247796106}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -4374,6 +4398,8 @@ MonoBehaviour:
   TargetScore: 100
   DifficultyMult: 1
   TurnsGoal: 15
+  LevelNum: 0
+  isArcade: 0
 --- !u!1 &1253836162
 GameObject:
   m_ObjectHideFlags: 0
@@ -4410,7 +4436,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 139, y: 1209}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1253836164
 MonoBehaviour:
@@ -4418,7 +4444,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1253836162}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -4504,6 +4530,8 @@ MonoBehaviour:
   TargetScore: 100
   DifficultyMult: 1
   TurnsGoal: 15
+  LevelNum: 0
+  isArcade: 0
 --- !u!1 &1257720072
 GameObject:
   m_ObjectHideFlags: 0
@@ -4637,7 +4665,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -35, y: -74}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1268075469
 MonoBehaviour:
@@ -4645,7 +4673,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1268075467}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -4731,6 +4759,8 @@ MonoBehaviour:
   TargetScore: 100
   DifficultyMult: 1
   TurnsGoal: 15
+  LevelNum: 0
+  isArcade: 0
 --- !u!1001 &1310748793
 Prefab:
   m_ObjectHideFlags: 0
@@ -4896,7 +4926,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 299, y: -806}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1358818845
 MonoBehaviour:
@@ -4904,7 +4934,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1358818843}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -4990,6 +5020,8 @@ MonoBehaviour:
   TargetScore: 100
   DifficultyMult: 1
   TurnsGoal: 25
+  LevelNum: 0
+  isArcade: 0
 --- !u!1001 &1375315983
 Prefab:
   m_ObjectHideFlags: 0
@@ -5027,7 +5059,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4504552617973228, guid: 2e6591b7b17f53742876454850846038, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114554203916473984, guid: 2e6591b7b17f53742876454850846038,
         type: 2}
@@ -5223,7 +5255,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4504552617973228, guid: 2e6591b7b17f53742876454850846038, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114554203916473984, guid: 2e6591b7b17f53742876454850846038,
         type: 2}
@@ -5593,7 +5625,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 321, y: 111}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1570759237
 MonoBehaviour:
@@ -5601,7 +5633,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1570759235}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -5687,6 +5719,8 @@ MonoBehaviour:
   TargetScore: 100
   DifficultyMult: 1
   TurnsGoal: 15
+  LevelNum: 0
+  isArcade: 0
 --- !u!1 &1606563148
 GameObject:
   m_ObjectHideFlags: 0
@@ -5723,7 +5757,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -241, y: 375}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1606563150
 MonoBehaviour:
@@ -5731,7 +5765,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1606563148}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -5817,6 +5851,8 @@ MonoBehaviour:
   TargetScore: 100
   DifficultyMult: 1
   TurnsGoal: 15
+  LevelNum: 0
+  isArcade: 0
 --- !u!1 &1640574292
 GameObject:
   m_ObjectHideFlags: 0
@@ -5921,7 +5957,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 67, y: -1496}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1641503978
 MonoBehaviour:
@@ -5929,7 +5965,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1641503976}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -6015,6 +6051,8 @@ MonoBehaviour:
   TargetScore: 20
   DifficultyMult: 0.39
   TurnsGoal: 10
+  LevelNum: 0
+  isArcade: 0
 --- !u!1 &1653804644
 GameObject:
   m_ObjectHideFlags: 0
@@ -6201,7 +6239,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 229, y: 1361}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1688985021
 MonoBehaviour:
@@ -6209,7 +6247,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1688985019}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -6295,6 +6333,8 @@ MonoBehaviour:
   TargetScore: 100
   DifficultyMult: 1
   TurnsGoal: 15
+  LevelNum: 0
+  isArcade: 0
 --- !u!1001 &1690918399
 Prefab:
   m_ObjectHideFlags: 0
@@ -6332,7 +6372,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4504552617973228, guid: 2e6591b7b17f53742876454850846038, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114554203916473984, guid: 2e6591b7b17f53742876454850846038,
         type: 2}
@@ -6388,7 +6428,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -203, y: -187}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1697123971
 MonoBehaviour:
@@ -6396,7 +6436,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1697123969}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -6482,6 +6522,8 @@ MonoBehaviour:
   TargetScore: 100
   DifficultyMult: 1
   TurnsGoal: 15
+  LevelNum: 0
+  isArcade: 0
 --- !u!1 &1772681079
 GameObject:
   m_ObjectHideFlags: 0
@@ -6518,7 +6560,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 127, y: 218}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1772681081
 MonoBehaviour:
@@ -6526,7 +6568,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1772681079}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -6612,6 +6654,8 @@ MonoBehaviour:
   TargetScore: 100
   DifficultyMult: 1
   TurnsGoal: 15
+  LevelNum: 0
+  isArcade: 0
 --- !u!1 &1792536879
 GameObject:
   m_ObjectHideFlags: 0
@@ -6843,7 +6887,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 102, y: 1495}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1887387944
 MonoBehaviour:
@@ -6851,7 +6895,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1887387942}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -6937,6 +6981,8 @@ MonoBehaviour:
   TargetScore: 100
   DifficultyMult: 1
   TurnsGoal: 15
+  LevelNum: 0
+  isArcade: 0
 --- !u!1001 &1888359122
 Prefab:
   m_ObjectHideFlags: 0
@@ -6974,7 +7020,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4504552617973228, guid: 2e6591b7b17f53742876454850846038, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114554203916473984, guid: 2e6591b7b17f53742876454850846038,
         type: 2}
@@ -7179,7 +7225,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 3955.1802}
+  m_AnchoredPosition: {x: 0, y: 2479.7104}
   m_SizeDelta: {x: 0, y: 3955.18}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1962674664
@@ -7218,7 +7264,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 242, y: -1360}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1962674666
 MonoBehaviour:
@@ -7226,7 +7272,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1962674664}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -7312,6 +7358,8 @@ MonoBehaviour:
   TargetScore: 40
   DifficultyMult: 1
   TurnsGoal: 15
+  LevelNum: 0
+  isArcade: 0
 --- !u!1 &2019787585
 GameObject:
   m_ObjectHideFlags: 0
@@ -7417,7 +7465,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4504552617973228, guid: 2e6591b7b17f53742876454850846038, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114554203916473984, guid: 2e6591b7b17f53742876454850846038,
         type: 2}
@@ -7473,7 +7521,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -12, y: -644}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2070848650
 MonoBehaviour:
@@ -7481,7 +7529,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2070848648}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -7567,6 +7615,8 @@ MonoBehaviour:
   TargetScore: 150
   DifficultyMult: 1
   TurnsGoal: 25
+  LevelNum: 0
+  isArcade: 0
 --- !u!1 &2071611815
 GameObject:
   m_ObjectHideFlags: 0
@@ -7723,7 +7773,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4504552617973228, guid: 2e6591b7b17f53742876454850846038, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114554203916473984, guid: 2e6591b7b17f53742876454850846038,
         type: 2}
