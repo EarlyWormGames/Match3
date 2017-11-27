@@ -156,11 +156,14 @@ public class GameManager : MonoBehaviour
 
         //Set the score display
         m_ScoreBar.Percentage = (float)Score / Mediator.Settings.TargetScore;
+        
 
         if (Score >= Mediator.Settings.TargetScore)
         {
             GameOver(true);
         }
+
+        m_WBCA.SetFloat("TurnsLeft", Mathf.Lerp(m_WBCA.GetFloat("TurnsLeft"), (float)m_WBCATurnsLeft / (float)(m_WBCATurns - 1), Time.deltaTime * 3));
 
         //If we have items to destroy, this list will be filled
         if (DestroyingList.Count > 0)
@@ -446,6 +449,7 @@ public class GameManager : MonoBehaviour
         if (m_WBCATurnsLeft <= 0)
             m_WBCA.SetTrigger("Show");
         m_WBCATurnsLeft = m_WBCATurns;
+        m_WBCA.SetFloat("TurnsLeft", 1);
     }
 
     public void Refilled()
