@@ -13,6 +13,7 @@ public class SaveData
     public static int LevelCount = 25;
     public static bool IsDev = false;
     public static int LastArcade = -1;
+    public static long ArcadeScore;
 
     private static XmlDocument loadedDoc;
 
@@ -45,8 +46,15 @@ public class SaveData
                 arcade = loadedDoc.CreateElement("Arcade");
                 loadedDoc.DocumentElement.AppendChild(arcade);
             }
-
             arcade.InnerText = LastArcade.ToString();
+
+            XmlElement arcadeScore = (XmlElement)loadedDoc.SelectSingleNode("/SaveData/ArcadeScore");
+            if (arcadeScore == null)
+            {
+                arcadeScore = loadedDoc.CreateElement("ArcadeScore");
+                loadedDoc.DocumentElement.AppendChild(arcadeScore);
+            }
+            arcadeScore.InnerText = ArcadeScore.ToString();
 
             //Grab the scores (1,2,3 stars) for the levels
             XmlElement levels = (XmlElement)loadedDoc.SelectSingleNode("/SaveData/Levels");
@@ -80,6 +88,9 @@ public class SaveData
             XmlElement arcade = loadedDoc.CreateElement("Arcade");
             root.AppendChild(arcade);
 
+            XmlElement arcadeScore = loadedDoc.CreateElement("ArcadeScore");
+            root.AppendChild(arcadeScore);
+
             Save();
         }
     }
@@ -91,6 +102,9 @@ public class SaveData
 
         XmlElement arcade = (XmlElement)loadedDoc.SelectSingleNode("/SaveData/Arcade");
         arcade.InnerText = LastArcade.ToString();
+
+        XmlElement arcadeScore = (XmlElement)loadedDoc.SelectSingleNode("/SaveData/ArcadeScore");
+        arcadeScore.InnerText = ArcadeScore.ToString();
 
         //Create the parent of all the level elements
         XmlElement levels = (XmlElement)loadedDoc.SelectSingleNode("/SaveData/Levels");

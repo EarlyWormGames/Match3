@@ -90,12 +90,12 @@ public class GameManager : MonoBehaviour
     public Canvas m_MainCanvas;
     public GridCreator m_Grid;
     public GameObject m_ScorePanel;
-    public TextMeshProUGUI m_NameText;
     public PercentageMovement m_ScoreBar;
     public TextMeshProUGUI m_TurnsText;
     public GameObject m_WinPanel;
     public GameObject m_LosePanel;
     public StarShower m_Stars;
+    public NumberScroller m_FinalScore;
     public Animator m_WBCA;
 
     [Header("Values")]
@@ -127,7 +127,7 @@ public class GameManager : MonoBehaviour
     private bool m_WasEmpty;
     private bool m_bSwapped;
     private int m_TurnsMade = 0;
-    
+
     private float GameTimer;
 
     // Use this for initialization
@@ -137,11 +137,18 @@ public class GameManager : MonoBehaviour
         {
             Mediator.Settings = new GameSettings();
         }
-        
+
         m_TurnsLeft = Mediator.Settings.Turns;
         m_TurnsText.text = m_TurnsLeft.ToString();
 
-        Score = (int)(Mediator.Settings.TargetScore / 2f);
+        if (Mediator.Settings.isArcade)
+        {
+            m_TurnsText.text = 0.ToString();
+        }
+        else
+        {
+            Score = (int)(Mediator.Settings.TargetScore / 2f);
+        }
 
         if (Mediator.Settings.SpawnObject != null)
             Instantiate(Mediator.Settings.SpawnObject);
@@ -156,7 +163,6 @@ public class GameManager : MonoBehaviour
 
         //Set the score display
         m_ScoreBar.Percentage = (float)Score / Mediator.Settings.TargetScore;
-        
 
         if (Score >= Mediator.Settings.TargetScore)
         {
@@ -270,24 +276,51 @@ public class GameManager : MonoBehaviour
                         finalscore = 3;
                     }
 
-                    if (finalscore > SaveData.LevelScores[Mediator.Settings.Level])
+                    if (finalscore > SaveData.LevelScores[Mediator.Settings.Level] && !Mediator.Settings.isArcade)
                     {
                         SaveData.LevelScores[Mediator.Settings.Level] = finalscore;
                         SaveData.Save();
                     }
-                    m_Stars.ShowStars(finalscore);
 
-                    Analytics.CustomEvent("Game Won", new Dictionary<string, object>
-                      {
-                        { "level", Mediator.Settings.Level },
-                        { "score", Score },
-                        { "target-score", Mediator.Settings.TargetScore },
-                        { "turns-left", m_TurnsLeft },
-                        { "target-turns", Mediator.Settings.Turns},
-                        { "final-score", finalscore },
-                        { "Time-played", GameTimer}
-                      });
+                    if (!Mediator.Settings.isArcade)
+                    {
+                        m_Stars.ShowStars(finalscore);
 
+                        Analytics.CustomEvent("Game Won", new Dictionary<string, object>
+                          {
+                            { "level", Mediator.Settings.Level },
+                            { "score", Score },
+                            { "target-score", Mediator.Settings.TargetScore },
+                            { "turns-left", m_TurnsLeft },
+                            { "target-turns", Mediator.Settings.Turns},
+                            { "final-score", finalscore },
+                            { "Time-played", GameTimer}
+                          });
+                    }
+                    else
+                    {
+                        m_Stars.gameObject.SetActive(false);
+                        m_FinalScore.gameObject.SetActive(true);
+
+                        float bonus = Mediator.Settings.ArcadeScore * (1 - (m_TurnsMade / (float)Mediator.Settings.Turns));
+                        finalscore = (int)((Mediator.Settings.Level + 1) * Mathf.Max(0, bonus));
+                        m_FinalScore.BeginScroll(finalscore);
+
+                        SaveData.LastArcade = Mediator.Settings.Level;
+                        SaveData.ArcadeScore += finalscore;
+                        SaveData.Save();
+
+                        Analytics.CustomEvent("Arcade Won", new Dictionary<string, object>
+                          {
+                            { "level", Mediator.Settings.Level },
+                            { "score", Score },
+                            { "target-score", Mediator.Settings.TargetScore },
+                            { "turns-made", m_TurnsMade },
+                            { "target-turns", Mediator.Settings.Turns},
+                            { "final-score", finalscore },
+                            { "Time-played", GameTimer}
+                          });
+                    }
                 }
             }
             else
@@ -465,9 +498,12 @@ public class GameManager : MonoBehaviour
             --m_TurnsLeft;
             --m_WBCATurnsLeft;
 
-            m_TurnsText.text = m_TurnsLeft.ToString();
+            if (Mediator.Settings.isArcade)
+                m_TurnsText.text = m_TurnsMade.ToString();
+            else
+                m_TurnsText.text = m_TurnsLeft.ToString();
 
-            if (m_TurnsLeft <= 0)
+            if (m_TurnsLeft <= 0 && !Mediator.Settings.isArcade)
             {
                 GameOver(false);
             }
