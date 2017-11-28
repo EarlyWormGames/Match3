@@ -235,9 +235,10 @@ MonoBehaviour:
   ColourChance: 1
   GridWidth: 5
   GridHeight: 7
-  TargetScore: 100
+  TargetScore: 20
   DifficultyMult: 1
   TurnsGoal: 15
+  LevelNum: 0
   isArcade: 1
   sceneMan: {fileID: 1501243488}
   scene: Game
