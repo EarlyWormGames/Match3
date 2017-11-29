@@ -12,6 +12,9 @@ public class PercentageMovement : MonoBehaviour
     public float LerpSpeed = 1;
 
     public Image m_Image;
+    public Image m_Tooth;
+    public ParticleSystem m_PlusParticle;
+    public ParticleSystem m_MinusParticle;
     public TrailRenderer m_Changer;
     public Transform BarStart;
     public Transform BarFinish;
@@ -23,6 +26,8 @@ public class PercentageMovement : MonoBehaviour
     GameObject ObjectToMove;
     bool NoErrors = true;
 
+    float lastPercent;
+
     // Use this for initialization
     void Start()
     {
@@ -32,6 +37,7 @@ public class PercentageMovement : MonoBehaviour
             ObjectToMove = this.gameObject;
         }
         m_Image.fillAmount = Mathf.Lerp(0, 1, PercentagePosition.Evaluate(Debug ? DebugScore : Percentage));
+        lastPercent = Percentage;
     }
 
     // Update is called once per frame
@@ -53,14 +59,28 @@ public class PercentageMovement : MonoBehaviour
             {
                 m_Image.color = Color.Lerp(m_Image.color,GoodColor, Time.deltaTime);
             }
+
+            if(Percentage != lastPercent)
+            {
+                if(Percentage > lastPercent)
+                {
+                    m_PlusParticle.Play();
+                }
+                else
+                {
+                    m_MinusParticle.Play();
+                }
+                lastPercent = Percentage;
+            }
             //Lerp the between the start and finish positions, using the Percentage
             float Lerp = Mathf.Lerp(0, 1, PercentagePosition.Evaluate(Debug ? DebugScore : Percentage));
 
             //Movement of the Object
             m_Image.fillAmount = Mathf.Lerp(m_Image.fillAmount, Lerp, Time.deltaTime * LerpSpeed);
+            m_Tooth.fillAmount = m_Image.fillAmount;
 
-            float ParticleLerp = Mathf.Lerp(BarStart.position.x, BarFinish.position.x, PercentagePosition.Evaluate(Debug ? DebugScore : Percentage));
-            m_Changer.transform.position = new Vector3(Mathf.Lerp(m_Changer.transform.position.x, ParticleLerp, Time.deltaTime * LerpSpeed), m_Changer.transform.position.y, m_Changer.transform.position.z);
+            float TrailLerp = Mathf.Lerp(BarStart.position.x, BarFinish.position.x, PercentagePosition.Evaluate(Debug ? DebugScore : Percentage));
+            m_Changer.transform.position = new Vector3(Mathf.Lerp(m_Changer.transform.position.x, TrailLerp, Time.deltaTime * LerpSpeed), m_Changer.transform.position.y, m_Changer.transform.position.z);
 
             
             m_Changer.startColor = Percentage < m_Image.fillAmount ? BadColor : GoodColor;
