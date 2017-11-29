@@ -26,7 +26,10 @@ public class EndScreen : MonoBehaviour
 
     public void Menu()
     {
-        GameManager.instance.SubmitScore("WorldSelection");
+        if (!Mediator.Settings.isArcade)
+            GameManager.instance.SubmitScore("WorldSelection");
+        else
+            GameManager.instance.SubmitScore("Arcade");
     }
 
     public void TryAgain()

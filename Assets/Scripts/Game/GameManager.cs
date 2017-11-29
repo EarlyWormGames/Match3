@@ -93,6 +93,7 @@ public class GameManager : MonoBehaviour
     public PercentageMovement m_ScoreBar;
     public TextMeshProUGUI m_TurnsText;
     public GameObject m_WinPanel;
+    public GameObject m_ArcadeWinPanel;
     public GameObject m_LosePanel;
     public StarShower m_Stars;
     public NumberScroller m_FinalScore;

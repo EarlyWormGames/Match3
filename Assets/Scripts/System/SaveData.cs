@@ -45,16 +45,18 @@ public class SaveData
             {
                 arcade = loadedDoc.CreateElement("Arcade");
                 loadedDoc.DocumentElement.AppendChild(arcade);
+                arcade.InnerText = LastArcade.ToString();
             }
-            arcade.InnerText = LastArcade.ToString();
+            LastArcade = Convert.ToInt32(arcade.InnerText);
 
             XmlElement arcadeScore = (XmlElement)loadedDoc.SelectSingleNode("/SaveData/ArcadeScore");
             if (arcadeScore == null)
             {
                 arcadeScore = loadedDoc.CreateElement("ArcadeScore");
                 loadedDoc.DocumentElement.AppendChild(arcadeScore);
+                arcadeScore.InnerText = ArcadeScore.ToString();
             }
-            arcadeScore.InnerText = ArcadeScore.ToString();
+            ArcadeScore = Convert.ToInt64(arcadeScore.InnerText);
 
             //Grab the scores (1,2,3 stars) for the levels
             XmlElement levels = (XmlElement)loadedDoc.SelectSingleNode("/SaveData/Levels");
