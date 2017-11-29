@@ -260,7 +260,10 @@ public class GameManager : MonoBehaviour
             if (a_success)
             {
                 //Misison passed! Respect+
-                m_WinPanel.SetActive(true);
+                if (!Mediator.Settings.isArcade)
+                    m_WinPanel.SetActive(true);
+                else
+                    m_ArcadeWinPanel.SetActive(true);
 
                 if (Mediator.Settings.Level > -1)
                 {
@@ -300,9 +303,6 @@ public class GameManager : MonoBehaviour
                     }
                     else
                     {
-                        m_Stars.gameObject.SetActive(false);
-                        m_FinalScore.gameObject.SetActive(true);
-
                         float bonus = Mediator.Settings.ArcadeScore * (1 - (m_TurnsMade / (float)Mediator.Settings.Turns));
                         finalscore = (int)((Mediator.Settings.Level + 1) * Mathf.Max(0, bonus));
                         m_FinalScore.BeginScroll(finalscore);

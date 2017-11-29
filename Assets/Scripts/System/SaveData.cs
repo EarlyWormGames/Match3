@@ -23,8 +23,9 @@ public class SaveData
         Load(LevelCount);
     }
 
-    public static void Load(int LevelCount)
+    public static void Load(int count)
     {
+        LevelCount = count;
         LevelScores = new int[LevelCount];
         if (File.Exists(Application.persistentDataPath + "/SaveData.txt"))
         {
@@ -70,6 +71,10 @@ public class SaveData
         }
         else
         {
+            FreeTurns = 0;
+            LastArcade = -1;
+            ArcadeScore = 0;
+
             File.Create(Application.persistentDataPath + "/SaveData.txt").Close();
 
             //Create an empty xmldoc

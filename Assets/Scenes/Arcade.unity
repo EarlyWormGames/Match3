@@ -244,6 +244,7 @@ MonoBehaviour:
   scene: Game
   levelDisplay: {fileID: 792593177}
   scoreDisplay: {fileID: 909072831}
+  TurnsLog: 1.5
 --- !u!1 &202073520
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,6 +9,7 @@ public class ArcadeSelect : LevelSettings
     public string scene;
     public TextMeshProUGUI levelDisplay;
     public TextMeshProUGUI scoreDisplay;
+    public float TurnsLog = 10;
 
     // Use this for initialization
     void Start()
@@ -17,6 +18,8 @@ public class ArcadeSelect : LevelSettings
 
         levelDisplay.text = (LevelNum + 1).ToString();
         scoreDisplay.text = SaveData.ArcadeScore.ToString();
+
+        TurnsGoal = (int)(Mathf.Log(LevelNum + 1, TurnsLog) + 0.5f) + 40;
     }
 
     protected override void OnClick()
