@@ -4,4 +4,5 @@ using UnityEngine;
 
 public class DrDecayUI : BadGuyUI
 {
+    public ParticleSystem m_ZapParticle;
 }
