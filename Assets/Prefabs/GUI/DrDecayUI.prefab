@@ -367,6 +367,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Animator: {fileID: 95374978427245554}
   UseInstance: 1
+  m_ZapParticle: {fileID: 198150681191778490}
 --- !u!198 &198000831965370530
 ParticleSystem:
   m_ObjectHideFlags: 1
