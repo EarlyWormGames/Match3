@@ -10,6 +10,7 @@ public class BadGuyUI : MonoBehaviour
     public Animator m_Animator;
     public FinishDel m_ShowDone;
     public FinishDel m_HideDone;
+    public FinishDel m_BlockedDone;
     public bool UseInstance = true;
 
     // Use this for initialization
@@ -28,6 +29,12 @@ public class BadGuyUI : MonoBehaviour
     public void Show()
     {
         m_Animator.SetBool("Hide", false);
+        m_Animator.SetBool("Blocked", false);
+    }
+
+    public void Blocked()
+    {
+        m_Animator.SetBool("Blocked", true);
     }
 
     public void Hide()
@@ -39,6 +46,12 @@ public class BadGuyUI : MonoBehaviour
     {
         if (m_ShowDone != null)
             m_ShowDone();
+    }
+
+    public void BlockedDone()
+    {
+        if (m_BlockedDone != null)
+            m_BlockedDone();
     }
 
     public void HideDone()
