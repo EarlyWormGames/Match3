@@ -20,6 +20,7 @@ public class PersistantData : MonoBehaviour
         instance = new GameObject().AddComponent<PersistantData>();
         DontDestroyOnLoad(instance.gameObject);
 
+        instance.Prefab = Resources.Load<GameObject>("PersistantCanvas");
         DontDestroyOnLoad(Instantiate(instance.Prefab));
     }
 
