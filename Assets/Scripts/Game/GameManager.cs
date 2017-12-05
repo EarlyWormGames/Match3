@@ -280,10 +280,13 @@ public class GameManager : MonoBehaviour
                         finalscore = 3;
                     }
 
-                    if (finalscore > SaveData.LevelScores[Mediator.Settings.Level] && !Mediator.Settings.isArcade)
+                    if (!Mediator.Settings.isArcade)
                     {
-                        SaveData.LevelScores[Mediator.Settings.Level] = finalscore;
-                        SaveData.Save();
+                        if (finalscore > SaveData.LevelScores[Mediator.Settings.Level])
+                        {
+                            SaveData.LevelScores[Mediator.Settings.Level] = finalscore;
+                            SaveData.Save();
+                        }
                     }
 
                     if (!Mediator.Settings.isArcade)

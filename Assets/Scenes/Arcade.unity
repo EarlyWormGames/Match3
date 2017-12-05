@@ -1217,7 +1217,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0013123, y: 118}
+  m_AnchoredPosition: {x: 0.0013123001, y: 118}
   m_SizeDelta: {x: 535.77, y: 154.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &909072831
@@ -1582,6 +1582,7 @@ GameObject:
   - component: {fileID: 1214665859}
   - component: {fileID: 1214665858}
   - component: {fileID: 1214665857}
+  - component: {fileID: 1214665860}
   - component: {fileID: 1214665856}
   m_Layer: 5
   m_Name: BackBtn
@@ -1617,23 +1618,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1214665854}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4dba244336a2fd04595ac91c7101c74a, type: 3}
+  m_Script: {fileID: 11500000, guid: a1348b0b0219af64f866752188133560, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RequiredChain: 4
-  ColourChance: 1
-  GridWidth: 5
-  GridHeight: 7
-  TargetScore: 20
-  DifficultyMult: 1
-  TurnsGoal: 15
-  LevelNum: 0
-  isArcade: 1
-  sceneMan: {fileID: 1501243488}
-  scene: Game
-  levelDisplay: {fileID: 792593177}
-  scoreDisplay: {fileID: 909072831}
-  TurnsLog: 1.5
+  FadeOutTexture: {fileID: 2800000, guid: 764e4c55f5c29be4192114cdcfd27abf, type: 3}
+  FadeSpeed: 0.8
 --- !u!114 &1214665857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1672,7 +1661,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1214665858}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1214665860}
+        m_MethodName: ChangeSceneTo
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Menu
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1214665858
@@ -1708,6 +1708,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1214665854}
+--- !u!114 &1214665860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1214665854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe77e3fedd59b8a4696766a9c5a36a7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1299520456
 GameObject:
   m_ObjectHideFlags: 0
@@ -1740,7 +1751,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0013199, y: 0.0000076293945}
+  m_AnchoredPosition: {x: 0.0013199002, y: 0.0000076293945}
   m_SizeDelta: {x: 535.77, y: 70.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1299520458
