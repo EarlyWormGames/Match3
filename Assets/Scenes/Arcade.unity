@@ -1217,7 +1217,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0013123, y: 118}
+  m_AnchoredPosition: {x: 0.0013123001, y: 118}
   m_SizeDelta: {x: 535.77, y: 154.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &909072831
@@ -1630,7 +1630,7 @@ MonoBehaviour:
   LevelNum: 0
   isArcade: 1
   sceneMan: {fileID: 1501243488}
-  scene: Game
+  scene: Menu
   levelDisplay: {fileID: 792593177}
   scoreDisplay: {fileID: 909072831}
   TurnsLog: 1.5
@@ -1740,7 +1740,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0013199, y: 0.0000076293945}
+  m_AnchoredPosition: {x: 0.0013199002, y: 0.0000076293945}
   m_SizeDelta: {x: 535.77, y: 70.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1299520458
