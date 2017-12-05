@@ -239,12 +239,14 @@ MonoBehaviour:
   m_RelativeAfterEX: 1
   m_CanSwap: 1
   m_CanDestroy: 1
-  m_SpawnChance: 1
+  m_SpawnChance: 5
   m_NotifiesDestroy: 1
   m_MatchAnyColour: 0
   m_MatchAnyButOwn: 0
   m_SwapOnly: 0
   m_Scale: {x: 1, y: 1, z: 1}
+  m_ConnectorParticle: {fileID: 198504755282442058, guid: 587c5bd47d2a49c48aaf06df2956ef3e,
+    type: 2}
 --- !u!114 &114289026876517734
 MonoBehaviour:
   m_ObjectHideFlags: 1
