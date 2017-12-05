@@ -8,6 +8,6 @@ public class VersionRender : MonoBehaviour
     // Use this for initialization
     void Update()
     {
-        GetComponent<TMPro.TextMeshProUGUI>().text = string.IsNullOrEmpty(Application.version) ? "0.3.6" : Application.version;
+        GetComponent<TMPro.TextMeshProUGUI>().text = "0.3.7";
     }
 }
