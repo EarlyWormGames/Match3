@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class CutsceneActivator : MonoBehaviour
 {
-    private void OnEnable()
+    public void Next()
     {
         if (Cutscene.current == null)
             return;
 
         Cutscene.current.NextEvent();
-        gameObject.SetActive(false);
     }
 }

@@ -28,7 +28,7 @@ public class HighScores : MonoBehaviour
         if (fileExists == false)
         {
             // Error if the file cannot be found
-            Debug.LogError("The file " + scoreFileName +
+            Debug.LogWarning("The file " + scoreFileName +
            " does not exist. No scores will be loaded.", this);
             return;
         }
