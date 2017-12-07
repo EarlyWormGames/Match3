@@ -9,21 +9,15 @@ public class TextChangerPlayable : PlayableBehaviour
     public TextMeshProUGUI TextObject;
     public string Text;
 
-    private string oldText;
-    private bool set = false;
-
     public override void OnBehaviourPlay(Playable playable, FrameData info)
+    {
+    }
+
+    public override void ProcessFrame(Playable playable, FrameData info, object playerData)
     {
         if (TextObject != null)
         {
-            if (!set)
-            {
-                set = true;
-                oldText = TextObject.text;
-            }
             TextObject.text = Text;
         }
     }
-
-    
 }

@@ -20049,7 +20049,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0000019073486, y: -169.10002}
+  m_AnchoredPosition: {x: 0.0000019073486, y: -169.10004}
   m_SizeDelta: {x: -73, y: -369.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1205018686
@@ -21019,9 +21019,12 @@ PlayableDirector:
     value: {fileID: 347788610}
   - key: {fileID: 0}
     value: {fileID: 500631457}
+  - key: {fileID: 114103248629091928, guid: 9e6b734ef224ad2499b01f4509e22a80, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References:
     - 73783d33cf1f5ce4b911bcfc0217e061: {fileID: 500631459}
+    - 10a3dcb9536aa164e98c164c53b3ee56: {fileID: 500631459}
     - a45ba058fd7f577469ea6e31953e3682: {fileID: 1160340626}
 --- !u!1 &1343406952
 GameObject:

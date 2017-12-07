@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Playables;
 
 [Serializable]
-public class CutscenePlayable : PlayableBehaviour
+public class TapToResumePlayable : PlayableBehaviour
 {
     public CutsceneActivator activator;
     public PlayableDirector director;
