@@ -18,7 +18,7 @@ public class TapToResumePlayable : PlayableBehaviour
         if (activator != null)
             activator.Next();
 
-        if (Pause && !hasPaused)
+        if (!hasPaused)
             director.Pause();
 
         hasPaused = true;
@@ -40,7 +40,7 @@ public class TapToResumePlayable : PlayableBehaviour
 
         if (Application.isPlaying)
         {
-            Cutscene.ClickEvent -= UnPause;
+            Cutscene.ClickEvent += UnPause;
         }
     }
 

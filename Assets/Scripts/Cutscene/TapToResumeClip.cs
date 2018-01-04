@@ -17,6 +17,7 @@ public class TapToResumeClip : PlayableAsset, ITimelineClipAsset
     {
         var playable = ScriptPlayable<TapToResumePlayable>.Create(graph, new TapToResumePlayable());
         var clone = playable.GetBehaviour();
+        clone.director = owner.GetComponent<PlayableDirector>();
         return playable;
     }
 }
