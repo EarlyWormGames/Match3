@@ -13,7 +13,7 @@ public class CutsceneController : MonoBehaviour
     public CutsceneLevel[] Cutscenes;
 
 
-    private void Awake()
+    private void Start()
     {
         foreach (var item in Cutscenes)
         {
