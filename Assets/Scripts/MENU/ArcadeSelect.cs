@@ -28,6 +28,7 @@ public class ArcadeSelect : LevelSettings
         scoreDisplay.text = SaveData.ArcadeScore.ToString();
 
         TurnsGoal = (int)(Mathf.Log(LevelNum + 1, TurnsLog) + 0.5f) + 40;
+        TargetScore = (int)(Mathf.Log(LevelNum + 1, TurnsLog) + 0.5f) + 50;
         DifficultyMult = Mathf.Log(LevelNum + 1, TurnsLog);
         int i = 0;
         for (i = 0; i < levelSizes.Length; ++i)
