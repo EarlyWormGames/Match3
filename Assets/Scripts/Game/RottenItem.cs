@@ -16,8 +16,6 @@ public class RottenItem : NodeItem
     public SpriteType[] m_Sprites;
     public ParticleSystem m_CleaningExplosion;
 
-    private bool hasSpread = false;
-
     protected override void OnStart()
     {
         base.OnStart();
@@ -86,7 +84,6 @@ public class RottenItem : NodeItem
             nodes[rand].m_RespawnType = spawn.gameObject;
             nodes[rand].m_RespawnIsSpawned = true;
             nodes[rand].StartDestroy(false);
-            hasSpread = true;
         }
     }
 
