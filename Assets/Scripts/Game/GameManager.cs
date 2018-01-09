@@ -163,7 +163,7 @@ public class GameManager : MonoBehaviour
         if (m_IsGameOver) return;
 
         //Set the score display
-        m_ScoreBar.Percentage = (float)Score / Mediator.Settings.TargetScore;
+        m_ScoreBar.SetPercentage((float)Score / Mediator.Settings.TargetScore);
 
         if (Score >= Mediator.Settings.TargetScore)
         {
