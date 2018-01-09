@@ -18382,6 +18382,7 @@ GameObject:
   - component: {fileID: 840053755}
   - component: {fileID: 840053757}
   - component: {fileID: 840053756}
+  - component: {fileID: 840053758}
   m_Layer: 5
   m_Name: Tooth Sick
   m_TagString: Untagged
@@ -18399,7 +18400,6 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.9996804, y: 0.9996804, z: 0.9996804}
   m_Children:
-  - {fileID: 1964000648}
   - {fileID: 405672356}
   - {fileID: 430051585}
   m_Father: {fileID: 1023936639}
@@ -18422,7 +18422,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.92941177, b: 0.8235294, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -18443,6 +18443,32 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 840053754}
+--- !u!114 &840053758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 840053754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ca10e22d5e4a2446b210c8edf5f43cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBar: {fileID: 1178063298}
+  m_Tooth: {fileID: 840053756}
+  m_PlusParticle: {fileID: 405672354}
+  m_MinusParticle: {fileID: 430051583}
+  m_Changes:
+  - sprite: {fileID: 21300000, guid: 19b52dd8d2f2e1a4092d3389c8de6365, type: 3}
+    percentage: 0
+  - sprite: {fileID: 21300000, guid: 42b11949e813aa54eaa0b1689bf50a38, type: 3}
+    percentage: 0.2
+  - sprite: {fileID: 21300000, guid: 0afb7890e9f35994e8b8d590056b2605, type: 3}
+    percentage: 0.4
+  - sprite: {fileID: 21300000, guid: a9c8dd7eb437a2b458c991118f2f659e, type: 3}
+    percentage: 0.6
+  - sprite: {fileID: 21300000, guid: 1f5095fc0e2e0624f8fd97db8e2034fe, type: 3}
+    percentage: 0.8
 --- !u!1 &847167577
 GameObject:
   m_ObjectHideFlags: 0
@@ -21183,7 +21209,7 @@ Prefab:
         type: 2}
       propertyPath: m_Tooth
       value: 
-      objectReference: {fileID: 1964000649}
+      objectReference: {fileID: 0}
     - target: {fileID: 114700180504098366, guid: cd604d788831c7a40b4c78dc07b33775,
         type: 2}
       propertyPath: m_PlusParticle
@@ -34742,74 +34768,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1964000647
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1964000648}
-  - component: {fileID: 1964000650}
-  - component: {fileID: 1964000649}
-  m_Layer: 5
-  m_Name: Tooth Healthy
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1964000648
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1964000647}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.0003197, y: 1.0003197, z: 1.0003197}
-  m_Children: []
-  m_Father: {fileID: 840053755}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 65.9996, y: -88.080124}
-  m_SizeDelta: {x: 131.81, y: 342.40002}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1964000649
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1964000647}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: ceba43881d73329488c5b85c5cec16bb, type: 3}
-  m_Type: 3
-  m_PreserveAspect: 1
-  m_FillCenter: 1
-  m_FillMethod: 1
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
---- !u!222 &1964000650
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1964000647}
 --- !u!4 &1978124845 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4098280015626818, guid: 529efaaa2cc893941b12af26c94ea207,
