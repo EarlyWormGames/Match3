@@ -509,7 +509,7 @@ public class GameManager : MonoBehaviour
                 GameOver(false);
             }
             // Change turns made to  --------------------> 3
-            if (BadGuyUI.instance == null && m_TurnsMade > 0 && m_WBCATurnsLeft <= 0)
+            if (BadGuyUI.instance == null && m_TurnsMade > 3 && m_WBCATurnsLeft <= 0)
             {
                 int rand = Random.Range(0, m_BadGuySpawnChance);
                 if (rand == 0)
