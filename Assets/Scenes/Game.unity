@@ -4340,7 +4340,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 551423499
+  randomSeed: 1735487704
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -7797,7 +7797,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 339211925
+  randomSeed: 2120127299
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -12411,7 +12411,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1.5999999, y: 5.6099997}
+  m_AnchoredPosition: {x: 0, y: 5.61}
   m_SizeDelta: {x: -25.21, y: -11.22}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &334552921
@@ -12841,22 +12841,22 @@ Prefab:
     - target: {fileID: 224778088050232152, guid: 089a061d6a2b1ed4494ce5f555208a8c,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 224778088050232152, guid: 089a061d6a2b1ed4494ce5f555208a8c,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 25.92
       objectReference: {fileID: 0}
     - target: {fileID: 224778088050232152, guid: 089a061d6a2b1ed4494ce5f555208a8c,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 112.1
+      value: 326.7
       objectReference: {fileID: 0}
     - target: {fileID: 224778088050232152, guid: 089a061d6a2b1ed4494ce5f555208a8c,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 112.1
+      value: 153.48
       objectReference: {fileID: 0}
     - target: {fileID: 224778088050232152, guid: 089a061d6a2b1ed4494ce5f555208a8c,
         type: 2}
@@ -12907,6 +12907,73 @@ Prefab:
         type: 2}
       propertyPath: m_LocalScale.z
       value: 0.82029444
+      objectReference: {fileID: 0}
+    - target: {fileID: 114850490138742206, guid: 089a061d6a2b1ed4494ce5f555208a8c,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: fcb3271513429bd46b4a14be30d032a7,
+        type: 3}
+    - target: {fileID: 114753392896358424, guid: 089a061d6a2b1ed4494ce5f555208a8c,
+        type: 2}
+      propertyPath: m_Colors.m_NormalColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114753392896358424, guid: 089a061d6a2b1ed4494ce5f555208a8c,
+        type: 2}
+      propertyPath: m_Colors.m_NormalColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114753392896358424, guid: 089a061d6a2b1ed4494ce5f555208a8c,
+        type: 2}
+      propertyPath: m_Colors.m_NormalColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114753392896358424, guid: 089a061d6a2b1ed4494ce5f555208a8c,
+        type: 2}
+      propertyPath: m_Transition
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114753392896358424, guid: 089a061d6a2b1ed4494ce5f555208a8c,
+        type: 2}
+      propertyPath: m_SpriteState.m_PressedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2de18c4bc0b9ac74da8c8d0f8fe43014,
+        type: 3}
+    - target: {fileID: 114850490138742206, guid: 089a061d6a2b1ed4494ce5f555208a8c,
+        type: 2}
+      propertyPath: m_PreserveAspect
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114668170549870038, guid: 089a061d6a2b1ed4494ce5f555208a8c,
+        type: 2}
+      propertyPath: m_Text
+      value: Setting
+      objectReference: {fileID: 0}
+    - target: {fileID: 224358584309365136, guid: 089a061d6a2b1ed4494ce5f555208a8c,
+        type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224358584309365136, guid: 089a061d6a2b1ed4494ce5f555208a8c,
+        type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224358584309365136, guid: 089a061d6a2b1ed4494ce5f555208a8c,
+        type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224358584309365136, guid: 089a061d6a2b1ed4494ce5f555208a8c,
+        type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224358584309365136, guid: 089a061d6a2b1ed4494ce5f555208a8c,
+        type: 2}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 089a061d6a2b1ed4494ce5f555208a8c, type: 2}
@@ -13206,7 +13273,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1345488575
+  randomSeed: 1033795656
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -17472,7 +17539,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 23fe9ae3ed73c8644887429fd7587834, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 82d606a3959b76e41a8ad6f7c77b9f61, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -21323,7 +21390,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 53, y: -167.00003}
+  m_AnchoredPosition: {x: 49, y: -151}
   m_SizeDelta: {x: 184.29999, y: 160.20001}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1328957189
@@ -31442,7 +31509,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1979687063
+  randomSeed: 1510848811
   InitialModule:
     serializedVersion: 3
     enabled: 1

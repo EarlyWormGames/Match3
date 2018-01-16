@@ -7,6 +7,7 @@ public class SettingsCanvasManager : MonoBehaviour
 {
     public Animator OptionsAnim;
 
+    private bool IsSettingsOpen = false;
     // Use this for initialization
     void Start()
     {
@@ -24,9 +25,13 @@ public class SettingsCanvasManager : MonoBehaviour
 
     public void OpenSettingsMenu()
     {
-        OptionsAnim.SetBool("Enter", true);
-        OptionsAnim.SetTrigger("Triger");
-        GameManager.CanDrag = false;
+        if (IsSettingsOpen == false)
+        {
+            OptionsAnim.SetBool("Enter", true);
+            OptionsAnim.SetTrigger("Triger");
+            GameManager.CanDrag = false;
+            IsSettingsOpen = true;
+        }
     }
 
     public void CloseSettingsMenu()
@@ -34,6 +39,7 @@ public class SettingsCanvasManager : MonoBehaviour
         OptionsAnim.SetBool("Enter", false);
         OptionsAnim.SetTrigger("Triger");
         GameManager.CanDrag = true;
+        IsSettingsOpen = false;
     }
 
 
