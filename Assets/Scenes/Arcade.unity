@@ -251,17 +251,17 @@ MonoBehaviour:
   scoreDisplay: {fileID: 909072831}
   TurnsLog: 1.5
   TurnsBase: 40
-  ScoreBase: 10
+  ScoreBase: 40
   levelSizes:
-  - num: 0
-    size: {x: 4, y: 4}
-  - num: 0
+  - num: 3
+    size: {x: 4, y: 5}
+  - num: 6
     size: {x: 5, y: 5}
-  - num: 0
+  - num: 10
     size: {x: 6, y: 6}
-  - num: 0
+  - num: 14
     size: {x: 6, y: 7}
-  - num: 0
+  - num: 18
     size: {x: 7, y: 8}
 --- !u!1 &202073520
 GameObject:
@@ -1971,6 +1971,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe77e3fedd59b8a4696766a9c5a36a7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LevelSelect: WorldSelection
+  ArcadeScene: Arcade
 --- !u!4 &1501243489
 Transform:
   m_ObjectHideFlags: 0

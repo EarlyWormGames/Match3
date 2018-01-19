@@ -35,12 +35,13 @@ public class ArcadeSelect : LevelSettings
         int i = 0;
         for (i = 0; i < levelSizes.Length; ++i)
         {
-            if (levelSizes[i].num > LevelNum)
+            if (LevelNum <= levelSizes[i].num || i == levelSizes.Length - 1)
+            {
+                GridWidth = (int)levelSizes[i].size.x;
+                GridHeight = (int)levelSizes[i].size.y;
                 break;
+            }
         }
-
-        GridWidth = (int)levelSizes[i].size.x;
-        GridHeight = (int)levelSizes[i].size.y;
     }
 
     protected override void OnClick()

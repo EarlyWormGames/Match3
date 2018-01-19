@@ -7,6 +7,7 @@ using UnityEngine.Analytics;
 
 public class ChangeScene : MonoBehaviour
 {
+    public string LevelSelect = "WorldSelection", ArcadeScene = "Arcade";
 
     Fading fade;
 
@@ -35,14 +36,14 @@ public class ChangeScene : MonoBehaviour
         }
     }
 
-    public void ReturnFromGame(string TargetScene)
+    public void ReturnFromGame()
     {
         Analytics.CustomEvent("Return To Menu", new Dictionary<string, object>
             {
                 { "level", Mediator.Settings.Level }
             });
 
-        ChangeSceneTo(TargetScene);
+        ChangeSceneTo(Mediator.Settings.isArcade? ArcadeScene : LevelSelect);
     }
 
     public void ChangeSceneToAndSetUpMediator(string TargetScene)

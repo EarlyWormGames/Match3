@@ -53,4 +53,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DamageMult: 0.2
   m_WaitSeconds: 0.3
-  m_UIPrefab: {fileID: 1624086270873026, guid: 39fdf35d1ed9f014f9025d1789b3bc96, type: 2}
+  m_UIPrefab: {fileID: 1813243701729950, guid: 39fdf35d1ed9f014f9025d1789b3bc96, type: 2}
