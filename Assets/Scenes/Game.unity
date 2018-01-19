@@ -12592,7 +12592,7 @@ Canvas:
   m_OverrideSorting: 1
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 25
+  m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
   m_SortingOrder: -1
   m_TargetDisplay: 0
@@ -17659,6 +17659,7 @@ GameObject:
   - component: {fileID: 686396769}
   - component: {fileID: 686396771}
   - component: {fileID: 686396770}
+  - component: {fileID: 686396772}
   m_Layer: 5
   m_Name: BG
   m_TagString: Untagged
@@ -17717,6 +17718,26 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 686396768}
+--- !u!114 &686396772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 686396768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84dd0135b2744024786fbcd919342b03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  img: {fileID: 686396770}
+  Levels: 0300000006000000090000000c0000000f00000012000000
+  Sprites:
+  - {fileID: 21300000, guid: 11f1706bfbf88ca47b9dd8f91c090878, type: 3}
+  - {fileID: 21300000, guid: b48f4772b2ca5c64bb45cd2c9421d0f3, type: 3}
+  - {fileID: 21300000, guid: c8e1174019b949c43a0b2799b7e953b7, type: 3}
+  - {fileID: 21300000, guid: 82d606a3959b76e41a8ad6f7c77b9f61, type: 3}
+  - {fileID: 21300000, guid: 7d175622957a64a49b1e034161efda5d, type: 3}
+  - {fileID: 21300000, guid: 27e042c2192041c4c9557df96bbe508b, type: 3}
 --- !u!1001 &702706028
 Prefab:
   m_ObjectHideFlags: 0
