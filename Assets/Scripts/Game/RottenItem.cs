@@ -11,8 +11,7 @@ public class RottenItem : NodeItem
         public ItemColour colour;
         public Sprite sprite;
     }
-
-    public Image m_MainImage;
+    
     public SpriteType[] m_Sprites;
     public ParticleSystem m_CleaningExplosion;
 
@@ -91,7 +90,8 @@ public class RottenItem : NodeItem
     {
         if (m_bUseScore)
         {
-            GameManager.Score = GameManager.LastScore - GameManager.LastChainCount;
+            int score = GameManager.LastScore - GameManager.LastChainCount;
+            GameManager.instance.AddScore(score - GameManager.Score);
         }
     }
 }

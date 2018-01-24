@@ -7,6 +7,8 @@ public class JunkItem : NodeItem
     public override void OnEndDestroy()
     {
         if (m_bUseScore)
-            --GameManager.Score;
+        {
+            GameManager.instance.AddScore(-1);
+        }
     }
 }

@@ -99,9 +99,10 @@ public class GameManager : MonoBehaviour
     public NumberScroller m_FinalScore;
     public Animator m_WBCA;
 
+    [Header("Sounds")]
     public AudioSource m_ScoreSound;
-    [Range(0, 1)] public float PitchMin;
-    [Range(1, 3)] public float PitchMax;
+    public AudioSource m_LosePointSound;
+    public AudioSource m_WhooshSound;
 
     [Header("Values")]
     public float m_NodeMoveSpeed = 5f;
@@ -570,10 +571,14 @@ public class GameManager : MonoBehaviour
     public void AddScore(int amount)
     {
         Score += amount;
-        var sound = Instantiate(m_ScoreSound.gameObject).GetComponent<AudioSource>();
-        sound.pitch = Random.Range(PitchMin, PitchMax);
+        var sound = Instantiate(amount > 0? m_ScoreSound.gameObject : m_LosePointSound.gameObject).GetComponent<AudioSource>();
         sound.Play();
         var dest = sound.gameObject.AddComponent<DestroyAfter>();
         StartCoroutine(dest.Begin(1));
+    }
+
+    public static void Whoosh()
+    {
+        instance.m_WhooshSound.PlayOneShot(instance.m_WhooshSound.clip);
     }
 }

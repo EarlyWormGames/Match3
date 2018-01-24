@@ -148,6 +148,7 @@ public class GridNode : MonoBehaviour
                                     {
                                         
                                         m_Shape.Swap(m_Left.m_Shape, Direction.Left);
+                                        GameManager.Whoosh();
                                         GameManager.lastDrag = Direction.Left;
                                     }
                                 }
@@ -167,6 +168,7 @@ public class GridNode : MonoBehaviour
                                     {
                                         
                                         m_Shape.Swap(m_Right.m_Shape, Direction.Right);
+                                        GameManager.Whoosh();
                                         GameManager.lastDrag = Direction.Right;
                                     }
                                 }
@@ -189,6 +191,7 @@ public class GridNode : MonoBehaviour
                                     {
                                         
                                         m_Shape.Swap(m_Down.m_Shape, Direction.Down);
+                                        GameManager.Whoosh();
                                         GameManager.lastDrag = Direction.Down;
                                     }
                                 }
@@ -208,6 +211,7 @@ public class GridNode : MonoBehaviour
                                     {
                                         
                                         m_Shape.Swap(m_Up.m_Shape, Direction.Up);
+                                        GameManager.Whoosh();
                                         GameManager.lastDrag = Direction.Up;
                                     }
                                 }
@@ -222,6 +226,7 @@ public class GridNode : MonoBehaviour
                     {
                         m_SelectedParticleGameObject.SetActive(false);
                         GameManager.dragNItem.Swap(m_Shape, GameManager.GetOpposite(GameManager.lastDrag));
+                        GameManager.Whoosh();
                         GameManager.lastDrag = Direction.None;
                     }
                 }
@@ -230,7 +235,10 @@ public class GridNode : MonoBehaviour
                     //Drag was undone, swap back
                     m_SelectedParticleGameObject.SetActive(false);
                     if (GameManager.lastDrag != Direction.None)
+                    {
                         GameManager.dragNItem.Swap(m_Shape, GameManager.GetOpposite(GameManager.lastDrag));
+                        GameManager.Whoosh();
+                    }
                     GameManager.lastDrag = Direction.None;
                 }
             }
