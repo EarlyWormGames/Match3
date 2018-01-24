@@ -58,8 +58,13 @@ public class BacteriaBro : NodeItem
             ++m_Lifetime;
         if (m_Lifetime >= m_Lifespan)
         {
-            //Tell the node to destroy
-            m_Parent.m_RespawnType = GameManager.instance.m_Petrified;
+            //Tell the node to destroy and be PETRIFIED
+            NodeItem node = Instantiate(m_RespawnType).GetComponent<NodeItem>();
+            node.m_CanSwap = false;
+            node.m_CanDestroy = false;
+            node.m_bPetrified = true;
+            m_Parent.m_RespawnType = node.gameObject;
+            m_Parent.m_RespawnIsSpawned = true;
             m_Parent.StartDestroy();
         }
         else

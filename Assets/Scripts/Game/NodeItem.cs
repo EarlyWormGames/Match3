@@ -29,6 +29,10 @@ public class NodeItem : MonoBehaviour
     public bool m_MatchAnyButOwn = false;
     public bool m_SwapOnly = false;
     public Vector3 m_Scale = new Vector3(1, 1, 1);
+    public Image m_MainImage;
+
+    public Sprite m_PetrifiedSprite;
+    public bool m_bPetrified;
 
     internal GridNode m_Parent;
     internal Animator m_GemAnimator;
@@ -78,6 +82,9 @@ public class NodeItem : MonoBehaviour
         }
         if(m_Explosion != null)
         m_Explosion.Stop();
+
+        if (m_bPetrified)
+            m_MainImage.sprite = m_PetrifiedSprite;
 
         OnStart();
     }
@@ -282,7 +289,7 @@ public class NodeItem : MonoBehaviour
     public virtual void OnEndDestroy()
     {
         if (m_bUseScore)
-            ++GameManager.Score;
+            GameManager.instance.AddScore(1);
     }
 
     public virtual bool CanSwap()

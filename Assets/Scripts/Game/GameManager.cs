@@ -99,6 +99,10 @@ public class GameManager : MonoBehaviour
     public NumberScroller m_FinalScore;
     public Animator m_WBCA;
 
+    public AudioSource m_ScoreSound;
+    [Range(0, 1)] public float PitchMin;
+    [Range(1, 3)] public float PitchMax;
+
     [Header("Values")]
     public float m_NodeMoveSpeed = 5f;
     public int m_RequiredChainStart = 2;
@@ -561,5 +565,15 @@ public class GameManager : MonoBehaviour
     public void ToggleHints()
     {
         ShowHints = !ShowHints;
+    }
+
+    public void AddScore(int amount)
+    {
+        Score += amount;
+        var sound = Instantiate(m_ScoreSound.gameObject).GetComponent<AudioSource>();
+        sound.pitch = Random.Range(PitchMin, PitchMax);
+        sound.Play();
+        var dest = sound.gameObject.AddComponent<DestroyAfter>();
+        StartCoroutine(dest.Begin(1));
     }
 }
