@@ -30,6 +30,7 @@ public class DrDecay : BadGuy
         //Assign some delegates for the UI animating
         m_UIObject.m_ShowDone += ShowDone;
         m_UIObject.m_HideDone += HideDone;
+        CharacterShower.FadeIn();
     }
 
     // Update is called once per frame
@@ -54,6 +55,7 @@ public class DrDecay : BadGuy
     {
         DamageScore();
         StartCoroutine(WaitTimer());
+        m_UIObject.EndSlide();
     }
 
     IEnumerator WaitTimer()
@@ -66,5 +68,6 @@ public class DrDecay : BadGuy
     {
         Destroy(m_UIObject.gameObject);
         Destroy(gameObject);
+        CharacterShower.FadeOut();
     }
 }

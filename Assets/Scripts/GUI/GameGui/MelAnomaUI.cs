@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 [System.Serializable]
 public class TextnColour
@@ -13,7 +14,7 @@ public class TextnColour
 
 public class MelAnomaUI : BadGuyUI
 {
-    public Text m_ColourText;
+    public TextMeshProUGUI m_ColourText;
     public TextnColour[] m_Colours;
 
     public void SetText(ItemColour a_col)

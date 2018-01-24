@@ -36,9 +36,12 @@ public class MelAnoma : BadGuy
         //Assign some delegates for the UI animating
         m_UIObject.m_ShowDone += ShowDone;
         m_UIObject.m_HideDone += HideDone;
+        m_UIObject.m_ShrinkDone += ShrinkDone;
 
         //Show our UI object
         m_UIObject.Show();
+
+        CharacterShower.FadeIn();
     }
 
     private void OnDestroy()
@@ -114,7 +117,17 @@ public class MelAnoma : BadGuy
     void ShowDone()
     {
         if (hideOnShow)
+        {
             End();
+            CharacterShower.FadeOut();
+        }
+        else
+            m_UIObject.Shrink();
+    }
+
+    void ShrinkDone()
+    {
+        CharacterShower.FadeOut();
     }
 
     void HideDone()

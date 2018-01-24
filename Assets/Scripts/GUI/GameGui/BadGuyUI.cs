@@ -11,7 +11,10 @@ public class BadGuyUI : MonoBehaviour
     public FinishDel m_ShowDone;
     public FinishDel m_HideDone;
     public FinishDel m_BlockedDone;
+    public FinishDel m_ShrinkDone;
     public bool UseInstance = true;
+
+    private bool shrunk;
 
     // Use this for initialization
     void Start()
@@ -28,18 +31,18 @@ public class BadGuyUI : MonoBehaviour
 
     public void Show()
     {
-        m_Animator.SetBool("Hide", false);
-        m_Animator.SetBool("Blocked", false);
-    }
 
-    public void Blocked()
-    {
-        m_Animator.SetBool("Blocked", true);
     }
 
     public void Hide()
     {
-        m_Animator.SetBool("Hide", true);
+        m_Animator.SetTrigger(shrunk ? "HideSmall" : "Hide");
+    }
+
+    public void Shrink()
+    {
+        shrunk = true;
+        m_Animator.SetTrigger("Shrink");
     }
 
     public void ShowDone()
@@ -58,5 +61,11 @@ public class BadGuyUI : MonoBehaviour
     {
         if (m_HideDone != null)
             m_HideDone();
+    }
+
+    public void ShrinkDone()
+    {
+        if (m_ShrinkDone != null)
+            m_ShrinkDone();
     }
 }

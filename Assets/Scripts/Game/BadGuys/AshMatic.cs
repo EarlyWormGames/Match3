@@ -6,6 +6,7 @@ public class AshMatic : BadGuy
 {
     public GameObject m_UIPrefab;
     public float m_WaitSeconds = 1;
+
     private AshMaticUI m_UIObject;
     private bool hideOnShow;
 
@@ -28,6 +29,8 @@ public class AshMatic : BadGuy
         m_UIObject.m_HideDone += HideDone;
 
         m_UIObject.Show();
+
+        CharacterShower.FadeIn();
     }
 
     // Update is called once per frame
@@ -52,6 +55,7 @@ public class AshMatic : BadGuy
     {
         Destroy(m_UIObject.gameObject);
         Destroy(gameObject);
+        CharacterShower.FadeOut();
     }
 
     public void DoIt()

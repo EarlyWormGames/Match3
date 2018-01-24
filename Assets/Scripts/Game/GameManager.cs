@@ -102,7 +102,7 @@ public class GameManager : MonoBehaviour
     [Header("Values")]
     public float m_NodeMoveSpeed = 5f;
     public int m_RequiredChainStart = 2;
-    public int m_BadGuySpawnChance = 10;
+    [Range(0, 100)] public int m_BadGuySpawnChance = 10;
     public bool ShowHints = true;
     public int m_WBCATurns = 5;
 
