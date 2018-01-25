@@ -339,7 +339,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 67421837}
   m_OnClick:
     m_PersistentCalls:
@@ -969,7 +969,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UI_Music: {fileID: 1059213964}
   UI_SFX: {fileID: 67421836}
+  MusicSlider: {fileID: 489424649}
+  SfxSlider: {fileID: 1571954403}
   ConfirmationPanel: {fileID: 1017375444}
+  Master: {fileID: 24300002, guid: f77beb130a5ae494ca6bf4272fff867b, type: 2}
 --- !u!1 &336953111
 GameObject:
   m_ObjectHideFlags: 0
@@ -1236,7 +1239,7 @@ GameObject:
   - component: {fileID: 489424648}
   - component: {fileID: 489424649}
   m_Layer: 5
-  m_Name: VolumeSlider
+  m_Name: MusicSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1297,18 +1300,29 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 1298010455}
   m_FillRect: {fileID: 1737404670}
   m_HandleRect: {fileID: 1298010454}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
-  m_WholeNumbers: 0
+  m_MinValue: -40
+  m_MaxValue: 20
+  m_WholeNumbers: 1
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 328654534}
+        m_MethodName: SetMusicVol
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &507739837
@@ -3346,7 +3360,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 1059213965}
   m_OnClick:
     m_PersistentCalls:
@@ -5338,18 +5352,29 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 1652089231}
   m_FillRect: {fileID: 1774139499}
   m_HandleRect: {fileID: 1652089230}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
-  m_WholeNumbers: 0
+  m_MinValue: -40
+  m_MaxValue: 20
+  m_WholeNumbers: 1
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 328654534}
+        m_MethodName: SetSfxVol
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &1652089229
@@ -6244,7 +6269,8 @@ AudioSource:
   m_GameObject: {fileID: 1895102118}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243470964151551986, guid: f77beb130a5ae494ca6bf4272fff867b,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: fa5dc7d116ec3f448946a6882d5dd639, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.321
@@ -6353,7 +6379,8 @@ AudioSource:
   m_GameObject: {fileID: 1906853681}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243470964151551986, guid: f77beb130a5ae494ca6bf4272fff867b,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 3e63262a081d74e45952a19a4d380b99, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.6

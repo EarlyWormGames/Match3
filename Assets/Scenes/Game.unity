@@ -7703,7 +7703,8 @@ AudioSource:
   m_GameObject: {fileID: 158293800}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243470964151551986, guid: f77beb130a5ae494ca6bf4272fff867b,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: e49fcd5fac665d04e96f46eae32cd401, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.101
@@ -11467,7 +11468,8 @@ AudioSource:
   m_GameObject: {fileID: 182164335}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243470964151551986, guid: f77beb130a5ae494ca6bf4272fff867b,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 68286bc305289ea4380b6f9293a4d653, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.339
@@ -11819,11 +11821,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -12032,11 +12034,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -17685,7 +17687,8 @@ AudioSource:
   m_GameObject: {fileID: 605410968}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243470964151551986, guid: f77beb130a5ae494ca6bf4272fff867b,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 68286bc305289ea4380b6f9293a4d653, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.339
@@ -18361,7 +18364,8 @@ AudioSource:
   m_GameObject: {fileID: 755090293}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243470964151551986, guid: f77beb130a5ae494ca6bf4272fff867b,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 17da65f145a243042ae8bdccdb5e1013, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.101
@@ -22096,7 +22100,8 @@ AudioSource:
   m_GameObject: {fileID: 1296880912}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243470964151551986, guid: f77beb130a5ae494ca6bf4272fff867b,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: a92af7ef990f48a478de8e2ab9f76fd1, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.136
@@ -22366,7 +22371,8 @@ AudioSource:
   m_GameObject: {fileID: 1329666650}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243470964151551986, guid: f77beb130a5ae494ca6bf4272fff867b,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 68286bc305289ea4380b6f9293a4d653, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.339
@@ -22718,11 +22724,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:

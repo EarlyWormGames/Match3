@@ -255,15 +255,15 @@ MonoBehaviour:
   ScoreBase: 40
   levelSizes:
   - num: 3
-    size: {x: 4, y: 5}
-  - num: 6
     size: {x: 5, y: 5}
-  - num: 10
+  - num: 6
     size: {x: 6, y: 6}
+  - num: 10
+    size: {x: 7, y: 7}
   - num: 14
-    size: {x: 6, y: 7}
-  - num: 18
     size: {x: 7, y: 8}
+  - num: 18
+    size: {x: 8, y: 8}
 --- !u!114 &41795487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1258,7 +1258,8 @@ AudioSource:
   m_GameObject: {fileID: 820325544}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243470964151551986, guid: f77beb130a5ae494ca6bf4272fff867b,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 3e63262a081d74e45952a19a4d380b99, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.6
@@ -2389,7 +2390,8 @@ AudioSource:
   m_GameObject: {fileID: 1707561576}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243470964151551986, guid: f77beb130a5ae494ca6bf4272fff867b,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: fa5dc7d116ec3f448946a6882d5dd639, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.321
@@ -2531,7 +2533,8 @@ AudioSource:
   m_GameObject: {fileID: 1910495537}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243470964151551986, guid: f77beb130a5ae494ca6bf4272fff867b,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 01d15e41269aa1c42a1e7cfc3e5e26cc, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.298
