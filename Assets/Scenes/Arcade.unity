@@ -252,7 +252,7 @@ MonoBehaviour:
   scoreDisplay: {fileID: 909072831}
   TurnsLog: 1.5
   TurnsBase: 40
-  ScoreBase: 40
+  ScoreBase: 30
   levelSizes:
   - num: 3
     size: {x: 5, y: 5}
