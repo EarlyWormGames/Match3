@@ -752,7 +752,7 @@ public class GridNode : MonoBehaviour
                 GameManager.NotifyScore(m_Shape.m_Colour, this);
             }
 
-            GameManager.LastScore = GameManager.Score;
+            GameManager.LastScore = GameManager.instance.Score;
 
             GameManager.LastChainCount = 0;
             GameManager.LastChainGoodCount = 0;

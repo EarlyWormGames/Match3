@@ -76,7 +76,7 @@ public class AdManager
         {
             Analytics.CustomEvent("Revived");
 
-            GameManager.Score = Mathf.Max(GameManager.Score, (int)(Mediator.Settings.TargetScore * 0.75f));
+            GameManager.instance.Score = Mathf.Max(GameManager.instance.Score, (int)(Mediator.Settings.TargetScore * 0.75f));
 
             GameManager.instance.m_TurnsLeft = Mediator.Settings.Turns / 2;
             GameManager.instance.m_TurnsText.text = (5).ToString();

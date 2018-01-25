@@ -19642,6 +19642,7 @@ MonoBehaviour:
   m_BadGuySpawnChance: 16
   ShowHints: 1
   m_WBCATurns: 5
+  Score: 0
   m_SpawnPrefabs:
   - {fileID: 1333852350469656, guid: df69062121cdc3c4c9057011b531d60f, type: 2}
   - {fileID: 1333852350469656, guid: dab8104663cf61144b83a09f2d021904, type: 2}
@@ -19740,7 +19741,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 887100670}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 35fc298a129104f47b8b66ea39b02121, type: 3}
   m_Name: 
@@ -23993,7 +23994,7 @@ MonoBehaviour:
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
   m_isInputParsingRequired: 0
-  m_inputSource: 3
+  m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}

@@ -51,7 +51,6 @@ public class GameManager : MonoBehaviour
     //The direction of the last drag
     public static Direction lastDrag = Direction.None;
     public static Vector3 dragStartPos;
-    public static int Score;
 
     public static int TopViewTime = 0;
 
@@ -110,6 +109,7 @@ public class GameManager : MonoBehaviour
     [Range(0, 100)] public int m_BadGuySpawnChance = 10;
     public bool ShowHints = true;
     public int m_WBCATurns = 5;
+    public int Score;
 
     [Header("Prefabs")]
     public GameObject[] m_SpawnPrefabs = new GameObject[0];

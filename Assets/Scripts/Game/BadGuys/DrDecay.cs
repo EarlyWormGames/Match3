@@ -48,7 +48,7 @@ public class DrDecay : BadGuy
         }
 
         int sub = (int)(Mediator.Settings.TargetScore * (DamageMult * (Mediator.Settings.DifficultyMult / 2f)));
-        GameManager.Score = Mathf.Clamp(GameManager.Score - sub, 0, Mediator.Settings.TargetScore);
+        GameManager.instance.Score = Mathf.Clamp(GameManager.instance.Score - sub, 0, Mediator.Settings.TargetScore);
     }
 
     void ShowDone()
