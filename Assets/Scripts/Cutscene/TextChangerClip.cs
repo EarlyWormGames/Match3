@@ -7,7 +7,7 @@ using UnityEngine.Playables;
 public class TextChangerClip : PlayableAsset, ITimelineClipAsset
 {
     public ExposedReference<TMPro.TextMeshProUGUI> TextObject;
-    public string Text = "";
+    [Multiline] public string Text = "";
 
     public ClipCaps clipCaps
     {

@@ -253,7 +253,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: ceba43881d73329488c5b85c5cec16bb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 19b52dd8d2f2e1a4092d3389c8de6365, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -17107,7 +17107,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Have you been in Candy Lands and Fizzy Springs this whole time?
+  m_text: Before it's too late!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 898c266dcdb0a864fa1fa655195e52d9, type: 2}
   m_sharedMaterial: {fileID: 21472355497556144, guid: 898c266dcdb0a864fa1fa655195e52d9,
@@ -17135,10 +17135,10 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 22.55
-  m_fontSizeBase: 56.9
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -17175,19 +17175,19 @@ MonoBehaviour:
   m_margin: {x: 8, y: 8, z: 8, w: 8}
   m_textInfo:
     textComponent: {fileID: 500631459}
-    characterCount: 63
+    characterCount: 21
     spriteCount: 0
-    spaceCount: 11
-    wordCount: 12
+    spaceCount: 3
+    wordCount: 4
     linkCount: 0
-    lineCount: 2
+    lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -22587,13 +22587,26 @@ PlayableDirector:
     value: {fileID: 924006969}
   m_ExposedReferences:
     m_References:
+    - 3f0a759b4f5d52a428c33d8d7b08517f: {fileID: 500631459}
     - 73783d33cf1f5ce4b911bcfc0217e061: {fileID: 500631459}
+    - 13f570655fc17904997586128582463b: {fileID: 500631459}
     - 10a3dcb9536aa164e98c164c53b3ee56: {fileID: 500631459}
+    - 315ceab428d30f942a245221d7d1aaff: {fileID: 500631459}
     - bfc7dd66476571c45801a0daba1be637: {fileID: 1613972338}
+    - 8d70cced7e813294ab19e2d0d43051a7: {fileID: 1613972338}
+    - 4083fd7ed3971684e8e9042a5c46dbb5: {fileID: 500631459}
+    - 0a5a970ba7eb6cc40b58ee2a99d92201: {fileID: 1613972338}
+    - 684647d6d9dae144a9dd38ba291be078: {fileID: 500631459}
     - d3b0fa1d780b83b41b1fceeb22c4aea4: {fileID: 1637987941}
+    - 0b3a9ab4a74eda54da0af9be3f09b7e3: {fileID: 500631459}
+    - 80f1b7c42b34d614f887de33c14f17f1: {fileID: 1637987941}
     - a45ba058fd7f577469ea6e31953e3682: {fileID: 1160340626}
+    - f0bc2a60f87446844b87af7ade00feac: {fileID: 1637987941}
+    - cb2aac86b69b7ed499715eaed7a5cff5: {fileID: 1613972338}
+    - 531b50af1de046544b4c972299351fd3: {fileID: 500631459}
     - 33a4accf8bb02b246b5add5a22017988: {fileID: 1637987941}
     - 3c60508f13f498749b65115671f954f1: {fileID: 1637987941}
+    - d4c26226ff269b948b539de5adbd2309: {fileID: 1613972338}
 --- !u!1 &1343406952
 GameObject:
   m_ObjectHideFlags: 0
@@ -23897,7 +23910,9 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Dr Decay has us trapped here!
+  m_text: 'Mwahaha!
+
+    Just try and stop me!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 898c266dcdb0a864fa1fa655195e52d9, type: 2}
   m_sharedMaterial: {fileID: 21472355497556144, guid: 898c266dcdb0a864fa1fa655195e52d9,
@@ -23925,10 +23940,10 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 29.5
-  m_fontSizeBase: 56.9
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -23943,7 +23958,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: -1
+  m_firstOverflowCharacterIndex: 9
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_enableKerning: 1
@@ -23965,7 +23980,7 @@ MonoBehaviour:
   m_margin: {x: 8, y: 8, z: 8, w: 8}
   m_textInfo:
     textComponent: {fileID: 1613972338}
-    characterCount: 29
+    characterCount: 30
     spriteCount: 0
     spaceCount: 5
     wordCount: 6
@@ -23973,12 +23988,12 @@ MonoBehaviour:
     lineCount: 2
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
-  m_inputSource: 0
+  m_isInputParsingRequired: 0
+  m_inputSource: 3
   m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}
@@ -24156,10 +24171,10 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 29.5
-  m_fontSizeBase: 56.9
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -24174,7 +24189,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: -1
+  m_firstOverflowCharacterIndex: 24
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_enableKerning: 1
@@ -24204,11 +24219,11 @@ MonoBehaviour:
     lineCount: 2
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -36296,7 +36311,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2030957188
 MonoBehaviour:
   m_ObjectHideFlags: 0
