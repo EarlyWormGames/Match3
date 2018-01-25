@@ -1405,7 +1405,6 @@ GameObject:
   - component: {fileID: 456011178}
   - component: {fileID: 456011180}
   - component: {fileID: 456011179}
-  - component: {fileID: 456011181}
   m_Layer: 5
   m_Name: Image (1)
   m_TagString: Untagged
@@ -1464,17 +1463,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 456011177}
---- !u!114 &456011181
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 456011177}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3237730e7577d244cb0ce3ba79fd10c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &457530319
 GameObject:
   m_ObjectHideFlags: 0
@@ -5984,7 +5972,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1482509900}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.3730474
+  m_Size: 0
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -7501,6 +7489,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe77e3fedd59b8a4696766a9c5a36a7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LevelSelect: WorldSelection
+  ArcadeScene: Arcade
 --- !u!114 &2088147287
 MonoBehaviour:
   m_ObjectHideFlags: 0
