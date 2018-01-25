@@ -571,10 +571,10 @@ public class GameManager : MonoBehaviour
     public void AddScore(int amount)
     {
         Score += amount;
-        var sound = Instantiate(amount > 0? m_ScoreSound.gameObject : m_LosePointSound.gameObject).GetComponent<AudioSource>();
-        sound.Play();
-        var dest = sound.gameObject.AddComponent<DestroyAfter>();
-        StartCoroutine(dest.Begin(1));
+        if (amount > 0)
+            m_ScoreSound.PlayOneShot(m_ScoreSound.clip);
+        else
+            m_LosePointSound.PlayOneShot(m_LosePointSound.clip);
     }
 
     public static void Whoosh()
