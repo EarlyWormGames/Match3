@@ -14,7 +14,6 @@ public class TextnColour
 
 public class MelAnomaUI : BadGuyUI
 {
-    public TextMeshProUGUI m_ColourText;
     public TextnColour[] m_Colours;
 
     public void SetText(ItemColour a_col)
@@ -23,8 +22,8 @@ public class MelAnomaUI : BadGuyUI
         {
             if (item.itemType == a_col)
             {
-                m_ColourText.text = item.text;
-                m_ColourText.color = item.colour;
+                Text.text = item.text;
+                Text.color = item.colour;
                 break;
             }
         }

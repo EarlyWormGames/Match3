@@ -30,9 +30,6 @@ public class MelAnoma : BadGuy
         if (hideOnShow)
             Destroy(m_UIObject.transform.GetChild(0).gameObject);
 
-        //Generate a new colour request
-        NewColour();
-
         //Assign some delegates for the UI animating
         m_UIObject.m_ShowDone += ShowDone;
         m_UIObject.m_HideDone += HideDone;
@@ -63,7 +60,11 @@ public class MelAnoma : BadGuy
                     CharacterShower.FadeOut();
                 }
                 else
+                {
                     m_UIObject.Shrink();
+                    //Generate a new colour request
+                    NewColour();
+                }
 
                 waiting = false;
             }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class BadGuyUI : MonoBehaviour
 {
@@ -14,6 +15,10 @@ public class BadGuyUI : MonoBehaviour
     public FinishDel m_ShrinkDone;
     public bool UseInstance = true;
 
+    [Tooltip("List of things this character will say. Can include rich text tags")]
+    public string[] OneLiners;
+    public TextMeshProUGUI Text;
+
     private bool shrunk;
 
     // Use this for initialization
@@ -21,6 +26,12 @@ public class BadGuyUI : MonoBehaviour
     {
         if (UseInstance)
             instance = this;
+
+        if (Text != null)
+        {
+            int rand = Random.Range(0, OneLiners.Length);
+            Text.text = OneLiners[rand];
+        }
     }
 
     // Update is called once per frame
