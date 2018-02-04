@@ -66,7 +66,7 @@ public class RottenItem : NodeItem
         }
         if (m_Parent.HasDirection(Direction.Up, true))
         {
-            if (m_Parent.m_Up.m_Shape.GetType() == typeof(NodeItem))
+            if (m_Parent.m_Up.m_Shape.GetType() == typeof(NodeItem) && m_Parent.m_Up.m_yIndex != 0)
                 nodes.Add(m_Parent.m_Up);
         }
         if (m_Parent.HasDirection(Direction.Down, true))
