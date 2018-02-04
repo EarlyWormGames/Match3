@@ -323,6 +323,9 @@ public class GridNode : MonoBehaviour
                 GameManager.Stationary[GameManager.dragGNode.m_xIndex, GameManager.dragGNode.m_yIndex] = false;
                 GameManager.NotifySwap();
                 GameManager.MarkSwap();
+
+                GameManager.dragGNode.m_Shape.OnReleaseMouse();
+                GameManager.dragNItem.OnReleaseMouse();
             }
         }
 
@@ -505,7 +508,7 @@ public class GridNode : MonoBehaviour
 
         if (m_Shape.m_SwapOnly && m_Shape.m_MatchAnyButOwn)
         {
-            if (a_col != m_Shape.m_Colour && onlyCheck)
+            if (a_col != ItemColour.NONE && onlyCheck)
             {
                 if (a_col != m_Shape.m_Colour)
                     return true;

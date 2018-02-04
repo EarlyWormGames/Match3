@@ -6,6 +6,14 @@ public class Righty : NodeItem
 {
     public GameObject m_MatchingNormal;
 
+    public override void OnReleaseMouse()
+    {
+        base.OnReleaseMouse();
+
+        if (!m_bWasMoving)
+            OnStopMovement();
+    }
+
     protected override void OnStopMovement()
     {
         base.OnStopMovement();

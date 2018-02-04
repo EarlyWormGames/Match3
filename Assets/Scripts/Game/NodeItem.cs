@@ -44,10 +44,11 @@ public class NodeItem : MonoBehaviour
     internal bool m_bIsActive = true;
     internal bool m_bUseScore = true;
 
+    protected bool m_bWasMoving;
+
     private float m_DestroyTimer = 0;
     private bool m_destroyStart = false;
     private int m_SwapCountDown = 1;
-    private bool m_bWasMoving;
 
     private Image[] m_ImageComps = new Image[0];
     private SpriteRenderer[] m_SpriteComps = new SpriteRenderer[0];
@@ -185,6 +186,8 @@ public class NodeItem : MonoBehaviour
 
         OnUpdate();
     }
+
+    public virtual void OnReleaseMouse() { }
 
     public void OverrideVis(bool a_vis)
     {
