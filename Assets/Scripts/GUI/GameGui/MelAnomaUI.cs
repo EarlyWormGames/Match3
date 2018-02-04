@@ -9,6 +9,7 @@ public class TextnColour
 {
     public string text;
     public Color colour = Color.white;
+    public float FontSize = 72;
     public ItemColour itemType;
 }
 
@@ -24,6 +25,7 @@ public class MelAnomaUI : BadGuyUI
             {
                 Text.text = item.text;
                 Text.color = item.colour;
+                Text.fontSize = item.FontSize;
                 break;
             }
         }

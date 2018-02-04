@@ -107,6 +107,8 @@ public class GameManager : MonoBehaviour
     public float m_NodeMoveSpeed = 5f;
     public int m_RequiredChainStart = 2;
     [Range(0, 100)] public int m_BadGuySpawnChance = 10;
+    [Tooltip("The minimum amount of turns to pass before a Bad Guy can spawn")]
+    public int MinimumTurnsBeforeEnemy = 3;
     public bool ShowHints = true;
     public int m_WBCATurns = 5;
     public int Score;
@@ -526,7 +528,8 @@ public class GameManager : MonoBehaviour
                 GameOver(false);
             }
             // Change turns made to  --------------------> 3
-            if (BadGuyUI.instance == null && m_TurnsMade > 3 && m_WBCATurnsLeft <= 0)
+            if (BadGuyUI.instance == null && m_TurnsMade > MinimumTurnsBeforeEnemy
+                && m_WBCATurnsLeft <= 0)
             {
                 int rand = Random.Range(0, m_BadGuySpawnChance);
                 if (rand == 0)
