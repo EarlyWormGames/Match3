@@ -53,7 +53,21 @@ public class MelAnoma : BadGuy
     // Update is called once per frame
     void Update()
     {
+        if (waiting)
+        {
+            if (Input.GetMouseButtonUp(0))
+            {
+                if (hideOnShow)
+                {
+                    End();
+                    CharacterShower.FadeOut();
+                }
+                else
+                    m_UIObject.Shrink();
 
+                waiting = false;
+            }
+        }
     }
 
     void ColourScored(ItemColour a_colour, bool a_wasSwapped, GridNode a_node)
@@ -116,13 +130,7 @@ public class MelAnoma : BadGuy
 
     void ShowDone()
     {
-        if (hideOnShow)
-        {
-            End();
-            CharacterShower.FadeOut();
-        }
-        else
-            m_UIObject.Shrink();
+        waiting = true;
     }
 
     void ShrinkDone()

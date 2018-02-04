@@ -10,6 +10,7 @@ public class DrDecay : BadGuy
     private DrDecayUI m_UIObject;
     private bool hideOnShow;
 
+
     public override void NoEffect()
     {
         hideOnShow = true;
@@ -36,7 +37,14 @@ public class DrDecay : BadGuy
     // Update is called once per frame
     void Update()
     {
-
+        if (waiting)
+        {
+            if (Input.GetMouseButtonUp(0))
+            {
+                waiting = false;
+                m_UIObject.Hide();
+            }
+        }
     }
 
     void DamageScore()
@@ -54,14 +62,8 @@ public class DrDecay : BadGuy
     void ShowDone()
     {
         DamageScore();
-        StartCoroutine(WaitTimer());
         m_UIObject.EndSlide();
-    }
-
-    IEnumerator WaitTimer()
-    {
-        yield return new WaitForSeconds(m_WaitSeconds);
-        m_UIObject.Hide();
+        waiting = true;
     }
 
     void HideDone()

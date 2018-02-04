@@ -8,6 +8,7 @@ public class DrDecayUI : BadGuyUI
 
     public void EndSlide()
     {
-        m_ZapParticle.Play();
+        if (m_ZapParticle != null)
+            m_ZapParticle.Play();
     }
 }

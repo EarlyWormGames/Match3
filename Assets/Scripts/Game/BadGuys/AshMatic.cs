@@ -36,19 +36,20 @@ public class AshMatic : BadGuy
     // Update is called once per frame
     void Update()
     {
-
+        if (waiting)
+        {
+            if (Input.GetMouseButtonUp(0))
+            {
+                m_UIObject.Hide();
+                waiting = false;
+            }
+        }
     }
 
     void ShowDone()
     {
         DoIt();
-        StartCoroutine(WaitTimer());
-    }
-
-    IEnumerator WaitTimer()
-    {
-        yield return new WaitForSeconds(m_WaitSeconds);
-        m_UIObject.Hide();
+        waiting = true;
     }
 
     void HideDone()
