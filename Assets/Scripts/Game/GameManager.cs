@@ -342,6 +342,7 @@ public class GameManager : MonoBehaviour
             {
                 if (a_completeFailure)
                 {
+                    isDragging = true;
                     m_IsGameOver = false;
                     Instantiate(m_DJPrefab);
 

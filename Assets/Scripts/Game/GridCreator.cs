@@ -248,6 +248,8 @@ public class GridCreator : MonoBehaviour
         GameManager.DestroyingList.Clear();
         List<NodeItem> items = new List<NodeItem>();
 
+        GameManager.isDragging = false;
+
         foreach (var node in m_Nodes)
         {
             items.Add(node.m_Shape);
