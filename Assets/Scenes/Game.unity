@@ -19639,7 +19639,7 @@ MonoBehaviour:
   m_WhooshSound: {fileID: 1296880914}
   m_NodeMoveSpeed: 10
   m_RequiredChainStart: 4
-  m_BadGuySpawnChance: 0
+  m_BadGuySpawnChance: 16
   ShowHints: 1
   m_WBCATurns: 5
   Score: 0

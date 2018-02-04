@@ -208,7 +208,6 @@ public class GridCreator : MonoBehaviour
         }
 
         GameManager.instance.Refilled();
-        CheckColumns();
     }
 
     /// <summary>

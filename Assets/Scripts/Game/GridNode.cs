@@ -505,7 +505,7 @@ public class GridNode : MonoBehaviour
 
         if (m_Shape.m_SwapOnly && m_Shape.m_MatchAnyButOwn)
         {
-            if (a_col != ItemColour.NONE && onlyCheck)
+            if (a_col != m_Shape.m_Colour && onlyCheck)
             {
                 if (a_col != m_Shape.m_Colour)
                     return true;
@@ -817,6 +817,9 @@ public class GridNode : MonoBehaviour
         if (m_Shape == null)
             return false;
         if (!m_Shape.CanSwap())
+            return false;
+
+        if (m_yIndex == 0)
             return false;
 
         GameManager.lastSwapped.Clear();

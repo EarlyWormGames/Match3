@@ -136,6 +136,8 @@ public class GameManager : MonoBehaviour
 
     private float GameTimer;
 
+    private bool wasRefilled;
+
     // Use this for initialization
     void Awake()
     {
@@ -213,15 +215,22 @@ public class GameManager : MonoBehaviour
             {
                 //Only enters here if no piece is moving
                 CanDrag = true; //Allow a drag to start now that no tiles are falling
+                bool noMatches = true;
                 if (m_WasMoving)
                 {
                     //Check for matches
                     m_WasMoving = false;
-                    ok = !m_Grid.MatchCheck(MovingTiles.ToArray());
+                    noMatches = !m_Grid.MatchCheck(MovingTiles.ToArray());
                     MovingTiles.Clear();
                 }
 
-                if (m_bSetGameOver && ok)
+                if (noMatches && wasRefilled)
+                {
+                    wasRefilled = false;
+                    m_Grid.CheckColumns();
+                }
+
+                if (m_bSetGameOver && noMatches)
                 {
                     m_bSetGameOver = false;
                     DoGameOver(m_bSetSuccess, m_bSetTotalGO);
@@ -490,6 +499,8 @@ public class GameManager : MonoBehaviour
 
     public void Refilled()
     {
+        wasRefilled = true;
+
         if (onRefill != null)
             onRefill(m_bSwapped);
 
