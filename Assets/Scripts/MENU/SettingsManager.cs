@@ -97,11 +97,11 @@ public class SettingsManager : MonoBehaviour
 
         if (File.Exists(Application.persistentDataPath + "/" + "highscores.txt"))
             File.Delete(Application.persistentDataPath + "/" + "highscores.txt");
-        if (File.Exists(Application.persistentDataPath + "/" + "SaveData.txt"))
-            File.Delete(Application.persistentDataPath + "/" + "SaveData.txt");
+        if (File.Exists(Application.persistentDataPath + "/" + "save.data"))
+            File.Delete(Application.persistentDataPath + "/" + "save.data");
 
         FindObjectOfType<HighScores>().LoadScoresFromFile();
-        SaveData.Load(SaveData.LevelCount);
+        SaveData.Load();
     }
     public void ConfirmationNO()
     {

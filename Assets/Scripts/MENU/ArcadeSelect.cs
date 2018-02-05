@@ -24,10 +24,10 @@ public class ArcadeSelect : LevelSettings
     // Use this for initialization
     void Start()
     {
-        LevelNum = SaveData.LastArcade + 1;
+        LevelNum = SaveData.instance.LastArcade + 1;
 
         levelDisplay.text = (LevelNum + 1).ToString();
-        scoreDisplay.text = SaveData.ArcadeScore.ToString();
+        scoreDisplay.text = SaveData.instance.ArcadeScore.ToString();
 
         TurnsGoal = (int)(Mathf.Log(LevelNum + 1, TurnsLog) + 0.5f) + TurnsBase;
         TargetScore = (int)(Mathf.Log(LevelNum + 1, TurnsLog) + 0.5f) + ScoreBase;

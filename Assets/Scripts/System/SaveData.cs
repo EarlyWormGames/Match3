@@ -1,156 +1,109 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
-using System.Xml;
 using UnityEngine;
-using RijndaelManagedEncryption;
-using System;
+using System.Security.Cryptography;
+using System.Text;
 
+[System.Serializable]
 public class SaveData
 {
-    public static int FreeTurns;
-    public static int[] LevelScores;
-    public static int LevelCount = 25;
+    public static SaveData instance;
+    private static int keySize = 256, ivSize = 16;
+    public static string key = "AE3FD4635F726D121568AEED2885FI21";
     public static bool IsDev = false;
-    public static int LastArcade = -1;
-    public static long ArcadeScore;
 
-    private static XmlDocument loadedDoc;
+    public int FreeTurns;
+    public List<int> LevelScores = new List<int>();
+    public int LastArcade = -1;
+    public long ArcadeScore;
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     static void Init()
     {
-        Load(LevelCount);
+        Load();
     }
 
-    public static void Load(int count)
+    public static void Load()
     {
-        LevelCount = count;
-        LevelScores = new int[LevelCount];
-        if (File.Exists(Application.persistentDataPath + "/SaveData.txt"))
+        if (!File.Exists(Application.persistentDataPath + "/save.data"))
         {
-            //Load and decrypt the file
-            string contents = File.ReadAllText(Application.persistentDataPath + "/SaveData.txt");
-            contents = Encryption.DecryptRijndael(contents, "B9FCCD1BF5772EF9");
-
-            //Begin reading the contents
-            loadedDoc = new XmlDocument();
-            loadedDoc.LoadXml(contents);
-
-            //Grab our free turns value
-            XmlElement freeTurns = (XmlElement)loadedDoc.SelectSingleNode("/SaveData/FreeTurns");
-            FreeTurns = Convert.ToInt32(freeTurns.InnerText);
-
-            XmlElement arcade = (XmlElement)loadedDoc.SelectSingleNode("/SaveData/Arcade");
-            if (arcade == null)
-            {
-                arcade = loadedDoc.CreateElement("Arcade");
-                loadedDoc.DocumentElement.AppendChild(arcade);
-                arcade.InnerText = LastArcade.ToString();
-            }
-            LastArcade = Convert.ToInt32(arcade.InnerText);
-
-            XmlElement arcadeScore = (XmlElement)loadedDoc.SelectSingleNode("/SaveData/ArcadeScore");
-            if (arcadeScore == null)
-            {
-                arcadeScore = loadedDoc.CreateElement("ArcadeScore");
-                loadedDoc.DocumentElement.AppendChild(arcadeScore);
-                arcadeScore.InnerText = ArcadeScore.ToString();
-            }
-            ArcadeScore = Convert.ToInt64(arcadeScore.InnerText);
-
-            //Grab the scores (1,2,3 stars) for the levels
-            XmlElement levels = (XmlElement)loadedDoc.SelectSingleNode("/SaveData/Levels");
-
-            int i = 0;
-            foreach (var child in levels.ChildNodes)
-            {
-                LevelScores[i] = Convert.ToInt32((child as XmlElement).InnerText);
-                ++i;
-            }
+            instance = new SaveData();
+            return;
         }
-        else
+
+        instance = null;
+        try
         {
-            FreeTurns = 0;
-            LastArcade = -1;
-            ArcadeScore = 0;
+            byte[] bytes;
+            bytes = Encoding.UTF8.GetBytes(key);
 
-            File.Create(Application.persistentDataPath + "/SaveData.txt").Close();
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.Open(Application.persistentDataPath + "/save.data", FileMode.Open);
+            var crypto = CreateDecryptionStream(bytes, file);
 
-            //Create an empty xmldoc
-            loadedDoc = new XmlDocument();
-
-            XmlElement root = loadedDoc.CreateElement("SaveData");
-            loadedDoc.AppendChild(root);
-
-            //Save our free turns as an xmlelement
-            XmlElement freeTurns = loadedDoc.CreateElement("FreeTurns");
-            root.AppendChild(freeTurns);
-
-            //Create the parent of all the level elements
-            XmlElement levels = loadedDoc.CreateElement("Levels");
-            root.AppendChild(levels);
-
-            //Create the parent of all the level elements
-            XmlElement arcade = loadedDoc.CreateElement("Arcade");
-            root.AppendChild(arcade);
-
-            XmlElement arcadeScore = loadedDoc.CreateElement("ArcadeScore");
-            root.AppendChild(arcadeScore);
-
-            Save();
+            instance = (SaveData)bf.Deserialize(crypto);
+            crypto.Close();
+            file.Close();
         }
+        catch { }
+
+        if (instance == null)
+            instance = new SaveData();
     }
 
     public static void Save()
     {
-        XmlElement freeTurns = (XmlElement)loadedDoc.SelectSingleNode("/SaveData/FreeTurns");
-        freeTurns.InnerText = FreeTurns.ToString();
+        byte[] bytes;
+        bytes = Encoding.UTF8.GetBytes(key);
 
-        XmlElement arcade = (XmlElement)loadedDoc.SelectSingleNode("/SaveData/Arcade");
-        arcade.InnerText = LastArcade.ToString();
+        BinaryFormatter bf = new BinaryFormatter();
+        FileStream file = File.Create(Application.persistentDataPath + "/save.data");
+        var crypto = CreateEncryptionStream(bytes, file);
 
-        XmlElement arcadeScore = (XmlElement)loadedDoc.SelectSingleNode("/SaveData/ArcadeScore");
-        arcadeScore.InnerText = ArcadeScore.ToString();
+        bf.Serialize(crypto, instance);
+        crypto.Close();
+        file.Close();
+    }
 
-        //Create the parent of all the level elements
-        XmlElement levels = (XmlElement)loadedDoc.SelectSingleNode("/SaveData/Levels");
+    public static CryptoStream CreateEncryptionStream(byte[] key, Stream outputStream)
+    {
+        byte[] iv = new byte[ivSize];
 
-        int i = 0;
-        //Add all of the level scores to the document
-        foreach (var item in levels.ChildNodes)
+        var rng = new RNGCryptoServiceProvider();
+        // Using a cryptographic random number generator
+        rng.GetNonZeroBytes(iv);
+
+        // Write IV to the start of the stream
+        outputStream.Write(iv, 0, iv.Length);
+
+        Rijndael rijndael = new RijndaelManaged();
+        rijndael.KeySize = keySize;
+
+        CryptoStream encryptor = new CryptoStream(
+            outputStream,
+            rijndael.CreateEncryptor(key, iv),
+            CryptoStreamMode.Write);
+        return encryptor;
+    }
+
+    public static CryptoStream CreateDecryptionStream(byte[] key, Stream inputStream)
+    {
+        byte[] iv = new byte[ivSize];
+
+        if (inputStream.Read(iv, 0, iv.Length) != iv.Length)
         {
-            var child = (item as XmlElement);
-            child.InnerText = LevelScores[i].ToString();
-
-            ++i;
+            Debug.LogError("Failed to read IV from stream.");
         }
 
-        if (i < LevelScores.Length - 1)
-        {
-            for (int x = i; x < LevelScores.Length; ++x)
-            {
-                XmlElement child = loadedDoc.CreateElement("level");
-                child.InnerText = LevelScores[x].ToString();
-                levels.AppendChild(child);
-            }
-        }
+        Rijndael rijndael = new RijndaelManaged();
+        rijndael.KeySize = keySize;
 
-        //Begin file saving code
-        string contents = "";
-        using (var stringWriter = new StringWriter())
-        using (var xmlTextWriter = XmlWriter.Create(stringWriter))
-        {
-            //Write the xmldoc to a writer
-            loadedDoc.WriteTo(xmlTextWriter);
-            xmlTextWriter.Flush();
-
-            //Build it out as a string so we can use it
-            contents = stringWriter.GetStringBuilder().ToString();
-        }
-
-        //Encrypt and save the file
-        contents = Encryption.EncryptRijndael(contents, "B9FCCD1BF5772EF9");
-        File.WriteAllText(Application.persistentDataPath + "/SaveData.txt", contents);
+        CryptoStream decryptor = new CryptoStream(
+            inputStream,
+            rijndael.CreateDecryptor(key, iv),
+            CryptoStreamMode.Read);
+        return decryptor;
     }
 }

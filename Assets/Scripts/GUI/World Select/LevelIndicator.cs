@@ -31,24 +31,13 @@ public class LevelIndicator : MonoBehaviour {
 
     Sprite UnlockedOrLocked()
     {
-        //NOT REDUNDANT, curse you intelesence
-        if (MyLevel.LevelNum - 1 >= 0)
-        {
-            //if previous level has a score, Current level is unlocked
-            if (SaveData.LevelScores[MyLevel.LevelNum - 1] != 0)
-            {
-                return Unlocked;
-            }
-        }
-
-        // if Current level has no score return locked
-        if (SaveData.LevelScores[MyLevel.LevelNum] == 0)
-        {
-            return Locked;
-        }
-        else
-        {
+        //if previous level has a score, Current level is unlocked
+        if (MyLevel.LevelNum - 1 < SaveData.instance.LevelScores.Count)
             return Unlocked;
-        }
+
+        if (MyLevel.LevelNum == 0)
+            return Unlocked;
+
+        return Locked;
     }
 }

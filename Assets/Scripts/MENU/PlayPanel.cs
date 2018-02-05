@@ -56,14 +56,17 @@ public class PlayPanel : MonoBehaviour
 
         if (LevelSettings.selected.transform.GetSiblingIndex() > 0)
         {
-            if (SaveData.LevelScores[LevelSettings.selected.transform.GetSiblingIndex() - 1] <= 0)
+            if (LevelSettings.selected.transform.GetSiblingIndex() - 1 >= SaveData.instance.LevelScores.Count)
             {
                 ShowLockedLevel(LevelSettings.selected.transform.GetSiblingIndex() + 1);
                 return;
             }
         }
 
-        int score = SaveData.LevelScores[LevelSettings.selected.transform.GetSiblingIndex()];
+        int score = 0;
+        if (LevelSettings.selected.transform.GetSiblingIndex() < SaveData.instance.LevelScores.Count)
+            score = SaveData.instance.LevelScores[LevelSettings.selected.transform.GetSiblingIndex()];
+
         ShowLevelCard(LevelSettings.selected.transform.GetSiblingIndex() + 1, score);
     }
 

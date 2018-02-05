@@ -296,9 +296,17 @@ public class GameManager : MonoBehaviour
                         finalscore = 3;
                     }
 
-                    if (finalscore > SaveData.LevelScores[Mediator.Settings.Level] && !Mediator.Settings.isArcade)
+                    if (Mediator.Settings.Level < SaveData.instance.LevelScores.Count)
                     {
-                        SaveData.LevelScores[Mediator.Settings.Level] = finalscore;
+                        if (finalscore > SaveData.instance.LevelScores[Mediator.Settings.Level] && !Mediator.Settings.isArcade)
+                        {
+                            SaveData.instance.LevelScores[Mediator.Settings.Level] = finalscore;
+                            SaveData.Save();
+                        }
+                    }
+                    else
+                    {
+                        SaveData.instance.LevelScores.Add(finalscore);
                         SaveData.Save();
                     }
 
@@ -323,8 +331,8 @@ public class GameManager : MonoBehaviour
                         finalscore = (int)((Mediator.Settings.Level + 1) * Mathf.Max(0, bonus));
                         m_FinalScore.BeginScroll(finalscore);
 
-                        SaveData.LastArcade = Mediator.Settings.Level;
-                        SaveData.ArcadeScore += finalscore;
+                        SaveData.instance.LastArcade = Mediator.Settings.Level;
+                        SaveData.instance.ArcadeScore += finalscore;
                         SaveData.Save();
 
                         Analytics.CustomEvent("Arcade Won", new Dictionary<string, object>

@@ -20,7 +20,7 @@ public class MenuAds : MonoBehaviour
 
     public void TurnAdOver(ShowResult result)
     {
-        SaveData.FreeTurns += 3;
+        SaveData.instance.FreeTurns += 3;
         SaveData.Save();
     }
 }

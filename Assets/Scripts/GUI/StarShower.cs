@@ -24,7 +24,11 @@ public class StarShower : MonoBehaviour
             }
 
             int level = t.GetSiblingIndex();
-            ShowStars(SaveData.LevelScores[level]);
+            int starCount = 0;
+            if (level < SaveData.instance.LevelScores.Count)
+                starCount = SaveData.instance.LevelScores[level];
+
+            ShowStars(starCount);
         }
     }
 
