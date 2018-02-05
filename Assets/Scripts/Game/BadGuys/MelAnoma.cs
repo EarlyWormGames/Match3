@@ -10,7 +10,7 @@ public class MelAnoma : BadGuy
     private MelAnomaUI m_UIObject;
 
     private List<BacteriaBro> bros = new List<BacteriaBro>();
-    private bool hideOnShow;
+    private bool hideOnShow, finished;
 
     public override void NoEffect()
     {
@@ -54,16 +54,23 @@ public class MelAnoma : BadGuy
         {
             if (Input.GetMouseButtonUp(0))
             {
-                if (hideOnShow)
+                if (!finished)
                 {
-                    End();
-                    CharacterShower.FadeOut();
+                    if (hideOnShow)
+                    {
+                        End();
+                        CharacterShower.FadeOut();
+                    }
+                    else
+                    {
+                        m_UIObject.Shrink();
+                        //Generate a new colour request
+                        NewColour();
+                    }
                 }
                 else
                 {
-                    m_UIObject.Shrink();
-                    //Generate a new colour request
-                    NewColour();
+                    FullEnd();
                 }
 
                 waiting = false;
@@ -119,7 +126,23 @@ public class MelAnoma : BadGuy
 
     void End()
     {
+        CharacterShower.FadeIn();
+
+        string finalMessage = "Drats!";
+        if (m_RequiredChains <= 0)
+            finalMessage = "Go forth, Bacteria Bros!";
+
+        m_UIObject.SetText(finalMessage);
+        m_UIObject.UnShrink();
+
+        finished = true;
+        waiting = true;
+
         m_RequiredChains = 0;
+    }
+
+    void FullEnd()
+    {
         m_UIObject.Hide();
 
         foreach (var bro in bros)
@@ -136,16 +159,15 @@ public class MelAnoma : BadGuy
 
     void ShrinkDone()
     {
-        CharacterShower.FadeOut();
+        if (!finished)
+            CharacterShower.FadeOut();
     }
 
     void HideDone()
     {
-        if (m_RequiredChains <= 0)
-        {
-            Destroy(m_UIObject.gameObject);
-            Destroy(gameObject);
-        }
+        Destroy(m_UIObject.gameObject);
+        Destroy(gameObject);
+        CharacterShower.FadeOut();
     }
 
     void NewColour()

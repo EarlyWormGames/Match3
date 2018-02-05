@@ -56,6 +56,12 @@ public class BadGuyUI : MonoBehaviour
         m_Animator.SetTrigger("Shrink");
     }
 
+    public void UnShrink()
+    {
+        shrunk = false;
+        m_Animator.SetTrigger("UnShrink");
+    }
+
     public void ShowDone()
     {
         if (m_ShowDone != null)

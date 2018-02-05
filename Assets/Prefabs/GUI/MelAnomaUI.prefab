@@ -322,19 +322,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Animator: {fileID: 95374978427245554}
   UseInstance: 1
-  OneLiners: []
+  OneLiners:
+  - Ahahahahaha!
   Text: {fileID: 114331735285824884}
   m_Colours:
   - text: <sprite name="broccoli">
-    colour: {r: 1, g: 1, b: 1, a: 1}
     FontSize: 300
     itemType: 0
   - text: <sprite name="capsicum">
-    colour: {r: 1, g: 1, b: 1, a: 1}
     FontSize: 300
     itemType: 2
   - text: <sprite name="carrot">
-    colour: {r: 1, g: 1, b: 1, a: 1}
     FontSize: 300
     itemType: 3
 --- !u!222 &222073846867803366
