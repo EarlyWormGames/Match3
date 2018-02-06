@@ -18,18 +18,18 @@ MonoBehaviour:
     requireClick: 0
     waitForTrigger: 0
     waitTime: 0
+  - TriggerName: StartWait
+    Data: 
+    requireClick: 0
+    waitForTrigger: 0
+    waitTime: 2
   - TriggerName: ShowDJ
     Data: 
     requireClick: 0
     waitForTrigger: 1
     waitTime: 0
-  - TriggerName: SetDJText
-    Data: Molar!
-    requireClick: 0
-    waitForTrigger: 0
-    waitTime: 0
   - TriggerName: ShowDJText
-    Data: 
+    Data: Molar!
     requireClick: 0
     waitForTrigger: 1
     waitTime: 0
@@ -43,8 +43,270 @@ MonoBehaviour:
     requireClick: 0
     waitForTrigger: 1
     waitTime: 0
+  - TriggerName: ShowDJText
+    Data: I've been looking all over for you!
+    requireClick: 0
+    waitForTrigger: 1
+    waitTime: 0
+  - TriggerName: WaitForClick
+    Data: 
+    requireClick: 1
+    waitForTrigger: 0
+    waitTime: 0
+  - TriggerName: HideDJText
+    Data: 
+    requireClick: 0
+    waitForTrigger: 1
+    waitTime: 0
   - TriggerName: ShowMolar
     Data: 
+    requireClick: 0
+    waitForTrigger: 1
+    waitTime: 0
+  - TriggerName: ShowMolarText
+    Data: Ungg...
+    requireClick: 0
+    waitForTrigger: 1
+    waitTime: 0
+  - TriggerName: WaitForClick
+    Data: 
+    requireClick: 1
+    waitForTrigger: 0
+    waitTime: 0
+  - TriggerName: HideMolarText
+    Data: 
+    requireClick: 0
+    waitForTrigger: 1
+    waitTime: 0
+  - TriggerName: ShowMolarText
+    Data: I don't feel so good
+    requireClick: 0
+    waitForTrigger: 1
+    waitTime: 0
+  - TriggerName: click
+    Data: 
+    requireClick: 1
+    waitForTrigger: 0
+    waitTime: 0
+  - TriggerName: HideMolarText
+    Data: 
+    requireClick: 0
+    waitForTrigger: 1
+    waitTime: 0
+  - TriggerName: ShowDJText
+    Data: Have you been in Candy Lands and Fizzy Springs
+    requireClick: 0
+    waitForTrigger: 1
+    waitTime: 0
+  - TriggerName: click
+    Data: 
+    requireClick: 1
+    waitForTrigger: 0
+    waitTime: 0
+  - TriggerName: HideDJText
+    Data: 
+    requireClick: 0
+    waitForTrigger: 1
+    waitTime: 0
+  - TriggerName: ShowDJText
+    Data: This whole time?
+    requireClick: 0
+    waitForTrigger: 1
+    waitTime: 0
+  - TriggerName: click
+    Data: 
+    requireClick: 1
+    waitForTrigger: 0
+    waitTime: 0
+  - TriggerName: HideDJText
+    Data: 
+    requireClick: 0
+    waitForTrigger: 1
+    waitTime: 0
+  - TriggerName: ShowMolarText
+    Data: '...Yes'
+    requireClick: 0
+    waitForTrigger: 1
+    waitTime: 0
+  - TriggerName: click
+    Data: 
+    requireClick: 1
+    waitForTrigger: 0
+    waitTime: 0
+  - TriggerName: HideMolartext
+    Data: 
+    requireClick: 1
+    waitForTrigger: 0
+    waitTime: 0
+  - TriggerName: ShowMolarText
+    Data: We were all having such a great time
+    requireClick: 0
+    waitForTrigger: 1
+    waitTime: 0
+  - TriggerName: click
+    Data: 
+    requireClick: 1
+    waitForTrigger: 0
+    waitTime: 0
+  - TriggerName: HideMolarText
+    Data: 
+    requireClick: 0
+    waitForTrigger: 1
+    waitTime: 0
+  - TriggerName: ShowMolarText
+    Data: But we started to get sick.
+    requireClick: 0
+    waitForTrigger: 1
+    waitTime: 0
+  - TriggerName: click
+    Data: 
+    requireClick: 1
+    waitForTrigger: 0
+    waitTime: 0
+  - TriggerName: HideMolarText
+    Data: 
+    requireClick: 0
+    waitForTrigger: 1
+    waitTime: 0
+  - TriggerName: ShowMolartext
+    Data: Dr Decay has us trapped here!
+    requireClick: 0
+    waitForTrigger: 1
+    waitTime: 0
+  - TriggerName: click
+    Data: 
+    requireClick: 1
+    waitForTrigger: 0
+    waitTime: 0
+  - TriggerName: HideMolarText
+    Data: 
+    requireClick: 0
+    waitForTrigger: 1
+    waitTime: 0
+  - TriggerName: HideMolar
+    Data: 
+    requireClick: 0
+    waitForTrigger: 1
+    waitTime: 0
+  - TriggerName: wait
+    Data: 
+    requireClick: 0
+    waitForTrigger: 0
+    waitTime: 0.5
+  - TriggerName: ShowDecay
+    Data: 
+    requireClick: 0
+    waitForTrigger: 1
+    waitTime: 0
+  - TriggerName: ShowDecayText
+    Data: That's right!
+    requireClick: 0
+    waitForTrigger: 1
+    waitTime: 0
+  - TriggerName: click
+    Data: 
+    requireClick: 1
+    waitForTrigger: 0
+    waitTime: 0
+  - TriggerName: HideDecayText
+    Data: 
+    requireClick: 0
+    waitForTrigger: 1
+    waitTime: 0
+  - TriggerName: ShowDecayText
+    Data: With all the teeth sick and reliant on sugar
+    requireClick: 0
+    waitForTrigger: 1
+    waitTime: 0
+  - TriggerName: click
+    Data: 
+    requireClick: 1
+    waitForTrigger: 0
+    waitTime: 0
+  - TriggerName: HidedecayText
+    Data: 
+    requireClick: 0
+    waitForTrigger: 1
+    waitTime: 0
+  - TriggerName: Showdecaytext
+    Data: They make great, obedient slaves!
+    requireClick: 0
+    waitForTrigger: 1
+    waitTime: 0
+  - TriggerName: click
+    Data: 
+    requireClick: 1
+    waitForTrigger: 0
+    waitTime: 0
+  - TriggerName: hidedecaytext
+    Data: 
+    requireClick: 0
+    waitForTrigger: 1
+    waitTime: 0
+  - TriggerName: showdecaytext
+    Data: 'Mwahaha!
+
+      Just try and stop me!'
+    requireClick: 0
+    waitForTrigger: 1
+    waitTime: 0
+  - TriggerName: click
+    Data: 
+    requireClick: 1
+    waitForTrigger: 0
+    waitTime: 0
+  - TriggerName: hidedecaytext
+    Data: 
+    requireClick: 0
+    waitForTrigger: 1
+    waitTime: 0
+  - TriggerName: hidedecay
+    Data: 
+    requireClick: 0
+    waitForTrigger: 1
+    waitTime: 0
+  - TriggerName: wait
+    Data: 
+    requireClick: 0
+    waitForTrigger: 0
+    waitTime: 0.5
+  - TriggerName: ShowMolar
+    Data: 
+    requireClick: 0
+    waitForTrigger: 1
+    waitTime: 0
+  - TriggerName: ShowDjtext
+    Data: Come on, Molar!
+    requireClick: 0
+    waitForTrigger: 1
+    waitTime: 0
+  - TriggerName: click
+    Data: 
+    requireClick: 1
+    waitForTrigger: 0
+    waitTime: 0
+  - TriggerName: hidedjtext
+    Data: 
+    requireClick: 0
+    waitForTrigger: 1
+    waitTime: 0
+  - TriggerName: showdjtext
+    Data: I have got to get you to stop eating sugary food
+    requireClick: 0
+    waitForTrigger: 1
+    waitTime: 0
+  - TriggerName: click
+    Data: 
+    requireClick: 1
+    waitForTrigger: 0
+    waitTime: 0
+  - TriggerName: hidedjtext
+    Data: 
+    requireClick: 0
+    waitForTrigger: 1
+    waitTime: 0
+  - TriggerName: showdjtext
+    Data: Before it's too late!
     requireClick: 0
     waitForTrigger: 1
     waitTime: 0

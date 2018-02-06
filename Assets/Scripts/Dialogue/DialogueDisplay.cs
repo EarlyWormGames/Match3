@@ -9,7 +9,6 @@ using System.Linq;
 public class DialogueDisplay : MonoBehaviour
 {
     public Dialogue Asset;
-    public Dialogue.TriggerEvent[] RegularEvents;
     public Dialogue.TextEvent[] TextEvents;
 
     public UnityEvent OnFinished;
@@ -58,20 +57,6 @@ public class DialogueDisplay : MonoBehaviour
             string triggerName = Asset.Events[CurrentIndex].TriggerName;
             if (Asset.IgnoreCase)
                 triggerName = triggerName.ToLower();
-
-            foreach (var item in RegularEvents)
-            {
-                string itemName = item.name;
-                if (Asset.IgnoreCase)
-                    itemName = itemName.ToLower();
-
-                //Find the corresponding trigger
-                if (itemName == triggerName)
-                {
-                    //Call the function
-                    item.trigger.Invoke();
-                }
-            }
 
             foreach (var item in TextEvents)
             {

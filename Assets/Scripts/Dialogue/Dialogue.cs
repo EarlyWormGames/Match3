@@ -10,13 +10,6 @@ public class Dialogue : ScriptableObject
     public class StringEvent : UnityEvent<string> { }
 
     [System.Serializable]
-    public class TriggerEvent
-    {
-        public string name;
-        public UnityEvent trigger;
-    }
-
-    [System.Serializable]
     public class TextEvent
     {
         public string name;
