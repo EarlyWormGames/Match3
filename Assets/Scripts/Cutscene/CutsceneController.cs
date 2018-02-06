@@ -7,7 +7,7 @@ public class CutsceneController : MonoBehaviour
     [System.Serializable]
     public class CutsceneLevel
     {
-        public Cutscene cutscene;
+        public DialogueDisplay cutscene;
         public int level;
     }
     public CutsceneLevel[] Cutscenes;
@@ -20,7 +20,10 @@ public class CutsceneController : MonoBehaviour
             if (item.level != Mediator.Settings.Level + 1 || Mediator.Settings.isArcade)
                 item.cutscene.gameObject.SetActive(false);
             else
+            {
                 item.cutscene.gameObject.SetActive(true);
+                item.cutscene.Play();
+            }
         }
     }
 }
