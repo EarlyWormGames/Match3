@@ -17,6 +17,7 @@ public class GridNode : MonoBehaviour
 {
     public Color m_HighlightColour;
     public ParticleSystem m_SelectedParticle;
+    public bool AllowSwap = true;
 
     internal NodeItem m_Shape;
     internal GridNode m_Left, m_Right, m_Up, m_Down;

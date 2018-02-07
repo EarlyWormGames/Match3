@@ -26,10 +26,14 @@ public class GameSettings
     public int TargetScore = 100;
     public float DifficultyMult = 1;
 
-    public int Turns = 15;
+    public int Turns = 50;
     public int Level = -1;
     public bool isArcade = false;
     public int ArcadeScore = 1000;
 
+    public bool AllowEnemies = true;
+
     public GameObject SpawnObject;
+
+    public GameObject[] StartNodes;
 }

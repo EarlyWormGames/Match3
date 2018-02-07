@@ -5,6 +5,12 @@ using UnityEngine.UI;
 
 public class LevelSettings : MonoBehaviour
 {
+    [System.Serializable]
+    public class Row
+    {
+        public GameObject[] Prefabs;
+    }
+
     public static LevelSettings selected;
 
     public int RequiredChain = 4;
@@ -21,6 +27,8 @@ public class LevelSettings : MonoBehaviour
     public int LevelNum;
 
     public bool isArcade;
+
+    public Row[] Rows = new Row[0];
 
     private void Start()
     {
@@ -41,5 +49,15 @@ public class LevelSettings : MonoBehaviour
     {
         selected = this;
         PlayPanel.instance.Show();
+    }
+
+    public GameObject[] JoinRows()
+    {
+        List<GameObject> joined = new List<GameObject>();
+        foreach (var row in Rows)
+        {
+            joined.AddRange(row.Prefabs);
+        }
+        return joined.ToArray();
     }
 }

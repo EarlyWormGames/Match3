@@ -1,0 +1,221 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 044a962e2c126274a971ac862f3cf8e7, type: 3}
+  m_Name: IntroTutorialDialogue
+  m_EditorClassIdentifier: 
+  IgnoreCase: 1
+  Events:
+  - TriggerName: ShowGame
+    Data: 
+    requireClick: 0
+    waitForTrigger: 1
+    waitTime: 0
+  - TriggerName: ShowDJText
+    Data: Hmm... maybe these carrots will help!
+    requireClick: 0
+    waitForTrigger: 1
+    waitTime: 0
+  - TriggerName: UnBlockInput
+    Data: 
+    requireClick: 0
+    waitForTrigger: 0
+    waitTime: 0
+  - TriggerName: ShowHand
+    Data: 
+    requireClick: 0
+    waitForTrigger: 0
+    waitTime: 0
+  - TriggerName: StartTutorial
+    Data: 
+    requireClick: 0
+    waitForTrigger: 1
+    waitTime: 0
+  - TriggerName: Blockinput
+    Data: 
+    requireClick: 0
+    waitForTrigger: 0
+    waitTime: 0
+  - TriggerName: HideHand
+    Data: 
+    requireClick: 0
+    waitForTrigger: 0
+    waitTime: 0
+  - TriggerName: HideDJText
+    Data: 
+    requireClick: 0
+    waitForTrigger: 1
+    waitTime: 0
+  - TriggerName: ShowMolarText
+    Data: 'It worked!
+
+      I feel better already!'
+    requireClick: 0
+    waitForTrigger: 1
+    waitTime: 0
+  - TriggerName: click
+    Data: 
+    requireClick: 1
+    waitForTrigger: 0
+    waitTime: 0
+  - TriggerName: HideMolarText
+    Data: 
+    requireClick: 0
+    waitForTrigger: 1
+    waitTime: 0
+  - TriggerName: ShowMolarText
+    Data: Let's try some more!
+    requireClick: 0
+    waitForTrigger: 1
+    waitTime: 0
+  - TriggerName: UnblockInput
+    Data: 
+    requireClick: 0
+    waitForTrigger: 1
+    waitTime: 0
+  - TriggerName: BlockInput
+    Data: 
+    requireClick: 0
+    waitForTrigger: 0
+    waitTime: 0
+  - TriggerName: HideMolarText
+    Data: 
+    requireClick: 0
+    waitForTrigger: 1
+    waitTime: 0
+  - TriggerName: ShowMolarText
+    Data: Wow! I feel great now! Thankyou, DJ Heartbeat!
+    requireClick: 0
+    waitForTrigger: 1
+    waitTime: 0
+  - TriggerName: click
+    Data: 
+    requireClick: 1
+    waitForTrigger: 0
+    waitTime: 0
+  - TriggerName: HideMolarText
+    Data: 
+    requireClick: 0
+    waitForTrigger: 1
+    waitTime: 0
+  - TriggerName: ShowMolarText
+    Data: I think I'll only have sweets in small amounts
+    requireClick: 0
+    waitForTrigger: 1
+    waitTime: 0
+  - TriggerName: click
+    Data: 
+    requireClick: 1
+    waitForTrigger: 0
+    waitTime: 0
+  - TriggerName: HideMolartext
+    Data: 
+    requireClick: 0
+    waitForTrigger: 1
+    waitTime: 0
+  - TriggerName: ShowMolarText
+    Data: See you later!
+    requireClick: 0
+    waitForTrigger: 1
+    waitTime: 0
+  - TriggerName: click
+    Data: 
+    requireClick: 1
+    waitForTrigger: 0
+    waitTime: 0
+  - TriggerName: HideMolarText
+    Data: 
+    requireClick: 0
+    waitForTrigger: 1
+    waitTime: 0
+  - TriggerName: ShowDJText
+    Data: Phew. Now Molar is safe from Dr Decay
+    requireClick: 0
+    waitForTrigger: 1
+    waitTime: 0
+  - TriggerName: click
+    Data: 
+    requireClick: 1
+    waitForTrigger: 0
+    waitTime: 0
+  - TriggerName: HideDJText
+    Data: 
+    requireClick: 0
+    waitForTrigger: 1
+    waitTime: 0
+  - TriggerName: ShowDJText
+    Data: I better got find the other teeth!
+    requireClick: 0
+    waitForTrigger: 1
+    waitTime: 0
+  - TriggerName: click
+    Data: 
+    requireClick: 1
+    waitForTrigger: 0
+    waitTime: 0
+  - TriggerName: ShowBrainBG
+    Data: 
+    requireClick: 0
+    waitForTrigger: 1
+    waitTime: 0
+  - TriggerName: ShowBrain
+    Data: 
+    requireClick: 0
+    waitForTrigger: 1
+    waitTime: 0
+  - TriggerName: ShowBrainText
+    Data: 'Well done, DJ Heartbeat!
+
+      May our teeth become healthy and restore balance to Hip Hop Island'
+    requireClick: 0
+    waitForTrigger: 1
+    waitTime: 0
+  - TriggerName: click
+    Data: 
+    requireClick: 1
+    waitForTrigger: 0
+    waitTime: 0
+  - TriggerName: HideBrainText
+    Data: 
+    requireClick: 0
+    waitForTrigger: 0
+    waitTime: 0
+  - TriggerName: ShowBrainText
+    Data: 'Friends and foes are around every corner, so watch out!
+
+      I''ll be there for you every step of the way!'
+    requireClick: 0
+    waitForTrigger: 1
+    waitTime: 0
+  - TriggerName: click
+    Data: 
+    requireClick: 1
+    waitForTrigger: 0
+    waitTime: 0
+  - TriggerName: HideBrain
+    Data: 
+    requireClick: 0
+    waitForTrigger: 1
+    waitTime: 0
+  - TriggerName: HideBrainText
+    Data: 
+    requireClick: 0
+    waitForTrigger: 0
+    waitTime: 0
+  - TriggerName: HideBrainBG
+    Data: 
+    requireClick: 0
+    waitForTrigger: 1
+    waitTime: 0
+  - TriggerName: Unblockinput
+    Data: 
+    requireClick: 0
+    waitForTrigger: 0
+    waitTime: 0

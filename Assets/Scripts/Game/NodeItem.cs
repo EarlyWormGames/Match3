@@ -297,7 +297,7 @@ public class NodeItem : MonoBehaviour
 
     public virtual bool CanSwap()
     {
-        return m_CanSwap && m_bIsActive;
+        return m_CanSwap && m_bIsActive && m_Parent.AllowSwap;
     }
 
     public virtual bool CanDestroy()

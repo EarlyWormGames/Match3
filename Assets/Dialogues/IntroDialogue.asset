@@ -310,3 +310,18 @@ MonoBehaviour:
     requireClick: 0
     waitForTrigger: 1
     waitTime: 0
+  - TriggerName: click
+    Data: 
+    requireClick: 1
+    waitForTrigger: 0
+    waitTime: 0
+  - TriggerName: HideMolar
+    Data: 
+    requireClick: 0
+    waitForTrigger: 1
+    waitTime: 0
+  - TriggerName: HideDJText
+    Data: 
+    requireClick: 0
+    waitForTrigger: 1
+    waitTime: 0

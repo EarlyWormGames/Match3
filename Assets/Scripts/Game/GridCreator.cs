@@ -10,7 +10,6 @@ public class GridCreator : MonoBehaviour
     public int m_GridWidth = 6;
     public int m_GridHeight = 9;
     public GridLayoutGroup m_Layout;
-    public NodeItem[] StartNodes;
     public List<GameObject> FillArray = new List<GameObject>();
 
     internal GridNode[,] m_Nodes;
@@ -23,11 +22,8 @@ public class GridCreator : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        if (StartNodes.Length < 1)
-        {
-            m_GridWidth = Mediator.Settings.GridWidth;
-            m_GridHeight = Mediator.Settings.GridHeight;
-        }
+        m_GridWidth = Mediator.Settings.GridWidth;
+        m_GridHeight = Mediator.Settings.GridHeight;
 
         parentRect = gameObject.GetComponent<RectTransform>();
         m_Layout.constraintCount = m_GridWidth;
@@ -68,50 +64,60 @@ public class GridCreator : MonoBehaviour
             }
         }
 
-        if (StartNodes.Length > 0)
+        if (Mediator.Settings.StartNodes.Length > 0)
         {
-            int i = 0;
-            foreach (var node in m_Nodes)
+            int x = 0;
+            for (int i = 0; i < m_GridHeight; ++i)
             {
-                StartNodes[i].m_Parent = node;
-                node.m_Shape = StartNodes[i];
+                for (int j = 0; j < m_GridWidth; ++j)
+                {
+                    var obj = Instantiate(Mediator.Settings.StartNodes[x]).GetComponent<NodeItem>();
+                    m_Nodes[j, i].m_Shape = obj;
 
-                ++i;
+                    m_Nodes[j, i].m_Shape.transform.SetParent(m_Nodes[j, i].transform.parent.parent, false);
+                    m_Nodes[j, i].m_Shape.transform.localScale = m_Nodes[j, i].m_Shape.m_Scale;
+                    m_Nodes[j, i].m_Shape.transform.localPosition = m_Nodes[j, i].transform.position;
+                    m_Nodes[j, i].m_Shape.m_Parent = m_Nodes[j, i];
+
+                    ++x;
+                }
             }
             return;
         }
-
-        int count = 0;
-        do
+        else
         {
-            //Initialise all nodes
-            foreach (var node in m_Nodes)
+            int count = 0;
+            do
             {
-                node.Init();
-            }
-
-            if (count >= 100)
-            {
-                //After 100 tries, just give up
-                break;
-            }
-
-            if (CheckColumns(true) == GameManager.instance.m_RequiredChainStart)
-            {
-                //We're done, break out of the do while
-                break;
-            }
-            else
-            {
-                //If the chain count is wrong, try again
+                //Initialise all nodes
                 foreach (var node in m_Nodes)
                 {
-                    node.DestroyNode();
+                    node.Init();
                 }
-            }
-            ++count;
 
-        } while (true);
+                if (count >= 100)
+                {
+                    //After 100 tries, just give up
+                    break;
+                }
+
+                if (CheckColumns(true) == GameManager.instance.m_RequiredChainStart)
+                {
+                    //We're done, break out of the do while
+                    break;
+                }
+                else
+                {
+                    //If the chain count is wrong, try again
+                    foreach (var node in m_Nodes)
+                    {
+                        node.DestroyNode();
+                    }
+                }
+                ++count;
+
+            } while (true);
+        }
     }
     
     void Update()

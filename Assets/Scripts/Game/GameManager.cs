@@ -75,14 +75,15 @@ public class GameManager : MonoBehaviour
 
     public static int LastScore;
 
-    //Delegate function for notifying a turn
+    #endregion
+
+    //Delegate functions for notifying a turn
     #region DELEGATES
     public static MyDel onNotifySwap;
     public static MyDel onEOFSwap;
+    public static MyDel onGameOver;
     public static ColourDel onScored;
     public static BoolDel onRefill;
-    #endregion
-
     #endregion
 
     [Header("UI Connections")]
@@ -126,6 +127,7 @@ public class GameManager : MonoBehaviour
     internal int m_TurnsLeft;
     internal bool m_IsGameOver = false;
     internal bool m_TotalGameOver = false;
+    internal bool m_bAllowRegularGameOver = true;
 
     private int m_WBCATurnsLeft;
     private bool m_bSetGameOver = false;
@@ -153,7 +155,7 @@ public class GameManager : MonoBehaviour
 
         if (Mediator.Settings.isArcade)
         {
-            m_TurnsText.text = 0.ToString();
+            m_TurnsText.text = "0";
         }
         else
         {
@@ -270,51 +272,94 @@ public class GameManager : MonoBehaviour
             Debug.Log("GAME OVER");
             m_IsGameOver = true;
 
+            if (a_success && onGameOver != null)
+                onGameOver();
+
             //m_ScorePanel.SetActive(true);
             //m_EndScore.text = Score.ToString();
 
-            if (a_success)
+            if (m_bAllowRegularGameOver)
             {
-                //Misison passed! Respect+
-                if (!Mediator.Settings.isArcade)
-                    m_WinPanel.SetActive(true);
-                else
-                    m_ArcadeWinPanel.SetActive(true);
-
-                if (Mediator.Settings.Level > -1)
+                if (a_success)
                 {
-                    //Save the score to file
-                    int finalscore = 1;
-
-                    if (m_TurnsLeft >= (Mediator.Settings.Turns / 5))
+                    GameSuccess();
+                }
+                else
+                {
+                    if (a_completeFailure)
                     {
-                        finalscore = 2;
-                    }
+                        isDragging = true;
+                        m_IsGameOver = false;
+                        Instantiate(m_DJPrefab);
 
-                    if (m_TurnsLeft >= (Mediator.Settings.Turns / 2))
-                    {
-                        finalscore = 3;
-                    }
-
-                    if (Mediator.Settings.Level < SaveData.instance.LevelScores.Count)
-                    {
-                        if (finalscore > SaveData.instance.LevelScores[Mediator.Settings.Level] && !Mediator.Settings.isArcade)
-                        {
-                            SaveData.instance.LevelScores[Mediator.Settings.Level] = finalscore;
-                            SaveData.Save();
-                        }
+                        Analytics.CustomEvent("Reset Board", new Dictionary<string, object>
+                      {
+                        { "level", Mediator.Settings.Level },
+                        { "Time-played", GameTimer}
+                      });
                     }
                     else
                     {
-                        SaveData.instance.LevelScores.Add(finalscore);
-                        SaveData.Save();
+                        //Mission failed. We'll get 'em next time
+                        m_LosePanel.SetActive(true);
+
+                        Analytics.CustomEvent("Game Lost", new Dictionary<string, object>
+                      {
+                            { "level", Mediator.Settings.Level },
+                            { "score", Score },
+                            { "target-score", Mediator.Settings.TargetScore },
+                            { "turns-left", m_TurnsLeft },
+                            { "target-turns", Mediator.Settings.Turns},
+                            { "Time-played", GameTimer}
+                      });
                     }
+                }
+            }
+        }
+    }
 
-                    if (!Mediator.Settings.isArcade)
-                    {
-                        m_Stars.ShowStars(finalscore);
+    public void GameSuccess()
+    {
+        //Misison passed! Respect+
+        if (!Mediator.Settings.isArcade)
+            m_WinPanel.SetActive(true);
+        else
+            m_ArcadeWinPanel.SetActive(true);
 
-                        Analytics.CustomEvent("Game Won", new Dictionary<string, object>
+        if (Mediator.Settings.Level > -1)
+        {
+            //Save the score to file
+            int finalscore = 1;
+
+            if (m_TurnsLeft >= (Mediator.Settings.Turns / 5))
+            {
+                finalscore = 2;
+            }
+
+            if (m_TurnsLeft >= (Mediator.Settings.Turns / 2))
+            {
+                finalscore = 3;
+            }
+
+            if (Mediator.Settings.Level < SaveData.instance.LevelScores.Count)
+            {
+                if (finalscore > SaveData.instance.LevelScores[Mediator.Settings.Level] && !Mediator.Settings.isArcade)
+                {
+                    SaveData.instance.LevelScores[Mediator.Settings.Level] = finalscore;
+                    SaveData.Save();
+                }
+            }
+            else
+            {
+                SaveData.instance.LevelScores.Add(finalscore);
+                SaveData.Save();
+            }
+
+            if (!Mediator.Settings.isArcade)
+            {
+                m_Stars.ShowStars(finalscore);
+
+                Analytics.CustomEvent("Game Won", new Dictionary<string, object>
                           {
                             { "level", Mediator.Settings.Level },
                             { "score", Score },
@@ -324,18 +369,18 @@ public class GameManager : MonoBehaviour
                             { "final-score", finalscore },
                             { "Time-played", GameTimer}
                           });
-                    }
-                    else
-                    {
-                        float bonus = Mediator.Settings.ArcadeScore * (1 - (m_TurnsMade / (float)Mediator.Settings.Turns));
-                        finalscore = (int)((Mediator.Settings.Level + 1) * Mathf.Max(0, bonus));
-                        m_FinalScore.BeginScroll(finalscore);
+            }
+            else
+            {
+                float bonus = Mediator.Settings.ArcadeScore * (1 - (m_TurnsMade / (float)Mediator.Settings.Turns));
+                finalscore = (int)((Mediator.Settings.Level + 1) * Mathf.Max(0, bonus));
+                m_FinalScore.BeginScroll(finalscore);
 
-                        SaveData.instance.LastArcade = Mediator.Settings.Level;
-                        SaveData.instance.ArcadeScore += finalscore;
-                        SaveData.Save();
+                SaveData.instance.LastArcade = Mediator.Settings.Level;
+                SaveData.instance.ArcadeScore += finalscore;
+                SaveData.Save();
 
-                        Analytics.CustomEvent("Arcade Won", new Dictionary<string, object>
+                Analytics.CustomEvent("Arcade Won", new Dictionary<string, object>
                           {
                             { "level", Mediator.Settings.Level },
                             { "score", Score },
@@ -345,38 +390,6 @@ public class GameManager : MonoBehaviour
                             { "final-score", finalscore },
                             { "Time-played", GameTimer}
                           });
-                    }
-                }
-            }
-            else
-            {
-                if (a_completeFailure)
-                {
-                    isDragging = true;
-                    m_IsGameOver = false;
-                    Instantiate(m_DJPrefab);
-
-                    Analytics.CustomEvent("Reset Board", new Dictionary<string, object>
-                      {
-                        { "level", Mediator.Settings.Level },
-                        { "Time-played", GameTimer}
-                      });
-                }
-                else
-                {
-                    //Mission failed. We'll get 'em next time
-                    m_LosePanel.SetActive(true);
-
-                    Analytics.CustomEvent("Game Lost", new Dictionary<string, object>
-                      {
-                            { "level", Mediator.Settings.Level },
-                            { "score", Score },
-                            { "target-score", Mediator.Settings.TargetScore },
-                            { "turns-left", m_TurnsLeft },
-                            { "target-turns", Mediator.Settings.Turns},
-                            { "Time-played", GameTimer}
-                      });
-                }
             }
         }
     }
@@ -537,7 +550,7 @@ public class GameManager : MonoBehaviour
             }
             // Change turns made to  --------------------> 3
             if (BadGuyUI.instance == null && m_TurnsMade > MinimumTurnsBeforeEnemy
-                && m_WBCATurnsLeft <= 0)
+                && m_WBCATurnsLeft <= 0 && Mediator.Settings.AllowEnemies)
             {
                 int rand = Random.Range(0, m_BadGuySpawnChance);
                 if (rand == 0)

@@ -78,6 +78,7 @@ public class ChangeScene : MonoBehaviour
             Mediator.Settings.Turns = LS.TurnsGoal;
             Mediator.Settings.Level = LS.LevelNum;
             Mediator.Settings.isArcade = LS.isArcade;
+            Mediator.Settings.StartNodes = LS.JoinRows();
 
             if (!LS.isArcade)
             {
