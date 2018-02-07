@@ -151,7 +151,7 @@ MonoBehaviour:
     waitForTrigger: 1
     waitTime: 0
   - TriggerName: ShowDJText
-    Data: I better got find the other teeth!
+    Data: I better go find the other teeth!
     requireClick: 0
     waitForTrigger: 1
     waitTime: 0
@@ -169,6 +169,11 @@ MonoBehaviour:
     Data: 
     requireClick: 0
     waitForTrigger: 1
+    waitTime: 0
+  - TriggerName: HideDJ
+    Data: 
+    requireClick: 0
+    waitForTrigger: 0
     waitTime: 0
   - TriggerName: ShowBrainText
     Data: 'Well done, DJ Heartbeat!

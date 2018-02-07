@@ -1153,6 +1153,23 @@ MonoBehaviour:
           m_CallState: 2
       m_TypeName: Dialogue+StringEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
+  - name: HideDJ
+    trigger:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 194530614}
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: Dialogue+StringEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
   OnFinished:
     m_PersistentCalls:
       m_Calls:
@@ -37884,7 +37901,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f0e32af217ddfb47aba1928f401e652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BlipSpeed: 0.06
+  BlipSpeed: 0.04
   MouseHurries: 1
   BlipSound: {fileID: 0}
   NoiseOnSpace: 0

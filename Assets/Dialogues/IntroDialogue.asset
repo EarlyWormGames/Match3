@@ -135,8 +135,8 @@ MonoBehaviour:
     waitTime: 0
   - TriggerName: HideMolartext
     Data: 
-    requireClick: 1
-    waitForTrigger: 0
+    requireClick: 0
+    waitForTrigger: 1
     waitTime: 0
   - TriggerName: ShowMolarText
     Data: We were all having such a great time
@@ -154,7 +154,7 @@ MonoBehaviour:
     waitForTrigger: 1
     waitTime: 0
   - TriggerName: ShowMolarText
-    Data: But we started to get sick.
+    Data: But we started to get sick
     requireClick: 0
     waitForTrigger: 1
     waitTime: 0
