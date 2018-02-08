@@ -538,6 +538,7 @@ public class GameManager : MonoBehaviour
             ++m_TurnsMade;
             --m_TurnsLeft;
             --m_WBCATurnsLeft;
+            --TopViewTime;
 
             if (Mediator.Settings.isArcade)
                 m_TurnsText.text = m_TurnsMade.ToString();

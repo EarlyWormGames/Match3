@@ -149,7 +149,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 256}
+  m_AnchoredPosition: {x: 0, y: 238}
   m_SizeDelta: {x: 344.9, y: 95.900024}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &41795483
@@ -246,13 +246,15 @@ MonoBehaviour:
   TurnsGoal: 15
   LevelNum: 0
   isArcade: 1
+  Rows: []
   sceneMan: {fileID: 1501243488}
   scene: Game
   levelDisplay: {fileID: 792593177}
   scoreDisplay: {fileID: 909072831}
-  TurnsLog: 1.5
-  TurnsBase: 40
-  ScoreBase: 30
+  TurnsLog: 1.3
+  ScoreLog: 1.1
+  TurnsBase: 10
+  ScoreBase: 50
   levelSizes:
   - num: 3
     size: {x: 5, y: 5}

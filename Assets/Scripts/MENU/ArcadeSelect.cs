@@ -16,7 +16,7 @@ public class ArcadeSelect : LevelSettings
     public string scene;
     public TextMeshProUGUI levelDisplay;
     public TextMeshProUGUI scoreDisplay;
-    public float TurnsLog = 10;
+    public float TurnsLog = 1.5f, ScoreLog = 1.4f, DifficultyLog = 1.6f;
     public int TurnsBase = 40;
     public int ScoreBase = 10;
     public LevelSize[] levelSizes;
@@ -29,9 +29,9 @@ public class ArcadeSelect : LevelSettings
         levelDisplay.text = (LevelNum + 1).ToString();
         scoreDisplay.text = SaveData.instance.ArcadeScore.ToString();
 
-        TurnsGoal = (int)(Mathf.Log(LevelNum + 1, TurnsLog) + 0.5f) + TurnsBase;
-        TargetScore = (int)(Mathf.Log(LevelNum + 1, TurnsLog) + 0.5f) + ScoreBase;
-        DifficultyMult = Mathf.Log(LevelNum + 1, TurnsLog);
+        TurnsGoal = (int)(Mathf.Log(LevelNum + 1 * TurnsLog) + 0.5f) + TurnsBase;
+        TargetScore = (int)(Mathf.Log(LevelNum + 1, ScoreLog) + 0.5f) + ScoreBase;
+        DifficultyMult = Mathf.Log(LevelNum + 1, DifficultyLog);
         int i = 0;
         for (i = 0; i < levelSizes.Length; ++i)
         {

@@ -8,6 +8,6 @@ public class EyeTwins : NodeItem
     {
         base.OnEndDestroy();
 
-        GameManager.TopViewTime = 2;
+        GameManager.TopViewTime = 4;
     }
 }
