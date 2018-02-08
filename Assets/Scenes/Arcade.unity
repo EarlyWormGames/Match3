@@ -252,9 +252,10 @@ MonoBehaviour:
   levelDisplay: {fileID: 792593177}
   scoreDisplay: {fileID: 909072831}
   TurnsLog: 1.3
-  ScoreLog: 1.1
+  ScoreLog: 1.07
+  DifficultyLog: 1.6
   TurnsBase: 10
-  ScoreBase: 50
+  ScoreBase: 20
   levelSizes:
   - num: 3
     size: {x: 5, y: 5}
