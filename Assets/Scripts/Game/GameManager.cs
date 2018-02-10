@@ -430,7 +430,6 @@ public class GameManager : MonoBehaviour
         GetComponent<HighScores>().SaveScoresToFile();
 
         //Disable the score panel and load a different scene
-        m_ScorePanel.SetActive(false);
         GetComponent<Fading>().BeginFade(1, levelToLoad);
 
         //Reset all these vars, since they are static

@@ -35,5 +35,5 @@ public class GameSettings
 
     public GameObject SpawnObject;
 
-    public GameObject[] StartNodes;
+    public GameObject[] StartNodes = new GameObject[0];
 }
