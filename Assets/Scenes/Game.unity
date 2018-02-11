@@ -20148,6 +20148,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelSelect: WorldSelection
   ArcadeScene: Arcade
+  OnWillChangeScene:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &910439023
 GameObject:
   m_ObjectHideFlags: 0

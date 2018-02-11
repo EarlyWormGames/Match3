@@ -233,8 +233,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Colour: 0
   m_Explosion: {fileID: 198095659432751050}
-  m_AfterExplosion: {fileID: 198175919089479792, guid: 84b0ea9c072b01046a0d65e19aca8ea5,
-    type: 2}
+  m_AfterExplosion: {fileID: 0}
   m_AfterEXDestroyTime: 1
   m_RelativeAfterEX: 1
   m_CanSwap: 1
