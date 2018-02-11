@@ -1,13 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.EventSystems;
+using UnityEngine.Events;
 using UnityEngine.Analytics;
 
 public class ChangeScene : MonoBehaviour
 {
     public string LevelSelect = "WorldSelection", ArcadeScene = "Arcade";
+    public UnityEvent OnWillChangeScene;
 
     Fading fade;
 
@@ -33,6 +33,7 @@ public class ChangeScene : MonoBehaviour
         else
         {
             fade.BeginFade(1, TargetScene);
+            OnWillChangeScene.Invoke();
         }
     }
 
@@ -44,19 +45,20 @@ public class ChangeScene : MonoBehaviour
             });
 
         ChangeSceneTo(Mediator.Settings.isArcade? ArcadeScene : LevelSelect);
+        OnWillChangeScene.Invoke();
     }
 
     public void ChangeSceneToAndSetUpMediator(string TargetScene)
     {
-        SetupMediator();
-
         if (TargetScene == "")
         {
             Debug.LogError("You DUN goofed - change the inspector TargetScene to a scene that exsists in the build settings.");
         }
         else
         {
+            SetupMediator();
             fade.BeginFade(1, TargetScene);
+            OnWillChangeScene.Invoke();
         }
     }
 
@@ -99,8 +101,5 @@ public class ChangeScene : MonoBehaviour
         {
             Debug.LogError("Could not find the current selected level.");
         }
-
-
     }
-
 }

@@ -6401,7 +6401,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1343110458}
   m_HandleRect: {fileID: 1343110457}
   m_Direction: 0
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -7267,7 +7267,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1482509900}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.00000006172681
+  m_Size: 0.37359825
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -8731,7 +8731,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 2620.8394}
+  m_AnchoredPosition: {x: 0, y: 2477.5317}
   m_SizeDelta: {x: 0, y: 3955.18}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1962674664
@@ -9286,6 +9286,7 @@ GameObject:
   - component: {fileID: 2088147288}
   - component: {fileID: 2088147286}
   - component: {fileID: 2088147287}
+  - component: {fileID: 2088147289}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: SceneManager
@@ -9306,6 +9307,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelSelect: WorldSelection
   ArcadeScene: Arcade
+  OnWillChangeScene:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2088147289}
+        m_MethodName: SaveSettings
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &2088147287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9332,6 +9349,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2088147289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2088147285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fb4ce635a1787d4e8a26211390fd72a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScrollToSave: {fileID: 703026454}
 --- !u!1001 &2101556530
 Prefab:
   m_ObjectHideFlags: 0

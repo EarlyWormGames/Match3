@@ -18,6 +18,7 @@ public class SaveData
     public List<int> LevelScores = new List<int>();
     public int LastArcade = -1;
     public long ArcadeScore;
+    public SaveableVector2 ScrollPoint = Vector2.zero;
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     static void Init()
@@ -105,5 +106,27 @@ public class SaveData
             rijndael.CreateDecryptor(key, iv),
             CryptoStreamMode.Read);
         return decryptor;
+    }
+}
+
+[System.Serializable]
+public class SaveableVector2
+{
+    public float x, y;
+
+    public static implicit operator SaveableVector2(Vector2 val)
+    {
+        var v2 = new SaveableVector2();
+        v2.x = val.x;
+        v2.y = val.y;
+        return v2;
+    }
+
+    public static implicit operator Vector2(SaveableVector2 val)
+    {
+        var v2 = new Vector2();
+        v2.x = val.x;
+        v2.y = val.y;
+        return v2;
     }
 }

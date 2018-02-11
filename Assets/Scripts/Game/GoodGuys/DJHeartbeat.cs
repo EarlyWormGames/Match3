@@ -7,6 +7,7 @@ public class DJHeartbeat : MonoBehaviour
     public float m_WaitSeconds = 1;
     public GameObject m_UIPrefab;
     private DJUI m_UIObject;
+    private bool waitclick = false;
 
     // Use this for initialization
     void Start()
@@ -17,11 +18,22 @@ public class DJHeartbeat : MonoBehaviour
         //Assign some delegates for the UI animating
         m_UIObject.m_ShowDone += ShowDone;
         m_UIObject.m_HideDone += HideDone;
+
+        CharacterShower.FadeIn();
+        m_UIObject.Show();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (waitclick)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                Reshuffle();
+                m_UIObject.Hide();
+            }
+        }
     }
 
     void Reshuffle()
@@ -31,18 +43,12 @@ public class DJHeartbeat : MonoBehaviour
 
     void ShowDone()
     {
-        Reshuffle();
-        StartCoroutine(WaitTimer());
-    }
-
-    IEnumerator WaitTimer()
-    {
-        yield return new WaitForSeconds(m_WaitSeconds);
-        m_UIObject.Hide();
+        waitclick = true;
     }
 
     void HideDone()
     {
+        CharacterShower.FadeOut();
         Destroy(m_UIObject.gameObject);
         Destroy(gameObject);
     }
