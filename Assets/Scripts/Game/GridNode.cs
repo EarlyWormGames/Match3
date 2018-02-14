@@ -102,6 +102,22 @@ public class GridNode : MonoBehaviour
         m_Image = GetComponent<Image>();
         m_RespawnType = null;
         //transform.position = new Vector3(transform.position.x, transform.position.y, 0);
+
+        int spriteIndex = 0;
+        if (m_yIndex == 0)
+            spriteIndex = 0;
+        else if (m_yIndex < GameManager.instance.m_Grid.m_GridHeight - 1)
+            spriteIndex = 3;
+        else
+            spriteIndex = 6;
+
+        if (m_xIndex == 0) { }
+        else if (m_xIndex < GameManager.instance.m_Grid.m_GridWidth - 1)
+            spriteIndex += 1;
+        else
+            spriteIndex += 2;
+
+        m_Image.sprite = GameManager.instance.m_GridSprites[spriteIndex];
     }
 
     // Update is called once per frame
@@ -245,20 +261,20 @@ public class GridNode : MonoBehaviour
             }
         }
 
-        if (m_Image != null)
-        {
-            //FOR TESTING
-            //Highlights this node if it can swap into a match
-            if (SaveData.IsDev && GameManager.instance.ShowHints)
-            {
-                if (SwapCheckMatch())
-                    m_Image.color = m_HighlightColour;
-                else
-                    m_Image.color = Color.clear;
-            }
-            else
-                m_Image.color = Color.clear;
-        }
+        //if (m_Image != null)
+        //{
+        //    //FOR TESTING
+        //    //Highlights this node if it can swap into a match
+        //    if (SaveData.IsDev && GameManager.instance.ShowHints)
+        //    {
+        //        if (SwapCheckMatch())
+        //            m_Image.color = m_HighlightColour;
+        //        else
+        //            m_Image.color = Color.clear;
+        //    }
+        //    else
+        //        m_Image.color = Color.clear;
+        //}
     }
 
     public void OverrideVis(bool a_vis)

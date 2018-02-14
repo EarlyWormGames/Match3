@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.616}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -135,6 +135,7 @@ MonoBehaviour:
   m_HighlightColour: {r: 1, g: 0, b: 0, a: 0.497}
   m_SelectedParticle: {fileID: 198982391922720716, guid: 24155cef417747b4ea5fd4bf9d8287e9,
     type: 2}
+  AllowSwap: 1
 --- !u!222 &222924280571869270
 CanvasRenderer:
   m_ObjectHideFlags: 1

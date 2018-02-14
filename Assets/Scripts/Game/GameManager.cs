@@ -124,6 +124,8 @@ public class GameManager : MonoBehaviour
     public GameObject m_DrDecayPrefab;
     public GameObject m_DJPrefab;
 
+    public Sprite[] m_GridSprites;
+
     internal int m_TurnsLeft;
     internal bool m_IsGameOver = false;
     internal bool m_TotalGameOver = false;
