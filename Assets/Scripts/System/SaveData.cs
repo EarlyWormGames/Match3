@@ -116,6 +116,9 @@ public class SaveableVector2
 
     public static implicit operator SaveableVector2(Vector2 val)
     {
+        if (val == null)
+            val = new Vector2();
+
         var v2 = new SaveableVector2();
         v2.x = val.x;
         v2.y = val.y;
@@ -124,6 +127,9 @@ public class SaveableVector2
 
     public static implicit operator Vector2(SaveableVector2 val)
     {
+        if (val == null)
+            val = new SaveableVector2();
+
         var v2 = new Vector2();
         v2.x = val.x;
         v2.y = val.y;
