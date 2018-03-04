@@ -14,6 +14,8 @@ public class GameStateManager : MonoBehaviour
     public static string FriendID;
     public static string ServerURL;
 
+    public static System.Action OnRedrawUI;
+
 
     // Use this for initialization
     void Start()
@@ -29,7 +31,8 @@ public class GameStateManager : MonoBehaviour
 
     public static void CallUIRedraw()
     {
-
+        if (OnRedrawUI != null)
+            OnRedrawUI.Invoke();
     }
 
     public static void ShowPopup(string text, UnityAction action = null)

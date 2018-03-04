@@ -392,6 +392,11 @@ public class GameManager : MonoBehaviour
                             { "final-score", finalscore },
                             { "Time-played", GameTimer}
                           });
+
+                if (Facebook.Unity.FB.IsLoggedIn)
+                {
+                    FBAppEvents.GameComplete(finalscore);
+                }
             }
         }
     }

@@ -66,18 +66,19 @@ public static class FBGraph
         }
 
         //Fetch player profile picture from the URL returned
-        string playerImgUrl = GraphUtil.DeserializePictureURL(result.ResultDictionary);
-        GraphUtil.LoadImgFromURL(playerImgUrl, delegate(Texture pictureTexture)
-        {
-            // Setup the User's profile picture
-            if (pictureTexture != null)
-            {
-                GameStateManager.UserTexture = pictureTexture;
-            }
-
-            // Redraw the UI
-            GameStateManager.CallUIRedraw();
-        });
+        //string playerImgUrl = GraphUtil.DeserializePictureURL(result.ResultDictionary);
+        //GraphUtil.LoadImgFromURL(playerImgUrl, delegate(Texture pictureTexture)
+        //{
+        //    // Setup the User's profile picture
+        //    if (pictureTexture != null)
+        //    {
+        //        GameStateManager.UserTexture = pictureTexture;
+        //    }
+        //
+        //    // Redraw the UI
+        //    GameStateManager.CallUIRedraw();
+        //});
+        GetPlayerPicture();
 
     }
 
@@ -307,7 +308,7 @@ public static class FBGraph
     // which will NOT work with this /{user-id}/picture Graph API call.
     private static void LoadFriendImgFromID (string userID, Action<Texture> callback)
     {
-        FB.API(GraphUtil.GetPictureQuery(userID, 128, 128),
+        FB.API(GraphUtil.GetPictureQuery(userID, 256, 256),
                HttpMethod.GET,
                delegate (IGraphResult result)
         {
