@@ -107,7 +107,7 @@ public static class FBGraph
             GameStateManager.UserTexture = result.Texture;
             
             // Redraw the UI
-            GameStateManager.CallUIRedraw();
+            GameStateManager.CallUIRedraw(UiUpdateEvent.PlayerInfo);
         });
     }
     #endregion
@@ -248,7 +248,7 @@ public static class FBGraph
         HandleScoresData (scoresList);
 
         // Redraw the UI
-        GameStateManager.CallUIRedraw();
+        GameStateManager.CallUIRedraw(UiUpdateEvent.Scores);
     }
 
     private static void HandleScoresData (List<object> scoresResponse)
@@ -288,14 +288,33 @@ public static class FBGraph
             if (!GameStateManager.FriendImages.ContainsKey(userId))
             {
                 // We don't have this players image yet, request it now
-                LoadFriendImgFromID (userId, pictureTexture =>
+                LoadFriendImgFromID(userId, pictureTexture =>
+               {
+                   if (pictureTexture != null)
+                   {
+                       GameStateManager.FriendImages.Add(userId, pictureTexture);
+                       GameStateManager.UpdateFriendUI(userId);
+                   }
+               });
+            }
+            else
+            {
+                if (GameStateManager.FriendImages[userId] == null)
                 {
-                    if (pictureTexture != null)
+                    // We don't have this players image yet, request it now
+                    LoadFriendImgFromID(userId, pictureTexture =>
                     {
-                        GameStateManager.FriendImages.Add(userId, pictureTexture);
-                        GameStateManager.CallUIRedraw();
-                    }
-                });
+                        if (pictureTexture != null)
+                        {
+                            GameStateManager.FriendImages[userId] = pictureTexture;
+                            GameStateManager.UpdateFriendUI(userId);
+                        }
+                    });
+                }
+                else
+                {
+                    GameStateManager.UpdateFriendUI(userId);
+                }
             }
         }
 

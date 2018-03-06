@@ -395,7 +395,8 @@ public class GameManager : MonoBehaviour
 
                 if (Facebook.Unity.FB.IsLoggedIn)
                 {
-                    FBAppEvents.GameComplete(finalscore);
+                    FBAppEvents.GameComplete(SaveData.instance.ArcadeScore);
+                    FBHighscores.SetScore(SaveData.instance.ArcadeScore);
                 }
             }
         }

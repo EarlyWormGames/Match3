@@ -17,7 +17,7 @@ public class SaveData
     public int FreeTurns;
     public List<int> LevelScores = new List<int>();
     public int LastArcade = -1;
-    public long ArcadeScore;
+    public int ArcadeScore;
     public SaveableVector2 ScrollPoint = Vector2.zero;
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]

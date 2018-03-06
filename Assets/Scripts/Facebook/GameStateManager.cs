@@ -3,6 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+public enum UiUpdateEvent
+{
+    PlayerInfo,
+    Scores,
+    FriendImages
+}
+
 public class GameStateManager : MonoBehaviour
 {
     public static string Username;
@@ -14,7 +21,8 @@ public class GameStateManager : MonoBehaviour
     public static string FriendID;
     public static string ServerURL;
 
-    public static System.Action OnRedrawUI;
+    public static System.Action<UiUpdateEvent> OnRedrawUI;
+    public static System.Action<string> OnFriendUpdate;
 
 
     // Use this for initialization
@@ -29,10 +37,16 @@ public class GameStateManager : MonoBehaviour
 
     }
 
-    public static void CallUIRedraw()
+    public static void CallUIRedraw(UiUpdateEvent eventType)
     {
         if (OnRedrawUI != null)
-            OnRedrawUI.Invoke();
+            OnRedrawUI.Invoke(eventType);
+    }
+
+    public static void UpdateFriendUI(string id)
+    {
+        if (OnFriendUpdate != null)
+            OnFriendUpdate.Invoke(id);
     }
 
     public static void ShowPopup(string text, UnityAction action = null)
