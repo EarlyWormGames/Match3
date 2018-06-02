@@ -8,6 +8,7 @@ public class LevelSettings : MonoBehaviour
     [System.Serializable]
     public class Row
     {
+        [AssetsOnly]
         public GameObject[] Prefabs;
     }
 
@@ -27,11 +28,11 @@ public class LevelSettings : MonoBehaviour
     public int LevelNum;
 
     public bool isArcade;
-    public bool AllowsEnemies = true;
 
     public Row[] Rows = new Row[0];
 
     public GameObject[] BlacklistedPrefabs = new GameObject[0];
+    public GameObject[] BlacklistedEnemies = new GameObject[0];
 
     private void Start()
     {

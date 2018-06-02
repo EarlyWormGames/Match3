@@ -84,8 +84,8 @@ public class ChangeScene : MonoBehaviour
             Mediator.Settings.Level = LS.LevelNum;
             Mediator.Settings.isArcade = LS.isArcade;
             Mediator.Settings.StartNodes = LS.JoinRows();
-            Mediator.Settings.BlacklistedSpawns = new List<GameObject>(LS.BlacklistedPrefabs);
-            Mediator.Settings.AllowEnemies = LS.AllowsEnemies;
+            Mediator.Settings.BlacklistedSpawns = LS.BlacklistedPrefabs;
+            Mediator.Settings.BlacklistedEnemies = LS.BlacklistedEnemies;
 
             if (!LS.isArcade)
             {

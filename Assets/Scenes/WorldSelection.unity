@@ -511,6 +511,7 @@ MonoBehaviour:
   isArcade: 0
   Rows: []
   BlacklistedPrefabs: []
+  BlacklistedEnemies: []
 --- !u!114 &122376322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -693,6 +694,7 @@ MonoBehaviour:
   isArcade: 0
   Rows: []
   BlacklistedPrefabs: []
+  BlacklistedEnemies: []
 --- !u!114 &183762792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1152,6 +1154,7 @@ MonoBehaviour:
   isArcade: 0
   Rows: []
   BlacklistedPrefabs: []
+  BlacklistedEnemies: []
 --- !u!114 &322557167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1665,6 +1668,7 @@ MonoBehaviour:
   isArcade: 0
   Rows: []
   BlacklistedPrefabs: []
+  BlacklistedEnemies: []
 --- !u!114 &360834769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1847,6 +1851,7 @@ MonoBehaviour:
   isArcade: 0
   Rows: []
   BlacklistedPrefabs: []
+  BlacklistedEnemies: []
 --- !u!114 &449081102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2097,6 +2102,7 @@ MonoBehaviour:
   isArcade: 0
   Rows: []
   BlacklistedPrefabs: []
+  BlacklistedEnemies: []
 --- !u!114 &457530325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2402,6 +2408,7 @@ MonoBehaviour:
   isArcade: 0
   Rows: []
   BlacklistedPrefabs: []
+  BlacklistedEnemies: []
 --- !u!114 &541686705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2784,6 +2791,7 @@ MonoBehaviour:
   isArcade: 0
   Rows: []
   BlacklistedPrefabs: []
+  BlacklistedEnemies: []
 --- !u!114 &574672038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3378,6 +3386,7 @@ MonoBehaviour:
   isArcade: 0
   Rows: []
   BlacklistedPrefabs: []
+  BlacklistedEnemies: []
 --- !u!114 &814725843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3782,6 +3791,7 @@ MonoBehaviour:
   isArcade: 0
   Rows: []
   BlacklistedPrefabs: []
+  BlacklistedEnemies: []
 --- !u!114 &876452162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4427,6 +4437,7 @@ MonoBehaviour:
   isArcade: 0
   Rows: []
   BlacklistedPrefabs: []
+  BlacklistedEnemies: []
 --- !u!114 &980658906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4997,6 +5008,7 @@ MonoBehaviour:
   isArcade: 0
   Rows: []
   BlacklistedPrefabs: []
+  BlacklistedEnemies: []
 --- !u!114 &1191671203
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5226,6 +5238,7 @@ MonoBehaviour:
   isArcade: 0
   Rows: []
   BlacklistedPrefabs: []
+  BlacklistedEnemies: []
 --- !u!114 &1247796112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5408,6 +5421,7 @@ MonoBehaviour:
   isArcade: 0
   Rows: []
   BlacklistedPrefabs: []
+  BlacklistedEnemies: []
 --- !u!114 &1253836168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5687,6 +5701,7 @@ MonoBehaviour:
   isArcade: 0
   Rows: []
   BlacklistedPrefabs: []
+  BlacklistedEnemies: []
 --- !u!114 &1268075473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5942,6 +5957,7 @@ MonoBehaviour:
   isArcade: 0
   Rows: []
   BlacklistedPrefabs: []
+  BlacklistedEnemies: []
 --- !u!114 &1358818849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6661,6 +6677,7 @@ MonoBehaviour:
   isArcade: 0
   Rows: []
   BlacklistedPrefabs: []
+  BlacklistedEnemies: []
 --- !u!114 &1570759241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6843,6 +6860,7 @@ MonoBehaviour:
   isArcade: 0
   Rows: []
   BlacklistedPrefabs: []
+  BlacklistedEnemies: []
 --- !u!114 &1606563154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7105,7 +7123,7 @@ MonoBehaviour:
     - {fileID: 1333852350469656, guid: b067a10798aca56489fbc6211b5e6e76, type: 2}
     - {fileID: 1333852350469656, guid: 4aff9ffa7f001c44788ea3758b2d07c7, type: 2}
   - Prefabs:
-    - {fileID: 1333852350469656, guid: 4aff9ffa7f001c44788ea3758b2d07c7, type: 2}
+    - {fileID: 1333852350469656, guid: df69062121cdc3c4c9057011b531d60f, type: 2}
     - {fileID: 1333852350469656, guid: df69062121cdc3c4c9057011b531d60f, type: 2}
     - {fileID: 1333852350469656, guid: 4aff9ffa7f001c44788ea3758b2d07c7, type: 2}
     - {fileID: 1333852350469656, guid: df69062121cdc3c4c9057011b531d60f, type: 2}
@@ -7132,6 +7150,28 @@ MonoBehaviour:
   - {fileID: 1333852350469656, guid: dab8104663cf61144b83a09f2d021904, type: 2}
   - {fileID: 1333852350469656, guid: dba7a31bad719c843833d75d3f343ce2, type: 2}
   - {fileID: 1333852350469656, guid: e0f642ef10756f248b63dda17cca72d4, type: 2}
+  - {fileID: 1343774020424446, guid: 2026197c48371ef498472243b7a95596, type: 2}
+  - {fileID: 1542355696856174, guid: c9cf7e7d6dd3f374d8d4e1c9ba3f2ef4, type: 2}
+  - {fileID: 1203249394513544, guid: 98cb27c28447f2245a395ac5cecd7089, type: 2}
+  - {fileID: 1000011841440206, guid: fae4ecaa8a239e440899bf5280b895fa, type: 2}
+  - {fileID: 1000011841440206, guid: 80bd1b676723b56408170a51c48ec911, type: 2}
+  - {fileID: 1000011841440206, guid: 00b1e2574e271a247aa05adaa626a2cc, type: 2}
+  - {fileID: 1343774020424446, guid: eb50510e40c2c3e4b81be39df4b28199, type: 2}
+  - {fileID: 1542355696856174, guid: 54b20d27ad790ab419369587d83eb332, type: 2}
+  - {fileID: 1203249394513544, guid: 7f6d616ad711f3e4c80135b438d7c6ab, type: 2}
+  - {fileID: 1000011841440206, guid: c8179694a32f071448de33ffa8dfc199, type: 2}
+  - {fileID: 1000011841440206, guid: 356b94413f9cf6442b8d4c1899bbf98c, type: 2}
+  - {fileID: 1000011841440206, guid: 7a8df9cca9b2f2547bea8924623bfd73, type: 2}
+  - {fileID: 1000011841440206, guid: e3700d5df3054d24880600793f8ad95c, type: 2}
+  - {fileID: 1000011841440206, guid: 26a60a8433fcee14e8d7d4abd639b7be, type: 2}
+  - {fileID: 1000011841440206, guid: e7eb83db9b8e44745b63b87b2e0c02e6, type: 2}
+  - {fileID: 1000011841440206, guid: 12233e3d5498a404babf39f2fc2e4e8a, type: 2}
+  - {fileID: 1000011841440206, guid: 319603f249d8190429cf86f3c4a33162, type: 2}
+  - {fileID: 1000011841440206, guid: 65c559b4c62d8c24ab6ae19ad5df5820, type: 2}
+  BlacklistedEnemies:
+  - {fileID: 1754583457375786, guid: b0d0cdd93a85fdd40a45efed7c5dee60, type: 2}
+  - {fileID: 1754583457375786, guid: 4ee0927bd4417724788f7ffab78b6cb4, type: 2}
+  - {fileID: 1754583457375786, guid: ecd94e38aeff4b644a194b483e3064e6, type: 2}
 --- !u!114 &1641503982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7288,7 +7328,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1482509901}
   m_HandleRect: {fileID: 1482509900}
   m_Direction: 2
-  m_Value: 0.00000004928695
+  m_Value: 0
   m_Size: 0.37380174
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -7464,6 +7504,7 @@ MonoBehaviour:
   isArcade: 0
   Rows: []
   BlacklistedPrefabs: []
+  BlacklistedEnemies: []
 --- !u!114 &1688985025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7693,6 +7734,7 @@ MonoBehaviour:
   isArcade: 0
   Rows: []
   BlacklistedPrefabs: []
+  BlacklistedEnemies: []
 --- !u!114 &1697123975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7943,6 +7985,7 @@ MonoBehaviour:
   isArcade: 0
   Rows: []
   BlacklistedPrefabs: []
+  BlacklistedEnemies: []
 --- !u!114 &1772681085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8478,6 +8521,7 @@ MonoBehaviour:
   isArcade: 0
   Rows: []
   BlacklistedPrefabs: []
+  BlacklistedEnemies: []
 --- !u!114 &1887387948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8886,15 +8930,70 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RequiredChain: 4
   ColourChance: 1
-  GridWidth: 4
+  GridWidth: 5
   GridHeight: 5
   TargetScore: 40
   DifficultyMult: 1
-  TurnsGoal: 15
+  TurnsGoal: 20
   LevelNum: 0
   isArcade: 0
-  Rows: []
-  BlacklistedPrefabs: []
+  Rows:
+  - Prefabs:
+    - {fileID: 1333852350469656, guid: df69062121cdc3c4c9057011b531d60f, type: 2}
+    - {fileID: 1333852350469656, guid: b067a10798aca56489fbc6211b5e6e76, type: 2}
+    - {fileID: 1333852350469656, guid: df69062121cdc3c4c9057011b531d60f, type: 2}
+    - {fileID: 1333852350469656, guid: b067a10798aca56489fbc6211b5e6e76, type: 2}
+    - {fileID: 1333852350469656, guid: dab8104663cf61144b83a09f2d021904, type: 2}
+  - Prefabs:
+    - {fileID: 1333852350469656, guid: df69062121cdc3c4c9057011b531d60f, type: 2}
+    - {fileID: 1333852350469656, guid: e0f642ef10756f248b63dda17cca72d4, type: 2}
+    - {fileID: 1333852350469656, guid: df69062121cdc3c4c9057011b531d60f, type: 2}
+    - {fileID: 1333852350469656, guid: dba7a31bad719c843833d75d3f343ce2, type: 2}
+    - {fileID: 1333852350469656, guid: dab8104663cf61144b83a09f2d021904, type: 2}
+  - Prefabs:
+    - {fileID: 1333852350469656, guid: b067a10798aca56489fbc6211b5e6e76, type: 2}
+    - {fileID: 1333852350469656, guid: 4aff9ffa7f001c44788ea3758b2d07c7, type: 2}
+    - {fileID: 1333852350469656, guid: 4aff9ffa7f001c44788ea3758b2d07c7, type: 2}
+    - {fileID: 1333852350469656, guid: b067a10798aca56489fbc6211b5e6e76, type: 2}
+    - {fileID: 1333852350469656, guid: df69062121cdc3c4c9057011b531d60f, type: 2}
+  - Prefabs:
+    - {fileID: 1333852350469656, guid: dab8104663cf61144b83a09f2d021904, type: 2}
+    - {fileID: 1333852350469656, guid: e0f642ef10756f248b63dda17cca72d4, type: 2}
+    - {fileID: 1333852350469656, guid: dab8104663cf61144b83a09f2d021904, type: 2}
+    - {fileID: 1333852350469656, guid: e0f642ef10756f248b63dda17cca72d4, type: 2}
+    - {fileID: 1333852350469656, guid: 4aff9ffa7f001c44788ea3758b2d07c7, type: 2}
+  - Prefabs:
+    - {fileID: 1333852350469656, guid: e0f642ef10756f248b63dda17cca72d4, type: 2}
+    - {fileID: 1333852350469656, guid: dba7a31bad719c843833d75d3f343ce2, type: 2}
+    - {fileID: 1333852350469656, guid: dba7a31bad719c843833d75d3f343ce2, type: 2}
+    - {fileID: 1333852350469656, guid: df69062121cdc3c4c9057011b531d60f, type: 2}
+    - {fileID: 1333852350469656, guid: dba7a31bad719c843833d75d3f343ce2, type: 2}
+  - Prefabs:
+    - {fileID: 1333852350469656, guid: 4aff9ffa7f001c44788ea3758b2d07c7, type: 2}
+    - {fileID: 1333852350469656, guid: b067a10798aca56489fbc6211b5e6e76, type: 2}
+    - {fileID: 1333852350469656, guid: 4aff9ffa7f001c44788ea3758b2d07c7, type: 2}
+    - {fileID: 1333852350469656, guid: b067a10798aca56489fbc6211b5e6e76, type: 2}
+    - {fileID: 1333852350469656, guid: df69062121cdc3c4c9057011b531d60f, type: 2}
+  BlacklistedPrefabs:
+  - {fileID: 1343774020424446, guid: 2026197c48371ef498472243b7a95596, type: 2}
+  - {fileID: 1542355696856174, guid: c9cf7e7d6dd3f374d8d4e1c9ba3f2ef4, type: 2}
+  - {fileID: 1203249394513544, guid: 98cb27c28447f2245a395ac5cecd7089, type: 2}
+  - {fileID: 1000011841440206, guid: fae4ecaa8a239e440899bf5280b895fa, type: 2}
+  - {fileID: 1000011841440206, guid: 80bd1b676723b56408170a51c48ec911, type: 2}
+  - {fileID: 1000011841440206, guid: 00b1e2574e271a247aa05adaa626a2cc, type: 2}
+  - {fileID: 1000011841440206, guid: c8179694a32f071448de33ffa8dfc199, type: 2}
+  - {fileID: 1000011841440206, guid: 356b94413f9cf6442b8d4c1899bbf98c, type: 2}
+  - {fileID: 1000011841440206, guid: 7a8df9cca9b2f2547bea8924623bfd73, type: 2}
+  - {fileID: 1000011841440206, guid: e3700d5df3054d24880600793f8ad95c, type: 2}
+  - {fileID: 1000011841440206, guid: 26a60a8433fcee14e8d7d4abd639b7be, type: 2}
+  - {fileID: 1000011841440206, guid: e7eb83db9b8e44745b63b87b2e0c02e6, type: 2}
+  - {fileID: 1000011841440206, guid: 12233e3d5498a404babf39f2fc2e4e8a, type: 2}
+  - {fileID: 1000011841440206, guid: 319603f249d8190429cf86f3c4a33162, type: 2}
+  - {fileID: 1000011841440206, guid: 65c559b4c62d8c24ab6ae19ad5df5820, type: 2}
+  BlacklistedEnemies:
+  - {fileID: 1754583457375786, guid: b0d0cdd93a85fdd40a45efed7c5dee60, type: 2}
+  - {fileID: 1754583457375786, guid: 4ee0927bd4417724788f7ffab78b6cb4, type: 2}
+  - {fileID: 1754583457375786, guid: ecd94e38aeff4b644a194b483e3064e6, type: 2}
 --- !u!114 &1962674670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9192,6 +9291,7 @@ MonoBehaviour:
   isArcade: 0
   Rows: []
   BlacklistedPrefabs: []
+  BlacklistedEnemies: []
 --- !u!114 &2070848654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9333,7 +9433,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe77e3fedd59b8a4696766a9c5a36a7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isOpeningScene: 0
   LevelSelect: WorldSelection
   ArcadeScene: Arcade
   OnWillChangeScene:

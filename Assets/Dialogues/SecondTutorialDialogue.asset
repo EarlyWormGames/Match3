@@ -9,49 +9,34 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 044a962e2c126274a971ac862f3cf8e7, type: 3}
-  m_Name: IntroDialogue
+  m_Name: SecondTutorialDialogue
   m_EditorClassIdentifier: 
   IgnoreCase: 1
   Events:
-  - TriggerName: HideGame
+  - TriggerName: UnBlockInput
     Data: 
     requireClick: 0
     waitForTrigger: 0
     waitTime: 0
-  - TriggerName: StartWait
+  - TriggerName: ShowHand
     Data: 
     requireClick: 0
     waitForTrigger: 0
-    waitTime: 2
-  - TriggerName: ShowDecay
+    waitTime: 0
+  - TriggerName: StartTutorial
     Data: 
     requireClick: 0
     waitForTrigger: 1
     waitTime: 0
-  - TriggerName: ShowDecayText
-    Data: MWHAHAHAHA!
-    requireClick: 0
-    waitForTrigger: 1
-    waitTime: 0
-  - TriggerName: WaitForClick
+  - TriggerName: Blockinput
     Data: 
-    requireClick: 1
+    requireClick: 0
     waitForTrigger: 0
     waitTime: 0
-  - TriggerName: HideDecayText
+  - TriggerName: HideHand
     Data: 
     requireClick: 0
-    waitForTrigger: 1
-    waitTime: 0
-  - TriggerName: HideDecay
-    Data: 
-    requireClick: 0
-    waitForTrigger: 1
-    waitTime: 0
-  - TriggerName: ShowMolar
-    Data: 
-    requireClick: 0
-    waitForTrigger: 1
+    waitForTrigger: 0
     waitTime: 0
   - TriggerName: ShowDJ
     Data: 
@@ -59,7 +44,7 @@ MonoBehaviour:
     waitForTrigger: 1
     waitTime: 0
   - TriggerName: ShowDJText
-    Data: Oh no!
+    Data: Try not to eat too much unhealthy food!
     requireClick: 0
     waitForTrigger: 1
     waitTime: 0
@@ -74,7 +59,7 @@ MonoBehaviour:
     waitForTrigger: 1
     waitTime: 0
   - TriggerName: ShowDJText
-    Data: We need to stop Dr Decay from hurting the teeth!
+    Data: It will make the teeth sick
     requireClick: 0
     waitForTrigger: 1
     waitTime: 0
@@ -88,8 +73,18 @@ MonoBehaviour:
     requireClick: 0
     waitForTrigger: 1
     waitTime: 0
-  - TriggerName: HideMolar
+  - TriggerName: HideDJ
     Data: 
     requireClick: 0
     waitForTrigger: 1
+    waitTime: 0
+  - TriggerName: UnBlockInput
+    Data: 
+    requireClick: 0
+    waitForTrigger: 0
+    waitTime: 0
+  - TriggerName: FinishTutorial
+    Data: 
+    requireClick: 0
+    waitForTrigger: 0
     waitTime: 0

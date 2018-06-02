@@ -31,11 +31,10 @@ public class GameSettings
     public bool isArcade = false;
     public int ArcadeScore = 1000;
 
-    public bool AllowEnemies = true;
-
     public GameObject SpawnObject;
 
     public GameObject[] StartNodes = new GameObject[0];
 
-    public List<GameObject> BlacklistedSpawns = new List<GameObject>();
+    public GameObject[] BlacklistedSpawns = new GameObject[0];
+    public GameObject[] BlacklistedEnemies = new GameObject[0];
 }

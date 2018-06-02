@@ -117,12 +117,9 @@ public class GameManager : MonoBehaviour
 
     [Header("Prefabs")]
     public GameObject[] m_SpawnPrefabs = new GameObject[0];
-    public GameObject m_Petrified;
     public GameObject m_BBros;
     public GameObject m_RottenFood;
-    public GameObject m_MelAnomaPrefab;
-    public GameObject m_AshMaticPrefab;
-    public GameObject m_DrDecayPrefab;
+    public GameObject[] m_BadGuyPrefabs = new GameObject[0];
     public GameObject m_DJPrefab;
 
     public Sprite[] m_GridSprites;
@@ -167,6 +164,7 @@ public class GameManager : MonoBehaviour
 
         //Remove the blacklisted items
         m_SpawnPrefabs = m_SpawnPrefabs.Except(Mediator.Settings.BlacklistedSpawns).ToArray();
+        m_BadGuyPrefabs = m_BadGuyPrefabs.Except(Mediator.Settings.BlacklistedEnemies).ToArray();
 
         if (Mediator.Settings.SpawnObject != null)
             Instantiate(Mediator.Settings.SpawnObject);
@@ -562,24 +560,13 @@ public class GameManager : MonoBehaviour
             }
             // Change turns made to  --------------------> 3
             if (BadGuyUI.instance == null && m_TurnsMade > MinimumTurnsBeforeEnemy
-                && m_WBCATurnsLeft <= 0 && Mediator.Settings.AllowEnemies && !m_IsGameOver && !m_bSetGameOver)
+                && m_WBCATurnsLeft <= 0 && !m_IsGameOver && !m_bSetGameOver)
             {
                 int rand = Random.Range(0, m_BadGuySpawnChance);
-                if (rand == 0)
+                if (rand == 0 && m_BadGuyPrefabs.Length > 0)
                 {
-                    rand = Random.Range(0, 3);
-                    switch (rand)
-                    {
-                        case 0:
-                            Instantiate(instance.m_MelAnomaPrefab);
-                            break;
-                        case 1:
-                            Instantiate(instance.m_AshMaticPrefab);
-                            break;
-                        case 2:
-                            Instantiate(instance.m_DrDecayPrefab);
-                            break;
-                    }
+                    rand = Random.Range(0, m_BadGuyPrefabs.Length);
+                    Instantiate(m_BadGuyPrefabs[rand]);
                 }
             }
             else if (BadGuyUI.instance == null && m_WBCATurnsLeft > 0 && !m_IsGameOver && !m_bSetGameOver)
@@ -587,22 +574,10 @@ public class GameManager : MonoBehaviour
                 //Draw a Bad Guy but also draw a WBCA to stop them
                 int rand = Random.Range(0, m_BadGuySpawnChance);
                 BadGuy bg = null;
-                if (rand == 0)
+                if (rand == 0 && m_BadGuyPrefabs.Length > 0)
                 {
-                    rand = Random.Range(0, 3);
-                    switch (rand)
-                    {
-                        case 0:
-                            bg = Instantiate(instance.m_MelAnomaPrefab).GetComponent<BadGuy>();
-                            break;
-                        case 1:
-                            bg = Instantiate(instance.m_AshMaticPrefab).GetComponent<BadGuy>();
-                            break;
-                        case 2:
-                            bg = Instantiate(instance.m_DrDecayPrefab).GetComponent<BadGuy>();
-                            break;
-                    }
-
+                    rand = Random.Range(0, m_BadGuyPrefabs.Length);
+                    bg = Instantiate(m_BadGuyPrefabs[rand]).GetComponent<BadGuy>();
                     if (bg != null)
                         bg.NoEffect();
                 }

@@ -1079,7 +1079,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 5607117ec06278648a48bebf1e52b999, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e0ffffad31fc19c4fbb440ccd05c11b3, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1248,8 +1248,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_MethodName: ChangeSceneTo
-        m_Mode: 5
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1607,7 +1607,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1228086530283974}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 1908110080, guid: 89f0137620f6af44b9ba852b4190e64e, type: 3}
   m_Name: 
@@ -2103,7 +2103,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 13
+  m_firstOverflowCharacterIndex: 16
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_enableKerning: 1
@@ -2125,9 +2125,9 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: -354.12054, w: 0}
   m_textInfo:
     textComponent: {fileID: 114279581284986494}
-    characterCount: 141
+    characterCount: 144
     spriteCount: 0
-    spaceCount: 27
+    spaceCount: 28
     wordCount: 24
     linkCount: 0
     lineCount: 8
@@ -2546,7 +2546,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 12
+  m_firstOverflowCharacterIndex: 15
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_enableKerning: 1
@@ -2568,9 +2568,9 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: -195.30925, w: 0}
   m_textInfo:
     textComponent: {fileID: 114434274588344516}
-    characterCount: 50
+    characterCount: 53
     spriteCount: 0
-    spaceCount: 13
+    spaceCount: 15
     wordCount: 11
     linkCount: 0
     lineCount: 3
@@ -2743,7 +2743,7 @@ MonoBehaviour:
   startingPage: 0
   fastSwipeThresholdTime: 0.3
   fastSwipeThresholdDistance: 100
-  decelerationRate: 20
+  decelerationRate: 70
   prevButton: {fileID: 1654252434974900}
   nextButton: {fileID: 1178560874195276}
   unselectedPage: {fileID: 21300000, guid: b5cf07bcec95d58449e8b31563228731, type: 3}
@@ -3132,9 +3132,9 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: "\t\tMel Anoma\r\nAppears on screen and dictates a specific combo that needs
-    to be cleared.\r\n\r\nEvery combo you make that ISN'T what Mel Anoma asks, 1 Bacteria
-    Bro will be left behind.\r"
+  m_text: "\t\t   Mel Anoma\r\nAppears on screen and dictates a specific combo that
+    needs to be cleared.\r\n\r\nEvery combo you make that ISN'T what Mel Anoma asks,
+    1 Bacteria Bro will be left behind."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 330ec105418a7b54cb341b0d9408a117, type: 2}
   m_sharedMaterial: {fileID: 21874623614865540, guid: 330ec105418a7b54cb341b0d9408a117,
@@ -3180,7 +3180,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 13
+  m_firstOverflowCharacterIndex: -1
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_enableKerning: 1
@@ -3199,15 +3199,15 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -289.8139, w: 0}
+  m_margin: {x: 0, y: 0, z: -0.6556541, w: 0}
   m_textInfo:
     textComponent: {fileID: 114721248191614926}
-    characterCount: 180
+    characterCount: 181
     spriteCount: 0
-    spaceCount: 36
+    spaceCount: 37
     wordCount: 33
     linkCount: 0
-    lineCount: 9
+    lineCount: 8
     pageCount: 1
     materialCount: 1
   m_havePropertiesChanged: 1
@@ -3430,7 +3430,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 21
+  m_firstOverflowCharacterIndex: 31
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_enableKerning: 1
@@ -3452,10 +3452,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 114875897983198018}
-    characterCount: 178
+    characterCount: 181
     spriteCount: 0
-    spaceCount: 31
-    wordCount: 31
+    spaceCount: 34
+    wordCount: 30
     linkCount: 0
     lineCount: 9
     pageCount: 1
@@ -4926,8 +4926,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -188, y: -46}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 12.6, y: -268.7}
+  m_SizeDelta: {x: 603.9, y: 495.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224630540452482576
 RectTransform:
@@ -5170,8 +5170,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 330}
-  m_SizeDelta: {x: 1536, y: 657.8}
+  m_AnchoredPosition: {x: 10.825001, y: 305.2}
+  m_SizeDelta: {x: 601, y: 608.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224950156433398302
 RectTransform:

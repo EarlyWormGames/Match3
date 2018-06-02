@@ -1002,7 +1002,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe77e3fedd59b8a4696766a9c5a36a7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isOpeningScene: 0
   LevelSelect: WorldSelection
   ArcadeScene: Arcade
   OnWillChangeScene:

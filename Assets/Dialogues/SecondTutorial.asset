@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8084c783a2989724fa3f3976b90affaa, type: 3}
+  m_Name: SecondTutorial
+  m_EditorClassIdentifier: 
+  PreventGameOver: 0
+  Events:
+  - LockNodes: 1
+    UnlockedNodes:
+    - {x: 3, y: 4}
+    - {x: 4, y: 4}
+    WaitForSwap: 1
+    WaitForCustomEvent: 0
+    WaitForScoreAbove: 0
+    WaitForScoreBelow: 0
+    WaitForScore: 0
+    ScoreIsPercentage: 0
+  - LockNodes: 0
+    UnlockedNodes:
+    - {x: 3, y: 4}
+    - {x: 4, y: 4}
+    WaitForSwap: 0
+    WaitForCustomEvent: 0
+    WaitForScoreAbove: 0
+    WaitForScoreBelow: 0
+    WaitForScore: 0
+    ScoreIsPercentage: 0
