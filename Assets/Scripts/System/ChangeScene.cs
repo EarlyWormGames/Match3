@@ -4,8 +4,11 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Analytics;
 
+//Dude if it needs a fading script, just put this in here ffs
+[RequireComponent(typeof(Fading))]
 public class ChangeScene : MonoBehaviour
 {
+    public bool isOpeningScene = false;
     public string LevelSelect = "WorldSelection", ArcadeScene = "Arcade";
     public UnityEvent OnWillChangeScene;
 
@@ -16,6 +19,13 @@ public class ChangeScene : MonoBehaviour
     {
         fade = GetComponent<Fading>();
 
+        if(isOpeningScene)
+        {
+            if (PlayerPrefs.GetInt("OpenedGame") > 0)
+                ChangeSceneTo("Menu");
+            else
+                PlayerPrefs.SetInt("OpenedGame", 1);
+        }
     }
 
     // Update is called once per frame

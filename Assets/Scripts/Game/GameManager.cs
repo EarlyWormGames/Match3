@@ -558,7 +558,7 @@ public class GameManager : MonoBehaviour
             }
             // Change turns made to  --------------------> 3
             if (BadGuyUI.instance == null && m_TurnsMade > MinimumTurnsBeforeEnemy
-                && m_WBCATurnsLeft <= 0 && Mediator.Settings.AllowEnemies)
+                && m_WBCATurnsLeft <= 0 && Mediator.Settings.AllowEnemies && !m_IsGameOver && !m_bSetGameOver)
             {
                 int rand = Random.Range(0, m_BadGuySpawnChance);
                 if (rand == 0)
@@ -578,7 +578,7 @@ public class GameManager : MonoBehaviour
                     }
                 }
             }
-            else if (BadGuyUI.instance == null && m_WBCATurnsLeft > 0)
+            else if (BadGuyUI.instance == null && m_WBCATurnsLeft > 0 && !m_IsGameOver && !m_bSetGameOver)
             {
                 //Draw a Bad Guy but also draw a WBCA to stop them
                 int rand = Random.Range(0, m_BadGuySpawnChance);
