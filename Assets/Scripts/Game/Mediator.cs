@@ -36,4 +36,6 @@ public class GameSettings
     public GameObject SpawnObject;
 
     public GameObject[] StartNodes = new GameObject[0];
+
+    public GameObject[] BlacklistedSpawns = new GameObject[0];
 }

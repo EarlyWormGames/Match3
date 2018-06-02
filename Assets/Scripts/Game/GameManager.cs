@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.Analytics;
+using System.Linq;
 
 public class GameManager : MonoBehaviour
 {
@@ -463,10 +464,13 @@ public class GameManager : MonoBehaviour
     /// <returns></returns>
     public static int GetNodeIndex()
     {
+        var spawns = new List<GameObject>(instance.m_SpawnPrefabs);
+        spawns = spawns.Except(Mediator.Settings.BlacklistedSpawns).ToList();
+
         int chance = Random.Range(0, SpawnChanceMax);
         int prevChance = 0;
         int index = 0;
-        foreach (var item in instance.m_SpawnPrefabs)
+        foreach (var item in spawns)
         {
             var node = item.GetComponent<NodeItem>();
 

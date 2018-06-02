@@ -510,6 +510,7 @@ MonoBehaviour:
   LevelNum: 0
   isArcade: 0
   Rows: []
+  BlacklistedPrefabs: []
 --- !u!114 &122376322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -691,6 +692,7 @@ MonoBehaviour:
   LevelNum: 0
   isArcade: 0
   Rows: []
+  BlacklistedPrefabs: []
 --- !u!114 &183762792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1149,6 +1151,7 @@ MonoBehaviour:
   LevelNum: 0
   isArcade: 0
   Rows: []
+  BlacklistedPrefabs: []
 --- !u!114 &322557167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1661,6 +1664,7 @@ MonoBehaviour:
   LevelNum: 0
   isArcade: 0
   Rows: []
+  BlacklistedPrefabs: []
 --- !u!114 &360834769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1842,6 +1846,7 @@ MonoBehaviour:
   LevelNum: 0
   isArcade: 0
   Rows: []
+  BlacklistedPrefabs: []
 --- !u!114 &449081102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2091,6 +2096,7 @@ MonoBehaviour:
   LevelNum: 0
   isArcade: 0
   Rows: []
+  BlacklistedPrefabs: []
 --- !u!114 &457530325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2395,6 +2401,7 @@ MonoBehaviour:
   LevelNum: 0
   isArcade: 0
   Rows: []
+  BlacklistedPrefabs: []
 --- !u!114 &541686705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2776,6 +2783,7 @@ MonoBehaviour:
   LevelNum: 0
   isArcade: 0
   Rows: []
+  BlacklistedPrefabs: []
 --- !u!114 &574672038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3369,6 +3377,7 @@ MonoBehaviour:
   LevelNum: 0
   isArcade: 0
   Rows: []
+  BlacklistedPrefabs: []
 --- !u!114 &814725843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3448,7 +3457,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 7.7}
+  m_AnchoredPosition: {x: 0, y: 7.700001}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &834911838
@@ -3772,6 +3781,7 @@ MonoBehaviour:
   LevelNum: 0
   isArcade: 0
   Rows: []
+  BlacklistedPrefabs: []
 --- !u!114 &876452162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3901,7 +3911,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 114, y: -57.8}
+  m_AnchoredPosition: {x: 114, y: -57.800003}
   m_SizeDelta: {x: 201.84, y: 96.609985}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &903750716
@@ -4416,6 +4426,7 @@ MonoBehaviour:
   LevelNum: 0
   isArcade: 0
   Rows: []
+  BlacklistedPrefabs: []
 --- !u!114 &980658906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4985,6 +4996,7 @@ MonoBehaviour:
   LevelNum: 0
   isArcade: 0
   Rows: []
+  BlacklistedPrefabs: []
 --- !u!114 &1191671203
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5213,6 +5225,7 @@ MonoBehaviour:
   LevelNum: 0
   isArcade: 0
   Rows: []
+  BlacklistedPrefabs: []
 --- !u!114 &1247796112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5394,6 +5407,7 @@ MonoBehaviour:
   LevelNum: 0
   isArcade: 0
   Rows: []
+  BlacklistedPrefabs: []
 --- !u!114 &1253836168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5672,6 +5686,7 @@ MonoBehaviour:
   LevelNum: 0
   isArcade: 0
   Rows: []
+  BlacklistedPrefabs: []
 --- !u!114 &1268075473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5926,6 +5941,7 @@ MonoBehaviour:
   LevelNum: 0
   isArcade: 0
   Rows: []
+  BlacklistedPrefabs: []
 --- !u!114 &1358818849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6644,6 +6660,7 @@ MonoBehaviour:
   LevelNum: 0
   isArcade: 0
   Rows: []
+  BlacklistedPrefabs: []
 --- !u!114 &1570759241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6825,6 +6842,7 @@ MonoBehaviour:
   LevelNum: 0
   isArcade: 0
   Rows: []
+  BlacklistedPrefabs: []
 --- !u!114 &1606563154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7077,39 +7095,43 @@ MonoBehaviour:
   - Prefabs:
     - {fileID: 1333852350469656, guid: df69062121cdc3c4c9057011b531d60f, type: 2}
     - {fileID: 1333852350469656, guid: 4aff9ffa7f001c44788ea3758b2d07c7, type: 2}
-    - {fileID: 1333852350469656, guid: e0f642ef10756f248b63dda17cca72d4, type: 2}
+    - {fileID: 1333852350469656, guid: 4aff9ffa7f001c44788ea3758b2d07c7, type: 2}
     - {fileID: 1333852350469656, guid: b067a10798aca56489fbc6211b5e6e76, type: 2}
     - {fileID: 1333852350469656, guid: df69062121cdc3c4c9057011b531d60f, type: 2}
   - Prefabs:
     - {fileID: 1333852350469656, guid: df69062121cdc3c4c9057011b531d60f, type: 2}
-    - {fileID: 1333852350469656, guid: dab8104663cf61144b83a09f2d021904, type: 2}
+    - {fileID: 1333852350469656, guid: df69062121cdc3c4c9057011b531d60f, type: 2}
     - {fileID: 1333852350469656, guid: b067a10798aca56489fbc6211b5e6e76, type: 2}
     - {fileID: 1333852350469656, guid: b067a10798aca56489fbc6211b5e6e76, type: 2}
     - {fileID: 1333852350469656, guid: 4aff9ffa7f001c44788ea3758b2d07c7, type: 2}
   - Prefabs:
-    - {fileID: 1333852350469656, guid: dab8104663cf61144b83a09f2d021904, type: 2}
+    - {fileID: 1333852350469656, guid: 4aff9ffa7f001c44788ea3758b2d07c7, type: 2}
     - {fileID: 1333852350469656, guid: df69062121cdc3c4c9057011b531d60f, type: 2}
-    - {fileID: 1333852350469656, guid: e0f642ef10756f248b63dda17cca72d4, type: 2}
+    - {fileID: 1333852350469656, guid: 4aff9ffa7f001c44788ea3758b2d07c7, type: 2}
     - {fileID: 1333852350469656, guid: df69062121cdc3c4c9057011b531d60f, type: 2}
     - {fileID: 1333852350469656, guid: 4aff9ffa7f001c44788ea3758b2d07c7, type: 2}
   - Prefabs:
-    - {fileID: 1333852350469656, guid: dba7a31bad719c843833d75d3f343ce2, type: 2}
+    - {fileID: 1333852350469656, guid: 4aff9ffa7f001c44788ea3758b2d07c7, type: 2}
     - {fileID: 1333852350469656, guid: b067a10798aca56489fbc6211b5e6e76, type: 2}
     - {fileID: 1333852350469656, guid: df69062121cdc3c4c9057011b531d60f, type: 2}
     - {fileID: 1333852350469656, guid: 4aff9ffa7f001c44788ea3758b2d07c7, type: 2}
-    - {fileID: 1333852350469656, guid: e0f642ef10756f248b63dda17cca72d4, type: 2}
+    - {fileID: 1333852350469656, guid: df69062121cdc3c4c9057011b531d60f, type: 2}
   - Prefabs:
     - {fileID: 1333852350469656, guid: 4aff9ffa7f001c44788ea3758b2d07c7, type: 2}
     - {fileID: 1333852350469656, guid: b067a10798aca56489fbc6211b5e6e76, type: 2}
-    - {fileID: 1333852350469656, guid: e0f642ef10756f248b63dda17cca72d4, type: 2}
+    - {fileID: 1333852350469656, guid: 4aff9ffa7f001c44788ea3758b2d07c7, type: 2}
     - {fileID: 1333852350469656, guid: b067a10798aca56489fbc6211b5e6e76, type: 2}
     - {fileID: 1333852350469656, guid: b067a10798aca56489fbc6211b5e6e76, type: 2}
   - Prefabs:
-    - {fileID: 1333852350469656, guid: dba7a31bad719c843833d75d3f343ce2, type: 2}
+    - {fileID: 1333852350469656, guid: df69062121cdc3c4c9057011b531d60f, type: 2}
     - {fileID: 1333852350469656, guid: 4aff9ffa7f001c44788ea3758b2d07c7, type: 2}
-    - {fileID: 1333852350469656, guid: e0f642ef10756f248b63dda17cca72d4, type: 2}
+    - {fileID: 1333852350469656, guid: b067a10798aca56489fbc6211b5e6e76, type: 2}
     - {fileID: 1333852350469656, guid: 4aff9ffa7f001c44788ea3758b2d07c7, type: 2}
     - {fileID: 1333852350469656, guid: df69062121cdc3c4c9057011b531d60f, type: 2}
+  BlacklistedPrefabs:
+  - {fileID: 1333852350469656, guid: dab8104663cf61144b83a09f2d021904, type: 2}
+  - {fileID: 1333852350469656, guid: dba7a31bad719c843833d75d3f343ce2, type: 2}
+  - {fileID: 1333852350469656, guid: e0f642ef10756f248b63dda17cca72d4, type: 2}
 --- !u!114 &1641503982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7266,8 +7288,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1482509901}
   m_HandleRect: {fileID: 1482509900}
   m_Direction: 2
-  m_Value: 0
-  m_Size: 0.37359825
+  m_Value: 0.00000004928695
+  m_Size: 0.37380174
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -7441,6 +7463,7 @@ MonoBehaviour:
   LevelNum: 0
   isArcade: 0
   Rows: []
+  BlacklistedPrefabs: []
 --- !u!114 &1688985025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7669,6 +7692,7 @@ MonoBehaviour:
   LevelNum: 0
   isArcade: 0
   Rows: []
+  BlacklistedPrefabs: []
 --- !u!114 &1697123975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7918,6 +7942,7 @@ MonoBehaviour:
   LevelNum: 0
   isArcade: 0
   Rows: []
+  BlacklistedPrefabs: []
 --- !u!114 &1772681085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8003,7 +8028,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000015258578, y: 0.000022888187}
+  m_AnchoredPosition: {x: 0.000030517578, y: 0}
   m_SizeDelta: {x: -298.9, y: -593.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1792536881
@@ -8452,6 +8477,7 @@ MonoBehaviour:
   LevelNum: 0
   isArcade: 0
   Rows: []
+  BlacklistedPrefabs: []
 --- !u!114 &1887387948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8731,7 +8757,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 2477.5317}
+  m_AnchoredPosition: {x: 0, y: 2476.7266}
   m_SizeDelta: {x: 0, y: 3955.18}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1962674664
@@ -8868,6 +8894,7 @@ MonoBehaviour:
   LevelNum: 0
   isArcade: 0
   Rows: []
+  BlacklistedPrefabs: []
 --- !u!114 &1962674670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9164,6 +9191,7 @@ MonoBehaviour:
   LevelNum: 0
   isArcade: 0
   Rows: []
+  BlacklistedPrefabs: []
 --- !u!114 &2070848654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9305,6 +9333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe77e3fedd59b8a4696766a9c5a36a7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isOpeningScene: 0
   LevelSelect: WorldSelection
   ArcadeScene: Arcade
   OnWillChangeScene:

@@ -30,6 +30,8 @@ public class LevelSettings : MonoBehaviour
 
     public Row[] Rows = new Row[0];
 
+    public GameObject[] BlacklistedPrefabs = new GameObject[0];
+
     private void Start()
     {
         LevelNum = transform.GetSiblingIndex();

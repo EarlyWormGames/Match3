@@ -22581,7 +22581,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Cutscenes:
   - cutscene: {fileID: 2030957188}
-    level: 1
+    level: -5
 --- !u!4 &1072218897
 Transform:
   m_ObjectHideFlags: 0
