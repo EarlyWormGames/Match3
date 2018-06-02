@@ -8,25 +8,19 @@ using UnityEngine.Analytics;
 [RequireComponent(typeof(Fading))]
 public class ChangeScene : MonoBehaviour
 {
-    public bool isOpeningScene = false;
     public string LevelSelect = "WorldSelection", ArcadeScene = "Arcade";
     public UnityEvent OnWillChangeScene;
 
-    Fading fade;
-
-    // Use this for initialization
-    void Start()
+    Fading fade
     {
-        fade = GetComponent<Fading>();
-
-        if(isOpeningScene)
+        get
         {
-            if (PlayerPrefs.GetInt("OpenedGame") > 0)
-                ChangeSceneTo("Menu");
-            else
-                PlayerPrefs.SetInt("OpenedGame", 1);
+            if (!_fading)
+                _fading = GetComponent<Fading>();
+            return _fading;
         }
     }
+    Fading _fading;
 
     // Update is called once per frame
     void Update()
@@ -77,9 +71,8 @@ public class ChangeScene : MonoBehaviour
         LevelSettings LS = LevelSettings.selected;
 
         if (LS != null)
-        {
-            if (Mediator.Settings == null)
-                Mediator.Settings = new GameSettings();
+        {            
+            Mediator.Settings = new GameSettings(); //Always reset this!!!!
 
             Mediator.Settings.RequiredChain = LS.RequiredChain;
             Mediator.Settings.ColourChance = LS.ColourChance;
@@ -91,7 +84,8 @@ public class ChangeScene : MonoBehaviour
             Mediator.Settings.Level = LS.LevelNum;
             Mediator.Settings.isArcade = LS.isArcade;
             Mediator.Settings.StartNodes = LS.JoinRows();
-            Mediator.Settings.BlacklistedSpawns = LS.BlacklistedPrefabs;
+            Mediator.Settings.BlacklistedSpawns = new List<GameObject>(LS.BlacklistedPrefabs);
+            Mediator.Settings.AllowEnemies = LS.AllowsEnemies;
 
             if (!LS.isArcade)
             {

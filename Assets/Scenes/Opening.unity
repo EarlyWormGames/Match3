@@ -301,6 +301,7 @@ GameObject:
   - component: {fileID: 1063722197}
   - component: {fileID: 1063722199}
   - component: {fileID: 1063722198}
+  - component: {fileID: 1063722200}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -387,7 +388,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe77e3fedd59b8a4696766a9c5a36a7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isOpeningScene: 1
   LevelSelect: WorldSelection
   ArcadeScene: Arcade
   OnWillChangeScene:
@@ -408,6 +408,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FadeOutTexture: {fileID: 2800000, guid: 764e4c55f5c29be4192114cdcfd27abf, type: 3}
   FadeSpeed: 0.8
+--- !u!114 &1063722200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1063722193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a943bf4f1b8ec7842bbf87ee7ee95b93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LastChangedVersion: 1.4.5
+  OnForceChange:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1063722198}
+        m_MethodName: ChangeSceneTo
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Menu
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &1428852064
 GameObject:
   m_ObjectHideFlags: 0

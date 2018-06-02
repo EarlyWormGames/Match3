@@ -37,5 +37,5 @@ public class GameSettings
 
     public GameObject[] StartNodes = new GameObject[0];
 
-    public GameObject[] BlacklistedSpawns = new GameObject[0];
+    public List<GameObject> BlacklistedSpawns = new List<GameObject>();
 }

@@ -165,6 +165,9 @@ public class GameManager : MonoBehaviour
             Score = (int)(Mediator.Settings.TargetScore / 2f);
         }
 
+        //Remove the blacklisted items
+        m_SpawnPrefabs = m_SpawnPrefabs.Except(Mediator.Settings.BlacklistedSpawns).ToArray();
+
         if (Mediator.Settings.SpawnObject != null)
             Instantiate(Mediator.Settings.SpawnObject);
     }
@@ -464,13 +467,10 @@ public class GameManager : MonoBehaviour
     /// <returns></returns>
     public static int GetNodeIndex()
     {
-        var spawns = new List<GameObject>(instance.m_SpawnPrefabs);
-        spawns = spawns.Except(Mediator.Settings.BlacklistedSpawns).ToList();
-
         int chance = Random.Range(0, SpawnChanceMax);
         int prevChance = 0;
         int index = 0;
-        foreach (var item in spawns)
+        foreach (var item in instance.m_SpawnPrefabs)
         {
             var node = item.GetComponent<NodeItem>();
 

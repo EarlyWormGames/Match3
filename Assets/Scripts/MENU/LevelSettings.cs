@@ -27,6 +27,7 @@ public class LevelSettings : MonoBehaviour
     public int LevelNum;
 
     public bool isArcade;
+    public bool AllowsEnemies = true;
 
     public Row[] Rows = new Row[0];
 
