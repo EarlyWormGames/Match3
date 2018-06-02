@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public class Transition : MonoBehaviour {
+public class Transition : MonoBehaviour
+{
+    public string SceneToOpen = "Menu";
 
     public float TrasitionAfter = 1.0f;
     float Timer = 0.0f;
@@ -11,17 +13,19 @@ public class Transition : MonoBehaviour {
 
     bool DoOnce = true;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         //ensure the timer is set to 0
         Timer = TrasitionAfter;
         // Get the fading component for use in this script
         fade = GetComponent<Fading>();
 
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
 
         // Only Count down if we havent started the fade transition
         if (StartTransition == false)
@@ -36,7 +40,8 @@ public class Transition : MonoBehaviour {
         {
             if (DoOnce)
             {
-                fade.BeginFade(1, "Menu");
+                //WHY WAS THIS HARD CODED. WTF
+                fade.BeginFade(1, SceneToOpen);
                 DoOnce = false;
             }
         }
@@ -44,5 +49,5 @@ public class Transition : MonoBehaviour {
 
     }
 
-    
+
 }
