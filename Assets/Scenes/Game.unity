@@ -23170,6 +23170,72 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1050987773}
+--- !u!1 &1054584100
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1054584102}
+  - component: {fileID: 1054584101}
+  m_Layer: 0
+  m_Name: HeroAdShower
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1054584101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1054584100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a8880ad3607af348a58af126f8bf67c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowAtPercent: 0.2
+  EnemiesCounters:
+  - EnemyType: RottenItem
+    RequiredCount: 1
+    Priority: 1
+    Counters:
+    - {fileID: 1343774020424446, guid: eb50510e40c2c3e4b81be39df4b28199, type: 2}
+    - {fileID: 1542355696856174, guid: 54b20d27ad790ab419369587d83eb332, type: 2}
+    - {fileID: 1203249394513544, guid: 7f6d616ad711f3e4c80135b438d7c6ab, type: 2}
+  - EnemyType: JunkItem
+    RequiredCount: 5
+    Priority: 0
+    Counters:
+    - {fileID: 1000011841440206, guid: c8179694a32f071448de33ffa8dfc199, type: 2}
+    - {fileID: 1000011841440206, guid: 356b94413f9cf6442b8d4c1899bbf98c, type: 2}
+    - {fileID: 1000011841440206, guid: 7a8df9cca9b2f2547bea8924623bfd73, type: 2}
+  OnShowPrompt:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnClosePrompt:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!4 &1054584102
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1054584100}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 24
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1065517706
 GameObject:
   m_ObjectHideFlags: 0
@@ -27247,7 +27313,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -6.200012, y: 87.8}
+  m_AnchoredPosition: {x: -6.200012, y: 87.80002}
   m_SizeDelta: {x: -33.1, y: 91.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1555067001

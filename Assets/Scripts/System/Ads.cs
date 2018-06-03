@@ -20,7 +20,9 @@ public class AdManager
             Advertisement.Initialize(id, true);
     }
 
+    public static bool AdAllowed = true;
     private static System.Action<ShowResult> onShowTurn;
+    private static GameObject spawnPrefab;
 
     public static void Show(System.Action<ShowResult> callback)
     {
@@ -35,7 +37,7 @@ public class AdManager
 
     public static bool CanShowAd()
     {
-        return (!Advertisement.isShowing && Advertisement.IsReady("rewardedVideo"));
+        return (!Advertisement.isShowing && Advertisement.IsReady("rewardedVideo")) && AdAllowed;
     }
 
     public static int item;
@@ -69,12 +71,20 @@ public class AdManager
         Show(ReviveAdShown);
     }
 
+    public static void AdForHero(GameObject prefab)
+    {
+        spawnPrefab = prefab;
+        Show(HeroAdShown);
+    }
+
     public static void ReviveAdShown(ShowResult result)
     {
         //Revive if success
         if (result == ShowResult.Finished)
         {
             Analytics.CustomEvent("Revived");
+
+            AdAllowed = false;
 
             GameManager.instance.Score = Mathf.Max(GameManager.instance.Score, (int)(Mediator.Settings.TargetScore * 0.75f));
 
@@ -88,6 +98,17 @@ public class AdManager
                 GameManager.instance.m_Grid.ResetBoard();
                 GameManager.instance.m_TotalGameOver = false;
             }
+        }
+    }
+
+    public static void HeroAdShown(ShowResult result)
+    {
+        if(result == ShowResult.Finished)
+        {
+            Analytics.CustomEvent("Hero Ad Spawned");        
+
+            //Replace a random tile with a hero
+            GameManager.ReplaceRandomTile(spawnPrefab);
         }
     }
 }

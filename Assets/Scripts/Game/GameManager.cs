@@ -145,6 +145,8 @@ public class GameManager : MonoBehaviour
     // Use this for initialization
     void Awake()
     {
+        AdManager.AdAllowed = true; //Enable ads again
+
         if (Mediator.Settings == null)
         {
             Mediator.Settings = new GameSettings();
@@ -603,5 +605,19 @@ public class GameManager : MonoBehaviour
     public static void Whoosh()
     {
         instance.m_WhooshSound.PlayOneShot(instance.m_WhooshSound.clip);
+    }
+
+    /// <summary>
+    /// Randomly replaces a tile on the board with a prefab
+    /// </summary>
+    /// <param name="prefabToSpawn"></param>
+    public static void ReplaceRandomTile(GameObject prefabToSpawn)
+    {
+        int randX = Random.Range(0, instance.m_Grid.m_GridWidth);
+        int randY = Random.Range(0, instance.m_Grid.m_GridHeight - 1) + 1;
+
+        instance.m_Grid.m_Nodes[randX, randY].m_RespawnType = prefabToSpawn;
+        instance.m_Grid.m_Nodes[randX, randY].m_RespawnIsSpawned = false;
+        instance.m_Grid.m_Nodes[randX, randY].StartDestroy(false);
     }
 }

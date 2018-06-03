@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JunkItem : NodeItem
+public class EyeTwins : GoodNode
 {
     public override void OnEndDestroy()
     {
-        if (m_bUseScore)
-        {
-            GameManager.instance.AddScore(-1);
-        }
+        base.OnEndDestroy();
+
+        GameManager.TopViewTime = 3;
     }
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Lungs : NodeItem
+public class RBC : GoodNode
 {
     public override void OnEndDestroy()
     {
@@ -12,10 +12,9 @@ public class Lungs : NodeItem
         {
             if (item.m_Shape == null || item.m_yIndex == 0)
                 continue;
-            //Finds all rotten items and destroys them
-            if (item.m_Shape.GetType() == typeof(RottenItem) && !item.m_Shape.MarkDestroy)
+            //Finds all junk items and destroys them
+            if (item.m_Shape.GetType() == typeof(JunkItem) && !item.m_Shape.MarkDestroy)
             {
-                item.m_Shape.m_AfterExplosion = item.m_Shape.GetComponent<RottenItem>().m_CleaningExplosion;
                 item.StartDestroy(false);
             }
         }

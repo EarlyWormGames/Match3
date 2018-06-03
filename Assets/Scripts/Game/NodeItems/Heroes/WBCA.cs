@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EyeTwins : NodeItem
+public class WBCA : GoodNode
 {
     public override void OnEndDestroy()
     {
         base.OnEndDestroy();
 
-        GameManager.TopViewTime = 3;
+        GameManager.instance.ShowWBCA();
     }
 }

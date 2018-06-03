@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Lefty : NodeItem
+public class Lefty : GoodNode
 {
     public ParticleSystem m_ConnectorParticle;
     public void Awake()

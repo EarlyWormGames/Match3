@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class BacteriaBro : NodeItem
+public class BacteriaBro : BadNode
 {
     public int m_Lifespan = 3;
     public TextMeshProUGUI m_LifeText;

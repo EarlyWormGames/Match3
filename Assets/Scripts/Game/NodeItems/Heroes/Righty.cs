@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Righty : NodeItem
+public class Righty : GoodNode
 {
     public GameObject m_MatchingNormal;
 
