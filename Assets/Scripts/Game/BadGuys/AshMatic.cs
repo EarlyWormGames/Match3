@@ -38,7 +38,7 @@ public class AshMatic : BadGuy
     {
         if (waiting)
         {
-            if (Input.GetMouseButtonUp(0))
+            if (Input.GetMouseButtonUp(0) && !GameManager.instance.trueUIBlocked)
             {
                 m_UIObject.Hide();
                 waiting = false;

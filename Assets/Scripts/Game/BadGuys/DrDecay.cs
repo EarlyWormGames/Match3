@@ -39,7 +39,7 @@ public class DrDecay : BadGuy
     {
         if (waiting)
         {
-            if (Input.GetMouseButtonUp(0))
+            if (Input.GetMouseButtonUp(0) && !GameManager.instance.trueUIBlocked)
             {
                 waiting = false;
                 m_UIObject.Hide();

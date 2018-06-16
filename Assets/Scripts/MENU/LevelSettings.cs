@@ -29,6 +29,11 @@ public class LevelSettings : MonoBehaviour
 
     public bool isArcade;
 
+    public int ShowBadGuyAfter = -1;
+    [AssetsOnly]
+    public GameObject BadGuyToShow;
+    public int BadGuyPage = 0;
+
     public Row[] Rows = new Row[0];
 
     public GameObject[] BlacklistedPrefabs = new GameObject[0];

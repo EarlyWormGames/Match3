@@ -30,6 +30,9 @@ public class GameSettings
     public int Level = -1;
     public bool isArcade = false;
     public int ArcadeScore = 1000;
+    public int ShowBadGuyAfter = -1;
+    public GameObject BadGuyToShow;
+    public int BadGuyPage = 0;
 
     public GameObject SpawnObject;
 

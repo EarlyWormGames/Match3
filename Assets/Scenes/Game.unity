@@ -21227,13 +21227,14 @@ GameObject:
   - component: {fileID: 850624231}
   - component: {fileID: 850624230}
   - component: {fileID: 850624229}
+  - component: {fileID: 850624233}
   m_Layer: 5
   m_Name: BestiaryCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &850624229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21310,6 +21311,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &850624233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 850624228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6422b85a24fdd149ae8423a866a2e06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &852202941
 GameObject:
   m_ObjectHideFlags: 0
@@ -21652,6 +21664,32 @@ MonoBehaviour:
   m_Stars: {fileID: 1084523585}
   m_FinalScore: {fileID: 1853853695}
   m_WBCA: {fileID: 1580593270}
+  m_ShowBadGuyPage:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 850624228}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1374526285}
+        m_MethodName: LerpToPage
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: IntEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_ScoreSound: {fileID: 755090295}
   m_LosePointSound: {fileID: 158293802}
   m_WhooshSound: {fileID: 1296880914}
@@ -21705,6 +21743,7 @@ MonoBehaviour:
   - {fileID: 21300012, guid: 16df55a56ecbc1d4aafd71ed8610005e, type: 3}
   - {fileID: 21300014, guid: 16df55a56ecbc1d4aafd71ed8610005e, type: 3}
   - {fileID: 21300016, guid: 16df55a56ecbc1d4aafd71ed8610005e, type: 3}
+  trueUIBlocked: 0
 --- !u!4 &887100672
 Transform:
   m_ObjectHideFlags: 0
@@ -25685,6 +25724,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 850624232}
     m_Modifications:
+    - target: {fileID: 114075069314306496, guid: 4888b3885e326f644a8513569062464f,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 224470246037326192, guid: 4888b3885e326f644a8513569062464f,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -25799,16 +25843,56 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 850624228}
+      objectReference: {fileID: 887100671}
     - target: {fileID: 114075069314306496, guid: 4888b3885e326f644a8513569062464f,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetActive
+      value: set_UIBlocked
       objectReference: {fileID: 0}
     - target: {fileID: 114075069314306496, guid: 4888b3885e326f644a8513569062464f,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114075069314306496, guid: 4888b3885e326f644a8513569062464f,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114075069314306496, guid: 4888b3885e326f644a8513569062464f,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114075069314306496, guid: 4888b3885e326f644a8513569062464f,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 850624228}
+    - target: {fileID: 114075069314306496, guid: 4888b3885e326f644a8513569062464f,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 114075069314306496, guid: 4888b3885e326f644a8513569062464f,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114075069314306496, guid: 4888b3885e326f644a8513569062464f,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114177684335248220, guid: 4888b3885e326f644a8513569062464f,
+        type: 2}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114177684335248220, guid: 4888b3885e326f644a8513569062464f,
+        type: 2}
+      propertyPath: m_sharedMaterial
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4888b3885e326f644a8513569062464f, type: 2}
@@ -25818,6 +25902,12 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224470246037326192, guid: 4888b3885e326f644a8513569062464f,
     type: 2}
   m_PrefabInternal: {fileID: 1374526283}
+--- !u!114 &1374526285 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114471906698139868, guid: 4888b3885e326f644a8513569062464f,
+    type: 2}
+  m_PrefabInternal: {fileID: 1374526283}
+  m_Script: {fileID: 11500000, guid: d1db701dc9bea0f48b63256d11c72b88, type: 3}
 --- !u!1 &1375046795
 GameObject:
   m_ObjectHideFlags: 0

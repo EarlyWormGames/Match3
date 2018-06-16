@@ -1,10 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.Analytics;
 using System.Linq;
+
+[System.Serializable]
+public class IntEvent : UnityEvent<int> { }
 
 public class GameManager : MonoBehaviour
 {
@@ -99,6 +103,7 @@ public class GameManager : MonoBehaviour
     public StarShower m_Stars;
     public NumberScroller m_FinalScore;
     public Animator m_WBCA;
+    public IntEvent m_ShowBadGuyPage;
 
     [Header("Sounds")]
     public AudioSource m_ScoreSound;
@@ -124,6 +129,10 @@ public class GameManager : MonoBehaviour
 
     public Sprite[] m_GridSprites;
 
+    public bool UIBlocked { get; set; }
+    [HideInInspector]
+    public bool trueUIBlocked;
+
     internal int m_TurnsLeft;
     internal bool m_IsGameOver = false;
     internal bool m_TotalGameOver = false;
@@ -137,6 +146,7 @@ public class GameManager : MonoBehaviour
     private bool m_WasEmpty;
     private bool m_bSwapped;
     private int m_TurnsMade = 0;
+    private bool m_BadGuyShown;
 
     private float GameTimer;
 
@@ -175,6 +185,8 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        trueUIBlocked = UIBlocked;
+
         GameTimer += Time.deltaTime;
 
         if (m_IsGameOver) return;
@@ -561,14 +573,24 @@ public class GameManager : MonoBehaviour
                 GameOver(false);
             }
             // Change turns made to  --------------------> 3
-            if (BadGuyUI.instance == null && m_TurnsMade > MinimumTurnsBeforeEnemy
-                && m_WBCATurnsLeft <= 0 && !m_IsGameOver && !m_bSetGameOver)
+            if ((BadGuyUI.instance == null && m_TurnsMade > MinimumTurnsBeforeEnemy
+                && m_WBCATurnsLeft <= 0 && !m_IsGameOver && !m_bSetGameOver) || (Mediator.Settings.ShowBadGuyAfter >= 0 && m_TurnsMade > Mediator.Settings.ShowBadGuyAfter))
             {
-                int rand = Random.Range(0, m_BadGuySpawnChance);
-                if (rand == 0 && m_BadGuyPrefabs.Length > 0)
+                if (Mediator.Settings.ShowBadGuyAfter >= 0 && Mediator.Settings.BadGuyToShow && !m_BadGuyShown)
                 {
-                    rand = Random.Range(0, m_BadGuyPrefabs.Length);
-                    Instantiate(m_BadGuyPrefabs[rand]);
+                    UIBlocked = true;
+                    Instantiate(Mediator.Settings.BadGuyToShow);
+                    m_ShowBadGuyPage.Invoke(Mediator.Settings.BadGuyPage);
+                    m_BadGuyShown = false;
+                }
+                else
+                {
+                    int rand = Random.Range(0, m_BadGuySpawnChance);
+                    if (rand == 0 && m_BadGuyPrefabs.Length > 0)
+                    {
+                        rand = Random.Range(0, m_BadGuyPrefabs.Length);
+                        Instantiate(m_BadGuyPrefabs[rand]);
+                    }
                 }
             }
             else if (BadGuyUI.instance == null && m_WBCATurnsLeft > 0 && !m_IsGameOver && !m_bSetGameOver)

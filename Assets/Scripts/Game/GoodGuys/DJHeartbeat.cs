@@ -28,7 +28,7 @@ public class DJHeartbeat : MonoBehaviour
     {
         if (waitclick)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && !GameManager.instance.trueUIBlocked)
             {
                 Reshuffle();
                 m_UIObject.Hide();

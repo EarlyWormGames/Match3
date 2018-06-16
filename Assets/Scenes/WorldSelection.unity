@@ -509,6 +509,9 @@ MonoBehaviour:
   TurnsGoal: 15
   LevelNum: 0
   isArcade: 0
+  ShowBadGuyAfter: -1
+  BadGuyToShow: {fileID: 0}
+  BadGuyPage: 0
   Rows: []
   BlacklistedPrefabs: []
   BlacklistedEnemies: []
@@ -692,6 +695,9 @@ MonoBehaviour:
   TurnsGoal: 15
   LevelNum: 0
   isArcade: 0
+  ShowBadGuyAfter: -1
+  BadGuyToShow: {fileID: 0}
+  BadGuyPage: 0
   Rows: []
   BlacklistedPrefabs: []
   BlacklistedEnemies: []
@@ -1152,6 +1158,9 @@ MonoBehaviour:
   TurnsGoal: 15
   LevelNum: 0
   isArcade: 0
+  ShowBadGuyAfter: -1
+  BadGuyToShow: {fileID: 0}
+  BadGuyPage: 0
   Rows: []
   BlacklistedPrefabs: []
   BlacklistedEnemies: []
@@ -1666,6 +1675,10 @@ MonoBehaviour:
   TurnsGoal: 15
   LevelNum: 0
   isArcade: 0
+  ShowBadGuyAfter: 1
+  BadGuyToShow: {fileID: 1754583457375786, guid: b0d0cdd93a85fdd40a45efed7c5dee60,
+    type: 2}
+  BadGuyPage: 9
   Rows: []
   BlacklistedPrefabs: []
   BlacklistedEnemies: []
@@ -1849,6 +1862,9 @@ MonoBehaviour:
   TurnsGoal: 30
   LevelNum: 0
   isArcade: 0
+  ShowBadGuyAfter: -1
+  BadGuyToShow: {fileID: 0}
+  BadGuyPage: 0
   Rows: []
   BlacklistedPrefabs: []
   BlacklistedEnemies: []
@@ -2100,6 +2116,9 @@ MonoBehaviour:
   TurnsGoal: 20
   LevelNum: 0
   isArcade: 0
+  ShowBadGuyAfter: 1
+  BadGuyToShow: {fileID: 0}
+  BadGuyPage: 0
   Rows: []
   BlacklistedPrefabs: []
   BlacklistedEnemies: []
@@ -2406,6 +2425,9 @@ MonoBehaviour:
   TurnsGoal: 15
   LevelNum: 0
   isArcade: 0
+  ShowBadGuyAfter: -1
+  BadGuyToShow: {fileID: 0}
+  BadGuyPage: 0
   Rows: []
   BlacklistedPrefabs: []
   BlacklistedEnemies: []
@@ -2789,6 +2811,9 @@ MonoBehaviour:
   TurnsGoal: 25
   LevelNum: 0
   isArcade: 0
+  ShowBadGuyAfter: -1
+  BadGuyToShow: {fileID: 0}
+  BadGuyPage: 0
   Rows: []
   BlacklistedPrefabs: []
   BlacklistedEnemies: []
@@ -3384,6 +3409,9 @@ MonoBehaviour:
   TurnsGoal: 15
   LevelNum: 0
   isArcade: 0
+  ShowBadGuyAfter: -1
+  BadGuyToShow: {fileID: 0}
+  BadGuyPage: 0
   Rows: []
   BlacklistedPrefabs: []
   BlacklistedEnemies: []
@@ -3789,6 +3817,9 @@ MonoBehaviour:
   TurnsGoal: 15
   LevelNum: 0
   isArcade: 0
+  ShowBadGuyAfter: -1
+  BadGuyToShow: {fileID: 0}
+  BadGuyPage: 0
   Rows: []
   BlacklistedPrefabs: []
   BlacklistedEnemies: []
@@ -4435,6 +4466,9 @@ MonoBehaviour:
   TurnsGoal: 15
   LevelNum: 0
   isArcade: 0
+  ShowBadGuyAfter: -1
+  BadGuyToShow: {fileID: 0}
+  BadGuyPage: 0
   Rows: []
   BlacklistedPrefabs: []
   BlacklistedEnemies: []
@@ -5006,6 +5040,9 @@ MonoBehaviour:
   TurnsGoal: 35
   LevelNum: 0
   isArcade: 0
+  ShowBadGuyAfter: -1
+  BadGuyToShow: {fileID: 0}
+  BadGuyPage: 0
   Rows: []
   BlacklistedPrefabs: []
   BlacklistedEnemies: []
@@ -5236,6 +5273,9 @@ MonoBehaviour:
   TurnsGoal: 15
   LevelNum: 0
   isArcade: 0
+  ShowBadGuyAfter: -1
+  BadGuyToShow: {fileID: 0}
+  BadGuyPage: 0
   Rows: []
   BlacklistedPrefabs: []
   BlacklistedEnemies: []
@@ -5419,6 +5459,9 @@ MonoBehaviour:
   TurnsGoal: 15
   LevelNum: 0
   isArcade: 0
+  ShowBadGuyAfter: -1
+  BadGuyToShow: {fileID: 0}
+  BadGuyPage: 0
   Rows: []
   BlacklistedPrefabs: []
   BlacklistedEnemies: []
@@ -5699,6 +5742,9 @@ MonoBehaviour:
   TurnsGoal: 15
   LevelNum: 0
   isArcade: 0
+  ShowBadGuyAfter: -1
+  BadGuyToShow: {fileID: 0}
+  BadGuyPage: 0
   Rows: []
   BlacklistedPrefabs: []
   BlacklistedEnemies: []
@@ -5955,6 +6001,10 @@ MonoBehaviour:
   TurnsGoal: 25
   LevelNum: 0
   isArcade: 0
+  ShowBadGuyAfter: 1
+  BadGuyToShow: {fileID: 1754583457375786, guid: 4ee0927bd4417724788f7ffab78b6cb4,
+    type: 2}
+  BadGuyPage: 8
   Rows: []
   BlacklistedPrefabs: []
   BlacklistedEnemies: []
@@ -6675,6 +6725,9 @@ MonoBehaviour:
   TurnsGoal: 15
   LevelNum: 0
   isArcade: 0
+  ShowBadGuyAfter: -1
+  BadGuyToShow: {fileID: 0}
+  BadGuyPage: 0
   Rows: []
   BlacklistedPrefabs: []
   BlacklistedEnemies: []
@@ -6858,6 +6911,9 @@ MonoBehaviour:
   TurnsGoal: 15
   LevelNum: 0
   isArcade: 0
+  ShowBadGuyAfter: -1
+  BadGuyToShow: {fileID: 0}
+  BadGuyPage: 0
   Rows: []
   BlacklistedPrefabs: []
   BlacklistedEnemies: []
@@ -7109,6 +7165,9 @@ MonoBehaviour:
   TurnsGoal: 50
   LevelNum: 0
   isArcade: 0
+  ShowBadGuyAfter: -1
+  BadGuyToShow: {fileID: 0}
+  BadGuyPage: 0
   Rows:
   - Prefabs:
     - {fileID: 1333852350469656, guid: df69062121cdc3c4c9057011b531d60f, type: 2}
@@ -7502,6 +7561,9 @@ MonoBehaviour:
   TurnsGoal: 15
   LevelNum: 0
   isArcade: 0
+  ShowBadGuyAfter: -1
+  BadGuyToShow: {fileID: 0}
+  BadGuyPage: 0
   Rows: []
   BlacklistedPrefabs: []
   BlacklistedEnemies: []
@@ -7732,6 +7794,9 @@ MonoBehaviour:
   TurnsGoal: 15
   LevelNum: 0
   isArcade: 0
+  ShowBadGuyAfter: -1
+  BadGuyToShow: {fileID: 0}
+  BadGuyPage: 0
   Rows: []
   BlacklistedPrefabs: []
   BlacklistedEnemies: []
@@ -7983,6 +8048,9 @@ MonoBehaviour:
   TurnsGoal: 15
   LevelNum: 0
   isArcade: 0
+  ShowBadGuyAfter: -1
+  BadGuyToShow: {fileID: 0}
+  BadGuyPage: 0
   Rows: []
   BlacklistedPrefabs: []
   BlacklistedEnemies: []
@@ -8519,6 +8587,9 @@ MonoBehaviour:
   TurnsGoal: 15
   LevelNum: 0
   isArcade: 0
+  ShowBadGuyAfter: -1
+  BadGuyToShow: {fileID: 0}
+  BadGuyPage: 0
   Rows: []
   BlacklistedPrefabs: []
   BlacklistedEnemies: []
@@ -8937,6 +9008,9 @@ MonoBehaviour:
   TurnsGoal: 20
   LevelNum: 0
   isArcade: 0
+  ShowBadGuyAfter: -1
+  BadGuyToShow: {fileID: 0}
+  BadGuyPage: 0
   Rows:
   - Prefabs:
     - {fileID: 1333852350469656, guid: df69062121cdc3c4c9057011b531d60f, type: 2}
@@ -9289,6 +9363,10 @@ MonoBehaviour:
   TurnsGoal: 25
   LevelNum: 0
   isArcade: 0
+  ShowBadGuyAfter: 1
+  BadGuyToShow: {fileID: 1754583457375786, guid: ecd94e38aeff4b644a194b483e3064e6,
+    type: 2}
+  BadGuyPage: 10
   Rows: []
   BlacklistedPrefabs: []
   BlacklistedEnemies: []
