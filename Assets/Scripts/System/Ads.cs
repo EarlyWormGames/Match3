@@ -55,17 +55,6 @@ public class AdManager
         onShowTurn(result);
     }
 
-    public static void AdForItem(int a_item)
-    {
-        item = a_item;
-        Show(ItemAdShown);
-    }
-
-    public static void ItemAdShown(ShowResult result)
-    {
-        //Give item if success
-    }
-
     public static void AdForRevive()
     {
         Show(ReviveAdShown);
@@ -105,7 +94,7 @@ public class AdManager
     {
         if(result == ShowResult.Finished)
         {
-            Analytics.CustomEvent("Hero Ad Spawned");        
+            Analytics.CustomEvent("Hero Ad Spawned");
 
             //Replace a random tile with a hero
             GameManager.ReplaceRandomTile(spawnPrefab);

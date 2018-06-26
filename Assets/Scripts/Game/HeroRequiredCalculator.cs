@@ -46,10 +46,7 @@ public class HeroRequiredCalculator : MonoBehaviour
 
     void Score(ItemColour a_colour, bool a_swapped, GridNode a_node)
     {
-        if (showing)
-            return;
-
-        if(GameManager.instance.m_TurnsLeft / (float)Mediator.Settings.Turns <= ShowAtPercent)
+        if ((GameManager.instance.m_TurnsLeft / (float)Mediator.Settings.Turns <= ShowAtPercent) && !showing)
         {
             //Make a counting dictionary
             Dictionary<string, int> countersCount = new Dictionary<string, int>();
@@ -82,7 +79,7 @@ public class HeroRequiredCalculator : MonoBehaviour
                 }
             }
 
-            if(useCounter != null)
+            if (useCounter != null)
             {
                 //We did it! Show a prefab
                 int rand = UnityEngine.Random.Range(0, useCounter.Counters.Length);
@@ -90,10 +87,10 @@ public class HeroRequiredCalculator : MonoBehaviour
 
                 showing = true;
                 OnShowPrompt.Invoke();
-            }           
+            }
         }
     }
-
+    
     public void ClosePrompt()
     {
         //Close the prompt, but don't show again
